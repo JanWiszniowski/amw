@@ -46,7 +46,7 @@ you can get help on the command line arguments used by each code by typing from 
 The recommended use case is cooperation with the external server.
 You must first prepare the *configuration.json* file and then run:
 
-    spectral_Mw -q *event.xml configuration.json*,
+    spectral_Mw -q event.xml configuration.json,
 
 where *event.xml* is an example of the catalog file name
 and *configuration.json* is the configuration file name,
@@ -58,7 +58,7 @@ See two configuration examples in https://github.com/JanWiszniowski/amw/example.
 Source spectra are plotted by *view_green_function*.
 Call:
 
-    view_green_fun *configuration.json*
+    view_green_fun configuration.json
 	
 where *configuration.json* is the configuration file.
 
