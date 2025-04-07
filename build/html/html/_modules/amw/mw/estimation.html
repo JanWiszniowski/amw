@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amw.mw.estimation &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="../../../_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">amw.mw.estimation</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for amw.mw.estimation</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The general spectral magnitude estimation</span>
+<span class="sd">-----------------------------------------</span>
+
+<span class="sd">..</span>
+<span class="sd">    :copyright:</span>
+<span class="sd">        Jan Wiszniowski (jwisz@igf.edu.pl)</span>
+<span class="sd">    :license:</span>
+<span class="sd">        GNU Lesser General Public License, Version 3</span>
+<span class="sd">        (https://www.gnu.org/copyleft/lesser.html)</span>
+<span class="sd">    :version 0.0.1:</span>
+<span class="sd">        2024-11-07</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">get_phase_window</span><span class="p">,</span> <span class="n">get_spectrum</span><span class="p">,</span> <span class="n">get_margin</span><span class="p">,</span> <span class="n">get_noise_spectrum</span><span class="p">,</span> <span class="n">DefaultParameters</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">get_source_par</span><span class="p">,</span> <span class="n">get_minimization_method</span>
+<span class="kn">from</span> <span class="nn">..core.utils</span> <span class="kn">import</span> <span class="n">get_station_name</span>
+<span class="kn">from</span> <span class="nn">.parameters</span> <span class="kn">import</span> <span class="n">MwFunctionParameters</span><span class="p">,</span> <span class="n">get_travel_time</span>
+<span class="kn">from</span> <span class="nn">obspy.core.event.base</span> <span class="kn">import</span> <span class="n">TimeWindow</span>
+
+
+<div class="viewcode-block" id="estimate_mw">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.estimation.estimate_mw">[docs]</a>
+<span class="k">def</span> <span class="nf">estimate_mw</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">begin_signal</span><span class="p">,</span> <span class="n">picks</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function estimate_mw estimates either single phase or cumulated phases spectral moment magnitude.</span>
+
+<span class="sd">    :param signal:</span>
+<span class="sd">        The signal is the 3D seismic displacement stream, which must cover both the P wave, the S wave,</span>
+<span class="sd">        and the noise before the P onset.</span>
+
+<span class="sd">    :param signal:</span>
+<span class="sd">        The signal is the 3D seismic displacement stream, which must cover both the P wave, the S wave,</span>
+<span class="sd">        and the noise before the P onset.</span>
+<span class="sd">    :type signal: ObsPy Stream</span>
+<span class="sd">    :param begin_signal:</span>
+<span class="sd">        The first phase time (usually it is P wave) required to select noise before seismic waves onset</span>
+<span class="sd">    :type  begin_signal: ObsPy UTCDateTime</span>
+<span class="sd">    :param picks:</span>
+<span class="sd">        A list of picks of waves is used for moment magnitude estimation.</span>
+<span class="sd">        It can consist of a single pick P or S, then the magnitude estimation method from the single wave is used,</span>
+<span class="sd">        or two picks P and S for the magnitude estimation based on both waves.</span>
+<span class="sd">    :type picks: list(ObsPy Pick)</span>
+<span class="sd">    :param origin:</span>
+<span class="sd">        The event origin.</span>
+<span class="sd">    :type origin: ObsPy Origin</span>
+<span class="sd">    :param station_inventory:</span>
+<span class="sd">        The inventory of the station that the signal was picked on</span>
+<span class="sd">    :type  station_inventory: ObsPy Inventory</span>
+<span class="sd">    :param configuration: The configuration container of all parameters dictionary required for the program to work.</span>
+<span class="sd">    :type configuration: dict</span>
+
+<span class="sd">    :return:</span>
+<span class="sd">        mw : Estimated moment magnitude</span>
+<span class="sd">        f0 : Source function corner frequency</span>
+<span class="sd">        m0 : Scalar moment</span>
+<span class="sd">        time_window : The assessed time window of P and S waves</span>
+<span class="sd">    :rtype: tuple</span>
+
+<span class="sd">    Uses classes :</span>
+<span class="sd">        DefaultParameters</span>
+<span class="sd">        MwFunctionParameters</span>
+<span class="sd">    Uses functions :</span>
+<span class="sd">        get_source_par :</span>
+<span class="sd">        get_margin :</span>
+<span class="sd">        get_station_name :</span>
+<span class="sd">        get_phase_window</span>
+<span class="sd">        get_spectrum</span>
+<span class="sd">        get_noise_spectrum</span>
+<span class="sd">        get_minimization_method</span>
+<span class="sd">        minimization_method</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">source_parameters</span> <span class="o">=</span> <span class="n">get_source_par</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="n">plotter</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Plotter&#39;</span><span class="p">)</span>
+    <span class="c1"># Seismic signal cutting to window</span>
+    <span class="n">taper_margin</span> <span class="o">=</span> <span class="n">get_margin</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="n">station_name</span> <span class="o">=</span> <span class="n">get_station_name</span><span class="p">(</span><span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">waveform_id</span><span class="p">)</span>
+    <span class="n">station_parameters</span> <span class="o">=</span> <span class="n">DefaultParameters</span><span class="p">(</span><span class="s1">&#39;station_parameters&#39;</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">picks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">phases_window</span> <span class="o">=</span> <span class="n">get_phase_window</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">picks</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span>
+                                         <span class="n">station_parameters</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">picks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">phases_window</span> <span class="o">=</span> <span class="n">get_phase_window</span><span class="p">(</span><span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">phase_hint</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">picks</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span>
+                                         <span class="n">station_parameters</span><span class="p">)</span>
+    <span class="n">begin_signal</span> <span class="o">=</span> <span class="n">begin_signal</span> <span class="o">-</span> <span class="n">phases_window</span> <span class="o">*</span> <span class="n">taper_margin</span> <span class="o">*</span> <span class="mf">0.35</span>
+    <span class="n">begin_phases</span> <span class="o">=</span> <span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">phases_window</span> <span class="o">*</span> <span class="n">taper_margin</span> <span class="o">*</span> <span class="mf">0.35</span>
+    <span class="n">end_phases</span> <span class="o">=</span> <span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">phases_window</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">taper_margin</span> <span class="o">*</span> <span class="mf">0.35</span><span class="p">)</span>
+
+    <span class="n">time_window</span> <span class="o">=</span> <span class="n">TimeWindow</span><span class="p">(</span><span class="n">reference</span><span class="o">=</span><span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">begin</span><span class="o">=</span><span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">begin_phases</span><span class="p">,</span>
+                             <span class="n">end</span><span class="o">=</span><span class="n">end_phases</span> <span class="o">-</span> <span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+    <span class="c1"># seismic signal</span>
+    <span class="n">seismic_signal</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">seismic_signal</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">starttime</span><span class="o">=</span><span class="n">begin_phases</span><span class="p">,</span> <span class="n">endtime</span><span class="o">=</span><span class="n">end_phases</span><span class="p">)</span>
+    <span class="c1"># noise signal</span>
+    <span class="n">noise_signal</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">noise_signal</span><span class="o">.</span><span class="n">trim</span><span class="p">(</span><span class="n">starttime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">endtime</span><span class="o">=</span><span class="n">begin_signal</span><span class="p">)</span>
+    <span class="c1"># checking consistency</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">noise_signal</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">seismic_signal</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Signal inconsistent&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_window</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="c1"># offset remove</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">noise_signal</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">noise_signal</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">offset</span>
+        <span class="n">seismic_signal</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">offset</span>
+    <span class="c1"># seismic spectrum</span>
+    <span class="n">seismic_spectrum</span><span class="p">,</span> <span class="n">frequencies</span> <span class="o">=</span> <span class="n">get_spectrum</span><span class="p">(</span><span class="n">seismic_signal</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="c1"># noise spectrum</span>
+    <span class="n">noise_mean</span><span class="p">,</span> <span class="n">noise_std</span><span class="p">,</span> <span class="n">noise_n</span> <span class="o">=</span> <span class="n">get_noise_spectrum</span><span class="p">(</span><span class="n">noise_signal</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">seismic_signal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">),</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="c1"># plot</span>
+    <span class="k">if</span> <span class="n">plotter</span><span class="p">:</span>
+        <span class="n">plotter</span><span class="o">.</span><span class="n">plot_seismogram</span><span class="p">(</span><span class="n">picks</span><span class="p">,</span> <span class="n">seismic_signal</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="n">noise_n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Searching for optimal source configuration</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">function_parameters</span> <span class="o">=</span> <span class="n">MwFunctionParameters</span><span class="p">(</span><span class="n">picks</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">seismic_spectrum</span><span class="p">,</span> <span class="n">noise_mean</span><span class="p">,</span>
+                                               <span class="n">noise_std</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">,</span>
+                                               <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="n">minimization_method</span> <span class="o">=</span> <span class="n">get_minimization_method</span><span class="p">(</span><span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;optimization&#39;</span><span class="p">])</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">minimization_method</span><span class="p">(</span><span class="n">function_parameters</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">configuration</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+        <span class="n">mw</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">m0</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="o">**</span> <span class="p">((</span><span class="n">mw</span> <span class="o">+</span> <span class="mf">6.07</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3.0</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+        <span class="n">mw</span> <span class="o">+=</span> <span class="n">function_parameters</span><span class="o">.</span><span class="n">mw_correction</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="o">**</span> <span class="n">result</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_travel_time</span><span class="p">(</span><span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">picks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Mw=</span><span class="si">{</span><span class="n">mw</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, f_0=</span><span class="si">{</span><span class="n">f0</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, M_0=</span><span class="si">{</span><span class="n">m0</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">, error=</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">error</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">phase_hint</span><span class="si">}</span><span class="s2">: Mw=</span><span class="si">{</span><span class="n">mw</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, f_0=</span><span class="si">{</span><span class="n">f0</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, M_0=</span><span class="si">{</span><span class="n">m0</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">, error=</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">error</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">plotter</span><span class="p">:</span>
+            <span class="n">plotter</span><span class="o">.</span><span class="n">plot_results</span><span class="p">(</span><span class="n">m0</span><span class="p">,</span> <span class="n">f0</span><span class="p">,</span> <span class="n">function_parameters</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mw</span><span class="p">,</span> <span class="n">f0</span><span class="p">,</span> <span class="n">m0</span><span class="p">,</span> <span class="n">time_window</span><span class="p">,</span> <span class="n">r</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">time_window</span><span class="p">,</span> <span class="kc">None</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

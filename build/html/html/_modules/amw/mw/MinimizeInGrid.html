@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amw.mw.MinimizeInGrid &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="../../../_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">amw.mw.MinimizeInGrid</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for amw.mw.MinimizeInGrid</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The function minimization by checking all solutions in a grid</span>
+<span class="sd">-------------------------------------------------------------</span>
+
+<span class="sd">..</span>
+<span class="sd">    :copyright:</span>
+<span class="sd">        Jan Wiszniowski (jwisz@igf.edu.pl)</span>
+<span class="sd">    :license:</span>
+<span class="sd">        GNU Lesser General Public License, Version 3</span>
+<span class="sd">        (https://www.gnu.org/copyleft/lesser.html)</span>
+<span class="sd">    :version 0.0.1:</span>
+<span class="sd">        2024-11-07</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="k">class</span> <span class="nc">RetClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">error</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span>
+
+
+<div class="viewcode-block" id="grid_search">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.MinimizeInGrid.grid_search">[docs]</a>
+<span class="k">def</span> <span class="nf">grid_search</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It minimizes the function by checking all solutions in a grid.</span>
+
+<span class="sd">    :param function: The minimized function</span>
+<span class="sd">    :type function: func</span>
+<span class="sd">    :param x: Initial values (not used, only for compatibility)</span>
+<span class="sd">    :type x: list</span>
+<span class="sd">    :param args: The minimized function arguments. It must be the configuration dictionary.</span>
+<span class="sd">    :type args: list</span>
+<span class="sd">    :return: The minimization result</span>
+<span class="sd">    :rtype: RetClass</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;optimization&#39;</span><span class="p">][</span><span class="s1">&#39;method&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;grid_search&#39;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;It must be grid search optimization&#39;</span><span class="p">)</span>
+    <span class="n">input_range</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;optimization&#39;</span><span class="p">][</span><span class="s1">&#39;mw&#39;</span><span class="p">]</span>
+    <span class="n">mw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">input_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">input_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">input_range</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">input_range</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="s1">&#39;optimization&#39;</span><span class="p">][</span><span class="s1">&#39;log_f0&#39;</span><span class="p">]</span>
+    <span class="n">f_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">input_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">input_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">input_range</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">min_err</span> <span class="o">=</span> <span class="mf">1e20</span>
+    <span class="n">min_mw</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">min_f_0</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">idx_f_0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">f_0</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">idx_mw</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mw</span><span class="p">)):</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="n">function</span><span class="p">([</span><span class="n">mw</span><span class="p">[</span><span class="n">idx_mw</span><span class="p">],</span> <span class="n">f_0</span><span class="p">[</span><span class="n">idx_f_0</span><span class="p">]])</span>
+            <span class="k">if</span> <span class="n">err</span> <span class="o">&lt;</span> <span class="n">min_err</span><span class="p">:</span>
+                <span class="n">min_err</span> <span class="o">=</span> <span class="n">err</span>
+                <span class="n">min_mw</span> <span class="o">=</span> <span class="n">idx_mw</span>
+                <span class="n">min_f_0</span> <span class="o">=</span> <span class="n">idx_f_0</span>
+    <span class="c1"># error = function([mw[min_mw], f_0[min_f_0]], args)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">function</span><span class="p">([</span><span class="n">mw</span><span class="p">[</span><span class="n">min_mw</span><span class="p">],</span> <span class="n">f_0</span><span class="p">[</span><span class="n">min_f_0</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">RetClass</span><span class="p">([</span><span class="n">mw</span><span class="p">[</span><span class="n">min_mw</span><span class="p">],</span> <span class="n">f_0</span><span class="p">[</span><span class="n">min_f_0</span><span class="p">]],</span> <span class="n">error</span><span class="p">)</span></div>
+
+
+<span class="c1"># def grid_search(function, x, source_parameters=None):</span>
+<span class="c1">#     if isinstance(source_parameters, tuple):</span>
+<span class="c1">#         source_parameters = source_parameters[0]</span>
+<span class="c1">#     if source_parameters.configuration[&#39;optimization&#39;][&#39;method&#39;] != &#39;grid_search&#39;:</span>
+<span class="c1">#         raise Exception(&#39;It must be grid search optimization&#39;)</span>
+<span class="c1">#     input_range = source_parameters.configuration[&#39;optimization&#39;][&#39;mw&#39;]</span>
+<span class="c1">#     mw = np.arange(input_range[0], input_range[1], input_range[2])</span>
+<span class="c1">#     input_range = source_parameters.configuration[&#39;optimization&#39;][&#39;log_f0&#39;]</span>
+<span class="c1">#     f_0 = np.arange(input_range[0], input_range[1], input_range[2])</span>
+<span class="c1">#     min_err = 1e20</span>
+<span class="c1">#     min_mw = -1</span>
+<span class="c1">#     min_f_0 = -1</span>
+<span class="c1">#     for idx_f_0 in range(len(f_0)):</span>
+<span class="c1">#         for idx_mw in range(len(mw)):</span>
+<span class="c1">#             err = function([mw[idx_mw], f_0[idx_f_0]], source_parameters)</span>
+<span class="c1">#             if err &lt; min_err:</span>
+<span class="c1">#                 min_err = err</span>
+<span class="c1">#                 min_mw = idx_mw</span>
+<span class="c1">#                 min_f_0 = idx_f_0</span>
+<span class="c1">#     error = function([mw[min_mw], f_0[min_f_0]], source_parameters)</span>
+<span class="c1">#     return RetClass([mw[min_mw], f_0[min_f_0]], error)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

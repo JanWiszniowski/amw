@@ -1,0 +1,84 @@
+{
+  "station_parameters" : {
+    "any" : {
+      "phase_parameters": {
+        "P" : {
+          "Q_0" : 1000.0,
+          "Q_theta" : 0.0,
+          "Q_corner" : 0.0,
+          "kappa" : 0.0,
+          "distance_exponent" : 1.0,
+          "low_frequency" : 7.50000000000000010e-001,
+          "high_frequency" : 3.00000000000000000e+001
+        },
+        "S" : {
+          "Q_0": 500.0,
+          "Q_theta": 0.0,
+          "Q_corner": 0.0,
+          "kappa": 0.0,
+          "distance_exponent": 1.0,
+          "low_frequency": 7.50000000000000010e-001,
+          "high_frequency": 3.00000000000000000e+001,
+          "length": 4.0
+        },
+        "any": {
+          "noise_bias": 0.2,
+          "noise_std_bias": 0.5,
+          "noise_freq_bias": -1.0,
+          "weights": {
+            "use_std": 1.0,
+            "use_bias": 0.9,
+            "use_frequency": -0.8,
+            "use_main_frequency": 2.0
+          }
+        }
+      },
+      "far_radial_average_radiation" : 0.52,
+      "far_transversal_average_radiation": 0.63,
+      "mw_correction": 0.00000000000000000e+000,
+      "consider_intermediate_field": true,
+      "consider_near_field": true
+    }
+  },
+  "default_rho": 2900.0,
+  "default_vp": 5000.0,
+  "default_vs": 2880.0,
+  "method": "multiphase",
+  "metric": "log",
+  "source_model": "Boatwright",
+  "taper" : {
+    "type" : "cosine_taper",
+    "percentage" : 10
+  },
+  "stream": {
+    "source": "arclink",
+    "host": "tytan.igf.edu.pl",
+    "port": "18001",
+    "user": "anonymous@igf.edu.pl",
+    "timeout": 300,
+    "net": "VN",
+    "cache" : "examples/cache"
+  },
+  "optimization": {
+    "method": "grid_search",
+    "mw": [0.0, 5.01, 0.05],
+    "log_f0": [0, 1.51, 0.05]
+  },
+  "inventory": {
+    "file_name": "examples/STr2_stations.xml",
+    "format": "STATIONXML"
+  },
+  "remove_response": {
+    "prefilter": [0.02, 0.1, 40, 50]
+  },
+  "plot": {
+    "draw_the_noise": true,
+    "draw_the_noise_uncertainty": true,
+    "draw_the_noise_correction": false,
+    "draw_source_spectrum_without_the_noise": true,
+    "own_frequencies": [0.1, 30, 50],
+    "view": "VEL",
+    "how_to_show": "single figure",
+    "mark_seconds": 5
+  }
+}

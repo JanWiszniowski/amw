@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mw documentation &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Theoretical Background" href="description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Anthropogenic mw
+              <img src="_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Mw documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mw-documentation">
+<h1>Mw documentation<a class="headerlink" href="#mw-documentation" title="Link to this heading"></a></h1>
+<p><strong>Moment magnitude estimation of small local earthquakes</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Copyright<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2024-2025 Jan Wiszniowski <a class="reference external" href="mailto:jwisz&#37;&#52;&#48;igf&#46;edu&#46;pl">jwisz<span>&#64;</span>igf<span>&#46;</span>edu<span>&#46;</span>pl</a></p>
+</dd>
+<dt class="field-even">Version<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Release<span class="colon">:</span></dt>
+<dd class="field-odd"><p>0.0.1</p>
+</dd>
+</dl>
+<p>The Anthropogenic Mw package is designed for the determination of the moment magnitude (Mw)
+of small and local earthquakes, where stations are close to hypocenters.
+Such situations often occur in anthropogenic events, and this algorithm was developed to calculate Mw
+of mining-induced and reservoir-triggered earthquakes. Hence, the package name is <em>Anthropogenic Mw</em>.
+However, it can also be used for natural events and is recommended for local ones.</p>
+<p>The method of Mw computation based on spectral displacement amplitude is elaborated.
+Mw is computed using a fitting of displacement spectra of seismic waves recorded at stations
+to the simulated spectrum in the far field with the estimation of the noise.
+As proposed, it allows for estimating Mw based on a single P or S wave spectra.
+However, a combined spectrum of two waves together and spectrum simulation in intermediate and near fields
+was applied to Mw estimation as an innovation.
+The algorithm automatically estimates the station magnitude of small and close events.</p>
+<p>Go to section <a class="reference internal" href="description.html#description"><span class="std std-ref">Theoretical Background</span></a>
+to get more information on how the code works.</p>
+<p>Mw is written in Python and requires a working Python
+environment and same Python packages to run (see <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>).</p>
+<p>The <em>Anthropogenic Mw</em> package primarily provides several functions and classes for estimating Mw,
+but it also provides a few command line tools:</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">spectral_Mw</span></code>: Compute moment magnitudes from all events in the QuakeMl catalog
+and add them to the catalog.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">view_greens_function</span></code>: Direct modelling of P, S, and PS waves spectra in far, intermediate,
+and near fields based on user-defined earthquake source parameters,
+for various hypocentral distances and
+plot the results in the frequency domain.</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="description.html">1. Theoretical Background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="description.html#overview">1.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="description.html#signal-and-noise-spectrum">1.2. Signal and noise spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="description.html#source-spectral-model">1.3. Source spectral model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="description.html#inversion-method">1.4. Inversion method</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#spectral-mw-calculation">2.1. Spectral Mw calculation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#use-case-external-server">2.1.1. Use case: external server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#fdsnws">2.1.1.1. FDSNWS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting_started.html#arclink">2.1.1.2. ArcLink</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#use-case-files">2.1.2. Use case: files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#command-line-arguments">2.1.3. Command line arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#source-spectra-visualization">2.2. Source spectra visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#not-predefined-parameters">3.1. Not predefined parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#station-parameters">3.2. Station parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="configuration.html#phase-parameters">3.2.1. Phase parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="configuration.html#phase-weights-parameters">3.2.1.1. Phase weights parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#taper-parameters">3.3. Taper parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#stream-parameters">3.4. Stream parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#optimization-parameters">3.5. Optimization parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#inventory-parameters">3.6. Inventory parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#remove-response-parameters">3.7. Remove response parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#plot-parameters">3.8. Plot parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io_data.html">4. Input/Output data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io_data.html#downloading-data-from-servers">4.1. Downloading data from servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io_data.html#file-formats">4.2. File formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io_data.html#output-file">4.3. Output file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">5. Mw installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-the-latest-release">5.1. Installing the latest release</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#using-pip-and-pypi">5.1.1. Using pip and PyPI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installing-a-developer-snapshot">5.2. Installing a developer snapshot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#using-pip">5.2.1. Using pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#cloning-the-anthropogenic-mw-and-mw-github-repository">5.2.2. Cloning the Anthropogenic Mw and Mw GitHub repository</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">6. Getting Help</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_help.html#i-need-help">6.1. 🙏 I need help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_help.html#i-found-a-bug">6.2. 🐞 I found a bug</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">9. Anthropogenic Mw API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_main.html">9.1. Main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_main.html#module-amw.mw.spectral_mw">9.1.1. spectral_mw</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_main.html#spectral-magnitude-estimation-for-all-event-in-the-catalog">9.1.1.1. Spectral magnitude estimation for all event in the catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_main.html#amw.mw.spectral_mw.MwStreamPreprocessing"><code class="docutils literal notranslate"><span class="pre">MwStreamPreprocessing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_main.html#amw.mw.spectral_mw.catalog_moment_magnitudes"><code class="docutils literal notranslate"><span class="pre">catalog_moment_magnitudes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_main.html#amw.mw.spectral_mw.station_moment_magnitude"><code class="docutils literal notranslate"><span class="pre">station_moment_magnitude()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_main.html#module-amw.mw.test_greens_function">9.1.2. test_greens_function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_main.html#the-plot-of-the-source-spectra">9.1.2.1. The plot of the source spectra</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_support.html">9.2. Support modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#the-general-spectral-magnitude-estimation">9.2.1. The general spectral magnitude estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.estimation.estimate_mw"><code class="docutils literal notranslate"><span class="pre">estimate_mw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#functions-and-classes-for-preparation-of-mw-estimation-procedure-parameters">9.2.2. Functions and classes for preparation of mw estimation procedure parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.parameters.LogMetric"><code class="docutils literal notranslate"><span class="pre">LogMetric</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.parameters.MwFunctionParameters"><code class="docutils literal notranslate"><span class="pre">MwFunctionParameters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.parameters.PNormMetric"><code class="docutils literal notranslate"><span class="pre">PNormMetric</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.parameters.get_correction"><code class="docutils literal notranslate"><span class="pre">get_correction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.parameters.get_far_response"><code class="docutils literal notranslate"><span class="pre">get_far_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.parameters.get_intermediate_response"><code class="docutils literal notranslate"><span class="pre">get_intermediate_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.parameters.get_near_response"><code class="docutils literal notranslate"><span class="pre">get_near_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.parameters.get_phase_response"><code class="docutils literal notranslate"><span class="pre">get_phase_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.parameters.get_phases_response"><code class="docutils literal notranslate"><span class="pre">get_phases_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.parameters.get_travel_time"><code class="docutils literal notranslate"><span class="pre">get_travel_time()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#the-plot-functions">9.2.3. The plot functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.plot.PlotMw"><code class="docutils literal notranslate"><span class="pre">PlotMw</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_support.html#amw.mw.plot.PlotMw.format_plot"><code class="docutils literal notranslate"><span class="pre">PlotMw.format_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_support.html#amw.mw.plot.PlotMw.plot_results"><code class="docutils literal notranslate"><span class="pre">PlotMw.plot_results()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_support.html#amw.mw.plot.PlotMw.plot_seismogram"><code class="docutils literal notranslate"><span class="pre">PlotMw.plot_seismogram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_support.html#amw.mw.plot.PlotMw.set_plot"><code class="docutils literal notranslate"><span class="pre">PlotMw.set_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_support.html#amw.mw.plot.PlotMw.show_plot"><code class="docutils literal notranslate"><span class="pre">PlotMw.show_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_support.html#amw.mw.plot.PlotMw.start_plot"><code class="docutils literal notranslate"><span class="pre">PlotMw.start_plot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#single-phase-spectral-magnitude-estimation">9.2.4. Single phase spectral magnitude estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.single_phase_mw.estimate_single_phase_mw"><code class="docutils literal notranslate"><span class="pre">estimate_single_phase_mw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#cumulated-p-and-s-phases-spectral-magnitude-estimation">9.2.5. Cumulated P and S phases spectral magnitude estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.double_phase_mw.estimate_double_phase_mw"><code class="docutils literal notranslate"><span class="pre">estimate_double_phase_mw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#seismic-source-models-in-frequency-domain">9.2.6. Seismic source models in frequency domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.source_models.BoatwrightSourceModel"><code class="docutils literal notranslate"><span class="pre">BoatwrightSourceModel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.source_models.BruneSourceModel"><code class="docutils literal notranslate"><span class="pre">BruneSourceModel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.source_models.HaskellSourceModel"><code class="docutils literal notranslate"><span class="pre">HaskellSourceModel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#the-function-minimization-by-checking-all-solutions-in-a-grid">9.2.7. The function minimization by checking all solutions in a grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_support.html#amw.mw.MinimizeInGrid.grid_search"><code class="docutils literal notranslate"><span class="pre">grid_search()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_core.html">9.3. Core modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#the-waveform-and-inventory-manipulation">9.3.1. The waveform and inventory manipulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.signal_utils.Cache"><code class="docutils literal notranslate"><span class="pre">Cache</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_core.html#amw.core.signal_utils.Cache.backup"><code class="docutils literal notranslate"><span class="pre">Cache.backup()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.signal_utils.SignalException"><code class="docutils literal notranslate"><span class="pre">SignalException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.signal_utils.StreamLoader"><code class="docutils literal notranslate"><span class="pre">StreamLoader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api_core.html#amw.core.signal_utils.StreamLoader.download"><code class="docutils literal notranslate"><span class="pre">StreamLoader.download()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_core.html#amw.core.signal_utils.StreamLoader.exist_file"><code class="docutils literal notranslate"><span class="pre">StreamLoader.exist_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api_core.html#amw.core.signal_utils.StreamLoader.get_signal"><code class="docutils literal notranslate"><span class="pre">StreamLoader.get_signal()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.signal_utils.StreamPreprocessing"><code class="docutils literal notranslate"><span class="pre">StreamPreprocessing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.signal_utils.get_inventory"><code class="docutils literal notranslate"><span class="pre">get_inventory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.signal_utils.load_inventory"><code class="docutils literal notranslate"><span class="pre">load_inventory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#commonly-used-utils-for-seismic-data-processing-be-the-seismic-processing-in-python-packages">9.3.2. Commonly used utils for seismic data processing be the seismic processing in Python packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.ExtremeTraceValues"><code class="docutils literal notranslate"><span class="pre">ExtremeTraceValues</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.IndexTrace"><code class="docutils literal notranslate"><span class="pre">IndexTrace</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.ProcessTrace"><code class="docutils literal notranslate"><span class="pre">ProcessTrace</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.get_focal_mechanism"><code class="docutils literal notranslate"><span class="pre">get_focal_mechanism()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.get_hypocentral_distance"><code class="docutils literal notranslate"><span class="pre">get_hypocentral_distance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.get_magnitude"><code class="docutils literal notranslate"><span class="pre">get_magnitude()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.get_net_sta"><code class="docutils literal notranslate"><span class="pre">get_net_sta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.get_origin"><code class="docutils literal notranslate"><span class="pre">get_origin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.get_station_id"><code class="docutils literal notranslate"><span class="pre">get_station_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.get_station_name"><code class="docutils literal notranslate"><span class="pre">get_station_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.get_units"><code class="docutils literal notranslate"><span class="pre">get_units()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.time_ceil"><code class="docutils literal notranslate"><span class="pre">time_ceil()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.time_ceil_dist"><code class="docutils literal notranslate"><span class="pre">time_ceil_dist()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.time_floor"><code class="docutils literal notranslate"><span class="pre">time_floor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_core.html#amw.core.utils.time_floor_dist"><code class="docutils literal notranslate"><span class="pre">time_floor_dist()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelogs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#amw-changelog">10.1. amw Changelog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#v0-0-1-2024-12-06">10.1.1. v0.0.1 - 2024-12-06</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. References</a></li>
+</ul>
+</div>
+<section id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="description.html" class="btn btn-neutral float-right" title="1. Theoretical Background" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

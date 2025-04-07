@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amw.mw.spectral_mw &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="../../../_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">amw.mw.spectral_mw</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for amw.mw.spectral_mw</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Spectral magnitude estimation for all event in the catalog</span>
+<span class="sd">----------------------------------------------------------</span>
+
+<span class="sd">..</span>
+<span class="sd">    :copyright:</span>
+<span class="sd">        Jan Wiszniowski &lt;jwisz@igf.edu.pl&gt;</span>
+<span class="sd">    :license:</span>
+<span class="sd">        GNU Lesser General Public License, Version 3</span>
+<span class="sd">        (https://www.gnu.org/copyleft/lesser.html)</span>
+<span class="sd">    :version: 0.0.1</span>
+<span class="sd">        2024-11-07</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span>
+
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">SpectralMwException</span><span class="p">,</span> <span class="n">DefaultParameters</span><span class="p">,</span> <span class="n">get_margin</span><span class="p">,</span> <span class="n">get_phase_window</span><span class="p">,</span> <span class="n">get_theoretical_s</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">get_theoretical_p</span><span class="p">,</span> <span class="n">method_id_ph</span><span class="p">,</span> <span class="n">method_id</span>
+<span class="kn">from</span> <span class="nn">.plot</span> <span class="kn">import</span> <span class="n">PlotMw</span>
+<span class="kn">from</span> <span class="nn">..core.utils</span> <span class="kn">import</span> <span class="n">get_station_id</span><span class="p">,</span> <span class="n">get_station_name</span><span class="p">,</span> <span class="n">get_origin</span>
+<span class="kn">from</span> <span class="nn">..core.signal_utils</span> <span class="kn">import</span> <span class="n">get_inventory</span><span class="p">,</span> <span class="n">StreamLoader</span><span class="p">,</span> <span class="n">load_inventory</span><span class="p">,</span> <span class="n">StreamPreprocessing</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log10</span>
+<span class="kn">from</span> <span class="nn">obspy.core.event.magnitude</span> <span class="kn">import</span> <span class="n">StationMagnitude</span><span class="p">,</span> <span class="n">StationMagnitudeContribution</span><span class="p">,</span><span class="n">Magnitude</span>
+<span class="kn">from</span> <span class="nn">.double_phase_mw</span> <span class="kn">import</span> <span class="n">estimate_double_phase_mw</span>
+<span class="kn">from</span> <span class="nn">.single_phase_mw</span> <span class="kn">import</span> <span class="n">estimate_single_phase_mw</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">obspy.core.event</span> <span class="kn">import</span> <span class="n">read_events</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">._version</span> <span class="kn">import</span> <span class="n">get_versions</span>
+
+
+<div class="viewcode-block" id="MwStreamPreprocessing">
+<a class="viewcode-back" href="../../../api_main.html#amw.mw.spectral_mw.MwStreamPreprocessing">[docs]</a>
+<span class="k">class</span> <span class="nc">MwStreamPreprocessing</span><span class="p">(</span><span class="n">StreamPreprocessing</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">inventory</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;Mw_preprocessing_1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">water_level</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prefilter</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">rm</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;remove_response&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rm</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span> <span class="o">=</span> <span class="n">inventory</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">water_level</span> <span class="o">=</span> <span class="n">rm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;water_level&#39;</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prefilter</span> <span class="o">=</span> <span class="n">rm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;prefilter&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">rm</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="s1">&#39;VEL&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">:</span>
+            <span class="c1"># stream.plot()</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">remove_response</span><span class="p">(</span><span class="n">inventory</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">,</span>
+                                   <span class="n">water_level</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">water_level</span><span class="p">,</span> <span class="n">pre_filt</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">prefilter</span><span class="p">)</span></div>
+
+            <span class="c1"># stream.plot()</span>
+
+
+<div class="viewcode-block" id="station_moment_magnitude">
+<a class="viewcode-back" href="../../../api_main.html#amw.mw.spectral_mw.station_moment_magnitude">[docs]</a>
+<span class="k">def</span> <span class="nf">station_moment_magnitude</span><span class="p">(</span><span class="n">station_name</span><span class="p">,</span> <span class="n">picks</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function estimate the mw magnitude for one events having origin and picks</span>
+<span class="sd">    according the configuration.</span>
+
+<span class="sd">    :param station_name:</span>
+<span class="sd">        The station name in the form &#39;NN.SSSS&#39;, where NN is the network code and SSSS is the station_name code.</span>
+<span class="sd">    :param station_name: str</span>
+<span class="sd">    :param picks:</span>
+<span class="sd">        The list of two picks: P and S. The P wave_name is first the S wave_name is second.</span>
+<span class="sd">        If the wave_name is missing there should be None value. At list one wave_name is required,</span>
+<span class="sd">        but wo picks P and S are recommended. At least one wave_name must be given. If the P or S wave_name is missing,</span>
+<span class="sd">        the function tries to determine it based on the earthquake time at the focus and the remaining wave_name time.</span>
+<span class="sd">    :type picks: ObsPy Pick</span>
+<span class="sd">    :param event: The event object</span>
+<span class="sd">    :type event: ObsPy Event</span>
+<span class="sd">    :param origin:</span>
+<span class="sd">        The event origin.</span>
+<span class="sd">    :type origin: ObsPy Origin</span>
+<span class="sd">    :param inventory:</span>
+<span class="sd">        The inventory Object. It must contain the station_name inventory</span>
+<span class="sd">    :type inventory: ObsPy Inventory</span>
+<span class="sd">    :param configuration: The configuration container of all parameters dictionary required for the program to work.</span>
+<span class="sd">    :type configuration: dict</span>
+<span class="sd">    :return: The station magnitude object or None, if the magnitude can not be estimated.</span>
+<span class="sd">    :rtype: ObsPy.StationMagnitude</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">station_inventory</span> <span class="o">=</span> <span class="n">get_inventory</span><span class="p">(</span><span class="n">station_name</span><span class="p">,</span> <span class="n">origin</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">station_inventory</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">SpectralMwException</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Missing inventory for </span><span class="si">{</span><span class="n">station_name</span><span class="si">}</span><span class="s1"> at </span><span class="si">{</span><span class="n">origin</span><span class="o">.</span><span class="n">time</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">picks</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="n">SpectralMwException</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Missing P and S wave_name for </span><span class="si">{</span><span class="n">station_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Station </span><span class="si">{</span><span class="n">station_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">station_parameters</span> <span class="o">=</span> <span class="n">DefaultParameters</span><span class="p">(</span><span class="s1">&#39;station_parameters&#39;</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="n">taper_margin</span> <span class="o">=</span> <span class="n">get_margin</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="n">picks_pars</span> <span class="o">=</span> <span class="n">picks</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">stream_loader</span> <span class="o">=</span> <span class="n">StreamLoader</span><span class="p">(</span><span class="n">configuration</span><span class="p">,</span> <span class="n">MwStreamPreprocessing</span><span class="p">(</span><span class="n">configuration</span><span class="p">,</span> <span class="n">inventory</span><span class="p">))</span>
+    <span class="c1"># stream_loader = StreamLoader(configuration)</span>
+    <span class="k">if</span> <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;multiphase&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_theoretical_s</span><span class="p">(</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_theoretical_p</span><span class="p">(</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">origin</span><span class="p">)</span>
+        <span class="n">window_length</span> <span class="o">=</span> <span class="n">get_phase_window</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">picks_pars</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span>
+                                         <span class="n">station_parameters</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+        <span class="n">signal_end</span> <span class="o">=</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">window_length</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">taper_margin</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span>
+        <span class="n">signal_begin</span> <span class="o">=</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="mf">6.0</span> <span class="o">*</span> <span class="n">window_length</span> <span class="o">-</span> <span class="mf">7.0</span> <span class="o">*</span> <span class="n">window_length</span> <span class="o">*</span> <span class="n">taper_margin</span> <span class="o">-</span> <span class="mf">0.1</span>
+        <span class="n">signal</span> <span class="o">=</span> <span class="n">stream_loader</span><span class="o">.</span><span class="n">get_signal</span><span class="p">(</span><span class="n">signal_begin</span><span class="p">,</span> <span class="n">signal_end</span><span class="p">,</span>
+                                          <span class="n">event</span><span class="o">.</span><span class="n">resource_id</span><span class="o">.</span><span class="n">resource_id</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">,</span> <span class="p">[</span><span class="n">station_name</span><span class="p">])</span>
+        <span class="n">signal</span> <span class="o">=</span> <span class="n">signal_by_phase</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">signal</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Missing signal for </span><span class="si">{</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">waveform_id</span><span class="o">.</span><span class="n">id</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">?&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">mw_ps</span><span class="p">,</span> <span class="n">f0</span><span class="p">,</span> <span class="n">m0</span><span class="p">,</span> <span class="n">time_window</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">estimate_double_phase_mw</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">picks_pars</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span>
+                                                                 <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">StationMagnitude</span><span class="p">(</span><span class="n">mag</span><span class="o">=</span><span class="n">mw_ps</span><span class="p">,</span> <span class="n">station_magnitude_type</span><span class="o">=</span><span class="s2">&quot;mw&quot;</span><span class="p">,</span> <span class="n">waveform_id</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span>
+                                <span class="n">origin_id</span><span class="o">=</span><span class="n">origin</span><span class="o">.</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">method_id</span><span class="o">=</span><span class="n">method_id</span><span class="p">(</span><span class="n">configuration</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;separate_phases&#39;</span><span class="p">:</span>
+        <span class="n">new_phases</span> <span class="o">=</span> <span class="n">picks_pars</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">new_phases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_theoretical_p</span><span class="p">(</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">origin</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">s_length</span> <span class="o">=</span> <span class="n">get_phase_window</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">picks_pars</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">)</span>
+            <span class="n">s_full_length</span> <span class="o">=</span> <span class="n">s_length</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">taper_margin</span><span class="p">)</span>
+            <span class="n">signal_end</span> <span class="o">=</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">s_full_length</span> <span class="o">+</span> <span class="mf">0.1</span>
+            <span class="n">signal_begin</span> <span class="o">=</span> <span class="n">new_phases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="mf">6.0</span> <span class="o">*</span> <span class="n">s_full_length</span> <span class="o">-</span> <span class="mf">0.2</span>
+            <span class="n">signal</span> <span class="o">=</span> <span class="n">stream_loader</span><span class="o">.</span><span class="n">get_signal</span><span class="p">(</span><span class="n">signal_begin</span><span class="p">,</span> <span class="n">signal_end</span><span class="p">,</span>
+                                              <span class="n">event</span><span class="o">.</span><span class="n">resource_id</span><span class="o">.</span><span class="n">resource_id</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">,</span> <span class="p">[</span><span class="n">station_name</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_phases</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_theoretical_p</span><span class="p">(</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span><span class="p">)</span>
+            <span class="n">p_length</span> <span class="o">=</span> <span class="n">get_phase_window</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">new_phases</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">)</span>
+            <span class="n">p_full_length</span> <span class="o">=</span> <span class="n">p_length</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">taper_margin</span><span class="p">)</span>
+            <span class="n">signal_end</span> <span class="o">=</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">p_full_length</span> <span class="o">+</span> <span class="mf">0.1</span>
+            <span class="n">signal_begin</span> <span class="o">=</span> <span class="n">new_phases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="mf">6.0</span> <span class="o">*</span> <span class="n">p_full_length</span> <span class="o">-</span> <span class="mf">2.0</span>
+            <span class="n">signal</span> <span class="o">=</span> <span class="n">stream_loader</span><span class="o">.</span><span class="n">get_signal</span><span class="p">(</span><span class="n">signal_begin</span><span class="p">,</span> <span class="n">signal_end</span><span class="p">,</span>
+                                              <span class="n">event</span><span class="o">.</span><span class="n">resource_id</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">,</span> <span class="p">[</span><span class="n">station_name</span><span class="p">])</span>
+        <span class="n">signal</span> <span class="o">=</span> <span class="n">signal_by_phase</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">signal</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Missing signal for </span><span class="si">{</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">waveform_id</span><span class="o">.</span><span class="n">id</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">?&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">m0_ps</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">f0_ps</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">n_ps</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># station_magnitude = None</span>
+        <span class="k">if</span> <span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_plot</span><span class="p">(</span><span class="n">station_name</span><span class="p">,</span> <span class="n">pick_name</span><span class="o">=</span><span class="s1">&#39;P&#39;</span><span class="p">)</span>
+            <span class="n">mw_p</span><span class="p">,</span> <span class="n">f0_p</span><span class="p">,</span> <span class="n">m0_p</span><span class="p">,</span> <span class="n">omega0_p</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">estimate_single_phase_mw</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">new_phases</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span>
+                                                                     <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+            <span class="n">m0_ps</span> <span class="o">+=</span> <span class="n">m0_p</span>
+            <span class="n">f0_ps</span> <span class="o">+=</span> <span class="n">f0_p</span>
+            <span class="n">n_ps</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">picks</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_plot</span><span class="p">(</span><span class="n">station_name</span><span class="p">,</span> <span class="n">pick_name</span><span class="o">=</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
+            <span class="n">mw_s</span><span class="p">,</span> <span class="n">f0_s</span><span class="p">,</span> <span class="n">m0_s</span><span class="p">,</span> <span class="n">omega0_s</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">estimate_single_phase_mw</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">new_phases</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span>
+                                                                     <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+            <span class="n">m0_ps</span> <span class="o">+=</span> <span class="n">m0_s</span>
+            <span class="n">f0_ps</span> <span class="o">+=</span> <span class="n">f0_s</span>
+            <span class="n">n_ps</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">n_ps</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">m0_ps</span> <span class="o">/=</span> <span class="n">n_ps</span>
+            <span class="n">mw_ps</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">m0_ps</span><span class="p">)</span> <span class="o">-</span> <span class="mf">6.07</span>
+            <span class="n">f0_ps</span> <span class="o">/=</span> <span class="n">n_ps</span>
+            <span class="k">return</span> <span class="n">StationMagnitude</span><span class="p">(</span><span class="n">mag</span><span class="o">=</span><span class="n">mw_ps</span><span class="p">,</span> <span class="n">station_magnitude_type</span><span class="o">=</span><span class="s2">&quot;mw&quot;</span><span class="p">,</span> <span class="n">waveform_id</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span>
+                                    <span class="n">origin_id</span><span class="o">=</span><span class="n">origin</span><span class="o">.</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">method_id</span><span class="o">=</span><span class="n">method_id</span><span class="p">(</span><span class="n">configuration</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">SpectralMwException</span><span class="p">(</span><span class="s1">&#39;Unknown method&#39;</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">signal_by_phase</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">pick</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">signal</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">signal</span>
+    <span class="n">pick_id</span> <span class="o">=</span> <span class="n">pick</span><span class="o">.</span><span class="n">waveform_id</span><span class="o">.</span><span class="n">id</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">signal</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">trace</span><span class="o">.</span><span class="n">id</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">pick_id</span><span class="p">:</span>
+            <span class="n">signal</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The signal has only </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span><span class="si">}</span><span class="s1"> components&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Signal inconsistent&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">signal</span>
+
+
+<div class="viewcode-block" id="catalog_moment_magnitudes">
+<a class="viewcode-back" href="../../../api_main.html#amw.mw.spectral_mw.catalog_moment_magnitudes">[docs]</a>
+<span class="k">def</span> <span class="nf">catalog_moment_magnitudes</span><span class="p">(</span><span class="n">catalog</span><span class="p">,</span> <span class="n">configuration</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function estimate the mw magnitude for all events having origin and picks according the configuration.</span>
+<span class="sd">    As a result the function modifies the catalog and adds mw magnitude to events</span>
+
+<span class="sd">    :param catalog:</span>
+<span class="sd">        The seismic catalog of event the magnitude will be estimated.</span>
+<span class="sd">        The estimated magnitudes will be added to the catalog magnitude.</span>
+<span class="sd">    :type catalog: ObsPy Catalog</span>
+<span class="sd">    :param configuration: The configuration container of all parameters dictionary required for the program to work.</span>
+<span class="sd">    :type configuration: dict</span>
+<span class="sd">    :return: None</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inventory</span> <span class="o">=</span> <span class="n">load_inventory</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
+    <span class="n">preprocessing</span> <span class="o">=</span> <span class="n">MwStreamPreprocessing</span><span class="p">(</span><span class="n">configuration</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+    <span class="n">stream_loader</span> <span class="o">=</span> <span class="n">StreamLoader</span><span class="p">(</span><span class="n">configuration</span><span class="p">,</span> <span class="n">preprocessing</span><span class="p">)</span>
+    <span class="c1"># stream_loader = StreamLoader(configuration)</span>
+    <span class="n">taper_margin</span> <span class="o">=</span> <span class="n">get_margin</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="n">no_events</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">catalog</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">no_events</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">plot_parameters</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;plot&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">plot_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">plot_parameters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;do_not_draw&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are </span><span class="si">{</span><span class="n">no_events</span><span class="si">}</span><span class="s1"> events</span><span class="se">\n</span><span class="s1"> Turn off plotting? [yes/no] &gt;&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">answer</span> <span class="ow">and</span> <span class="n">answer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+                <span class="n">plot_parameters</span><span class="p">[</span><span class="s1">&#39;do_not_draw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">for</span> <span class="n">event_no</span><span class="p">,</span> <span class="n">event</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">catalog</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Event &#39;</span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">resource_id</span><span class="si">}</span><span class="s2">&#39; </span><span class="si">{</span><span class="n">event_no</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">no_events</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">origin</span> <span class="o">=</span> <span class="n">get_origin</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">origin</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No origin for event </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">resource_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="n">sta_picks_pars</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">pick</span> <span class="ow">in</span> <span class="n">event</span><span class="o">.</span><span class="n">picks</span><span class="p">:</span>
+            <span class="n">sta_id</span> <span class="o">=</span> <span class="n">get_station_id</span><span class="p">(</span><span class="n">pick</span><span class="o">.</span><span class="n">waveform_id</span><span class="p">)</span>
+            <span class="n">sta_name</span> <span class="o">=</span> <span class="n">get_station_name</span><span class="p">(</span><span class="n">sta_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">sta_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sta_picks_pars</span><span class="p">:</span>
+                <span class="n">sta_picks_pars</span><span class="p">[</span><span class="n">sta_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">pick</span><span class="o">.</span><span class="n">phase_hint</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;P&#39;</span><span class="p">:</span>
+                <span class="n">sta_picks_pars</span><span class="p">[</span><span class="n">sta_name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">pick</span>
+            <span class="k">elif</span> <span class="n">pick</span><span class="o">.</span><span class="n">phase_hint</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;S&#39;</span><span class="p">:</span>
+                <span class="n">sta_picks_pars</span><span class="p">[</span><span class="n">sta_name</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pick</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">sta_picks_pars</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;No picks for event </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">resource_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="n">mw</span> <span class="o">=</span> <span class="n">Magnitude</span><span class="p">(</span><span class="n">mag</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">magnitude_type</span><span class="o">=</span><span class="s2">&quot;mw&quot;</span><span class="p">,</span> <span class="n">origin_id</span><span class="o">=</span><span class="n">origin</span><span class="o">.</span><span class="n">resource_id</span><span class="p">,</span>
+                       <span class="n">method_id</span><span class="o">=</span><span class="n">method_id</span><span class="p">(</span><span class="n">configuration</span><span class="p">))</span>
+        <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PlotMw</span><span class="p">(</span><span class="n">configuration</span><span class="p">)</span>
+        <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">start_plot</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sta_picks_pars</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="k">for</span> <span class="n">sta_name</span><span class="p">,</span> <span class="n">picks_pars</span> <span class="ow">in</span> <span class="n">sta_picks_pars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Station </span><span class="si">{</span><span class="n">sta_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">start_plot</span><span class="p">(</span><span class="n">sta_name</span><span class="p">)</span>
+            <span class="n">station_parameters</span> <span class="o">=</span> <span class="n">DefaultParameters</span><span class="p">(</span><span class="s1">&#39;station_parameters&#39;</span><span class="p">,</span> <span class="n">sta_name</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+            <span class="n">station_inventory</span> <span class="o">=</span> <span class="n">get_inventory</span><span class="p">(</span><span class="n">sta_name</span><span class="p">,</span> <span class="n">origin</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">inventory</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">station_inventory</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Missing inventory for </span><span class="si">{}</span><span class="s1"> at </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sta_name</span><span class="p">,</span> <span class="n">origin</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Missing P and S wave_name for </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sta_name</span><span class="p">))</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;multiphase&#39;</span><span class="p">:</span>
+                <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_plot</span><span class="p">(</span><span class="n">sta_name</span><span class="p">)</span>
+                <span class="c1"># Counting the required samples period</span>
+                <span class="k">if</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_theoretical_s</span><span class="p">(</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_theoretical_p</span><span class="p">(</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">origin</span><span class="p">)</span>
+                <span class="n">window_length</span> <span class="o">=</span> <span class="n">get_phase_window</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">picks_pars</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span>
+                                                 <span class="n">station_parameters</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+                <span class="n">signal_end</span> <span class="o">=</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">window_length</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">taper_margin</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.2</span>
+                <span class="n">signal_begin</span> <span class="o">=</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="mf">6.0</span> <span class="o">*</span> <span class="n">window_length</span> <span class="o">-</span> <span class="mf">13.0</span> <span class="o">*</span> <span class="n">window_length</span> <span class="o">*</span> <span class="n">taper_margin</span> <span class="o">-</span> <span class="mf">0.2</span>
+                <span class="n">signal</span> <span class="o">=</span> <span class="n">stream_loader</span><span class="o">.</span><span class="n">get_signal</span><span class="p">(</span><span class="n">signal_begin</span><span class="p">,</span> <span class="n">signal_end</span><span class="p">,</span>
+                                                  <span class="n">event</span><span class="o">.</span><span class="n">resource_id</span><span class="o">.</span><span class="n">resource_id</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">sta_name</span><span class="p">,</span> <span class="p">[</span><span class="n">sta_name</span><span class="p">])</span>
+                <span class="n">signal</span> <span class="o">=</span> <span class="n">signal_by_phase</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">signal</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Missing signal for </span><span class="si">{</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">waveform_id</span><span class="o">.</span><span class="n">id</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">?&#39;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="c1"># signal.plot()</span>
+                <span class="n">mw_ps</span><span class="p">,</span> <span class="n">f0</span><span class="p">,</span> <span class="n">m0</span><span class="p">,</span> <span class="n">time_window</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">estimate_double_phase_mw</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">picks_pars</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span>
+                                                                         <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+                <span class="c1"># spectral_parameters = SpectralParameters()</span>
+                <span class="n">station_magnitude</span> <span class="o">=</span> <span class="n">StationMagnitude</span><span class="p">(</span><span class="n">mag</span><span class="o">=</span><span class="n">mw_ps</span><span class="p">,</span> <span class="n">station_magnitude_type</span><span class="o">=</span><span class="s2">&quot;mw&quot;</span><span class="p">,</span> <span class="n">waveform_id</span><span class="o">=</span><span class="n">sta_name</span><span class="p">,</span>
+                                                     <span class="n">origin_id</span><span class="o">=</span><span class="n">origin</span><span class="o">.</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">method_id</span><span class="o">=</span><span class="n">method_id</span><span class="p">(</span><span class="n">configuration</span><span class="p">))</span>
+                <span class="n">event</span><span class="o">.</span><span class="n">station_magnitudes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">station_magnitude</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;separate_phases&#39;</span><span class="p">:</span>
+                <span class="n">new_phases</span> <span class="o">=</span> <span class="n">picks_pars</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">new_phases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_theoretical_p</span><span class="p">(</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">origin</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">s_length</span> <span class="o">=</span> <span class="n">get_phase_window</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">picks_pars</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">)</span>
+                    <span class="n">s_full_length</span> <span class="o">=</span> <span class="n">s_length</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">taper_margin</span><span class="p">)</span>
+                    <span class="n">signal_end</span> <span class="o">=</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">s_full_length</span> <span class="o">+</span> <span class="mf">0.1</span>
+                    <span class="n">signal_begin</span> <span class="o">=</span> <span class="n">new_phases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="mf">6.1</span> <span class="o">*</span> <span class="n">s_full_length</span> <span class="o">-</span> <span class="mf">0.2</span>
+                    <span class="n">signal</span> <span class="o">=</span> <span class="n">stream_loader</span><span class="o">.</span><span class="n">get_signal</span><span class="p">(</span><span class="n">signal_begin</span><span class="p">,</span> <span class="n">signal_end</span><span class="p">,</span>
+                                                      <span class="n">event</span><span class="o">.</span><span class="n">resource_id</span><span class="o">.</span><span class="n">resource_id</span> <span class="o">+</span> <span class="n">sta_name</span><span class="p">,</span> <span class="p">[</span><span class="n">sta_name</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">new_phases</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_theoretical_p</span><span class="p">(</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span><span class="p">)</span>
+                    <span class="n">p_length</span> <span class="o">=</span> <span class="n">get_phase_window</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">new_phases</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">)</span>
+                    <span class="n">p_full_length</span> <span class="o">=</span> <span class="n">p_length</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">taper_margin</span><span class="p">)</span>
+                    <span class="n">signal_end</span> <span class="o">=</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">p_full_length</span> <span class="o">+</span> <span class="mf">0.1</span>
+                    <span class="n">signal_begin</span> <span class="o">=</span> <span class="n">new_phases</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="mf">6.2</span> <span class="o">*</span> <span class="n">p_full_length</span> <span class="o">-</span> <span class="mf">0.2</span>
+                    <span class="n">signal</span> <span class="o">=</span> <span class="n">stream_loader</span><span class="o">.</span><span class="n">get_signal</span><span class="p">(</span><span class="n">signal_begin</span><span class="p">,</span> <span class="n">signal_end</span><span class="p">,</span>
+                                                      <span class="n">event</span><span class="o">.</span><span class="n">resource_id</span> <span class="o">+</span> <span class="n">sta_name</span><span class="p">,</span> <span class="p">[</span><span class="n">sta_name</span><span class="p">])</span>
+                <span class="n">signal</span> <span class="o">=</span> <span class="n">signal_by_phase</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">signal</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Missing signal for </span><span class="si">{</span><span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">waveform_id</span><span class="o">.</span><span class="n">id</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">?&#39;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="n">m0_ps</span> <span class="o">=</span> <span class="mf">0.0</span>
+                <span class="n">f0_ps</span> <span class="o">=</span> <span class="mf">0.0</span>
+                <span class="n">n_ps</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">station_magnitude</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">if</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_plot</span><span class="p">(</span><span class="n">sta_name</span><span class="p">,</span> <span class="n">pick_name</span><span class="o">=</span><span class="s1">&#39;P&#39;</span><span class="p">)</span>
+                    <span class="n">mw_p</span><span class="p">,</span> <span class="n">f0_p</span><span class="p">,</span> <span class="n">m0_p</span><span class="p">,</span> <span class="n">omega0_p</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">estimate_single_phase_mw</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">new_phases</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span>
+                                                                             <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+                    <span class="n">station_magnitude</span> <span class="o">=</span> <span class="n">StationMagnitude</span><span class="p">(</span><span class="n">mag</span><span class="o">=</span><span class="n">mw_p</span><span class="p">,</span> <span class="n">station_magnitude_type</span><span class="o">=</span><span class="s2">&quot;mw&quot;</span><span class="p">,</span>
+                                                         <span class="n">waveform_id</span><span class="o">=</span><span class="n">sta_name</span><span class="p">,</span> <span class="n">origin_id</span><span class="o">=</span><span class="n">origin</span><span class="o">.</span><span class="n">resource_id</span><span class="p">,</span>
+                                                         <span class="n">method_id</span><span class="o">=</span><span class="n">method_id_ph</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">configuration</span><span class="p">))</span>
+                    <span class="n">event</span><span class="o">.</span><span class="n">station_magnitudes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">station_magnitude</span><span class="p">)</span>
+                    <span class="c1"># print(f&quot;\t{2.0 / 3.0 * log10(m0_p) - 6.27:.1f}&quot;)</span>
+                    <span class="n">m0_ps</span> <span class="o">+=</span> <span class="n">m0_p</span>
+                    <span class="n">f0_ps</span> <span class="o">+=</span> <span class="n">f0_p</span>
+                    <span class="n">n_ps</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="c1"># show_plot(configuration)</span>
+                    <span class="c1"># block_plot()</span>
+                <span class="k">if</span> <span class="n">picks_pars</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_plot</span><span class="p">(</span><span class="n">sta_name</span><span class="p">,</span> <span class="n">pick_name</span><span class="o">=</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
+                    <span class="n">mw_s</span><span class="p">,</span> <span class="n">f0_s</span><span class="p">,</span> <span class="n">m0_s</span><span class="p">,</span> <span class="n">omega0_s</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">estimate_single_phase_mw</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">new_phases</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span>
+                                                                             <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+                    <span class="n">station_magnitude</span> <span class="o">=</span> <span class="n">StationMagnitude</span><span class="p">(</span><span class="n">mag</span><span class="o">=</span><span class="n">mw_s</span><span class="p">,</span> <span class="n">station_magnitude_type</span><span class="o">=</span><span class="s2">&quot;mw&quot;</span><span class="p">,</span> <span class="n">waveform_id</span><span class="o">=</span><span class="n">sta_name</span><span class="p">,</span>
+                                                         <span class="n">origin_id</span><span class="o">=</span><span class="n">origin</span><span class="o">.</span><span class="n">resource_id</span><span class="p">,</span>
+                                                         <span class="n">method_id</span><span class="o">=</span><span class="n">method_id_ph</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">configuration</span><span class="p">))</span>
+                    <span class="n">event</span><span class="o">.</span><span class="n">station_magnitudes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">station_magnitude</span><span class="p">)</span>
+                    <span class="c1"># print(f&quot;\t{2.0 / 3.0 * log10(m0_s) - 6.07:.1f}&quot;)</span>
+                    <span class="n">m0_ps</span> <span class="o">+=</span> <span class="n">m0_s</span>
+                    <span class="n">f0_ps</span> <span class="o">+=</span> <span class="n">f0_s</span>
+                    <span class="n">n_ps</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">n_ps</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">m0_ps</span> <span class="o">/=</span> <span class="n">n_ps</span>
+                    <span class="n">mw_ps</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">log10</span><span class="p">(</span><span class="n">m0_ps</span><span class="p">)</span> <span class="o">-</span> <span class="mf">6.07</span>
+                    <span class="n">f0_ps</span> <span class="o">/=</span> <span class="n">n_ps</span>
+                    <span class="n">station_magnitude</span> <span class="o">=</span> <span class="n">StationMagnitude</span><span class="p">(</span><span class="n">mag</span><span class="o">=</span><span class="n">mw_ps</span><span class="p">,</span> <span class="n">station_magnitude_type</span><span class="o">=</span><span class="s2">&quot;mw&quot;</span><span class="p">,</span> <span class="n">waveform_id</span><span class="o">=</span><span class="n">sta_name</span><span class="p">,</span>
+                                                         <span class="n">origin_id</span><span class="o">=</span><span class="n">origin</span><span class="o">.</span><span class="n">resource_id</span><span class="p">,</span>
+                                                         <span class="n">method_id</span><span class="o">=</span><span class="n">method_id</span><span class="p">(</span><span class="n">configuration</span><span class="p">))</span>
+                    <span class="n">event</span><span class="o">.</span><span class="n">station_magnitudes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">station_magnitude</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">XX: mw=</span><span class="si">{</span><span class="n">mw_ps</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, f_0=</span><span class="si">{</span><span class="n">f0_ps</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, M_0=</span><span class="si">{</span><span class="n">m0_ps</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">SpectralMwException</span><span class="p">(</span><span class="s1">&#39;Unknown method&#39;</span><span class="p">)</span>
+            <span class="n">weight</span> <span class="o">=</span> <span class="n">station_parameters</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">smc</span> <span class="o">=</span> <span class="n">StationMagnitudeContribution</span><span class="p">(</span><span class="n">station_magnitude_id</span><span class="o">=</span><span class="n">station_magnitude</span><span class="o">.</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
+            <span class="n">mw</span><span class="o">.</span><span class="n">station_magnitude_contributions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">smc</span><span class="p">)</span>
+            <span class="n">mw</span><span class="o">.</span><span class="n">mag</span> <span class="o">+=</span> <span class="n">station_magnitude</span><span class="o">.</span><span class="n">mag</span> <span class="o">*</span> <span class="n">weight</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">r=</span><span class="si">{</span><span class="n">r</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+            <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format_plot</span><span class="p">(</span><span class="s1">&#39;many figures&#39;</span><span class="p">)</span>
+            <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format_plot</span><span class="p">(</span><span class="s1">&#39;many figures inline&#39;</span><span class="p">)</span>
+            <span class="c1"># block_plot()</span>
+        <span class="k">if</span> <span class="n">mw</span><span class="o">.</span><span class="n">station_magnitude_contributions</span><span class="p">:</span>
+            <span class="n">sum_weights</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="k">for</span> <span class="n">smc</span> <span class="ow">in</span> <span class="n">mw</span><span class="o">.</span><span class="n">station_magnitude_contributions</span><span class="p">:</span>
+                <span class="n">sum_weights</span> <span class="o">+=</span> <span class="n">smc</span><span class="o">.</span><span class="n">weight</span>
+            <span class="n">mw</span><span class="o">.</span><span class="n">mag</span> <span class="o">/=</span> <span class="n">sum_weights</span>
+            <span class="n">mw</span><span class="o">.</span><span class="n">station_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mw</span><span class="o">.</span><span class="n">station_magnitude_contributions</span><span class="p">)</span>
+            <span class="n">event</span><span class="o">.</span><span class="n">magnitudes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mw</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New mw = </span><span class="si">{</span><span class="n">mw</span><span class="o">.</span><span class="n">mag</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format_plot</span><span class="p">(</span><span class="s1">&#39;single figure&#39;</span><span class="p">)</span>
+        <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">show_plot</span><span class="p">(</span><span class="s1">&#39;many figures&#39;</span><span class="p">)</span>
+        <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">show_plot</span><span class="p">(</span><span class="s1">&#39;many figures inline&#39;</span><span class="p">)</span>
+        <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;Plotter&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">show_plot</span><span class="p">(</span><span class="s1">&#39;single figure&#39;</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_versions</span><span class="p">()[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span>
+    <span class="n">__release_date__</span> <span class="o">=</span> <span class="n">get_versions</span><span class="p">()[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Argument parsing</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">prog</span><span class="o">=</span><span class="s1">&#39;spectral_mw&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Program estimates moment magnitudes from P-, S- or cumulate PS-waves&#39;</span>
+                    <span class="s1">&#39;in far, intermediate, and near fields&#39;</span><span class="p">)</span>
+    <span class="c1"># epilog=&#39;End of help&#39;)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;config.json&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Configuration file in JSON format&#39;</span><span class="p">)</span>
+    <span class="c1"># WARNING!!! When you use -S option the file is not overwritten.</span>
+    <span class="c1"># It must be not existing file name&#39;</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--catalog&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;catalog_name.xml&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Catalog file in QuakeML XML format&#39;</span><span class="p">)</span>
+    <span class="c1"># parser.add_argument(&#39;-e&#39;, &#39;--evid&#39;, metavar=&#39;smi:local\...&#39;,</span>
+    <span class="c1">#                     help=&#39;The one event id that magnitude will be estimated&#39;)</span>
+    <span class="c1"># parser.add_argument(&#39;-s&#39;, &#39;--stream&#39;, metavar=&#39;stream_file_name&#39;,</span>
+    <span class="c1">#                     help=&#39;Stream file of waveforms of all stations for one event. &#39;</span>
+    <span class="c1">#                          &#39;The signal must have enough pre-P-wave period for noise estimation.&#39;)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--output&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;output_catalog.xml&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output catalog file name&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;--output_format&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;QUAKEML&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Output catalog format&#39;</span><span class="p">)</span>
+    <span class="c1"># parser.add_argument(&#39;-v&#39;, &#39;--verbose&#39;,</span>
+    <span class="c1">#                     action=&#39;store_true&#39;)</span>
+    <span class="c1"># parser.print_help()</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">configuration</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">catalog</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">catalog</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;catalog_file&#39;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">catalog</span> <span class="o">=</span> <span class="n">read_events</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">catalog</span><span class="p">)</span>
+    <span class="c1"># Magnitude computing</span>
+    <span class="n">catalog_moment_magnitudes</span><span class="p">(</span><span class="n">catalog</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="c1"># Result saving</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">output</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">catalog</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;output_file&#39;</span><span class="p">,</span> <span class="s1">&#39;output.xml&#39;</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">output_format</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">catalog</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">output_format</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

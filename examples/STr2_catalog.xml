@@ -1,0 +1,2937 @@
+<?xml version="1.0"?>
+<q:quakeml xmlns="http://quakeml.org/xmlns/quakeml/1.2" xmlns:q="http://quakeml.org/xmlns/quakeml/1.2">
+	<eventParameters publicID="smi:igf.edu.pl/Song_Tranh_2#eventParameters">
+		<event publicID="smi:igf.edu.pl/Event601566">
+			<preferredOriginID>smi:igf.edu.pl/Origin601566</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/Origin601566">
+				<time>
+					<value>2015-03-01T16:20:17.904Z</value>
+				</time>
+				<latitude>
+					<value>15.28687</value>
+				</latitude>
+				<longitude>
+					<value>108.102272</value>
+				</longitude>
+				<depth>
+					<value>0</value>
+				</depth>
+				<depthType>from location</depthType>
+			</origin>
+			<stationMagnitude publicID="smi:igf.edu.pl/dbveris.igf.edu.pl#StaMagnitude70523">
+				<mag>
+					<value>-0.275498</value>
+				</mag>
+				<originID>smi:igf.edu.pl/Origin601566</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TDVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dbveris.igf.edu.pl#StaMagnitude70524">
+				<mag>
+					<value>-0.322542</value>
+				</mag>
+				<originID>smi:igf.edu.pl/Origin601566</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TBVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dbveris.igf.edu.pl#StaMagnitude70525">
+				<mag>
+					<value>-0.119845</value>
+				</mag>
+				<originID>smi:igf.edu.pl/Origin601566</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TLE" />
+			</stationMagnitude>
+			<pick publicID="smi:igf.edu.pl/Pick111325">
+				<time>
+					<value>2015-03-01T16:20:19.306Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDVB" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/Pick111326">
+				<time>
+					<value>2015-03-01T16:20:20.347Z</value>
+				</time>
+				<waveformID channelCode="HHN" networkCode="VN" stationCode="TDVB" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/Pick111327">
+				<time>
+					<value>2015-03-01T16:20:19.674Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TBVB" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/Pick111328">
+				<time>
+					<value>2015-03-01T16:20:20.938Z</value>
+				</time>
+				<waveformID channelCode="HHN" networkCode="VN" stationCode="TBVB" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/Pick111329">
+				<time>
+					<value>2015-03-01T16:20:19.363Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TLE" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/Pick111330">
+				<time>
+					<value>2015-03-01T16:20:20.440Z</value>
+				</time>
+				<waveformID channelCode="HHN" networkCode="VN" stationCode="TLE" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/Event601665">
+			<preferredOriginID>smi:igf.edu.pl/Origin601665</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/Origin601665">
+				<time>
+					<value>2015-03-03T20:43:01.987Z</value>
+				</time>
+				<latitude>
+					<value>15.252592</value>
+				</latitude>
+				<longitude>
+					<value>108.110931</value>
+				</longitude>
+				<depth>
+					<value>0.607532144</value>
+				</depth>
+				<depthType>from location</depthType>
+			</origin>
+			<stationMagnitude publicID="smi:igf.edu.pl/dbveris.igf.edu.pl#StaMagnitude50483">
+				<mag>
+					<value>-0.168153</value>
+				</mag>
+				<originID>smi:igf.edu.pl/Origin601665</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TDVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dbveris.igf.edu.pl#StaMagnitude50484">
+				<mag>
+					<value>-0.252098</value>
+				</mag>
+				<originID>smi:igf.edu.pl/Origin601665</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TLE" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dbveris.igf.edu.pl#StaMagnitude50485">
+				<mag>
+					<value>-0.263515</value>
+				</mag>
+				<originID>smi:igf.edu.pl/Origin601665</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TMVB" />
+			</stationMagnitude>
+			<pick publicID="smi:igf.edu.pl/Pick83846">
+				<time>
+					<value>2015-03-03T20:43:03.863Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDVB" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/Pick83847">
+				<time>
+					<value>2015-03-03T20:43:05.201Z</value>
+				</time>
+				<waveformID channelCode="HHN" networkCode="VN" stationCode="TDVB" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/Pick83848">
+				<time>
+					<value>2015-03-03T20:43:03.687Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TLE" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/Pick83849">
+				<time>
+					<value>2015-03-03T20:43:04.958Z</value>
+				</time>
+				<waveformID channelCode="HHN" networkCode="VN" stationCode="TLE" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/Pick83850">
+				<time>
+					<value>2015-03-03T20:43:04.008Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TMVB" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/Pick83851">
+				<time>
+					<value>2015-03-03T20:43:05.486Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TMVB" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/b9f92bdb-9e32-40bd-b965-ea5a0b080b84#event_65608ac9">
+			<preferredOriginID>smi:igf.edu.pl/ce056a04-77df-47f6-811d-104e44ac8491#origin_65608af4</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/ce056a04-77df-47f6-811d-104e44ac8491#origin_65608af4">
+				<time>
+					<value>2018-01-14T16:59:53.138Z</value>
+					<uncertainty>0.26007822156</uncertainty>
+				</time>
+				<latitude>
+					<value>15.3532018661</value>
+				</latitude>
+				<longitude>
+					<value>108.116439819</value>
+				</longitude>
+				<depth>
+					<value>1.30222988129e+003</value>
+					<confidenceLevel>185.026715743</confidenceLevel>
+					<uncertainty>2.40947318077</uncertainty>
+				</depth>
+				<depthType>from location</depthType>
+				<earthModelID>smi:igf.edu.pl/LocSAT_STH2</earthModelID>
+				<methodID>smi:igf.edu.pl/LocSAT</methodID>
+				<quality>
+					<usedPhaseCount>6</usedPhaseCount>
+					<usedStationCount>3</usedStationCount>
+				</quality>
+				<originUncertainty>
+					<azimuthMaxHorizontalUncertainty>112.366287231</azimuthMaxHorizontalUncertainty>
+					<horizontalUncertainty>1381.07609749</horizontalUncertainty>
+					<maxHorizontalUncertainty>1381.07609749</maxHorizontalUncertainty>
+					<minHorizontalUncertainty>465.990811586</minHorizontalUncertainty>
+					<preferredDescription>uncertainty ellipse</preferredDescription>
+				</originUncertainty>
+				<arrival publicID="smi:igf.edu.pl/08378d4f-5d2c-4b19-a4f9-60450d471001#arrival_65608af3">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/17af58d5-afe5-4682-9494-4552ea7b631f#pick_65608ade</pickID>
+					<azimuth>153.09236145</azimuth>
+					<distance>0.126214906573</distance>
+					<timeResidual>-0.0244524478912</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/04afd0b9-59c3-4427-948d-0c1cc31f780d#arrival_65608af3">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/6443992c-8cbc-4fe9-b78d-0a788975ce77#pick_65608aec</pickID>
+					<azimuth>9.70611716e-011</azimuth>
+					<distance>7.29597077198e-011</distance>
+					<timeResidual>-0.0574548244476</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/57fa941f-0da7-46cd-8344-21790da17c88#arrival_65608af3">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/90663526-d602-4ad3-8bdf-0fc21f5c8c9a#pick_65608ae7</pickID>
+					<azimuth>1.59748024933e-043</azimuth>
+					<distance>0</distance>
+					<timeResidual>-0.0087525844574</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/c7436733-6339-4bdc-8189-39531f3f9d39#arrival_65608af3">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/c88c9ed5-fb67-4a42-b03a-eccbdff21e27#pick_65608ad9</pickID>
+					<azimuth>195.567504883</azimuth>
+					<distance>0.113550044596</distance>
+					<timeResidual>0.0422868728638</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/e894850f-4caa-4ee8-9342-6883fd96c04c#arrival_65608af3">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/d7a7c7ee-4701-4191-8550-71acdacbff46#pick_65608ae3</pickID>
+					<azimuth>42.0399513245</azimuth>
+					<distance>0.125820562243</distance>
+					<timeResidual>0.0151896476746</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/487afd5d-5fdd-4316-8cbe-9615c53a5ee7#arrival_65608af3">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/e34b8db8-3b02-46f4-a9a9-f7fcccf1f41d#pick_65608af0</pickID>
+					<azimuth>-8.60957776481e-042</azimuth>
+					<distance>0</distance>
+					<timeResidual>0.0332405567169</timeResidual>
+				</arrival>
+			</origin>
+			<magnitude publicID="smi:igf.edu.pl/580e1618-0ba9-4419-af3a-ee56efcbeb53#magnitude_65608aff">
+				<mag>
+					<value>1.67084746721</value>
+				</mag>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/ce056a04-77df-47f6-811d-104e44ac8491#origin_65608af4</originID>
+				<stationCount>3</stationCount>
+				<type>ML</type>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/4b758e87-adc3-40b5-a43f-ba92c72f4ecf#stationMagnitude_65608aff</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/4c93f819-62ca-4be0-89db-8115e4bf8b86#stationMagnitude_65608aff</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/4d0a26a0-0be3-4635-a37f-e177c2d17130#stationMagnitude_65608aff</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+			</magnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/4b758e87-adc3-40b5-a43f-ba92c72f4ecf#stationMagnitude_65608aff">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>1.38074767373</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/38ae5e63-7aa2-470f-95bc-24cedb0e8bef#amplitude_65608aff</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/4e18045d-37e1-4f56-92ec-e90eebb08c50#amplitude_65608aff</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/e983246c-796d-4d3b-a0a8-5cabb7e4fc12#amplitude_65608aff</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/ce056a04-77df-47f6-811d-104e44ac8491#origin_65608af4</originID>
+				<type>ML</type>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TNG" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/4c93f819-62ca-4be0-89db-8115e4bf8b86#stationMagnitude_65608aff">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>1.47214145029</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/34f136d3-bef2-4beb-93cb-24cf691c5c95#amplitude_65608aff</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/45fe5e33-d447-43db-b2e4-51a7bcb735fc#amplitude_65608aff</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/6c9c0d85-5d08-4031-921e-8d94f7a73b07#amplitude_65608aff</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/ce056a04-77df-47f6-811d-104e44ac8491#origin_65608af4</originID>
+				<type>ML</type>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/4d0a26a0-0be3-4635-a37f-e177c2d17130#stationMagnitude_65608aff">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>2.15965327762</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/0e383f5c-960d-47be-8082-091cc94a6762#amplitude_65608aff</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/211f5699-0ebb-43cb-a310-9fab3e2660ee#amplitude_65608aff</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/98f7d7dd-0191-4baa-b503-3c8101a6659c#amplitude_65608aff</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/ce056a04-77df-47f6-811d-104e44ac8491#origin_65608af4</originID>
+				<type>ML</type>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</stationMagnitude>
+			<amplitude publicID="smi:igf.edu.pl/0e383f5c-960d-47be-8082-091cc94a6762#amplitude_65608aff">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00273836264387</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/17af58d5-afe5-4682-9494-4552ea7b631f#pick_65608ade</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0799999237061</end>
+					<reference>2018-01-14T16:59:57.230Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/211f5699-0ebb-43cb-a310-9fab3e2660ee#amplitude_65608aff">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00206761597656</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/17af58d5-afe5-4682-9494-4552ea7b631f#pick_65608ade</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.100000143051</end>
+					<reference>2018-01-14T16:59:57.100Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/34f136d3-bef2-4beb-93cb-24cf691c5c95#amplitude_65608aff">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000329083501128</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/90663526-d602-4ad3-8bdf-0fc21f5c8c9a#pick_65608ae7</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.139999866486</end>
+					<reference>2018-01-14T16:59:57.690Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/38ae5e63-7aa2-470f-95bc-24cedb0e8bef#amplitude_65608aff">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000259647786152</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/e34b8db8-3b02-46f4-a9a9-f7fcccf1f41d#pick_65608af0</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.210000038147</end>
+					<reference>2018-01-14T16:59:57.560Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/45fe5e33-d447-43db-b2e4-51a7bcb735fc#amplitude_65608aff">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00054965459276</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/90663526-d602-4ad3-8bdf-0fc21f5c8c9a#pick_65608ae7</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.039999961853</end>
+					<reference>2018-01-14T16:59:57.680Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/4e18045d-37e1-4f56-92ec-e90eebb08c50#amplitude_65608aff">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000633430317976</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/e34b8db8-3b02-46f4-a9a9-f7fcccf1f41d#pick_65608af0</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.150000095367</end>
+					<reference>2018-01-14T16:59:57.500Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/6c9c0d85-5d08-4031-921e-8d94f7a73b07#amplitude_65608aff">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000735927780624</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/90663526-d602-4ad3-8bdf-0fc21f5c8c9a#pick_65608ae7</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0799999237061</end>
+					<reference>2018-01-14T16:59:57.670Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/98f7d7dd-0191-4baa-b503-3c8101a6659c#amplitude_65608aff">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00373487384059</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/17af58d5-afe5-4682-9494-4552ea7b631f#pick_65608ade</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0799999237061</end>
+					<reference>2018-01-14T16:59:57.140Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/e983246c-796d-4d3b-a0a8-5cabb7e4fc12#amplitude_65608aff">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000400328804972</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/e34b8db8-3b02-46f4-a9a9-f7fcccf1f41d#pick_65608af0</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.139999866486</end>
+					<reference>2018-01-14T16:59:57.470Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<pick publicID="smi:igf.edu.pl/17af58d5-afe5-4682-9494-4552ea7b631f#pick_65608ade">
+				<time>
+					<value>2018-01-14T16:59:57.006Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/6443992c-8cbc-4fe9-b78d-0a788975ce77#pick_65608aec">
+				<time>
+					<value>2018-01-14T16:59:55.549Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TNG" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/90663526-d602-4ad3-8bdf-0fc21f5c8c9a#pick_65608ae7">
+				<time>
+					<value>2018-01-14T16:59:57.413Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/c88c9ed5-fb67-4a42-b03a-eccbdff21e27#pick_65608ad9">
+				<time>
+					<value>2018-01-14T16:59:55.430Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDO" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/d7a7c7ee-4701-4191-8550-71acdacbff46#pick_65608ae3">
+				<time>
+					<value>2018-01-14T16:59:55.629Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TGI" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/e34b8db8-3b02-46f4-a9a9-f7fcccf1f41d#pick_65608af0">
+				<time>
+					<value>2018-01-14T16:59:57.443Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TNG" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/1098f77a-91df-42af-932e-acc2366154e9#event_65608b0f">
+			<preferredOriginID>smi:igf.edu.pl/5130bf3a-3038-461e-83f8-5b77f4dde3d1#origin_65608b2f</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/5130bf3a-3038-461e-83f8-5b77f4dde3d1#origin_65608b2f">
+				<time>
+					<value>2018-01-14T17:03:17.685Z</value>
+					<uncertainty>0.260068565607</uncertainty>
+				</time>
+				<latitude>
+					<value>15.3554077148</value>
+				</latitude>
+				<longitude>
+					<value>108.11517334</value>
+				</longitude>
+				<depth>
+					<value>0.799748182297e+003</value>
+					<confidenceLevel>302.46682926</confidenceLevel>
+					<uncertainty>2.41897296906</uncertainty>
+				</depth>
+				<depthType>from location</depthType>
+				<earthModelID>smi:igf.edu.pl/LocSAT_STH2</earthModelID>
+				<methodID>smi:igf.edu.pl/LocSAT</methodID>
+				<quality>
+					<usedPhaseCount>6</usedPhaseCount>
+					<usedStationCount>3</usedStationCount>
+				</quality>
+				<originUncertainty>
+					<azimuthMaxHorizontalUncertainty>112.398963928</azimuthMaxHorizontalUncertainty>
+					<horizontalUncertainty>1376.45101547</horizontalUncertainty>
+					<maxHorizontalUncertainty>1376.45101547</maxHorizontalUncertainty>
+					<minHorizontalUncertainty>454.425394535</minHorizontalUncertainty>
+					<preferredDescription>uncertainty ellipse</preferredDescription>
+				</originUncertainty>
+				<arrival publicID="smi:igf.edu.pl/2924d29d-adcf-4bca-b468-abf61bb95237#arrival_65608b2d">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/43020c59-697a-4286-ab38-e18e5c91c4ba#pick_65608b2b</pickID>
+					<azimuth>-9.07592989374e-041</azimuth>
+					<distance>0</distance>
+					<timeResidual>0.000656366348267</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/52b8bd4d-6620-4ea7-8ad5-c51e5c0aa256#arrival_65608b2d">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/6cc78c75-9e8a-483f-ab50-10ba294ada42#pick_65608b15</pickID>
+					<azimuth>194.690124512</azimuth>
+					<distance>0.11534833163</distance>
+					<timeResidual>0.00662708282471</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/b7f703cb-a40d-48d6-9cd4-cfa540fd4050#arrival_65608b2d">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/95bc6d84-f44e-4efe-ac42-d00a3e132c6f#pick_65608b1e</pickID>
+					<azimuth>43.1285057068</azimuth>
+					<distance>0.125032559037</distance>
+					<timeResidual>-0.00553846359253</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/e1b4ac5b-6148-45fb-93e5-ce74b1d1442c#arrival_65608b2d">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/c6492405-56c4-4f3c-802d-4826cd504997#pick_65608b27</pickID>
+					<azimuth>1.50589644921e-011</azimuth>
+					<distance>1.60821581746e-011</distance>
+					<timeResidual>-0.00107097625732</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/0e6f6e72-0a35-471a-aec3-0b016a2fd581#arrival_65608b2d">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/c760e565-6963-4d4c-bd00-e439fac720d6#pick_65608b23</pickID>
+					<azimuth>0</azimuth>
+					<distance>0</distance>
+					<timeResidual>0.00322079658508</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/07438e17-290d-4101-8a1c-d62ddd935bd9#arrival_65608b2d">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/edc57ceb-1b2b-4acb-9d5a-7025f2dde1dc#pick_65608b19</pickID>
+					<azimuth>153.048828125</azimuth>
+					<distance>0.128723591566</distance>
+					<timeResidual>-0.00384664535522</timeResidual>
+				</arrival>
+			</origin>
+			<magnitude publicID="smi:igf.edu.pl/fb937149-68e6-4255-90f1-ffdab864f3e7#magnitude_65608b3a">
+				<mag>
+					<value>1.45938336507</value>
+				</mag>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/5130bf3a-3038-461e-83f8-5b77f4dde3d1#origin_65608b2f</originID>
+				<stationCount>3</stationCount>
+				<type>ML</type>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/4ef25b72-c056-4c04-8c91-c30eb7b699ee#stationMagnitude_65608b3a</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/5984b361-38ed-40bc-b72f-bf0797a5e41d#stationMagnitude_65608b3a</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/c13ce2ce-0096-4444-92d6-2c71482135f2#stationMagnitude_65608b3a</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+			</magnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/4ef25b72-c056-4c04-8c91-c30eb7b699ee#stationMagnitude_65608b3a">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>1.28461088919</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/018cf127-efad-4730-af0c-f9161fdf02f2#amplitude_65608b3a</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/639daed9-bd29-4078-b3cc-4e47e41c4656#amplitude_65608b3a</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/713da214-fb4a-40af-9c2c-ac5fe6cac29b#amplitude_65608b3a</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/5130bf3a-3038-461e-83f8-5b77f4dde3d1#origin_65608b2f</originID>
+				<type>ML</type>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/5984b361-38ed-40bc-b72f-bf0797a5e41d#stationMagnitude_65608b3a">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>1.86371427293</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/0d6361b2-3adc-4803-9a69-ea650977e647#amplitude_65608b3a</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/2e52c7e6-2062-4d6e-941e-ee60085f05dc#amplitude_65608b3a</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/9dc569ad-2bb0-4901-a85d-d6ac47cf0ce1#amplitude_65608b3a</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/5130bf3a-3038-461e-83f8-5b77f4dde3d1#origin_65608b2f</originID>
+				<type>ML</type>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/c13ce2ce-0096-4444-92d6-2c71482135f2#stationMagnitude_65608b3a">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>1.22982493308</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/339eba0a-8a97-4f74-a729-1e63e3b02c74#amplitude_65608b3a</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/35d38f98-9b75-42de-9917-02cd737f59bc#amplitude_65608b3a</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/7a237220-18df-4b9b-9b5a-30dac05c155a#amplitude_65608b3a</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/5130bf3a-3038-461e-83f8-5b77f4dde3d1#origin_65608b2f</originID>
+				<type>ML</type>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TNG" />
+			</stationMagnitude>
+			<amplitude publicID="smi:igf.edu.pl/018cf127-efad-4730-af0c-f9161fdf02f2#amplitude_65608b3a">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000382069032639</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/c760e565-6963-4d4c-bd00-e439fac720d6#pick_65608b23</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0699999332428</end>
+					<reference>2018-01-14T17:03:22.210Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/0d6361b2-3adc-4803-9a69-ea650977e647#amplitude_65608b3a">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00178866449278</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/edc57ceb-1b2b-4acb-9d5a-7025f2dde1dc#pick_65608b19</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0699999332428</end>
+					<reference>2018-01-14T17:03:21.680Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/2e52c7e6-2062-4d6e-941e-ee60085f05dc#amplitude_65608b3a">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00104124285281</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/edc57ceb-1b2b-4acb-9d5a-7025f2dde1dc#pick_65608b19</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0999999046326</end>
+					<reference>2018-01-14T17:03:21.630Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/339eba0a-8a97-4f74-a729-1e63e3b02c74#amplitude_65608b3a">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000237735424889</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/43020c59-697a-4286-ab38-e18e5c91c4ba#pick_65608b2b</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.140000104904</end>
+					<reference>2018-01-14T17:03:22.020Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/35d38f98-9b75-42de-9917-02cd737f59bc#amplitude_65608b3a">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000124624377349</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/43020c59-697a-4286-ab38-e18e5c91c4ba#pick_65608b2b</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0999999046326</end>
+					<reference>2018-01-14T17:03:22.170Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/639daed9-bd29-4078-b3cc-4e47e41c4656#amplitude_65608b3a">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000297497521387</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/c760e565-6963-4d4c-bd00-e439fac720d6#pick_65608b23</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0499999523163</end>
+					<reference>2018-01-14T17:03:22.250Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/713da214-fb4a-40af-9c2c-ac5fe6cac29b#amplitude_65608b3a">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000398162490455</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/c760e565-6963-4d4c-bd00-e439fac720d6#pick_65608b23</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.039999961853</end>
+					<reference>2018-01-14T17:03:22.160Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/7a237220-18df-4b9b-9b5a-30dac05c155a#amplitude_65608b3a">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000495536776725</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/43020c59-697a-4286-ab38-e18e5c91c4ba#pick_65608b2b</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.160000085831</end>
+					<reference>2018-01-14T17:03:22.040Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/9dc569ad-2bb0-4901-a85d-d6ac47cf0ce1#amplitude_65608b3a">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00148629373871</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/edc57ceb-1b2b-4acb-9d5a-7025f2dde1dc#pick_65608b19</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0500001907349</end>
+					<reference>2018-01-14T17:03:21.840Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<pick publicID="smi:igf.edu.pl/43020c59-697a-4286-ab38-e18e5c91c4ba#pick_65608b2b">
+				<time>
+					<value>2018-01-14T17:03:21.868Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TNG" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/6cc78c75-9e8a-483f-ab50-10ba294ada42#pick_65608b15">
+				<time>
+					<value>2018-01-14T17:03:19.932Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDO" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/95bc6d84-f44e-4efe-ac42-d00a3e132c6f#pick_65608b1e">
+				<time>
+					<value>2018-01-14T17:03:20.164Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TGI" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/c6492405-56c4-4f3c-802d-4826cd504997#pick_65608b27">
+				<time>
+					<value>2018-01-14T17:03:20.101Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TNG" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/c760e565-6963-4d4c-bd00-e439fac720d6#pick_65608b23">
+				<time>
+					<value>2018-01-14T17:03:21.987Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/edc57ceb-1b2b-4acb-9d5a-7025f2dde1dc#pick_65608b19">
+				<time>
+					<value>2018-01-14T17:03:21.558Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/4833e726-38e7-45f9-9f8f-3cfbdc4960a2#event_65608b75">
+			<preferredOriginID>smi:igf.edu.pl/e172dfa3-2216-49ac-aefa-a7b317612731#origin_65608b96</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/e172dfa3-2216-49ac-aefa-a7b317612731#origin_65608b96">
+				<time>
+					<value>2018-01-14T21:25:10.717Z</value>
+					<uncertainty>0.260070472956</uncertainty>
+				</time>
+				<latitude>
+					<value>15.355093956</value>
+				</latitude>
+				<longitude>
+					<value>108.114822388</value>
+				</longitude>
+				<depth>
+					<value>1.43150997162e+003</value>
+					<confidenceLevel>169.017225976</confidenceLevel>
+					<uncertainty>2.4194984436</uncertainty>
+				</depth>
+				<depthType>from location</depthType>
+				<earthModelID>smi:igf.edu.pl/LocSAT_STH2</earthModelID>
+				<methodID>smi:igf.edu.pl/LocSAT</methodID>
+				<quality>
+					<usedPhaseCount>6</usedPhaseCount>
+					<usedStationCount>3</usedStationCount>
+				</quality>
+				<originUncertainty>
+					<azimuthMaxHorizontalUncertainty>112.40814209</azimuthMaxHorizontalUncertainty>
+					<horizontalUncertainty>1411.35334969</horizontalUncertainty>
+					<maxHorizontalUncertainty>1411.35334969</maxHorizontalUncertainty>
+					<minHorizontalUncertainty>467.872768641</minHorizontalUncertainty>
+					<preferredDescription>uncertainty ellipse</preferredDescription>
+				</originUncertainty>
+				<arrival publicID="smi:igf.edu.pl/f768c7c3-6c28-4093-884a-413390e498bf#arrival_65608b95">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/181a8d9c-a923-4f9f-8010-4fd81d5640a3#pick_65608b7b</pickID>
+					<azimuth>194.566238403</azimuth>
+					<distance>0.114960983396</distance>
+					<timeResidual>0.0254173278809</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/e599d0f2-0580-4930-a637-9d71e3eb87a1#arrival_65608b95">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/20f8c31c-7f23-4ecb-80d5-66fde8b734f0#pick_65608b84</pickID>
+					<azimuth>43.1438674927</azimuth>
+					<distance>0.125491693616</distance>
+					<timeResidual>0.00122594833374</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/3f9302e6-6760-4422-9b78-c79ddcb79431#arrival_65608b95">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/68692e1f-7889-48e2-b908-41bd2c3267e7#pick_65608b7e</pickID>
+					<azimuth>152.851272583</azimuth>
+					<distance>0.128599748015</distance>
+					<timeResidual>-0.0146825313568</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/50a918d5-182f-4cdb-9c3a-ab4ca253fed8#arrival_65608b95">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/9ae87181-97c4-41dc-81bf-7661d752bfde#pick_65608b92</pickID>
+					<azimuth>-3.85209498764e-034</azimuth>
+					<distance>0</distance>
+					<timeResidual>0.0153729915619</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/60c8f261-0d22-4721-80d2-1aae990af2b0#arrival_65608b95">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/9c6a843a-afd7-461d-8edc-092aa77db080#pick_65608b88</pickID>
+					<azimuth>3.70493437967e-031</azimuth>
+					<distance>0</distance>
+					<timeResidual>-0.00076150894165</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/9bf0ba9c-a7cc-44d8-a508-59248a4d1e74#arrival_65608b95">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/a7f5bfa6-807b-4610-87a2-d943a520c2fa#pick_65608b8e</pickID>
+					<azimuth>6.34103256014e-011</azimuth>
+					<distance>7.43239844669e-011</distance>
+					<timeResidual>-0.0266840457916</timeResidual>
+				</arrival>
+			</origin>
+			<magnitude publicID="smi:igf.edu.pl/dbeb80f8-4e86-44c5-aa6d-a281979be564#magnitude_65608ba2">
+				<mag>
+					<value>2.12074058922</value>
+				</mag>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/e172dfa3-2216-49ac-aefa-a7b317612731#origin_65608b96</originID>
+				<stationCount>3</stationCount>
+				<type>ML</type>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/5b938314-dfa5-4a52-ada2-9eff454376b9#stationMagnitude_65608ba2</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/75fb189d-2d3c-4082-809f-4044cc06beff#stationMagnitude_65608ba2</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/dba4db13-25f4-4fc7-be49-027678a9717f#stationMagnitude_65608ba2</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+			</magnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/5b938314-dfa5-4a52-ada2-9eff454376b9#stationMagnitude_65608ba2">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>2.0777486818</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/24f9198c-7fc9-49cb-b77e-707f4afc4391#amplitude_65608ba2</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/d6f16471-1b46-417b-b1c0-63c4474ba304#amplitude_65608ba2</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/e0664f88-0eff-4587-b1c1-34af39af838b#amplitude_65608ba2</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/e172dfa3-2216-49ac-aefa-a7b317612731#origin_65608b96</originID>
+				<type>ML</type>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/75fb189d-2d3c-4082-809f-4044cc06beff#stationMagnitude_65608ba2">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>2.49954997167</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/226bb7c3-bed1-4e5b-b47c-5e97ba324ccc#amplitude_65608ba2</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/5de897df-67a7-4adf-8f1c-112f16b076c3#amplitude_65608ba2</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/fdf2eb0e-e12a-4ff8-9a59-c2820a03e3ab#amplitude_65608ba2</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/e172dfa3-2216-49ac-aefa-a7b317612731#origin_65608b96</originID>
+				<type>ML</type>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dba4db13-25f4-4fc7-be49-027678a9717f#stationMagnitude_65608ba2">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>1.78492311419</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/3d811133-651f-483a-b0ae-263a0257fa34#amplitude_65608ba2</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/9bf3c1ec-1c9c-4679-bb73-57303397587b#amplitude_65608ba2</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/cade4084-4cbc-4c65-a66b-0c4af9640dd8#amplitude_65608ba2</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/e172dfa3-2216-49ac-aefa-a7b317612731#origin_65608b96</originID>
+				<type>ML</type>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TNG" />
+			</stationMagnitude>
+			<amplitude publicID="smi:igf.edu.pl/226bb7c3-bed1-4e5b-b47c-5e97ba324ccc#amplitude_65608ba2">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00859240069985</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/68692e1f-7889-48e2-b908-41bd2c3267e7#pick_65608b7e</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0500001907349</end>
+					<reference>2018-01-14T21:25:14.850Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/24f9198c-7fc9-49cb-b77e-707f4afc4391#amplitude_65608ba2">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00193242589012</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/9c6a843a-afd7-461d-8edc-092aa77db080#pick_65608b88</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.039999961853</end>
+					<reference>2018-01-14T21:25:15.260Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/3d811133-651f-483a-b0ae-263a0257fa34#amplitude_65608ba2">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00122420955449</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/9ae87181-97c4-41dc-81bf-7661d752bfde#pick_65608b92</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.149999856949</end>
+					<reference>2018-01-14T21:25:15.130Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5de897df-67a7-4adf-8f1c-112f16b076c3#amplitude_65608ba2">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00419783731923</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/68692e1f-7889-48e2-b908-41bd2c3267e7#pick_65608b7e</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0999999046326</end>
+					<reference>2018-01-14T21:25:14.730Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/9bf3c1ec-1c9c-4679-bb73-57303397587b#amplitude_65608ba2">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00145666417666</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/9ae87181-97c4-41dc-81bf-7661d752bfde#pick_65608b92</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.25</end>
+					<reference>2018-01-14T21:25:15.110Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/cade4084-4cbc-4c65-a66b-0c4af9640dd8#amplitude_65608ba2">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000658193894196</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/9ae87181-97c4-41dc-81bf-7661d752bfde#pick_65608b92</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.170000076294</end>
+					<reference>2018-01-14T21:25:15.120Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/d6f16471-1b46-417b-b1c0-63c4474ba304#amplitude_65608ba2">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00194133457262</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/9c6a843a-afd7-461d-8edc-092aa77db080#pick_65608b88</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0699999332428</end>
+					<reference>2018-01-14T21:25:15.410Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/e0664f88-0eff-4587-b1c1-34af39af838b#amplitude_65608ba2">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00275450223126</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/9c6a843a-afd7-461d-8edc-092aa77db080#pick_65608b88</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0900001525879</end>
+					<reference>2018-01-14T21:25:15.300Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/fdf2eb0e-e12a-4ff8-9a59-c2820a03e3ab#amplitude_65608ba2">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.00544785428792</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/68692e1f-7889-48e2-b908-41bd2c3267e7#pick_65608b7e</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.100000143051</end>
+					<reference>2018-01-14T21:25:14.850Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<pick publicID="smi:igf.edu.pl/181a8d9c-a923-4f9f-8010-4fd81d5640a3#pick_65608b7b">
+				<time>
+					<value>2018-01-14T21:25:13.028Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDO" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/20f8c31c-7f23-4ecb-80d5-66fde8b734f0#pick_65608b84">
+				<time>
+					<value>2018-01-14T21:25:13.246Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TGI" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/68692e1f-7889-48e2-b908-41bd2c3267e7#pick_65608b7e">
+				<time>
+					<value>2018-01-14T21:25:14.657Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/9ae87181-97c4-41dc-81bf-7661d752bfde#pick_65608b92">
+				<time>
+					<value>2018-01-14T21:25:15.011Z</value>
+				</time>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TNG" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/9c6a843a-afd7-461d-8edc-092aa77db080#pick_65608b88">
+				<time>
+					<value>2018-01-14T21:25:15.091Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TGI" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/a7f5bfa6-807b-4610-87a2-d943a520c2fa#pick_65608b8e">
+				<time>
+					<value>2018-01-14T21:25:13.163Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TNG" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/6b237640-7f06-4bde-85b3-920ca4ffc779#event_65608d5d">
+			<preferredOriginID>smi:igf.edu.pl/0195f993-3e4b-4893-beef-52e15cc6b0c1#origin_65608d80</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/0195f993-3e4b-4893-beef-52e15cc6b0c1#origin_65608d80">
+				<time>
+					<value>2018-01-15T18:16:55.510Z</value>
+					<uncertainty>0.260069787502</uncertainty>
+				</time>
+				<latitude>
+					<value>15.3533496857</value>
+				</latitude>
+				<longitude>
+					<value>108.122459412</value>
+				</longitude>
+				<depth>
+					<value>1.90502667427e+003</value>
+					<confidenceLevel>125.376304979</confidenceLevel>
+					<uncertainty>2.38845205307</uncertainty>
+				</depth>
+				<depthType>from location</depthType>
+				<earthModelID>smi:igf.edu.pl/LocSAT_STH2</earthModelID>
+				<methodID>smi:igf.edu.pl/LocSAT</methodID>
+				<quality>
+					<usedPhaseCount>6</usedPhaseCount>
+					<usedStationCount>3</usedStationCount>
+				</quality>
+				<originUncertainty>
+					<azimuthMaxHorizontalUncertainty>112.111282349</azimuthMaxHorizontalUncertainty>
+					<horizontalUncertainty>1402.81164646</horizontalUncertainty>
+					<maxHorizontalUncertainty>1402.81164646</maxHorizontalUncertainty>
+					<minHorizontalUncertainty>465.679973364</minHorizontalUncertainty>
+					<preferredDescription>uncertainty ellipse</preferredDescription>
+				</originUncertainty>
+				<arrival publicID="smi:igf.edu.pl/c8f4cdb0-a2b6-408d-b44c-58f6f15e1fe6#arrival_65608d7f">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/160f7516-b965-42af-81a4-1ef8db7bdb63#pick_65608d63</pickID>
+					<azimuth>198.328552246</azimuth>
+					<distance>0.115384064615</distance>
+					<timeResidual>0.00680661201477</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/0be730a8-1558-4ada-a53c-8db750f961a5#arrival_65608d7f">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/1961d1cb-456c-42b8-bb2d-9f9ba76ee5f4#pick_65608d7d</pickID>
+					<azimuth>-9.93509017405e-032</azimuth>
+					<distance>0</distance>
+					<timeResidual>0.0084068775177</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/b3abd7f6-9225-4f5c-a469-6fde256e7c07#arrival_65608d7f">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/1eca4921-8827-4923-8a16-07da42782950#pick_65608d78</pickID>
+					<azimuth>3.33188684976e-012</azimuth>
+					<distance>3.14709998513e-012</distance>
+					<timeResidual>-0.0146224498749</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/a8096530-64aa-4cec-80eb-93d9e0676573#arrival_65608d7f">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/5baded67-da1e-44da-9e6d-22e640ab3017#pick_65608d73</pickID>
+					<azimuth>0</azimuth>
+					<distance>0</distance>
+					<timeResidual>-0.00454592704773</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/6e1dc5ac-91e5-485f-803d-e45021614b64#arrival_65608d7f">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/6d292c0c-2c4d-441a-b848-cc123669d848#pick_65608d6e</pickID>
+					<azimuth>40.0601005554</azimuth>
+					<distance>0.121895268559</distance>
+					<timeResidual>0.0077817440033</timeResidual>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/474685ce-f435-4be0-869c-1d8017f3648c#arrival_65608d7f">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/95c7fa41-5804-4b2b-b6bc-8944763886a1#pick_65608d68</pickID>
+					<azimuth>155.52166748</azimuth>
+					<distance>0.123828984797</distance>
+					<timeResidual>-0.00392031669617</timeResidual>
+				</arrival>
+			</origin>
+			<magnitude publicID="smi:igf.edu.pl/ec0becd9-9398-4d18-999a-6d5c52aa2b04#magnitude_65608d8b">
+				<mag>
+					<value>0.599323375454</value>
+				</mag>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/0195f993-3e4b-4893-beef-52e15cc6b0c1#origin_65608d80</originID>
+				<stationCount>3</stationCount>
+				<type>ML</type>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/59d35549-cbbc-4702-91fd-8fcd50e6adeb#stationMagnitude_65608d8b</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/681d9710-0e69-4fd8-8ea9-f3e594874c77#stationMagnitude_65608d8b</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+				<stationMagnitudeContribution>
+					<stationMagnitudeID>smi:igf.edu.pl/cc4916b9-fd00-4dd4-82f4-8d6e1d4c7c36#stationMagnitude_65608d8b</stationMagnitudeID>
+					<weight>1</weight>
+				</stationMagnitudeContribution>
+			</magnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/59d35549-cbbc-4702-91fd-8fcd50e6adeb#stationMagnitude_65608d8b">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>0.895865413651</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/1c8adf35-a22f-44ca-923d-69214868a8e6#amplitude_65608d8b</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/70ef4ec1-c96c-410f-bebb-a88b29c57eaa#amplitude_65608d8b</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/ea0538f9-044f-49c8-ad27-dea28384bcbf#amplitude_65608d8b</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/0195f993-3e4b-4893-beef-52e15cc6b0c1#origin_65608d80</originID>
+				<type>ML</type>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/681d9710-0e69-4fd8-8ea9-f3e594874c77#stationMagnitude_65608d8b">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>0.464742611569</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/0d80bce4-19a9-4322-b141-c68714d84518#amplitude_65608d8b</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/1c628af8-dffc-46a8-96d4-3943e17437ed#amplitude_65608d8b</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/fa1c0f7c-c8f8-4960-8310-031014721b25#amplitude_65608d8b</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/0195f993-3e4b-4893-beef-52e15cc6b0c1#origin_65608d80</originID>
+				<type>ML</type>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TNG" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/cc4916b9-fd00-4dd4-82f4-8d6e1d4c7c36#stationMagnitude_65608d8b">
+				<comment>
+					<text>SWIP5 plugin: MLPlugin v. 1</text>
+				</comment>
+				<comment>
+					<text>Amplitude method: Squere root of squeres</text>
+				</comment>
+				<comment>
+					<text>Magnitude method: Richter 1958 - correction table </text>
+				</comment>
+				<mag>
+					<value>0.437362101142</value>
+				</mag>
+				<amplitudeID>smi:igf.edu.pl/12c24878-b2e5-42c8-91ca-47a886f59b8a#amplitude_65608d8b</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/4b4e1d53-b0db-4853-95a4-02ec6a4ca1f1#amplitude_65608d8b</amplitudeID>
+				<amplitudeID>smi:igf.edu.pl/f85d1aa4-dedf-4120-8ff1-da709cc6692c#amplitude_65608d8b</amplitudeID>
+				<methodID>smi:igf.edu.pl/Richter#WASimulation</methodID>
+				<originID>smi:igf.edu.pl/0195f993-3e4b-4893-beef-52e15cc6b0c1#origin_65608d80</originID>
+				<type>ML</type>
+				<waveformID channelCode="HHN" networkCode="VN" stationCode="TGI" />
+			</stationMagnitude>
+			<amplitude publicID="smi:igf.edu.pl/0d80bce4-19a9-4322-b141-c68714d84518#amplitude_65608d8b">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>5.26612893736e-005</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/1961d1cb-456c-42b8-bb2d-9f9ba76ee5f4#pick_65608d7d</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0499999523163</end>
+					<reference>2018-01-15T18:16:59.780Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/12c24878-b2e5-42c8-91ca-47a886f59b8a#amplitude_65608d8b">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>4.42990822194e-005</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/5baded67-da1e-44da-9e6d-22e640ab3017#pick_65608d73</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0499999523163</end>
+					<reference>2018-01-15T18:16:59.820Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHN" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/1c628af8-dffc-46a8-96d4-3943e17437ed#amplitude_65608d8b">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>1.13723817776e-005</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/1961d1cb-456c-42b8-bb2d-9f9ba76ee5f4#pick_65608d7d</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0600001811981</end>
+					<reference>2018-01-15T18:16:59.820Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/1c8adf35-a22f-44ca-923d-69214868a8e6#amplitude_65608d8b">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000194369669771</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/95c7fa41-5804-4b2b-b6bc-8944763886a1#pick_65608d68</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0899999141693</end>
+					<reference>2018-01-15T18:16:59.670Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/4b4e1d53-b0db-4853-95a4-02ec6a4ca1f1#amplitude_65608d8b">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>3.28759924741e-005</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/5baded67-da1e-44da-9e6d-22e640ab3017#pick_65608d73</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0300002098083</end>
+					<reference>2018-01-15T18:16:59.850Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHN" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/70ef4ec1-c96c-410f-bebb-a88b29c57eaa#amplitude_65608d8b">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>0.000170631639776</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/95c7fa41-5804-4b2b-b6bc-8944763886a1#pick_65608d68</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0900001525879</end>
+					<reference>2018-01-15T18:16:59.800Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/ea0538f9-044f-49c8-ad27-dea28384bcbf#amplitude_65608d8b">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>8.63729364937e-005</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/95c7fa41-5804-4b2b-b6bc-8944763886a1#pick_65608d68</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.109999895096</end>
+					<reference>2018-01-15T18:16:59.630Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/f85d1aa4-dedf-4120-8ff1-da709cc6692c#amplitude_65608d8b">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>7.21354590496e-005</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/5baded67-da1e-44da-9e6d-22e640ab3017#pick_65608d73</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0499999523163</end>
+					<reference>2018-01-15T18:16:59.880Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHN" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/fa1c0f7c-c8f8-4960-8310-031014721b25#amplitude_65608d8b">
+				<filterID>smi:igf.edu.pl/WOOD-ANDERSON_SIMULATION</filterID>
+				<genericAmplitude>
+					<value>8.1662008597e-005</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/1961d1cb-456c-42b8-bb2d-9f9ba76ee5f4#pick_65608d7d</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0400002002716</end>
+					<reference>2018-01-15T18:16:59.840Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TNG" />
+			</amplitude>
+			<pick publicID="smi:igf.edu.pl/160f7516-b965-42af-81a4-1ef8db7bdb63#pick_65608d63">
+				<time>
+					<value>2018-01-15T18:16:57.849Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDO" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/1961d1cb-456c-42b8-bb2d-9f9ba76ee5f4#pick_65608d7d">
+				<time>
+					<value>2018-01-15T18:16:59.750Z</value>
+				</time>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TNG" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/1eca4921-8827-4923-8a16-07da42782950#pick_65608d78">
+				<time>
+					<value>2018-01-15T18:16:57.941Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TNG" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/5baded67-da1e-44da-9e6d-22e640ab3017#pick_65608d73">
+				<time>
+					<value>2018-01-15T18:16:59.795Z</value>
+				</time>
+				<waveformID channelCode="HHN" networkCode="VN" stationCode="TGI" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/6d292c0c-2c4d-441a-b848-cc123669d848#pick_65608d6e">
+				<time>
+					<value>2018-01-15T18:16:57.997Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TGI" />
+				<onset>emergent</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/95c7fa41-5804-4b2b-b6bc-8944763886a1#pick_65608d68">
+				<time>
+					<value>2018-01-15T18:16:59.542Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDO" />
+				<onset>emergent</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/SWIDB#Event964">
+			<origin publicID="smi:igf.edu.pl/SWIDB#Origin964">
+				<time>
+					<value>2013-09-03T00:08:20.066Z</value>
+				</time>
+				<latitude>
+					<value>15.371456</value>
+				</latitude>
+				<longitude>
+					<value>108.118423</value>
+				</longitude>
+				<depth>
+					<value>3.066646814</value>
+				</depth>
+				<depthType>from location</depthType>
+			</origin>
+			<origin publicID="smi:igf.edu.pl/5a672f89/07f9c928-ab82-41d2-a962-6d9aecdae25b#origin">
+				<time>
+					<value>2013-09-03T00:08:20.189Z</value>
+				</time>
+				<latitude>
+					<value>15.3697936483</value>
+				</latitude>
+				<longitude>
+					<value>108.120171324</value>
+				</longitude>
+				<depth>
+					<value>4.99766860168</value>
+				</depth>
+				<depthType>operator assigned</depthType>
+				<earthModelID></earthModelID>
+				<methodID>smi:igf.edu.pl/SWIP5#HypoDD V1 Grid Search</methodID>
+				<region>Song Tranh 2</region>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/47de98c6-0111-4850-ad2d-8400a5c9caec#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59903</pickID>
+					<azimuth>130.281760353</azimuth>
+					<distance>7.81362322437</distance>
+					<takeoffAngle>
+						<value>128.189663281</value>
+					</takeoffAngle>
+					<timeResidual>-0.161148873732</timeResidual>
+					<timeWeight>1</timeWeight>
+					<incidenceAngle>
+						<value>39.7494750042</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/5009e93c-d60b-4ef4-8c0c-11822bbdf82d#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59902</pickID>
+					<azimuth>130.281760353</azimuth>
+					<distance>7.81371149227</distance>
+					<takeoffAngle>
+						<value>128.186804493</value>
+					</takeoffAngle>
+					<timeResidual>-0.236307074178</timeResidual>
+					<timeWeight>2</timeWeight>
+					<incidenceAngle>
+						<value>39.6785973031</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/a842866a-9cb4-4a50-8d50-51736ea6a17a#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59906</pickID>
+					<azimuth>-135.811960769</azimuth>
+					<distance>15.8373023961</distance>
+					<takeoffAngle>
+						<value>107.288600057</value>
+					</takeoffAngle>
+					<timeResidual>0.117223390901</timeResidual>
+					<timeWeight>1</timeWeight>
+					<incidenceAngle>
+						<value>50.9687559057</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/b4f83bf4-6b1e-4d53-8696-506163591167#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59907</pickID>
+					<azimuth>-135.811960769</azimuth>
+					<distance>15.8374926462</distance>
+					<takeoffAngle>
+						<value>107.287428751</value>
+					</takeoffAngle>
+					<timeResidual>0.297678048938</timeResidual>
+					<timeWeight>2</timeWeight>
+					<incidenceAngle>
+						<value>50.8613811876</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/47d37657-47eb-4bf3-aca0-fdd73f39ca2a#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59908</pickID>
+					<azimuth>-92.5989129409</azimuth>
+					<distance>8.91988055261</distance>
+					<takeoffAngle>
+						<value>122.073718716</value>
+					</takeoffAngle>
+					<timeResidual>-0.085167239587</timeResidual>
+					<timeWeight>1</timeWeight>
+					<incidenceAngle>
+						<value>43.5812220286</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/e464f930-4409-4d8f-9119-e5570add8c83#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59909</pickID>
+					<azimuth>-92.5989129409</azimuth>
+					<distance>8.91996113687</distance>
+					<takeoffAngle>
+						<value>122.07193338</value>
+					</takeoffAngle>
+					<timeResidual>-0.178775063657</timeResidual>
+					<timeWeight>2</timeWeight>
+					<incidenceAngle>
+						<value>43.4990593636</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/3a0b73bd-c160-4c74-8b20-e10a8f7171af#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59910</pickID>
+					<azimuth>-47.7281375493</azimuth>
+					<distance>21.3348700343</distance>
+					<takeoffAngle>
+						<value>102.850552268</value>
+					</takeoffAngle>
+					<timeResidual>0.0694186414336</timeResidual>
+					<timeWeight>1</timeWeight>
+					<incidenceAngle>
+						<value>52.48392462</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/ed745664-d9ba-4325-af98-f3b51310ac65#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59911</pickID>
+					<azimuth>-47.7281375493</azimuth>
+					<distance>21.3352558782</distance>
+					<takeoffAngle>
+						<value>102.849249774</value>
+					</takeoffAngle>
+					<timeResidual>0.0327609236479</timeResidual>
+					<timeWeight>2</timeWeight>
+					<incidenceAngle>
+						<value>52.3704757499</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/f312183c-8438-4da2-876e-608ff9aa6e97#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59912</pickID>
+					<azimuth>-164.831842781</azimuth>
+					<distance>15.3170039833</distance>
+					<takeoffAngle>
+						<value>107.908027573</value>
+					</takeoffAngle>
+					<timeResidual>0.00397665378427</timeResidual>
+					<timeWeight>1</timeWeight>
+					<incidenceAngle>
+						<value>50.7274397722</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/33f0aac2-ff89-4b4c-961e-349e3a314ee0#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59913</pickID>
+					<azimuth>-164.831842781</azimuth>
+					<distance>15.3171901171</distance>
+					<takeoffAngle>
+						<value>107.906796554</value>
+					</takeoffAngle>
+					<timeResidual>0.0309923080534</timeResidual>
+					<timeWeight>2</timeWeight>
+					<incidenceAngle>
+						<value>50.6210231418</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/2ab492f3-a390-4696-b5e8-ea3a45589686#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59914</pickID>
+					<azimuth>-0.0852101940368</azimuth>
+					<distance>14.7241421652</distance>
+					<takeoffAngle>
+						<value>108.413070837</value>
+					</takeoffAngle>
+					<timeResidual>0.210870144456</timeResidual>
+					<timeWeight>1</timeWeight>
+					<incidenceAngle>
+						<value>50.5255650695</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/40431c11-77fe-4146-beec-fea386b092fc#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59915</pickID>
+					<azimuth>-0.0852101940368</azimuth>
+					<distance>14.7242250525</distance>
+					<takeoffAngle>
+						<value>108.412490536</value>
+					</takeoffAngle>
+					<timeResidual>0.449837631776</timeResidual>
+					<timeWeight>2</timeWeight>
+					<incidenceAngle>
+						<value>50.4196610915</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/7069f3ab-36aa-4942-be5d-b46b52a2cd96#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59916</pickID>
+					<azimuth>-179.985720889</azimuth>
+					<distance>25.0454443641</distance>
+					<takeoffAngle>
+						<value>100.750114456</value>
+					</takeoffAngle>
+					<timeResidual>0.118906615261</timeResidual>
+					<timeWeight>1</timeWeight>
+					<incidenceAngle>
+						<value>53.0615335421</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/7a55cb27-e4e1-403a-960e-b8f7b71f8e8e#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59917</pickID>
+					<azimuth>-179.985720889</azimuth>
+					<distance>25.0456816804</distance>
+					<takeoffAngle>
+						<value>100.749554981</value>
+					</takeoffAngle>
+					<timeResidual>0.359724275031</timeResidual>
+					<timeWeight>2</timeWeight>
+					<incidenceAngle>
+						<value>52.945438895</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/4b341437-a7c9-4d4d-8c83-be58229d0649#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59918</pickID>
+					<azimuth>93.788044623</azimuth>
+					<distance>22.8133632145</distance>
+					<takeoffAngle>
+						<value>101.89735517</value>
+					</takeoffAngle>
+					<timeResidual>0.0251135649799</timeResidual>
+					<timeWeight>1</timeWeight>
+					<incidenceAngle>
+						<value>52.7576534763</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/04d5706f-9165-4fe3-8949-36629c17bb0b#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59919</pickID>
+					<azimuth>93.788044623</azimuth>
+					<distance>22.8136655495</distance>
+					<takeoffAngle>
+						<value>101.89648115</value>
+					</takeoffAngle>
+					<timeResidual>0.192049877679</timeResidual>
+					<timeWeight>2</timeWeight>
+					<incidenceAngle>
+						<value>52.6429304528</value>
+					</incidenceAngle>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a77a/1b5764d2-5419-48a1-80b6-0aea0f015cc9#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/5a69a713/a74e2f93-aad2-42fe-a3c0-41d3bb225b3a#pick</pickID>
+					<azimuth>157.488865155</azimuth>
+					<distance>16.2432778378</distance>
+					<takeoffAngle>
+						<value>106.585811549</value>
+					</takeoffAngle>
+					<timeResidual>-0.0707397127326</timeResidual>
+					<timeWeight>1</timeWeight>
+					<incidenceAngle>
+						<value>51.2340123217</value>
+					</incidenceAngle>
+				</arrival>
+			</origin>
+			<origin publicID="smi:igf.edu.pl/5a69a761/7179919d-80cc-467c-b7e6-e42649dc6c0c#origin">
+				<time>
+					<value>2013-09-03T00:08:20.391Z</value>
+					<confidenceLevel>0.0742357745767</confidenceLevel>
+				</time>
+				<latitude>
+					<value>15.3723106384</value>
+				</latitude>
+				<longitude>
+					<value>108.119888306</value>
+				</longitude>
+				<depth>
+					<value>0.376942515373</value>
+					<confidenceLevel>0.409205287695</confidenceLevel>
+				</depth>
+				<depthType>from location</depthType>
+				<quality>
+					<usedPhaseCount>18</usedPhaseCount>
+					<usedStationCount>14</usedStationCount>
+				</quality>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/3e233b78-aff1-47a6-8b3b-c19653a713f5#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59902</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/489d786b-3124-4b53-838e-85931716cad0#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59903</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/4d33caa3-6a80-45b9-a5cc-852b0d2f0691#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59905</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/b9c3f472-3213-4862-9531-e5cfa0b7793c#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59906</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/f1a1ca98-9c43-42a5-ac81-4563a137e8c5#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59907</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/27429fbb-769c-4e20-9ce9-024b292756e1#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59908</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/3b0a2496-d500-491e-9aad-197e8597ad27#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59909</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/110d2e05-5d8a-42aa-a284-8f7d13956a21#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59910</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/2a0fb451-b330-4f5f-ac77-da077a3dcf4b#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59911</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/2ca030f4-0118-4e51-9528-bafe42ea9995#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59912</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/585bf83d-5f8a-44bc-820a-d939999774d4#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59913</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/b20fdebc-920b-4ea9-a963-4ae1df387ab5#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59914</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/fcefea88-2032-465d-8379-4529751f5d67#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59915</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/0ed30b99-a727-434f-9d4c-213cf4082689#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59916</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/e131459b-eb5b-49c7-ada0-058d5ffcd22d#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59917</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/a594377f-3cf4-460d-8d5b-ff1520aa3fd5#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59918</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/1a51bc96-8d57-4acf-aa00-fdc74bce5989#arrival">
+					<phase>Sg</phase>
+					<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59919</pickID>
+				</arrival>
+				<arrival publicID="smi:igf.edu.pl/5a69a75b/eeb9208b-7da0-4718-82b0-11c73c0f79c4#arrival">
+					<phase>Pg</phase>
+					<pickID>smi:igf.edu.pl/5a69a713/a74e2f93-aad2-42fe-a3c0-41d3bb225b3a#pick</pickID>
+				</arrival>
+			</origin>
+			<focalMechanism publicID="smi:igf.edu.pl/SWIDB#FocalMechanism964">
+				<nodalPlanes>
+					<nodalPlane1>
+						<dip>
+							<value>48.9</value>
+						</dip>
+						<rake>
+							<value>-87.7</value>
+						</rake>
+						<strike>
+							<value>340.9</value>
+						</strike>
+					</nodalPlane1>
+					<nodalPlane2>
+						<dip>
+							<value>41.1</value>
+						</dip>
+						<rake>
+							<value>-92.6</value>
+						</rake>
+						<strike>
+							<value>157.4</value>
+						</strike>
+					</nodalPlane2>
+				</nodalPlanes>
+				<momentTensor publicID="smi:igf.edu.pl/SWIDB#MomentTensor964">
+					<clvd>-24</clvd>
+					<derivedOriginID></derivedOriginID>
+					<doubleCouple>73.1</doubleCouple>
+					<inversionType>general</inversionType>
+					<iso>-2.9</iso>
+					<scalarMoment>
+						<value>5.85e+013</value>
+					</scalarMoment>
+					<tensor>
+						<Mpp>
+							<value>4.65e+013</value>
+						</Mpp>
+						<Mrp>
+							<value>8.18e+012</value>
+						</Mrp>
+						<Mrr>
+							<value>-6.38e+013</value>
+						</Mrr>
+						<Mrt>
+							<value>822000000000</value>
+						</Mrt>
+						<Mtp>
+							<value>1.56e+013</value>
+						</Mtp>
+						<Mtt>
+							<value>1.18e+013</value>
+						</Mtt>
+					</tensor>
+					<variance>1926136.02843</variance>
+				</momentTensor>
+			</focalMechanism>
+			<focalMechanism publicID="smi:igf.edu.pl/5abb8662/f115b149-b604-4d18-ac1b-965dae5e8b61#focalMechanism">
+				<methodID>smi:igf.edu.pl/Wiejacz1992Kwiateketal2016#fm</methodID>
+				<misfit>0.232249303805</misfit>
+				<nodalPlanes>
+					<nodalPlane1>
+						<dip>
+							<value>41.7244994737</value>
+						</dip>
+						<rake>
+							<value>-94.5333830503</value>
+						</rake>
+						<strike>
+							<value>160.354906685</value>
+						</strike>
+					</nodalPlane1>
+					<nodalPlane2>
+						<dip>
+							<value>48.4775469648</value>
+						</dip>
+						<rake>
+							<value>-84.8988487641</value>
+						</rake>
+						<strike>
+							<value>333.534426307</value>
+						</strike>
+					</nodalPlane2>
+				</nodalPlanes>
+				<principalAxes>
+					<nAxis>
+						<azimuth>
+							<value>336.543185471</value>
+						</azimuth>
+						<length>
+							<value>1</value>
+						</length>
+						<plunge>
+							<value>3.39256747876</value>
+						</plunge>
+					</nAxis>
+					<pAxis>
+						<azimuth>
+							<value>201.55834197</value>
+						</azimuth>
+						<length>
+							<value>1</value>
+						</length>
+						<plunge>
+							<value>85.2065141426</value>
+						</plunge>
+					</pAxis>
+					<tAxis>
+						<azimuth>
+							<value>66.7439350962</value>
+						</azimuth>
+						<length>
+							<value>1</value>
+						</length>
+						<plunge>
+							<value>3.3824788531</value>
+						</plunge>
+					</tAxis>
+				</principalAxes>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDVB" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TLE" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TBVB" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="PHI" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TDO" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TLVB" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TMVB" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TNVB" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TGI" />
+				<momentTensor publicID="smi:igf.edu.pl/5abb8662/6217a822-27fc-498c-946b-a8055e784234#momentTensor">
+					<clvd>4.86111128949</clvd>
+					<derivedOriginID>smi:igf.edu.pl/5a672f89/07f9c928-ab82-41d2-a962-6d9aecdae25b#origin</derivedOriginID>
+					<doubleCouple>88.9893991926</doubleCouple>
+					<inversionType>general</inversionType>
+					<iso>6.1494895179</iso>
+					<momentMagnitudeID>smi:igf.edu.pl/5abb8662/2edf96d8-280c-4b6e-99df-af516ed0d233#magnitude</momentMagnitudeID>
+					<scalarMoment>
+						<value>8.74223555206e+014</value>
+						<uncertainty>5.45517311651e+013</uncertainty>
+					</scalarMoment>
+					<tensor>
+						<Mpp>
+							<value>7.95779532727e+014</value>
+						</Mpp>
+						<Mrp>
+							<value>7.46001176481e+013</value>
+						</Mrp>
+						<Mrr>
+							<value>-7.9287252871e+014</value>
+						</Mrr>
+						<Mrt>
+							<value>8.58663923379e+013</value>
+						</Mrt>
+						<Mtp>
+							<value>3.2530607948e+014</value>
+						</Mtp>
+						<Mtt>
+							<value>1.70579063778e+014</value>
+						</Mtt>
+					</tensor>
+				</momentTensor>
+			</focalMechanism>
+			<focalMechanism publicID="smi:igf.edu.pl/5abb8662/0c5371ce-7b8c-45c4-bc26-f06ed8a34b4d#focalMechanism">
+				<methodID>smi:Wiejacz, 1992/Kwiatek et al., 2016#fm</methodID>
+				<misfit>0.242994581984</misfit>
+				<nodalPlanes>
+					<nodalPlane1>
+						<dip>
+							<value>41.1850615986</value>
+						</dip>
+						<rake>
+							<value>-97.2536000714</value>
+						</rake>
+						<strike>
+							<value>164.895472313</value>
+						</strike>
+					</nodalPlane1>
+					<nodalPlane2>
+						<dip>
+							<value>49.3460454687</value>
+						</dip>
+						<rake>
+							<value>-81.6356660547</value>
+						</rake>
+						<strike>
+							<value>333.840966592</value>
+						</strike>
+					</nodalPlane2>
+				</nodalPlanes>
+				<principalAxes>
+					<nAxis>
+						<azimuth>
+							<value>338.581171456</value>
+						</azimuth>
+						<length>
+							<value>1</value>
+						</length>
+						<plunge>
+							<value>5.49674270737</value>
+						</plunge>
+					</nAxis>
+					<pAxis>
+						<azimuth>
+							<value>195.51271339</value>
+						</azimuth>
+						<length>
+							<value>1</value>
+						</length>
+						<plunge>
+							<value>83.1353801229</value>
+						</plunge>
+					</pAxis>
+					<tAxis>
+						<azimuth>
+							<value>68.9763405005</value>
+						</azimuth>
+						<length>
+							<value>1</value>
+						</length>
+						<plunge>
+							<value>4.09939242481</value>
+						</plunge>
+					</tAxis>
+				</principalAxes>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDVB" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TLE" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TBVB" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="PHI" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TDO" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TLVB" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TMVB" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TNVB" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TGI" />
+				<momentTensor publicID="smi:igf.edu.pl/5abb8662/d0143f04-de88-419a-b93e-8257c0b31227#momentTensor">
+					<clvd>-13.5191606036</clvd>
+					<derivedOriginID>smi:igf.edu.pl/5a672f89/07f9c928-ab82-41d2-a962-6d9aecdae25b#origin</derivedOriginID>
+					<doubleCouple>86.4808393964</doubleCouple>
+					<inversionType>zero trace</inversionType>
+					<iso>0</iso>
+					<momentMagnitudeID>smi:igf.edu.pl/5abb8662/5000dfde-580f-427c-aeb9-abbe4f4f4752#magnitude</momentMagnitudeID>
+					<scalarMoment>
+						<value>9.45501800545e+014</value>
+						<uncertainty>5.18297234738e+013</uncertainty>
+					</scalarMoment>
+					<tensor>
+						<Mpp>
+							<value>8.27622915724e+014</value>
+						</Mpp>
+						<Mrp>
+							<value>9.27270097114e+013</value>
+						</Mrp>
+						<Mrr>
+							<value>-9.94099710006e+014</value>
+						</Mrr>
+						<Mrt>
+							<value>1.46221040672e+014</value>
+						</Mrt>
+						<Mtp>
+							<value>2.88181775136e+014</value>
+						</Mtp>
+						<Mtt>
+							<value>1.66476794282e+014</value>
+						</Mtt>
+					</tensor>
+				</momentTensor>
+			</focalMechanism>
+			<focalMechanism publicID="smi:igf.edu.pl/5abb8662/c0ac0360-4636-44b8-ab2a-9494bf489733#focalMechanism">
+				<methodID>smi:Wiejacz, 1992/Kwiatek et al., 2016#fm</methodID>
+				<misfit>0.255465239724</misfit>
+				<nodalPlanes>
+					<nodalPlane1>
+						<dip>
+							<value>41.1869206977</value>
+						</dip>
+						<rake>
+							<value>-97.2572422485</value>
+						</rake>
+						<strike>
+							<value>164.326365206</value>
+						</strike>
+					</nodalPlane1>
+					<nodalPlane2>
+						<dip>
+							<value>49.3446911634</value>
+						</dip>
+						<rake>
+							<value>-81.6319423079</value>
+						</rake>
+						<strike>
+							<value>333.266684211</value>
+						</strike>
+					</nodalPlane2>
+				</nodalPlanes>
+				<principalAxes>
+					<nAxis>
+						<azimuth>
+							<value>338.009413844</value>
+						</azimuth>
+						<length>
+							<value>1</value>
+						</length>
+						<plunge>
+							<value>5.4993844441</value>
+						</plunge>
+					</nAxis>
+					<pAxis>
+						<azimuth>
+							<value>194.917144585</value>
+						</azimuth>
+						<length>
+							<value>1</value>
+						</length>
+						<plunge>
+							<value>83.1342160485</value>
+						</plunge>
+					</pAxis>
+					<tAxis>
+						<azimuth>
+							<value>68.4046195031</value>
+						</azimuth>
+						<length>
+							<value>1</value>
+						</length>
+						<plunge>
+							<value>4.09779617039</value>
+						</plunge>
+					</tAxis>
+				</principalAxes>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDVB" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TLE" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TBVB" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="PHI" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TDO" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TLVB" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TMVB" />
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TNVB" />
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TGI" />
+				<momentTensor publicID="smi:igf.edu.pl/5abb8662/508ef29b-c1e5-441e-b216-783b522b6835#momentTensor">
+					<clvd>0</clvd>
+					<derivedOriginID>smi:igf.edu.pl/5a672f89/07f9c928-ab82-41d2-a962-6d9aecdae25b#origin</derivedOriginID>
+					<doubleCouple>100</doubleCouple>
+					<inversionType>double couple</inversionType>
+					<iso>0</iso>
+					<momentMagnitudeID>smi:igf.edu.pl/5abb8662/77a35af9-dbc9-4ef0-a300-e12742ecb311#magnitude</momentMagnitudeID>
+					<scalarMoment>
+						<value>9.45501800545e+014</value>
+						<uncertainty>5.66672356059e+013</uncertainty>
+					</scalarMoment>
+					<tensor>
+						<Mpp>
+							<value>8.12354179825e+014</value>
+						</Mpp>
+						<Mrp>
+							<value>9.15489622346e+013</value>
+						</Mrp>
+						<Mrr>
+							<value>-9.2716175247e+014</value>
+						</Mrr>
+						<Mrt>
+							<value>1.33240206491e+014</value>
+						</Mrt>
+						<Mtp>
+							<value>3.18551386739e+014</value>
+						</Mtp>
+						<Mtt>
+							<value>1.14807572645e+014</value>
+						</Mtt>
+					</tensor>
+				</momentTensor>
+			</focalMechanism>
+			<magnitude publicID="smi:igf.edu.pl/5abb8662/2edf96d8-280c-4b6e-99df-af516ed0d233#magnitude">
+				<mag>
+					<value>3.93108166934</value>
+				</mag>
+				<methodID>smi:MomentTensor/ddd</methodID>
+				<type>Mw</type>
+			</magnitude>
+			<magnitude publicID="smi:igf.edu.pl/5abb8662/5000dfde-580f-427c-aeb9-abbe4f4f4752#magnitude">
+				<mag>
+					<value>3.95377490681</value>
+				</mag>
+				<methodID>smi:MomentTensor/ddd</methodID>
+				<type>Mw</type>
+			</magnitude>
+			<magnitude publicID="smi:igf.edu.pl/5abb8662/77a35af9-dbc9-4ef0-a300-e12742ecb311#magnitude">
+				<mag>
+					<value>3.95377490681</value>
+				</mag>
+				<methodID>smi:MomentTensor/ddd</methodID>
+				<type>Mw</type>
+			</magnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31503">
+				<mag>
+					<value>3.50883</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TDVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31504">
+				<mag>
+					<value>3.1</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>Mw</type>
+				<waveformID networkCode="VN" stationCode="TDVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31509">
+				<mag>
+					<value>3.02206</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TGI" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31510">
+				<mag>
+					<value>3.3</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>Mw</type>
+				<waveformID networkCode="VN" stationCode="TGI" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31515">
+				<mag>
+					<value>3.34713</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TLE" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31516">
+				<mag>
+					<value>3.6</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>Mw</type>
+				<waveformID networkCode="VN" stationCode="TLE" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31521">
+				<mag>
+					<value>3.70732</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TBVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31522">
+				<mag>
+					<value>3.4</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>Mw</type>
+				<waveformID networkCode="VN" stationCode="TBVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31527">
+				<mag>
+					<value>2.64372</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="PHI" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31528">
+				<mag>
+					<value>3.3</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>Mw</type>
+				<waveformID networkCode="VN" stationCode="PHI" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31533">
+				<mag>
+					<value>3.42064</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TDO" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31534">
+				<mag>
+					<value>3.4</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>Mw</type>
+				<waveformID networkCode="VN" stationCode="TDO" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31539">
+				<mag>
+					<value>3.12162</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TLVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31540">
+				<mag>
+					<value>3.4</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>Mw</type>
+				<waveformID networkCode="VN" stationCode="TLVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31545">
+				<mag>
+					<value>3.10785</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TMVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31546">
+				<mag>
+					<value>3.5</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>Mw</type>
+				<waveformID networkCode="VN" stationCode="TMVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31551">
+				<mag>
+					<value>3.46074</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>ML</type>
+				<waveformID networkCode="VN" stationCode="TNVB" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#StaMagnitude31552">
+				<mag>
+					<value>3.5</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB#Origin964</originID>
+				<type>Mw</type>
+				<waveformID networkCode="VN" stationCode="TNVB" />
+			</stationMagnitude>
+			<amplitude publicID="smi:igf.edu.pl/5a69faab/ee290a4d-faf6-4e6e-a4ce-d392167523e0#amplitude">
+				<genericAmplitude>
+					<value>-1.11186315808e-005</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59903</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0469770431519</end>
+					<reference>2013-09-03T00:08:21.689Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHL" networkCode="VN" stationCode="TDVB" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a69fc96/7e812fcc-ac33-4db9-ab5c-f27e0ae91b89#amplitude">
+				<genericAmplitude>
+					<value>6.89026462669e-006</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59908</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0784680843353</end>
+					<reference>2013-09-03T00:08:21.796Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHL" networkCode="VN" stationCode="TBVB" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a69fd3b/7fa2e0ae-8a39-45db-9456-0078b679d78b#amplitude">
+				<genericAmplitude>
+					<value>1.38557826022e-007</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59914</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0301570892334</end>
+					<reference>2013-09-03T00:08:22.480Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHL" networkCode="VN" stationCode="TLVB" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a6af508/c804f7cb-a506-42ec-bedc-a44b1206dabb#amplitude">
+				<genericAmplitude>
+					<value>-2.5904757472e-006</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59903</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0210201740265</end>
+					<reference>2013-09-03T00:08:21.689Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDVB" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a6af55e/313dda78-6c61-41f1-ad0c-237a7e4a3562#amplitude">
+				<genericAmplitude>
+					<value>5.37685187262e-006</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59908</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0690250396729</end>
+					<reference>2013-09-03T00:08:21.796Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TBVB" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a6af59e/ebe1cf25-3e38-447c-a78c-2afa46be7e61#amplitude">
+				<genericAmplitude>
+					<value>3.00127369515e-006</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59906</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0536179542542</end>
+					<reference>2013-09-03T00:08:22.770Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TLE" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a6af606/0884afdc-4b79-4900-a597-8e5ee9a668e9#amplitude">
+				<genericAmplitude>
+					<value>1.13754633121e-007</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59910</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.109292030334</end>
+					<reference>2013-09-03T00:08:23.761Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="PHI" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a6af611/53055498-6858-4c70-8825-8d4d835fe638#amplitude">
+				<genericAmplitude>
+					<value>2.8952285923e-006</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59912</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0666098594666</end>
+					<reference>2013-09-03T00:08:22.795Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TDO" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a6af633/e1705652-ac6f-43cb-a4e4-ec16c5b202db#amplitude">
+				<genericAmplitude>
+					<value>1.33691678523e-007</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59914</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0287210941315</end>
+					<reference>2013-09-03T00:08:22.480Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TLVB" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a6af643/6dda7919-d6f6-45a1-827f-e744e4e5a0ca#amplitude">
+				<genericAmplitude>
+					<value>6.7798187638e-007</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59916</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0560591220856</end>
+					<reference>2013-09-03T00:08:24.330Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TMVB" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a6af647/3c74fd1f-b3c7-4917-be8f-d981307cd929#amplitude">
+				<genericAmplitude>
+					<value>3.14689861404e-006</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59918</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.0744090080261</end>
+					<reference>2013-09-03T00:08:24.050Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TNVB" />
+			</amplitude>
+			<amplitude publicID="smi:igf.edu.pl/5a6af650/5ef2c6fb-a765-4c23-be13-00c73e2db6d1#amplitude">
+				<genericAmplitude>
+					<value>-2.30269493245e-007</value>
+				</genericAmplitude>
+				<pickID>smi:igf.edu.pl/5a69a713/a74e2f93-aad2-42fe-a3c0-41d3bb225b3a#pick</pickID>
+				<timeWindow>
+					<begin>0</begin>
+					<end>0.048849105835</end>
+					<reference>2013-09-03T00:08:23.017Z</reference>
+				</timeWindow>
+				<unit>m</unit>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TGI" />
+			</amplitude>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_P_TDVB964">
+				<spectralLevel>
+					<value>0.003932</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.58933</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TDVB" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_S_TDVB964">
+				<spectralLevel>
+					<value>0.02648</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.69982</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TDVB" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_P_TGI964">
+				<spectralLevel>
+					<value>0.002547</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>13.6732</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TGI" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_S_TGI964">
+				<spectralLevel>
+					<value>0.051066</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>11.6097</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TGI" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_P_TLE964">
+				<spectralLevel>
+					<value>0.012814</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.67238</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TLE" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_S_TLE964">
+				<spectralLevel>
+					<value>0.170381</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.84234</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TLE" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_P_TBVB964">
+				<spectralLevel>
+					<value>0.002647</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>13.5123</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TBVB" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_S_TBVB964">
+				<spectralLevel>
+					<value>0.068735</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>11.8912</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TBVB" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_P_PHI964">
+				<spectralLevel>
+					<value>0.00143</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.85015</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="PHI" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_S_PHI964">
+				<spectralLevel>
+					<value>0.051845</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.8479</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="PHI" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_P_TDO964">
+				<spectralLevel>
+					<value>0.009632</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>13.1674</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TDO" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_S_TDO964">
+				<spectralLevel>
+					<value>0.079823</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>11.3391</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TDO" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_P_TLVB964">
+				<spectralLevel>
+					<value>0.001762</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>8.07003</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TLVB" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_S_TLVB964">
+				<spectralLevel>
+					<value>0.066773</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>6.52937</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TLVB" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_P_TMVB964">
+				<spectralLevel>
+					<value>0.008463</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>4.14747</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TMVB" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_S_TMVB964">
+				<spectralLevel>
+					<value>0.098322</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.43611</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TMVB" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_P_TNVB964">
+				<spectralLevel>
+					<value>0.016744</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.14863</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TNVB" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/SWIDB#spectralParameter_S_TNVB964">
+				<spectralLevel>
+					<value>0.09513</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.22557</value>
+				</cornelFrequency>
+				<waveformID networkCode="VN" stationCode="TNVB" />
+			</spectralParameter>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59902">
+				<time>
+					<value>2013-09-03T00:08:22.742Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TDVB" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59903">
+				<time>
+					<value>2013-09-03T00:08:21.689Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TDVB" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59905">
+				<time>
+					<value>2013-09-03T00:08:24.944Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="VN" stationCode="TGI" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59906">
+				<time>
+					<value>2013-09-03T00:08:22.770Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TLE" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59907">
+				<time>
+					<value>2013-09-03T00:08:24.560Z</value>
+				</time>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TLE" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59908">
+				<time>
+					<value>2013-09-03T00:08:21.796Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TBVB" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59909">
+				<time>
+					<value>2013-09-03T00:08:23.001Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TBVB" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59910">
+				<time>
+					<value>2013-09-03T00:08:23.761Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="PHI" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59911">
+				<time>
+					<value>2013-09-03T00:08:26.457Z</value>
+				</time>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="PHI" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59912">
+				<time>
+					<value>2013-09-03T00:08:22.795Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TDO" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59913">
+				<time>
+					<value>2013-09-03T00:08:24.674Z</value>
+				</time>
+				<waveformID channelCode="EHE" networkCode="VN" stationCode="TDO" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59914">
+				<time>
+					<value>2013-09-03T00:08:22.480Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TLVB" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59915">
+				<time>
+					<value>2013-09-03T00:08:24.068Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TLVB" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59916">
+				<time>
+					<value>2013-09-03T00:08:24.330Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TMVB" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59917">
+				<time>
+					<value>2013-09-03T00:08:27.200Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TMVB" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59918">
+				<time>
+					<value>2013-09-03T00:08:24.050Z</value>
+				</time>
+				<waveformID channelCode="HHZ" networkCode="VN" stationCode="TNVB" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/SWIDB_at_dbveris.igf.edu.pl#Pick59919">
+				<time>
+					<value>2013-09-03T00:08:26.721Z</value>
+				</time>
+				<waveformID channelCode="HHE" networkCode="VN" stationCode="TNVB" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/5a69a713/a74e2f93-aad2-42fe-a3c0-41d3bb225b3a#pick">
+				<time>
+					<value>2013-09-03T00:08:23.017Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="VN" stationCode="TGI" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+	</eventParameters>
+</q:quakeml>

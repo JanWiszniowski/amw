@@ -1,0 +1,821 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9.3. Core modules &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Changelogs" href="changelog.html" />
+    <link rel="prev" title="9.2. Support modules" href="api_support.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">8. How to Cite</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">9. Anthropogenic Mw API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api_main.html">9.1. Main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_support.html">9.2. Support modules</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.3. Core modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-waveform-and-inventory-manipulation">9.3.1. The waveform and inventory manipulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.signal_utils.Cache"><code class="docutils literal notranslate"><span class="pre">Cache</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#amw.core.signal_utils.Cache.backup"><code class="docutils literal notranslate"><span class="pre">Cache.backup()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.signal_utils.SignalException"><code class="docutils literal notranslate"><span class="pre">SignalException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.signal_utils.StreamLoader"><code class="docutils literal notranslate"><span class="pre">StreamLoader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#amw.core.signal_utils.StreamLoader.download"><code class="docutils literal notranslate"><span class="pre">StreamLoader.download()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amw.core.signal_utils.StreamLoader.exist_file"><code class="docutils literal notranslate"><span class="pre">StreamLoader.exist_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amw.core.signal_utils.StreamLoader.get_signal"><code class="docutils literal notranslate"><span class="pre">StreamLoader.get_signal()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.signal_utils.StreamPreprocessing"><code class="docutils literal notranslate"><span class="pre">StreamPreprocessing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.signal_utils.get_inventory"><code class="docutils literal notranslate"><span class="pre">get_inventory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.signal_utils.load_inventory"><code class="docutils literal notranslate"><span class="pre">load_inventory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commonly-used-utils-for-seismic-data-processing-be-the-seismic-processing-in-python-packages">9.3.2. Commonly used utils for seismic data processing be the seismic processing in Python packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.ExtremeTraceValues"><code class="docutils literal notranslate"><span class="pre">ExtremeTraceValues</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.IndexTrace"><code class="docutils literal notranslate"><span class="pre">IndexTrace</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.ProcessTrace"><code class="docutils literal notranslate"><span class="pre">ProcessTrace</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.get_focal_mechanism"><code class="docutils literal notranslate"><span class="pre">get_focal_mechanism()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.get_hypocentral_distance"><code class="docutils literal notranslate"><span class="pre">get_hypocentral_distance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.get_magnitude"><code class="docutils literal notranslate"><span class="pre">get_magnitude()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.get_net_sta"><code class="docutils literal notranslate"><span class="pre">get_net_sta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.get_origin"><code class="docutils literal notranslate"><span class="pre">get_origin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.get_station_id"><code class="docutils literal notranslate"><span class="pre">get_station_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.get_station_name"><code class="docutils literal notranslate"><span class="pre">get_station_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.get_units"><code class="docutils literal notranslate"><span class="pre">get_units()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.time_ceil"><code class="docutils literal notranslate"><span class="pre">time_ceil()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.time_ceil_dist"><code class="docutils literal notranslate"><span class="pre">time_ceil_dist()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.time_floor"><code class="docutils literal notranslate"><span class="pre">time_floor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.core.utils.time_floor_dist"><code class="docutils literal notranslate"><span class="pre">time_floor_dist()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html"><span class="section-number">9. </span>Anthropogenic Mw API</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9.3. </span>Core modules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api_core.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="core-modules">
+<h1><span class="section-number">9.3. </span>Core modules<a class="headerlink" href="#core-modules" title="Link to this heading"></a></h1>
+<p>Core modules are used in the Anthropogenic Mw package,
+but are designated for more general use, therefor the are described separately.</p>
+<p>The arclink_client.py is located the core utils.
+Because it is now obsolete but still used in some seismic networks,
+it is taken from the older version of ObsPy and put in the core subdirectory.</p>
+<section id="the-waveform-and-inventory-manipulation">
+<span id="module-amw.core.signal_utils"></span><h2><span class="section-number">9.3.1. </span>The waveform and inventory manipulation<a class="headerlink" href="#the-waveform-and-inventory-manipulation" title="Link to this heading"></a></h2>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.core.signal_utils.Cache">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.core.signal_utils.</span></span><span class="sig-name descname"><span class="pre">Cache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/signal_utils.html#Cache"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.signal_utils.Cache" title="Link to this definition"></a></dt>
+<dd><p>The cache class for manipulating the cache metadata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>configuration</strong> (<em>dict</em>) – The container of general seismic processing configuration.
+The required parameter is a cache path kept in the ‘cache’.</p></li>
+<li><p><strong>file_name</strong> (<em>str</em>) – The cache metadata file name</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="amw.core.signal_utils.Cache.backup">
+<span class="sig-name descname"><span class="pre">backup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/signal_utils.html#Cache.backup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.signal_utils.Cache.backup" title="Link to this definition"></a></dt>
+<dd><p>Backs up the cache metadata. Saves to the JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="amw.core.signal_utils.SignalException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.core.signal_utils.</span></span><span class="sig-name descname"><span class="pre">SignalException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'other'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/signal_utils.html#SignalException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.signal_utils.SignalException" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.core.signal_utils.StreamLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.core.signal_utils.</span></span><span class="sig-name descname"><span class="pre">StreamLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/signal_utils.html#StreamLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.signal_utils.StreamLoader" title="Link to this definition"></a></dt>
+<dd><p>The stream loader loads seismic waveforms from servers ArcLink or FDSNWS
+and process data initially. The loaded and processed data can be kept on local disc
+in the cache directory for increase the reloading speed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>configuration</strong> (<em>dict</em>) – The container of general seismic processing configuration.
+The required parameters are kept in the ‘stream’ sub-dictionary:</p></li>
+<li><p><strong>preprocess</strong> (<a class="reference internal" href="#amw.core.signal_utils.StreamPreprocessing" title="amw.core.signal_utils.StreamPreprocessing"><em>StreamPreprocessing</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>The parameters present in the ‘stream’ sub-dictionary:</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Source<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The waveforms source. Available options are ‘arclink’ or ‘fdsnws’ (required)</p>
+</dd>
+<dt class="field-even">Host<span class="colon">:</span></dt>
+<dd class="field-even"><p>The server host</p>
+</dd>
+<dt class="field-odd">Port<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The server port</p>
+</dd>
+<dt class="field-even">User<span class="colon">:</span></dt>
+<dd class="field-even"><p>The request user id (if required)</p>
+</dd>
+<dt class="field-odd">Password<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The request password (if required)</p>
+</dd>
+<dt class="field-even">Timeout<span class="colon">:</span></dt>
+<dd class="field-even"><p>The downloading timeout limit</p>
+</dd>
+<dt class="field-odd">Net<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The default network name.</p>
+</dd>
+<dt class="field-even">Sta<span class="colon">:</span></dt>
+<dd class="field-even"><p>The default station name.</p>
+</dd>
+<dt class="field-odd">Loc<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The default location name.</p>
+</dd>
+<dt class="field-even">Chan<span class="colon">:</span></dt>
+<dd class="field-even"><p>The default channel name.</p>
+</dd>
+<dt class="field-odd">Cache<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The cache directory. In the cache directory are kept all downloaded and preprocessed waveform files
+and the file ‘loaded_signals.json’ containing info</p>
+</dd>
+<dt class="field-even">Stations<span class="colon">:</span></dt>
+<dd class="field-even"><p>The default request station list</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="amw.core.signal_utils.StreamLoader.download">
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">begin_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/signal_utils.html#StreamLoader.download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.signal_utils.StreamLoader.download" title="Link to this definition"></a></dt>
+<dd><p>Downloads the stream from the seismic data sever with optional caching.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>new_file_name</strong> (<em>str</em>) – The proposed name of the file tobe stored in the cache.
+If it is missing the unique random name is generated.</p></li>
+<li><p><strong>begin_time</strong> (<em>ObsPy.UTCDateTime</em>) – The begin time of waveforms</p></li>
+<li><p><strong>end_time</strong> (<em>ObsPy.UTCDateTime</em>) – The end time of waveforms</p></li>
+<li><p><strong>event_id</strong> (<em>str</em>) – The event id, but it can be any string defining the stream request,
+which can identify the data in case of repeated inquiry.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The requested stream or None if it can not be downloaded</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.Stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="amw.core.signal_utils.StreamLoader.exist_file">
+<span class="sig-name descname"><span class="pre">exist_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">begin_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/signal_utils.html#StreamLoader.exist_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.signal_utils.StreamLoader.exist_file" title="Link to this definition"></a></dt>
+<dd><p>The method checks if the requested waveform exists. A few conditions are checked.
+First it checks if the cache exists. Then checks if event id exists.
+The requested period must include in the existing file period.
+The requested station list must include in the existing file station list.
+The preprocessor name must be the same.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>begin_time</strong> (<em>ObsPy.UTCDateTime</em>) – The requested waveforms begin time</p></li>
+<li><p><strong>end_time</strong> (<em>ObsPy.UTCDateTime</em>) – The requested waveforms begin time</p></li>
+<li><p><strong>event_id</strong> (<em>str</em>) – The request event id. It can be the event id that the waveforms are associated
+or any string that identify the request.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parameters of existed file or None,
+if the function can not fit request to existing files list</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="amw.core.signal_utils.StreamLoader.get_signal">
+<span class="sig-name descname"><span class="pre">get_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">begin_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/signal_utils.html#StreamLoader.get_signal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.signal_utils.StreamLoader.get_signal" title="Link to this definition"></a></dt>
+<dd><p>Provides seismic signal waveform based on request.
+If matching the request file exist in the cache it reads signal from the file,
+otherwise download from the seismic waveforms’ server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>begin_time</strong> (<em>ObsPy.UTCDateTime</em>) – The requested waveforms begin time</p></li>
+<li><p><strong>end_time</strong> (<em>ObsPy.UTCDateTime</em>) – The requested waveforms begin time</p></li>
+<li><p><strong>event_id</strong> (<em>str</em>) – The request event id. It can be the event id that the waveforms are associated
+or any string that identify the request. (optional If missing waveform is only downloaded from the server)</p></li>
+<li><p><strong>stations</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – The request stations list.
+(optional) If it is missing the station list from the configuration is checked.</p></li>
+<li><p><strong>new_file_name</strong> (<em>str</em>) – The name of a file in the cache.
+(optional) If missing the unique file name is generated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The waveform stream. Return None if it can not (or could not) download waveforms.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.Stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.core.signal_utils.StreamPreprocessing">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.core.signal_utils.</span></span><span class="sig-name descname"><span class="pre">StreamPreprocessing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/signal_utils.html#StreamPreprocessing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.signal_utils.StreamPreprocessing" title="Link to this definition"></a></dt>
+<dd><p>The base class of streams preprocessing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name of the preprocessing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.signal_utils.get_inventory">
+<span class="sig-prename descclassname"><span class="pre">amw.core.signal_utils.</span></span><span class="sig-name descname"><span class="pre">get_inventory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sta_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inventory</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/signal_utils.html#get_inventory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.signal_utils.get_inventory" title="Link to this definition"></a></dt>
+<dd><p>Extracts inventory for the station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sta_name</strong> (<em>str</em>) – The station name as the string in the form ‘NN.SSS’,
+where ‘NN’ is the network code and ‘SSS’ is the station code.</p></li>
+<li><p><strong>date</strong> (<em>ObsPy.UTCDateTime</em>) – The date of the inventory</p></li>
+<li><p><strong>inventory</strong> (<em>ObsPy.Inventory</em>) – The inventory of all stations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The inventory of the station</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.Inventory</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.signal_utils.load_inventory">
+<span class="sig-prename descclassname"><span class="pre">amw.core.signal_utils.</span></span><span class="sig-name descname"><span class="pre">load_inventory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/signal_utils.html#load_inventory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.signal_utils.load_inventory" title="Link to this definition"></a></dt>
+<dd><p>Loads inventory from the file. The file name and format are in ‘inventory’ configuration.
+If inventory file is missing the inventory is downloaded from the waveform server,
+which configuration is in the ‘stream’ sub-dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>configuration</strong> (<em>dict</em>) – The container of general seismic processing configuration.
+The required parameters are kept in the ‘inventory’ sub-dictionary.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The inventory</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.Inventory</p>
+</dd>
+</dl>
+<p><strong>The parameters present in the ‘inventory’ sub-dictionary:</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">File_name<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The inventory file name. (optional, default is ‘inventory.xml’)</p>
+</dd>
+<dt class="field-even">File_format<span class="colon">:</span></dt>
+<dd class="field-even"><p>The format of the inventory file name. (optional, default is ‘STATIONXML’)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="commonly-used-utils-for-seismic-data-processing-be-the-seismic-processing-in-python-packages">
+<span id="module-amw.core.utils"></span><h2><span class="section-number">9.3.2. </span>Commonly used utils for seismic data processing be the seismic processing in Python packages<a class="headerlink" href="#commonly-used-utils-for-seismic-data-processing-be-the-seismic-processing-in-python-packages" title="Link to this heading"></a></h2>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.core.utils.ExtremeTraceValues">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">ExtremeTraceValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#ExtremeTraceValues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.ExtremeTraceValues" title="Link to this definition"></a></dt>
+<dd><p>Class that assess the extreme trace values: maximum, minimum, and absolute maximum value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace</strong> (<em>ObsPy.Trace</em>) – The processed trace</p></li>
+<li><p><strong>begin_time</strong> (<em>ObsPy.UTCDateTime</em>) – It limits the period, where a process is performed.
+If begin_time is not defined or it is earlier than the beginning of the trace
+the process is performed from the beginning of the trace</p></li>
+<li><p><strong>end_time</strong> (<em>ObsPy.UTCDateTime</em>) – It limits the period, where a process is performed.
+If end_time is not defined or it is later than the end of the trace,
+the process is performed to the end of the trace</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Class variables</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Data<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The optionally cut to time limits data. The data are not a new array but subarray of the Trace data</p>
+</dd>
+<dt class="field-even">Start_time<span class="colon">:</span></dt>
+<dd class="field-even"><p>The time of the first data sample.</p>
+</dd>
+<dt class="field-odd">End_time<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The time of the next sample after the last data sample.
+It differs from the ObsPy trace end_time, which points to the last sample of the trace</p>
+</dd>
+<dt class="field-even">Max_value<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum data value</p>
+</dd>
+<dt class="field-odd">Max_value<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Minimum data value</p>
+</dd>
+<dt class="field-even">Abs_max<span class="colon">:</span></dt>
+<dd class="field-even"><p>Absolute maximum value.
+abs_max = max(abs(min_value), abs(max_value))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.core.utils.IndexTrace">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">IndexTrace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#IndexTrace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.IndexTrace" title="Link to this definition"></a></dt>
+<dd><p>Class for operating directly on time limited part of trace data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace</strong> (<em>ObsPy.Trace</em>) – The processed trace</p></li>
+<li><p><strong>begin_time</strong> (<em>ObsPy.UTCDateTime</em>) – It limits the period, where a process is performed.
+If begin_time is not defined or it is earlier than the beginning of the trace
+the process is performed from the beginning of the trace</p></li>
+<li><p><strong>end_time</strong> (<em>ObsPy.UTCDateTime</em>) – It limits the period, where a process is performed.
+If end_time is not defined or it is later than the end of the trace,
+the process is performed to the end of the trace</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Class variables</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Start_time<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The time of the first data sample index</p>
+</dd>
+<dt class="field-even">End_time<span class="colon">:</span></dt>
+<dd class="field-even"><p>The time of the next sample after the last data sample.
+It differs from the ObsPy trace end_time, which points to the last sample of the trace</p>
+</dd>
+<dt class="field-odd">Begin_idx<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The first data sample index</p>
+</dd>
+<dt class="field-even">End_idx<span class="colon">:</span></dt>
+<dd class="field-even"><p>The last data sample index + 1</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">IndexTrace</span>
+<span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">obspy.core.utcdatetime</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
+<span class="o">&gt;&gt;</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">00</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">00</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">st</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s1">&#39;test.msd&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">indexes</span> <span class="o">=</span> <span class="n">IndexTrace</span><span class="p">(</span><span class="n">st</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">begin_time</span><span class="o">=</span><span class="n">t1</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="n">t2</span>
+<span class="o">&gt;&gt;</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">indexes</span><span class="o">.</span><span class="n">begin_idx</span><span class="p">,</span> <span class="n">indexes</span><span class="o">.</span><span class="n">end_idx</span><span class="p">):</span>
+<span class="o">...</span> <span class="k">pass</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.core.utils.ProcessTrace">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">ProcessTrace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#ProcessTrace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.ProcessTrace" title="Link to this definition"></a></dt>
+<dd><p>The base class of the trace processing. Implementations of objects of classes derived from the ProcessTrace
+do some processing on traces defined in the derived classes initialization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace</strong> (<em>ObsPy.Trace</em>) – The processed trace</p></li>
+<li><p><strong>begin_time</strong> (<em>ObsPy.UTCDateTime</em>) – It limits the period, where a process is performed.
+If begin_time is not defined or it is earlier than the beginning of the trace,
+the process is performed from the beginning of the trace</p></li>
+<li><p><strong>end_time</strong> (<em>ObsPy.UTCDateTime</em>) – It limits the period, where a process is performed.
+If end_time is not defined or it is later than the end of the trace,
+the process is performed to the end of the trace</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.get_focal_mechanism">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">get_focal_mechanism</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inversion_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#get_focal_mechanism"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.get_focal_mechanism" title="Link to this definition"></a></dt>
+<dd><p>Function get_focal_mechanism extracts the focal mechanism from the event.
+If preferred_focal_mechanism_id of the event is set it return the preferred focal mechanism.
+Otherwise, it returns the first focal mechanism from the list.
+The function is intended to extract the focal mechanism unconditionally and non-interactively.
+Therefore, if preferred_focal_mechanism_id is not set and there are multiple focal mechanisms,
+the returned focal mechanism may be random.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> (<em>ObsPy.Event</em>) – The seismic event object</p></li>
+<li><p><strong>inversion_type</strong> (<em>(</em><em>str</em><em>)</em>) – The name of tensor inversion type.
+It must belong to the QuakeML MTInversionType category:
+<code class="docutils literal notranslate"><span class="pre">'general'</span></code>, <code class="docutils literal notranslate"><span class="pre">'zero</span> <span class="pre">trace'</span></code>, <code class="docutils literal notranslate"><span class="pre">'double</span> <span class="pre">couple'</span></code>, or None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The focal mechanism object or None if none focal_mechanism is defined for the event
+or the focal_mechanism with the defined inversion type does not exist.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.FocalMechanism</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.get_hypocentral_distance">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">get_hypocentral_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_inventory</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#get_hypocentral_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.get_hypocentral_distance" title="Link to this definition"></a></dt>
+<dd><p>Function get_hypocentral_distance computes the local hypocentral distance in meters
+from origin coordinates to station_name coordinates.
+The calculations do not take into account the curvature of the earth.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>origin</strong> (<em>ObsPy.Origin</em>) – The ObsPy Origin object</p></li>
+<li><p><strong>station_inventory</strong> (<em>ObsPy.Inventory</em>) – The station inventory object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The hypocentral distance in meters and epicentral distance in degrees</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple(float, float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.get_magnitude">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">get_magnitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magnitude_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#get_magnitude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.get_magnitude" title="Link to this definition"></a></dt>
+<dd><p>Function get_magnitude extracts the magnitude of the event.
+If you want to extract a specific magnitude you can define it as magnitude_type,
+e.g. <code class="docutils literal notranslate"><span class="pre">get_magnitude(event,</span> <span class="pre">magnitude_type='mw')</span></code>, otherwise, any magnitude will be extracted.
+If the preferred_magnitude_id of the event is set it returns the preferred origin.
+Otherwise, it returns the first magnitude from the list.
+The function is intended to extract the magnitude unconditionally and non-interactively.
+Therefore, if preferred_magnitude_id is not set and there are multiple magnitudes,
+the returned origin may be random.</p>
+<p>If event magnitude does not exist, but station_name magnitudes exist, the new magnitude is computed
+as the mean value of station_name magnitudes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event</strong> (<em>ObsPy.Event</em>) – The seismic event object</p></li>
+<li><p><strong>magnitude_type</strong> (<em>str</em>) – (optional)
+Describes the type of magnitude. This is a free-text. Proposed values are:
+* unspecified magnitude (<code class="docutils literal notranslate"><span class="pre">'M'</span></code>) - function search for exactly unspecified magnitude,
+* local magnitude (<code class="docutils literal notranslate"><span class="pre">'ML'</span></code>),
+* moment magnitude (<code class="docutils literal notranslate"><span class="pre">'mw'</span></code>),
+* energy (<code class="docutils literal notranslate"><span class="pre">'Energy'</span></code>),
+* etc.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The magnitude object or None if the function cannot find or create the magnitude.
+If only station_name magnitudes exist, the new ObsPy Magnitude object is created,
+but it is not appended to the event</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.Magnitude</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.get_net_sta">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">get_net_sta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#get_net_sta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.get_net_sta" title="Link to this definition"></a></dt>
+<dd><p>Function get_net_sta extracts network and station_name codes as strings</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em><em> or </em><em>ObsPy.WaveformStreamID</em>) – The trace name. It can be the string or the WaveformStreamID object.
+The text in the string is in the form ‘NN.SSS.LL.CCC’, where NN is the network code,
+SSS is the station_name code, LL is the location code, and CCC is the channel code.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The tuple of the network code the station_name code.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple(str, str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.get_origin">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">get_origin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#get_origin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.get_origin" title="Link to this definition"></a></dt>
+<dd><p>Function get_origin extracts the origin from the event.
+If preferred_origin_id of the event is set it return the preferred origin.
+Otherwise, it returns the first origin from the list.
+The function is intended to extract the event origin unconditionally and non-interactively.
+Therefore, if preferred_origin_id is not set and there are multiple origins, the returned origin may be random</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>ObsPy.Event</em>) – The seismic event object</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The origin (event location) object or None if none origin is defined for the event.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.Origin</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.get_station_id">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">get_station_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#get_station_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.get_station_id" title="Link to this definition"></a></dt>
+<dd><p>Function get_station_id extracts the station_name name as a WaveformStreamID object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em><em> or </em><em>ObsPy.WaveformStreamID</em>) – The trace name. It can be the string or the ObsPy WaveformStreamID object.
+The text in the string is in the form ‘NN.SSS.LL.CCC’, where NN is the network code,
+SSS is the station_name code, LL is the location code, and CCC is the channel code.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The waveform stream object containing only the network code and the station_name code.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.WaveformStreamID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.get_station_name">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">get_station_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#get_station_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.get_station_name" title="Link to this definition"></a></dt>
+<dd><p>Function get_station_name extracts the station_name name as a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em><em> or </em><em>ObsPy.WaveformStreamID</em>) – The trace name. It can be the string or the WaveformStreamID object.
+The text in the string is in the form ‘NN.SSS.LL.CCC’, where NN is the network code,
+SSS is the station_name code, LL is the location code, and CCC is the channel code.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The string in the form ‘NN.STA’, where NN is the network code and SSS is the station_name code.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.get_units">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">get_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#get_units"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.get_units" title="Link to this definition"></a></dt>
+<dd><p>Return the signal units of the trace</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trace</strong> (<em>ObsPy.Trace</em>) – The trace object</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The string with units: ‘m/s’, ‘m/s^2’, or ‘m’, if the response was removed,
+when in the processing_parameters is the remove_response process defined,
+or ‘counts’ otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.time_ceil">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">time_ceil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#time_ceil"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.time_ceil" title="Link to this definition"></a></dt>
+<dd><p>Returns the time rounded-up to the specified accuracy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>ObsPy.UTCDateTime</em>) – The time object</p></li>
+<li><p><strong>step</strong> (<em>float</em>) – The accuracy units in seconds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new rounded-up time object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.UTCDateTime</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">obspy.core.utcdatetime</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
+<span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">core.utils</span> <span class="kn">import</span> <span class="n">time_ceil</span>
+<span class="o">&gt;&gt;</span> <span class="n">time</span> <span class="o">=</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">245678</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_ceil</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">34</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_ceil</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">60.0</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">29</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_ceil</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">300000</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_ceil</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">250000</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_ceil</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">246000</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.time_ceil_dist">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">time_ceil_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#time_ceil_dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.time_ceil_dist" title="Link to this definition"></a></dt>
+<dd><p>Returns seconds from the time to the time rounded up to the specified accuracy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>ObsPy.UTCDateTime</em>) – The time object</p></li>
+<li><p><strong>step</strong> (<em>float</em>) – The accuracy units in seconds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The period in seconds to the rounded-up time</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">obspy.core.utcdatetime</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
+<span class="o">&gt;&gt;</span> <span class="n">time</span> <span class="o">=</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">245678</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_ceil_dist</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="mf">0.054322</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_ceil_dist</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="mf">0.754322</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.time_floor">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">time_floor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#time_floor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.time_floor" title="Link to this definition"></a></dt>
+<dd><p>Returns the time rounded-down to the specified accuracy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>ObsPy.UTCDateTime</em>) – The time object</p></li>
+<li><p><strong>step</strong> (<em>float</em>) – The accuracy units in seconds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The new rounded-down time object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.UTCDateTime</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">obspy.core.utcdatetime</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
+<span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">time_floor</span>
+<span class="o">&gt;&gt;</span> <span class="n">time</span> <span class="o">=</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">245678</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_floor</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">245000</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_floor</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">240000</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_floor</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">200000</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_floor</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_floor</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">60.0</span><span class="p">)</span>
+<span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.core.utils.time_floor_dist">
+<span class="sig-prename descclassname"><span class="pre">amw.core.utils.</span></span><span class="sig-name descname"><span class="pre">time_floor_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/core/utils.html#time_floor_dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.core.utils.time_floor_dist" title="Link to this definition"></a></dt>
+<dd><p>Returns seconds from the time to the time rounded up to the specified accuracy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>ObsPy.UTCDateTime</em>) – The time object</p></li>
+<li><p><strong>step</strong> (<em>float</em>) – The accuracy units in seconds</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The period in seconds to the rounded-down time</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">obspy.core.utcdatetime</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
+<span class="o">&gt;&gt;</span> <span class="n">time</span> <span class="o">=</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">245678</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_floor_dist</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="mf">0.045678</span>
+<span class="o">&gt;&gt;</span> <span class="n">time_floor_dist</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="mf">0.245678</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api_support.html" class="btn btn-neutral float-left" title="9.2. Support modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="10. Changelogs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,688 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Configuration file &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Input/Output data" href="io_data.html" />
+    <link rel="prev" title="2. Getting Started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Configuration file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#not-predefined-parameters">3.1. Not predefined parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#station-parameters">3.2. Station parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#phase-parameters">3.2.1. Phase parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#phase-weights-parameters">3.2.1.1. Phase weights parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#taper-parameters">3.3. Taper parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stream-parameters">3.4. Stream parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimization-parameters">3.5. Optimization parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inventory-parameters">3.6. Inventory parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remove-response-parameters">3.7. Remove response parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plot-parameters">3.8. Plot parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">3. </span>Configuration file</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/configuration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration-file">
+<span id="configuration"></span><h1><span class="section-number">3. </span>Configuration file<a class="headerlink" href="#configuration-file" title="Link to this heading"></a></h1>
+<p>The configuration is kept in the Python dictionary,
+where keys are case-sensitive strings and values depend on parameters.
+They can be strings, float values, integer values, boolean values, sub-dictionaries, or lists.
+Parameters definition can be required or optional. The required definitions must be in the configuration,
+whereas optional need not. When definition of optional parameters is missing the default value is taken.
+The information whether parameter is required or optional is with the parameter description.
+In the case of optional parameter the default value is described.
+The configuration file (example name: <code class="docutils literal notranslate"><span class="pre">config.json</span></code>) is a file in JavaScript Object Notation (JSON)
+Here is the example file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;station_parameters&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;any&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;phase_parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;P&quot;</span> <span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;Q_0&quot;</span> <span class="p">:</span> <span class="mf">800.0</span><span class="p">,</span>
+          <span class="s2">&quot;Q_theta&quot;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+          <span class="s2">&quot;Q_corner&quot;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+          <span class="s2">&quot;kappa&quot;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+          <span class="s2">&quot;distance_exponent&quot;</span> <span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+          <span class="s2">&quot;low_frequency&quot;</span> <span class="p">:</span> <span class="mf">7.50000000000000010e-001</span><span class="p">,</span>
+          <span class="s2">&quot;high_frequency&quot;</span> <span class="p">:</span> <span class="mf">3.00000000000000000e+001</span><span class="p">,</span>
+          <span class="s2">&quot;noise_bias&quot;</span> <span class="p">:</span> <span class="mf">0.00000000000000000e+000</span><span class="p">,</span>
+          <span class="s2">&quot;noise_std_bias&quot;</span> <span class="p">:</span> <span class="mf">0.00000000000000000e+000</span><span class="p">,</span>
+          <span class="s2">&quot;noise_freq_bias&quot;</span> <span class="p">:</span> <span class="mf">0.00000000000000000e+000</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;S&quot;</span> <span class="p">:</span> <span class="p">{</span>
+          <span class="s2">&quot;Q_0&quot;</span><span class="p">:</span> <span class="mf">400.0</span><span class="p">,</span>
+          <span class="s2">&quot;Q_theta&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+          <span class="s2">&quot;Q_corner&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+          <span class="s2">&quot;kappa&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+          <span class="s2">&quot;distance_exponent&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+          <span class="s2">&quot;low_frequency&quot;</span><span class="p">:</span> <span class="mf">7.50000000000000010e-001</span><span class="p">,</span>
+          <span class="s2">&quot;high_frequency&quot;</span><span class="p">:</span> <span class="mf">3.00000000000000000e+001</span><span class="p">,</span>
+          <span class="s2">&quot;noise_bias&quot;</span><span class="p">:</span> <span class="mf">0.00000000000000000e+000</span><span class="p">,</span>
+          <span class="s2">&quot;noise_std_bias&quot;</span><span class="p">:</span> <span class="mf">0.00000000000000000e+000</span><span class="p">,</span>
+          <span class="s2">&quot;noise_freq_bias&quot;</span><span class="p">:</span> <span class="mf">0.00000000000000000e+000</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;far_radial_average_radiation&quot;</span> <span class="p">:</span> <span class="mf">0.52</span><span class="p">,</span>
+      <span class="s2">&quot;far_transversal_average_radiation&quot;</span><span class="p">:</span> <span class="mf">0.63</span><span class="p">,</span>
+      <span class="s2">&quot;mw_correction&quot;</span> <span class="p">:</span> <span class="mf">0.00000000000000000e+000</span><span class="p">,</span>
+      <span class="s2">&quot;consider_intermediate_field&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;consider_near_field&quot;</span><span class="p">:</span> <span class="n">false</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;default_rho&quot;</span><span class="p">:</span> <span class="mf">2700.0</span><span class="p">,</span>
+  <span class="s2">&quot;default_vp&quot;</span><span class="p">:</span> <span class="mf">5200.0</span><span class="p">,</span>
+  <span class="s2">&quot;default_vs&quot;</span><span class="p">:</span> <span class="mf">3000.0</span><span class="p">,</span>
+  <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;separate_phases&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;lin&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;source_model&quot;</span><span class="p">:</span> <span class="s2">&quot;Brune&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;taper&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;cosine_taper&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;percentage&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;stream&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;arclink&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;tytan.igf.edu.pl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;18001&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;anonymous@igf.edu.pl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="s2">&quot;net&quot;</span><span class="p">:</span> <span class="s2">&quot;VN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cache&quot;</span> <span class="p">:</span> <span class="s2">&quot;cache_Mw&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;optimization&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;grid_search&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mw&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">],</span>
+    <span class="s2">&quot;log_f0&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.51</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;inventory&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;file_name&quot;</span><span class="p">:</span> <span class="s2">&quot;VN_Stations.xml&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;file_format&quot;</span><span class="p">:</span> <span class="s2">&quot;STATIONXML&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;remove_response&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;prefilter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;plot&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;draw_the_noise&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s2">&quot;draw_source_spectrum_without_the_noise&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;own_frequencies&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
+    <span class="s2">&quot;view&quot;</span><span class="p">:</span> <span class="s2">&quot;DISP&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;how_to_show&quot;</span><span class="p">:</span> <span class="s2">&quot;many figures inline&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Below is the description of parameters. Not all described bellow parameters are in the example,
+not all parameters are required and some of them are optional.
+If optional parameters are not defined, default values are assumed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">station_parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(dict) describe all parameters required to estimate the Mw
+at the station. The value is the list of stations, where keys are station names
+and vales are sub-dictionaries of parameters for the current station.
+The magic station’s name is <code class="docutils literal notranslate"><span class="pre">any</span></code>. When the station configuration is missing or
+the specific station parameter is missing, it will be taken from the <code class="docutils literal notranslate"><span class="pre">any</span></code> station.
+(required)</p>
+</dd>
+<dt class="field-even">velocity_model<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) (optional, default value is “constant”). Now, only “constant” is available.
+Other velocity models have not been implemented yet.</p>
+</dd>
+<dt class="field-odd">default_rho<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) Default value of density [kg/m^3] (required),</p>
+</dd>
+<dt class="field-even">default_vp<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float)  Default value of the P wave velocity [m/s] (required),</p>
+</dd>
+<dt class="field-odd">default_vs<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) Default value of the S wave velocity [m/s] (required),</p>
+</dd>
+<dt class="field-even">method<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) (required) the moment magnitude spectral estimation method.
+Two options are available:</p>
+<ul class="simple">
+<li><p>“separate_phases” - estimation of Mw base on P wave and/or S wave, and the common magnitude is
+calculated based on <span class="math notranslate nohighlight">\(Mw^{(P)}\)</span> and <span class="math notranslate nohighlight">\(Mw^{(S)}\)</span></p></li>
+<li><p>“multiphase” - estimate Mw base signal covering both P and S wave.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">metric<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str) The metric distances used for spectra fitting.
+Two metrics are available: p_norm (lin) and log (See <a class="reference internal" href="description.html#inversion-method"><span class="std std-ref">Inversion method</span></a>),
+(optional, default value is “p_norm”),</p>
+</dd>
+<dt class="field-even">p_value<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float) The power of the values distances in the metric. (See <a class="reference internal" href="description.html#inversion-method"><span class="std std-ref">Inversion method</span></a>)
+(optional, default value is 2.0)</p>
+</dd>
+<dt class="field-odd">source_model<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str) (optional, default value is “Brune”)</p>
+</dd>
+<dt class="field-even">Boatwright gamma<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float) (optional, default value is 1.0)</p>
+</dd>
+<dt class="field-odd">Boatwright n<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) (optional, default value is 2.0)</p>
+</dd>
+<dt class="field-even">taper<span class="colon">:</span></dt>
+<dd class="field-even"><p>(dict) the signal <a class="reference internal" href="#taper-parameters"><span class="std std-ref">Taper parameters</span></a> for Fourier transform (required)</p>
+</dd>
+<dt class="field-odd">stream<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(dict) <a class="reference internal" href="#stream-parameters"><span class="std std-ref">Stream parameters</span></a> describing how to get streams for magnitude estimation (required)</p>
+</dd>
+<dt class="field-even">optimization<span class="colon">:</span></dt>
+<dd class="field-even"><p>(dict) <a class="reference internal" href="#optimization-parameters"><span class="std std-ref">Optimization parameters</span></a> defining the minimization method of signal and source spectra
+difference (required)</p>
+</dd>
+<dt class="field-odd">inventory<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(dict) (required) The dictionary of parameters defining how to get the inventory of all stations
+(see <a class="reference internal" href="#inventory-parameters"><span class="std std-ref">Inventory parameters</span></a>)</p>
+</dd>
+<dt class="field-even">remove_response<span class="colon">:</span></dt>
+<dd class="field-even"><p>(dict) Parameters required for stream preprocessing (required).
+They are described in the <a class="reference internal" href="#remove-response-parameters"><span class="std std-ref">Remove response parameters</span></a> section.</p>
+</dd>
+<dt class="field-odd">plot<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(dict) define the results <a class="reference internal" href="#plot-parameters"><span class="std std-ref">Plot parameters</span></a>
+(optional, if the position is not defined no plot is performed)</p>
+</dd>
+<dt class="field-even">output_file<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) The name of the output file in which the catalog with estimated magnitudes will be saved
+(optional, default value is “output.xml”)</p>
+</dd>
+<dt class="field-odd">module<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str) (optional, default value is “MinimizeInGrid”)</p>
+</dd>
+<dt class="field-even">method<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) (optional, default value is “minimize”)</p>
+</dd>
+<dt class="field-odd">catalog_file<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str) The catalog file name (required unless the name is the call parameter).</p>
+</dd>
+</dl>
+<section id="not-predefined-parameters">
+<h2><span class="section-number">3.1. </span>Not predefined parameters<a class="headerlink" href="#not-predefined-parameters" title="Link to this heading"></a></h2>
+<p>Not predefined parameters are created during computation and should not be predefined.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Plotter<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(PlotMw) It keeps the plotter class object. Do not define it.</p>
+</dd>
+</dl>
+</section>
+<section id="station-parameters">
+<h2><span class="section-number">3.2. </span>Station parameters<a class="headerlink" href="#station-parameters" title="Link to this heading"></a></h2>
+<p>Station parameters consts of</p>
+<dl class="simple">
+<dt><strong>phase_parameters:</strong></dt><dd><p>(dict)
+It describes all parameters required to estimate the Mw
+at the phase. There could phases <code class="docutils literal notranslate"><span class="pre">P</span></code>, <code class="docutils literal notranslate"><span class="pre">S</span></code>, and <code class="docutils literal notranslate"><span class="pre">any</span></code>.
+The parameter is taken from the <code class="docutils literal notranslate"><span class="pre">any</span></code> phase if the parameter is missing in <code class="docutils literal notranslate"><span class="pre">P</span></code> or <code class="docutils literal notranslate"><span class="pre">S</span></code> phases sub-dictionaries.
+(see <a class="reference internal" href="#phase-parameters"><span class="std std-ref">Phase parameters</span></a>)</p>
+</dd>
+<dt><strong>far_radial_average_radiation:</strong></dt><dd><p>(float)
+The average radiation in the far field radial direction.
+It is the same as P wave average radiation in the far field (optional, default value is 0.52)</p>
+</dd>
+<dt><strong>far_transversal_average_radiation:</strong></dt><dd><p>(float)
+The average radiation in the far field transversal directions.
+It is the same as S wave average radiation in the far field (optional, default value is 0.63)</p>
+</dd>
+<dt><strong>mw_correction:</strong></dt><dd><p>(float)
+Empirical Mw correction at the particular station
+(optional, default value is 1.0).
+It consists of a correction value added to the estimated value before the saving.
+It was shown in <span id="id1">[<a class="reference internal" href="bibliography.html#id7" title="Paweł Wiejacz and Jan Wiszniowski. Moment magnitude determination of local seismic events recorded at selected polish seismic stations. Acta Geophysica, 54(1):15-32, Mar 2006. URL: https://doi.org/10.2478/s11600-006-0003-1, doi:10.2478/s11600-006-0003-1.">Wiejacz and Wiszniowski, 2006</a>]</span> the correction is required in some cases.</p>
+</dd>
+<dt><strong>consider_intermediate_field:</strong></dt><dd><p>(bool)
+If it is true, the source spectrum calculation considers the intermediate field
+(optional, default value is false)</p>
+</dd>
+<dt><strong>intermediate_p_radial_average_radiation:</strong></dt><dd><p>(float)
+The average P wave radiation in the intermediate field radial
+direction (optional, default value is 4.0 * far_radial_average_radiation)</p>
+</dd>
+<dt><strong>intermediate_p_transversal_average_radiation:</strong></dt><dd><p>(float)
+The average P wave radiation in the far field transversal
+directions (optional, default value is -2.0 * far_transversal_average_radiation)</p>
+</dd>
+<dt><strong>intermediate_s_radial_average_radiation:</strong></dt><dd><p>(float)
+The average S wave radiation in the intermediate field radial
+direction (optional, default value is -3.0 * far_radial_average_radiation)</p>
+</dd>
+<dt><strong>intermediate_s_transversal_average_radiation:</strong></dt><dd><p>(float)
+The average S wave radiation in the far field transversal
+directions (optional, default value is 3.0 * far_transversal_average_radiation)</p>
+</dd>
+<dt><strong>consider_near_field:</strong></dt><dd><p>(bool)
+If it is true,
+the source spectrum calculation for common P and S waves considers the near field
+(optional, default value is false)</p>
+</dd>
+<dt><strong>near_radial_average_radiation:</strong></dt><dd><p>(float)
+The average radiation in the far field transversal
+directions(optional, default value is 9.0 * far_radial_average_radiation)</p>
+</dd>
+<dt><strong>near_transversal_average_radiation:</strong></dt><dd><p>(float)
+The average S wave radiation in the far field transversal
+directions (optional, default value is -6.0 * far_transversal_average_radiation)</p>
+</dd>
+<dt><strong>weight:</strong></dt><dd><p>(float)
+The station weight for computation of the event magnitude part from the current station magnitude
+(optional, default value is 1.0)</p>
+</dd>
+</dl>
+<section id="phase-parameters">
+<h3><span class="section-number">3.2.1. </span>Phase parameters<a class="headerlink" href="#phase-parameters" title="Link to this heading"></a></h3>
+<p>Phase parameters (<code class="docutils literal notranslate"><span class="pre">phase_parameters</span></code>) consts of</p>
+<p>The parameters below define the internal (inelastic) dumping by the formula</p>
+<div class="math notranslate nohighlight">
+\[A\left(f\right)=exp\left(\frac{-\pi Tf}{Q\left(f\right)}\right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(Q\left(f\right)\)</span> is is given by</p>
+<div class="math notranslate nohighlight">
+\[Q\left(f\right)=Q_0\left(\frac{f_q+f}{f_q}\right)^\vartheta,\]</div>
+<p>or not considering cornel frequency</p>
+<div class="math notranslate nohighlight">
+\[Q\left(f\right)=Q_0\left( f \right)^\vartheta,\]</div>
+<p>where:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Q_0<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) define the <span class="math notranslate nohighlight">\(Q_0\)</span> value (required)</p>
+</dd>
+<dt class="field-even">Q_theta<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float) define the <span class="math notranslate nohighlight">\(Q_{\theta}\)</span> value (optional, default value is 0.0)</p>
+</dd>
+<dt class="field-odd">Q_corner<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) define the <span class="math notranslate nohighlight">\(f_q\)</span> value (optional, default value is 0.0,
+which means the second formula, not considering cornel frequency, is used)</p>
+</dd>
+</dl>
+<p>The parameters below define the site near surface amplification and dumping according the formula</p>
+<div class="math notranslate nohighlight">
+\[R\left(f\right)=R_c \exp\left(-\pi \kappa f\right)\]</div>
+<p>where:</p>
+<dl class="field-list simple">
+<dt class="field-odd">kappa<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) define the dumping <span class="math notranslate nohighlight">\(\kappa\)</span> value (optional, default value is 0.0)</p>
+</dd>
+<dt class="field-even">surface_correction<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float) define the free surface amplification <span class="math notranslate nohighlight">\(R_c\)</span> value
+(optional, default value is 1.0)</p>
+</dd>
+</dl>
+<p>These parameters define the site amplification and dumping by the formula for the current phase
+when the signal is calculated in the far field.
+In the more fields. The signal correction is accordingly:</p>
+<ul class="simple">
+<li><p>P phase - the radial component of the signal</p></li>
+<li><p>S phase - the transversal component of the signal</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">distance_exponent<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) 1.0, <strong>Not used in current solution</strong></p>
+</dd>
+</dl>
+<p>The frequency limits are defined for phases, but in the case of the PS-wave method the
+P wave values are considered.</p>
+<dl class="field-list simple">
+<dt class="field-odd">low_frequency<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) lowest frequency of spectra fitting (optional, default value is 0.5)</p>
+</dd>
+<dt class="field-even">high_frequency<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float) highest frequency of spectra fitting (optional, default value is 20.0)</p>
+</dd>
+</dl>
+<p>The parameters below modify (bias) the noise correction. We notice that slight noise bias
+protects occasional estimation of wrong high magnitude and low cornel frequency in the
+case of small signals and low-frequency noise
+The noise is biased by the formula:</p>
+<div class="math notranslate nohighlight">
+\[\widehat{N} \left( f \right) =
+\overline{N} \left( f \right)\left( 1+b_Nf^{b_f} \right) + b_{\sigma}\sigma_N\]</div>
+<p>where:</p>
+<dl class="field-list simple">
+<dt class="field-odd">noise_bias<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) define the <span class="math notranslate nohighlight">\(b_N\)</span> value (optional, default value is 0.0)</p>
+</dd>
+<dt class="field-even">noise_std_bias<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float) define the <span class="math notranslate nohighlight">\(b_{\sigma}\)</span> value (optional, default value is 0.0)</p>
+</dd>
+<dt class="field-odd">noise_freq_bias<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) (optional, default value is 0.0) define the <span class="math notranslate nohighlight">\(b_ff\)</span> value</p>
+</dd>
+<dt class="field-even">weights<span class="colon">:</span></dt>
+<dd class="field-even"><p>(dict) the definition of fitting weights assessment (optional, default value is None)</p>
+</dd>
+<dt class="field-odd">window<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(dict) The signal window period for spectra computation
+(optional, if missing, the window is set based on S - P time).
+It contains two coefficients <span class="math notranslate nohighlight">\(b_1\)</span> and <span class="math notranslate nohighlight">\(b_2\)</span> defined by keys “b1” and “b2”.
+The window time is calculated according to <span class="math notranslate nohighlight">\(\tau = r^{b_1} / 10^{b_2}\)</span></p>
+</dd>
+<dt class="field-even">length<span class="colon">:</span></dt>
+<dd class="field-even"><p>The minimal S-wave window (optional, default  = 2 s)</p>
+</dd>
+<dt class="field-odd">P-S<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The part of P-S time taken as P wave window (optional, default value is 0.9)</p>
+</dd>
+</dl>
+<section id="phase-weights-parameters">
+<h4><span class="section-number">3.2.1.1. </span>Phase weights parameters<a class="headerlink" href="#phase-weights-parameters" title="Link to this heading"></a></h4>
+<dl class="field-list">
+<dt class="field-odd">use_threshold<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) the binary weights threshold <span class="math notranslate nohighlight">\(T_h\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}w = \left\{ {\begin{matrix} 1:\Delta \le T_h \\
+0:\Delta &lt; T_h \end{matrix}} \right\}\end{split}\]</div>
+<p>If the parameter use_threshold is missing or None, weights take real values</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}w = \left\{ \begin{matrix}
+0 &amp; : &amp; \Delta \le 0 \\
+\Delta &amp; : &amp; 0 &lt; \Delta &lt; 1\\
+1 &amp; : &amp; \Delta \ge 1
+\end{matrix} \right\}\end{split}\]</div>
+<p>(optional, default is None)</p>
+</dd>
+<dt class="field-even">use_logarithm<span class="colon">:</span></dt>
+<dd class="field-even"><p>(bool) the <span class="math notranslate nohighlight">\(\Delta\)</span> calculation method.
+If the “use_logarithm” parameter exists and is true</p>
+<div class="math notranslate nohighlight">
+\[\Delta = \log\left(U \right) - \log\left( N \right)\]</div>
+<p>else</p>
+<div class="math notranslate nohighlight">
+\[\Delta = \frac{U-N}{U}\]</div>
+<p>where <span class="math notranslate nohighlight">\(U\)</span> is the seismic signal and <span class="math notranslate nohighlight">\(N\)</span> is the noise term
+computed based on the mean value and standard deviation of noise
+(optional, default value is false)</p>
+</dd>
+<dt class="field-odd">use_std<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(float) the coefficient of the part of the standard deviation of noise
+in the nose term computation. When the use_std is set to <span class="math notranslate nohighlight">\(s\)</span> value</p>
+<div class="math notranslate nohighlight">
+\[N = \bar{N} + s\delta{N}\]</div>
+<p>else</p>
+<div class="math notranslate nohighlight">
+\[N = \bar{N}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\widehat{N}\)</span> is the mean value of noise,
+<span class="math notranslate nohighlight">\(\delta{N}\)</span> is the standard deviation of noise,
+and <span class="math notranslate nohighlight">\(s\)</span> is the “use_std” parameter
+(optional, default is None)</p>
+</dd>
+<dt class="field-even">use_frequency<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float) The option,
+whether use frequencies in as fitting weighting (optional, default is None).
+The parameter defines the value <span class="math notranslate nohighlight">\(f_w\)</span> in the formula</p>
+<div class="math notranslate nohighlight">
+\[w = w\left| f - f_m \right|^{f_w}\]</div>
+</dd>
+<dt class="field-odd">use_main_frequency<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The option, whether use main frequency in the middle of testing band
+for fitting weighting (float) (optional, default is 0).
+The parameter defines the value <span class="math notranslate nohighlight">\(f_m\)</span></p>
+</dd>
+</dl>
+<p><strong>The phase P parameters are treated as both phase parameters in the case
+of multiphase spectral Mw estimation.</strong></p>
+</section>
+</section>
+</section>
+<section id="taper-parameters">
+<h2><span class="section-number">3.3. </span>Taper parameters<a class="headerlink" href="#taper-parameters" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str) The taper type (required, only available type is now “cosine_taper”)</p>
+</dd>
+<dt class="field-even">percentage<span class="colon">:</span></dt>
+<dd class="field-even"><p>(float) Percentage of cosine taper (optional, default value is 10)</p>
+</dd>
+<dt class="field-odd">half_cosine<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(bool) If it is true, the taper is a half cosine function,
+otherwise, it is a quarter cosine function (optional, default value is true)</p>
+</dd>
+</dl>
+</section>
+<section id="stream-parameters">
+<h2><span class="section-number">3.4. </span>Stream parameters<a class="headerlink" href="#stream-parameters" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">source<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str) The web server source type (required, available options “arclink”, “fdsnws”)</p>
+</dd>
+<dt class="field-even">host<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) Host name (required)</p>
+</dd>
+<dt class="field-odd">port<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(int) Server port number, (optional)</p>
+</dd>
+<dt class="field-even">user<span class="colon">:</span></dt>
+<dd class="field-even"><p>(int) User name, (required for arclink)</p>
+</dd>
+<dt class="field-odd">timeout<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The waiting time for the server response (optional)</p>
+</dd>
+<dt class="field-even">net<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) The network code (required if <cite>stations</cite> parameter is missing)</p>
+</dd>
+<dt class="field-odd">loc<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str) The location filter (optional)</p>
+</dd>
+<dt class="field-even">chan<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) Channels filter (optional)</p>
+</dd>
+<dt class="field-odd">stations<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(list(str)) list of station names. When stations names are in the form “NN.SSSS”
+where “NN” is the network code and “SSSS” is the station code.
+The “net” parameter can be omitted.
+If stations names are in the form “SSSS”, the “net” parameter must be defined.
+It is possible to define in the list individual channels in the form “NN.SSSS.LL.CCC”
+where “LL” is a location code (can be empty) and “CCC” is the channel code.</p>
+</dd>
+<dt class="field-even">cache<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) the cache directory (optional, if missing data are not cached)</p>
+</dd>
+</dl>
+</section>
+<section id="optimization-parameters">
+<h2><span class="section-number">3.5. </span>Optimization parameters<a class="headerlink" href="#optimization-parameters" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">module<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str) The module name containing the optimization function (optional, default is “MinimizeInGrid”),</p>
+</dd>
+<dt class="field-even">method<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) The optimization function name (optional, default is “grid_search”),</p>
+</dd>
+<dt class="field-odd">mw<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(list) This parameter is required for the grid search optimization.
+It is the list of three values describing the grid whose magnitude was checked.
+They are: initial value, upper limit, and the step e.g.  [0.0, 5.01, 0.05],</p>
+</dd>
+<dt class="field-even">log_f0<span class="colon">:</span></dt>
+<dd class="field-even"><p>(list) This is the parameter required for the grid search optimization.
+It is the list of three values describing the grid in which logarithms were checked.
+They are: the initial value, upper limit, and the step, e.g. [-0.6, 1.51, 0.05]</p>
+</dd>
+</dl>
+</section>
+<section id="inventory-parameters">
+<h2><span class="section-number">3.6. </span>Inventory parameters<a class="headerlink" href="#inventory-parameters" title="Link to this heading"></a></h2>
+<p>The <cite>Inventory parameters</cite> describe how to read station inventories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">file_name<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The file name of the inventory file (optional, default value is “inventory.xml”).
+When the file doesn’t exist, the program tries to download the inventory to the file
+from the server defined in <a class="reference internal" href="#stream-parameters"><span class="std std-ref">Stream parameters</span></a>,</p>
+</dd>
+<dt class="field-even">file_format<span class="colon">:</span></dt>
+<dd class="field-even"><p>The inventory format (optional, default value is “STATIONXML”).
+It is not required when the inventory file exists</p>
+</dd>
+</dl>
+</section>
+<section id="remove-response-parameters">
+<h2><span class="section-number">3.7. </span>Remove response parameters<a class="headerlink" href="#remove-response-parameters" title="Link to this heading"></a></h2>
+<p>The remove response parameters are compatible with the ObsPy response removing
+:water_level: (int) (optional, default value is 128)
+:prefilter: (list(4*float)) The prefilter coefficients.
+:output: (str) (optional, default value is “VEL”)</p>
+</section>
+<section id="plot-parameters">
+<h2><span class="section-number">3.8. </span>Plot parameters<a class="headerlink" href="#plot-parameters" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>do_not_draw:</strong></dt><dd><p>(bool)
+When this parameter exists and is true, results are not plotted.
+This parameter allows turn off plotting without erasing plot configuration
+(optional, default value is false)</p>
+</dd>
+<dt><strong>draw_the_signal_spectrum:</strong></dt><dd><p>(bool)
+When this parameter exists and is false,
+the signal spectrum is not plotted.
+Usually, this parameter is missing and useless (optional, default value is true)</p>
+</dd>
+<dt><strong>draw_the_noise:</strong></dt><dd><p>(bool)
+When this parameter exists and is true,
+the noise spectrum is plotted (optional, default value is false)</p>
+</dd>
+<dt><strong>draw_the_noise_uncertainty:</strong></dt><dd><p>(bool) When this parameter exists and is true,
+The dotted linie describing the high noise spectrum uncertainty levels is plotted
+(optional, default value is false)</p>
+</dd>
+<dt><strong>draw_the_noise_correction:</strong></dt><dd><p>(bool)
+When this parameter exists and is true,
+the noise correction value, which needn’t be the same as the noise, is plotted
+(optional, default value is false)</p>
+</dd>
+<dt><strong>draw_source_spectrum_without_the_noise:</strong></dt><dd><p>(bool)
+When this parameter exists and is true,
+the source spectra corrected by Green function but by noise is plotted in green
+(optional, default value is false)</p>
+</dd>
+<dt><strong>draw_source_spectrum_with_the_noise:</strong></dt><dd><p>(bool)
+When this parameter is missing or is true,
+the final source spectrum is plotted
+(optional, default value is true)</p>
+</dd>
+<dt><strong>own_frequencies:</strong></dt><dd><p>(list(float, float, int))
+Used to define spectra frequency for viewing the source function simulation.
+consists of low frequency, high frequency, and the number of frequency points, e.g. [0.1, 30, 25]
+(required in the <cite>test_greens_function</cite>)</p>
+</dd>
+<dt><strong>view:</strong></dt><dd><p>(str)
+Defines the result plotting method
+(optional, allowed values “DISP” - displacement or “VEL” = velocity, default value is “VEL”)</p>
+</dd>
+<dt><strong>how_to_show:</strong></dt><dd><p>(str)
+Defines the result plotting method. Three methods can be used</p>
+<ul class="simple">
+<li><p>“single figure” - all stations are plotted in one figure. Each row is one station,</p></li>
+<li><p>“many figures” - each station is plotted in separate figures - signals at the top</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="2. Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="io_data.html" class="btn btn-neutral float-right" title="4. Input/Output data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

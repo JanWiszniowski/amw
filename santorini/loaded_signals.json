@@ -1,0 +1,633 @@
+{
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HA.SNT1": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HA.SNT1"
+        ],
+        "begin_time": "2025-02-03T00:00:16.721800",
+        "end_time": "2025-02-03T00:01:28.793400",
+        "file_name": "santorini/14a2602d-9dc9-4375-8a28-f29f74a2243a.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HA.SNT1..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 28, 788832)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 16, 718832))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HA.SNT1..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 28, 788832)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 16, 718832))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HA.SNT1..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 28, 788832)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 16, 718832))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HI.NAX1": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HI.NAX1"
+        ],
+        "begin_time": "2025-02-02T23:59:05.283465",
+        "end_time": "2025-02-03T00:01:46.770071",
+        "file_name": "none",
+        "preprocess_name": "none",
+        "processing": {}
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HI.SFR2": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HI.SFR2"
+        ],
+        "begin_time": "2025-02-03T00:00:16.357300",
+        "end_time": "2025-02-03T00:01:29.429900",
+        "file_name": "none",
+        "preprocess_name": "none",
+        "processing": {}
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HL.APE": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.APE"
+        ],
+        "begin_time": "2025-02-02T23:59:18.849083",
+        "end_time": "2025-02-03T00:01:43.280671",
+        "file_name": "santorini/17342b28-bb73-459d-a60c-0443c5942ea4.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.APE..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 43, 280000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 59, 18, 850000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.APE..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 43, 280000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 59, 18, 850000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.APE..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 43, 280000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 59, 18, 850000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HL.MILA": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.MILA"
+        ],
+        "begin_time": "2025-02-02T23:57:28.031150",
+        "end_time": "2025-02-03T00:02:11.785681",
+        "file_name": "none",
+        "preprocess_name": "none",
+        "processing": {}
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HL.NISR": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.NISR"
+        ],
+        "begin_time": "2025-02-02T23:56:18.163119",
+        "end_time": "2025-02-03T00:02:29.757402",
+        "file_name": "santorini/78793ab4-529e-43f8-a97d-92797a251933.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.NISR..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 29, 760000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 56, 18, 160000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.NISR..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 29, 760000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 56, 18, 160000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.NISR..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 29, 760000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 56, 18, 160000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HL.SANT": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.SANT"
+        ],
+        "begin_time": "2025-02-03T00:00:09.207999",
+        "end_time": "2025-02-03T00:01:30.327158",
+        "file_name": "santorini/ee266732-d0a8-4696-a7bd-12765b6f3b5a.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.SANT..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 30, 330000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 9, 210000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SANT..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 30, 330000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 9, 210000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SANT..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 30, 330000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 9, 210000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HL.SAP3": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.SAP3"
+        ],
+        "begin_time": "2025-02-03T00:00:06.709100",
+        "end_time": "2025-02-03T00:01:31.393300",
+        "file_name": "santorini/93c21251-12ba-4544-8a53-e0f27b4299d1.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.SAP3..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 31, 390000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 6, 710000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SAP3..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 31, 390000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 6, 710000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SAP3..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 31, 390000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 6, 710000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HL.THERA": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.THERA"
+        ],
+        "begin_time": "2025-02-03T00:00:15.455700",
+        "end_time": "2025-02-03T00:01:29.329100",
+        "file_name": "santorini/bf0ace6b-0555-4f50-a7ef-0a613da6c7f6.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.THERA..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 29, 330000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 15, 460000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.THERA..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 29, 330000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 15, 460000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.THERA..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 29, 330000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 15, 460000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HL.TNSA": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.TNSA"
+        ],
+        "begin_time": "2025-02-02T23:57:22.976929",
+        "end_time": "2025-02-03T00:02:13.085748",
+        "file_name": "none",
+        "preprocess_name": "none",
+        "processing": {}
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HT.AKRO": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HT.AKRO"
+        ],
+        "begin_time": "2025-02-02T23:59:58.371200",
+        "end_time": "2025-02-03T00:01:33.265600",
+        "file_name": "santorini/8808dd11-162d-4e81-a4c2-2913f84dda7b.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HT.AKRO..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 33, 270000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 59, 58, 370000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HT.AKRO..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 33, 270000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 59, 58, 370000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HT.AKRO..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 33, 270000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 59, 58, 370000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/119a64be-7e2c-4114-94cd-5f615ff98f30_HT.THR2": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HT.THR2"
+        ],
+        "begin_time": "2025-02-03T00:00:21.333000",
+        "end_time": "2025-02-03T00:01:27.799000",
+        "file_name": "santorini/278f6216-145d-44b7-926f-90a3898e81fc.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HT.THR2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 27, 800000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 21, 330000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HT.THR2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 27, 800000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 21, 330000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HT.THR2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 1, 27, 800000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 21, 330000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000029B7A2D8D30>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/e496e64e-f73a-4141-9bb7-a2d2bf530631_HL.APE": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.APE"
+        ],
+        "begin_time": "2025-02-03T00:00:28.154380",
+        "end_time": "2025-02-03T00:02:48.260887",
+        "file_name": "santorini/bfecb24c-2cec-4ce9-a5a1-faa115af50dd.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.APE..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 48, 260000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 28, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.APE..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 48, 260000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 28, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.APE..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 48, 260000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 28, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/e496e64e-f73a-4141-9bb7-a2d2bf530631_HL.SANT": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.SANT"
+        ],
+        "begin_time": "2025-02-03T00:00:51.818410",
+        "end_time": "2025-02-03T00:02:42.173935",
+        "file_name": "santorini/09c9d926-8652-4fd9-b6eb-af665465bd5e.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.SANT..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 42, 169999)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 51, 819999))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SANT..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 42, 169999)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 51, 819999))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SANT..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 42, 169999)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 51, 819999))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/e496e64e-f73a-4141-9bb7-a2d2bf530631_HL.SIVA": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.SIVA"
+        ],
+        "begin_time": "2025-02-02T23:55:52.346013",
+        "end_time": "2025-02-03T00:03:59.205366",
+        "file_name": "santorini/a7d705f5-ff2f-4363-af53-70cf27960136.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.SIVA..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 59, 210000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 55, 52, 350000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SIVA..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 59, 210000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 55, 52, 350000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SIVA..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 59, 210000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 55, 52, 350000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/e496e64e-f73a-4141-9bb7-a2d2bf530631_HL.SMG": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.SMG"
+        ],
+        "begin_time": "2025-02-02T23:57:14.062691",
+        "end_time": "2025-02-03T00:03:38.185891",
+        "file_name": "santorini/9be08016-e72a-4d4c-a146-6635f2430485.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.SMG..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 38, 190000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 57, 14, 60000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SMG..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 38, 190000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 57, 14, 60000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SMG..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 38, 190000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 2, 23, 57, 14, 60000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/e496e64e-f73a-4141-9bb7-a2d2bf530631_HL.THERA": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.THERA"
+        ],
+        "begin_time": "2025-02-03T00:01:00.997400",
+        "end_time": "2025-02-03T00:02:40.296200",
+        "file_name": "santorini/938c0d90-f2f1-4e55-a57f-fe3fca198079.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.THERA..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 40, 300000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 1, 1))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.THERA..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 40, 300000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 1, 1))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.THERA..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 40, 300000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 1, 1))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/e496e64e-f73a-4141-9bb7-a2d2bf530631_HT.AKRO": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HT.AKRO"
+        ],
+        "begin_time": "2025-02-03T00:00:34.915541",
+        "end_time": "2025-02-03T00:02:46.521757",
+        "file_name": "santorini/e0997fe3-5632-41ec-a515-0194d1e91447.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HT.AKRO..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 46, 520000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 34, 920000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HT.AKRO..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 46, 520000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 34, 920000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HT.AKRO..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 46, 520000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 34, 920000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/e496e64e-f73a-4141-9bb7-a2d2bf530631_HT.THR2": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HT.THR2"
+        ],
+        "begin_time": "2025-02-03T00:00:59.775493",
+        "end_time": "2025-02-03T00:02:40.127184",
+        "file_name": "santorini/b9b6322e-cca7-41ee-9570-49f173ea2329.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HT.THR2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 40, 130000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 59, 780000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HT.THR2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 40, 130000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 59, 780000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HT.THR2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 40, 130000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 59, 780000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/e496e64e-f73a-4141-9bb7-a2d2bf530631_HT.THR9": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HT.THR9"
+        ],
+        "begin_time": "2025-02-03T00:00:37.229120",
+        "end_time": "2025-02-03T00:02:45.926649",
+        "file_name": "santorini/e4f9323b-8a3f-4314-a0e2-fdba85874557.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HT.THR9..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 45, 930000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 37, 230000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HT.THR9..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 45, 930000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 37, 230000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HT.THR9..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 2, 45, 930000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 0, 37, 230000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001EDAC431460>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/9cb9ece3-d0db-48ab-824f-8e08cba1ecc2_HA.SNT1": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HA.SNT1"
+        ],
+        "begin_time": "2025-02-03T00:02:19.677169",
+        "end_time": "2025-02-03T00:03:37.730285",
+        "file_name": "santorini/50f1aad5-ca2b-4e27-bc73-6811f6a54909.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HA.SNT1..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 37, 728832)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 2, 19, 678832))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000026228E14910>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HA.SNT1..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 37, 728832)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 2, 19, 678832))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000026228E14910>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HA.SNT1..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 37, 728832)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 2, 19, 678832))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000026228E14910>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/9cb9ece3-d0db-48ab-824f-8e08cba1ecc2_HI.SFR2": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HI.SFR2"
+        ],
+        "begin_time": "2025-02-03T00:02:22.978300",
+        "end_time": "2025-02-03T00:03:38.052900",
+        "file_name": "none",
+        "preprocess_name": "none",
+        "processing": {}
+    },
+    "smi:local/9cb9ece3-d0db-48ab-824f-8e08cba1ecc2_HL.APE": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.APE"
+        ],
+        "begin_time": "2025-02-03T00:01:28.050227",
+        "end_time": "2025-02-03T00:03:51.009964",
+        "file_name": "santorini/ed55abda-005f-4a91-ac91-33953ed4fb59.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.APE..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 51, 10000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 1, 28, 50000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000026228E14910>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.APE..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 51, 10000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 1, 28, 50000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000026228E14910>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.APE..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 51, 10000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 1, 28, 50000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000026228E14910>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:local/9cb9ece3-d0db-48ab-824f-8e08cba1ecc2_HL.SANT": {
+        "source": {
+            "source": "fdsnws",
+            "host": "http://eida.gein.noa.gr",
+            "timeout": 300,
+            "cache": "santorini"
+        },
+        "stations": [
+            "HL.SANT"
+        ],
+        "begin_time": "2025-02-03T00:02:11.647999",
+        "end_time": "2025-02-03T00:03:39.795579",
+        "file_name": "santorini/b6c83035-e2ce-4319-9f30-60025474fc0d.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "HL.SANT..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 39, 800000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 2, 11, 650000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000026228E14910>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SANT..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 39, 800000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 2, 11, 650000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000026228E14910>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "HL.SANT..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2025, 2, 3, 0, 3, 39, 800000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2025, 2, 3, 0, 2, 11, 650000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x0000026228E14910>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 30, 40]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    }
+}

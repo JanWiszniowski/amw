@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amw.mw.source_models &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="../../../_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">amw.mw.source_models</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for amw.mw.source_models</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Seismic source models in frequency domain</span>
+<span class="sd">-----------------------------------------</span>
+
+<span class="sd">..</span>
+<span class="sd">    :copyright:</span>
+<span class="sd">        Jan Wiszniowski (jwisz@igf.edu.pl)</span>
+<span class="sd">    :license:</span>
+<span class="sd">        GNU Lesser General Public License, Version 3</span>
+<span class="sd">        (https://www.gnu.org/copyleft/lesser.html)</span>
+<span class="sd">    :version 0.0.1:</span>
+<span class="sd">        2024-11-07</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="BoatwrightSourceModel">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.source_models.BoatwrightSourceModel">[docs]</a>
+<span class="k">class</span> <span class="nc">BoatwrightSourceModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The Boatwright (1978; 1980) seismic source model is:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        S\left(f|M_0,f_0\right)=</span>
+<span class="sd">        {\frac{1}{2\pi f}M_0\left[{1+\left(\frac{f}{f_0}\right)}^{n\gamma}\right]}^\frac{-1}{\gamma},</span>
+
+<span class="sd">    where :math:`M_0` is a scalar moment and :math:`f_0` is a cornel frequency. Constant values :math:`\gamma`</span>
+<span class="sd">    and :math:`n` controls the sharpness of the corners of the spectrum. For :math:`\gamma = 1` and :math:`n = 2`,</span>
+<span class="sd">    it is Brune (1970; 1971) source model:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        S\left(f|M_0,f_0\right)={\frac{1}{2\pi f}M_0\left[{1+\left(\frac{f}{f_0}\right)}^2\right]}^{-1}</span>
+
+<span class="sd">    :param frequencies: The frequencies values, for w spectral function values will be computed</span>
+<span class="sd">    :type frequencies: numpy array</span>
+<span class="sd">    :param gamma:</span>
+<span class="sd">    :param n:</span>
+
+<span class="sd">    Default parameters gamma=1 and n=2 are for Brunea source model</span>
+
+<span class="sd">    References:</span>
+
+<span class="sd">    * Boatwright, J. (1978). Detailed spectral analysis of two small New York State earthquakes,</span>
+<span class="sd">      Bull. Seism. Soc. Am. 68 (4), 1117–1131. https://doi.org/10.1785/BSSA0680041117</span>
+<span class="sd">    * Boatwright, J. (1980). A spectral theory for circular seismic sources; simple estimates of source dimension,</span>
+<span class="sd">      dynamic stress drop, and radiated seismic energy,</span>
+<span class="sd">      Bull. Seism. Soc. Am. 70 (1), 1–27. https://doi.org/10.1785/BSSA0700010001</span>
+<span class="sd">    * Brune, J. N. (1970). Tectonic stress and the spectra of seismic shear waves from earthquakes,</span>
+<span class="sd">      J. Geophys. Res. 75, 4997-5009. https://doi.org/10.1029/JB075i026p04997</span>
+<span class="sd">    * Brune, J.N. (1971) Correction [to &quot;Tectonic Stress and the Spectra of Seismic Shear Waves from Earthquakes&quot;],</span>
+<span class="sd">      J. Geophys. Res. 76, 5002. http://dx.doi.org/10.1029/JB076i020p05002</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mf">2.0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Default parameters gamma=1 and n=2 are for Brune source model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">frequencies</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">omega</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the frequency values of the source model for source model parameters</span>
+
+<span class="sd">        Call example</span>
+<span class="sd">        ------------</span>
+<span class="sd">        from amw.mw.source_models import BoatwrightSourceModel</span>
+<span class="sd">        source_model = BoatwrightSourceModel(np.arange(0.1, 20.0, 0.1))</span>
+<span class="sd">        result = source_model(1.0e14, 1.5)</span>
+
+<span class="sd">        :param args: Two source model parameters: moment scale and corner frequency</span>
+<span class="sd">        :param kwargs:</span>
+
+<span class="sd">        :return:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m0</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">m0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">/</span> <span class="n">f0</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">))</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">omega</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="BruneSourceModel">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.source_models.BruneSourceModel">[docs]</a>
+<span class="k">class</span> <span class="nc">BruneSourceModel</span><span class="p">(</span><span class="n">BoatwrightSourceModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Brune (1970; 1971) seismic source model is:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        S\left(f|M_0,f_0\right)={\frac{1}{2\pi f}M_0\left[{1+\left(\frac{f}{f_0}\right)}^2\right]}^{-1},</span>
+
+<span class="sd">    where :math:`M_0` is a scalar moment and :math:`f_0` is a corner frequency.</span>
+
+<span class="sd">    :param frequencies: The frequencies values, for w spectral function values will be computed</span>
+<span class="sd">    :type frequencies: numpy array</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">):</span>
+        <span class="n">BoatwrightSourceModel</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="HaskellSourceModel">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.source_models.HaskellSourceModel">[docs]</a>
+<span class="k">class</span> <span class="nc">HaskellSourceModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">     Haskell (1964) seismic source model is:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        S\left(f|M_0,f_0\right)=\frac{1}{2\pi f}M_0\text{sinc}\frac{f}{f0},</span>
+
+<span class="sd">    where :math:`M_0` is a scalar moment and :math:`f_0` is a corner frequency.</span>
+
+<span class="sd">    :param frequencies: The frequencies values, for w spectral function values will be computed</span>
+<span class="sd">    :type frequencies: numpy array</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mf">2.0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">frequencies</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">omega</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">f</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the frequency values of the source model for source model parameters</span>
+
+<span class="sd">        Call example</span>
+<span class="sd">        ------------</span>
+<span class="sd">        from amw.mw.source_models import HaskellSourceModel</span>
+<span class="sd">        source_model = HaskellSourceModel(np.arange(0.1, 20.0, 0.1))</span>
+<span class="sd">        result = source_model(1.0e14, 1.5)</span>
+
+<span class="sd">        :param args: Two or three source model parameters: moment scale, first corner frequency,</span>
+<span class="sd">            and second corner frequency</span>
+<span class="sd">        :param kwargs:</span>
+
+<span class="sd">        :return:</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m0</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">omega0_2</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">f1</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">raise</span> <span class="s2">&quot;Two corner frequency Haskell has been not implemented yet&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">m0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="o">/</span><span class="n">omega0_2</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">omega</span><span class="p">))</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

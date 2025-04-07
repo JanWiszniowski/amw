@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amw.core.signal_utils &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="../../../_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">amw.core.signal_utils</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for amw.core.signal_utils</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The waveform and inventory manipulation</span>
+<span class="sd">---------------------------------------</span>
+
+<span class="sd">..</span>
+<span class="sd">    :copyright:</span>
+<span class="sd">        Jan Wiszniowski (jwisz@igf.edu.pl)</span>
+<span class="sd">    :license:</span>
+<span class="sd">        GNU Lesser General Public License, Version 3</span>
+<span class="sd">        (https://www.gnu.org/copyleft/lesser.html)</span>
+<span class="sd">    :version 0.0.1:</span>
+<span class="sd">        2025-01-15</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">.arclink_client</span> <span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">ArcLinkException</span>
+<span class="kn">import</span> <span class="nn">obspy.clients.fdsn.client</span> <span class="k">as</span> <span class="nn">fdsnws</span>
+<span class="kn">from</span> <span class="nn">obspy</span> <span class="kn">import</span> <span class="n">read</span>
+<span class="kn">from</span> <span class="nn">obspy.core.util.obspy_types</span> <span class="kn">import</span> <span class="n">ObsPyException</span>
+<span class="kn">from</span> <span class="nn">obspy.core.inventory.inventory</span> <span class="kn">import</span> <span class="n">read_inventory</span>
+<span class="kn">from</span> <span class="nn">obspy.core.utcdatetime</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
+<span class="kn">from</span> <span class="nn">obspy.core.stream</span> <span class="kn">import</span> <span class="n">Stream</span>
+
+
+<div class="viewcode-block" id="SignalException">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.signal_utils.SignalException">[docs]</a>
+<span class="k">class</span> <span class="nc">SignalException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;other&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Signal error: &quot;</span> <span class="o">+</span> <span class="n">message</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="StreamPreprocessing">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.signal_utils.StreamPreprocessing">[docs]</a>
+<span class="k">class</span> <span class="nc">StreamPreprocessing</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The base class of streams preprocessing</span>
+
+<span class="sd">    :param name: The name of the preprocessing</span>
+<span class="sd">    :type name: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param name: The name of the preprocessing</span>
+<span class="sd">        :type name: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pure method must be overwritten.</span>
+
+<span class="sd">        :param stream:</span>
+<span class="sd">        :type stream:</span>
+<span class="sd">        :return: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Processing execution</span>
+
+<span class="sd">        :param stream:</span>
+<span class="sd">        :type stream:</span>
+<span class="sd">        :return: None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="StreamLoader">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.signal_utils.StreamLoader">[docs]</a>
+<span class="k">class</span> <span class="nc">StreamLoader</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The stream loader loads seismic waveforms from servers ArcLink or FDSNWS</span>
+<span class="sd">    and process data initially. The loaded and processed data can be kept on local disc</span>
+<span class="sd">    in the cache directory for increase the reloading speed.</span>
+
+<span class="sd">    :param configuration: The container of general seismic processing configuration.</span>
+<span class="sd">        The required parameters are kept in the &#39;stream&#39; sub-dictionary:</span>
+<span class="sd">    :type configuration: dict</span>
+<span class="sd">    :param preprocess:</span>
+<span class="sd">    :type preprocess: StreamPreprocessing</span>
+
+<span class="sd">    **The parameters present in the &#39;stream&#39; sub-dictionary:**</span>
+
+<span class="sd">    :source: The waveforms source. Available options are &#39;arclink&#39; or &#39;fdsnws&#39; (required)</span>
+<span class="sd">    :host: The server host</span>
+<span class="sd">    :port: The server port</span>
+<span class="sd">    :user: The request user id (if required)</span>
+<span class="sd">    :password: The request password (if required)</span>
+<span class="sd">    :timeout: The downloading timeout limit</span>
+<span class="sd">    :net: The default network name.</span>
+<span class="sd">    :sta: The default station name.</span>
+<span class="sd">    :loc: The default location name.</span>
+<span class="sd">    :chan: The default channel name.</span>
+<span class="sd">    :cache: The cache directory. In the cache directory are kept all downloaded and preprocessed waveform files</span>
+<span class="sd">        and the file &#39;loaded_signals.json&#39; containing info</span>
+<span class="sd">    :stations: The default request station list</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">preprocess</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param configuration: The container of general seismic processing configuration.</span>
+<span class="sd">            The required parameters are kept in the &#39;stream&#39; sub-dictionary:</span>
+<span class="sd">        :type configuration: dict</span>
+<span class="sd">        :param preprocess:</span>
+<span class="sd">        :type preprocess: StreamPreprocessing</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stations</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span> <span class="o">=</span> <span class="n">preprocess</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;stream&#39;</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="n">Cache</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="p">,</span> <span class="s1">&#39;loaded_signals.json&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;arclink&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_download_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_download_arclink</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;fdsnws&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_download_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_download_fdsnws</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="s1">&#39;Wrong stream source definition&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_stations</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;stations&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="StreamLoader.download">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.signal_utils.StreamLoader.download">[docs]</a>
+    <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">,</span> <span class="n">event_id</span><span class="p">,</span> <span class="n">new_file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Downloads the stream from the seismic data sever with optional caching.</span>
+
+<span class="sd">        :param new_file_name: The proposed name of the file tobe stored in the cache.</span>
+<span class="sd">            If it is missing the unique random name is generated.</span>
+<span class="sd">        :type new_file_name: str</span>
+<span class="sd">        :param begin_time: The begin time of waveforms</span>
+<span class="sd">        :type begin_time: ObsPy.UTCDateTime</span>
+<span class="sd">        :param end_time: The end time of waveforms</span>
+<span class="sd">        :type end_time: ObsPy.UTCDateTime</span>
+<span class="sd">        :param event_id: The event id, but it can be any string defining the stream request,</span>
+<span class="sd">            which can identify the data in case of repeated inquiry.</span>
+<span class="sd">        :type event_id: str</span>
+<span class="sd">        :return: The requested stream or None if it can not be downloaded</span>
+<span class="sd">        :rtype: ObsPy.Stream</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_download_source</span><span class="p">(</span><span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">stream</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;none&#39;</span>
+        <span class="n">preprocess_name</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+            <span class="n">preprocess_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">processing</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+            <span class="n">processing</span><span class="p">[</span><span class="n">trace</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">processing</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="ow">and</span> <span class="n">event_id</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">new_file_name</span><span class="p">:</span>
+                <span class="n">new_file_name</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">.msd&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">cache_path</span><span class="p">,</span> <span class="n">new_file_name</span><span class="p">)</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;MSEED&#39;</span><span class="p">)</span>
+            <span class="n">stream_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;source&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="p">,</span>
+                                 <span class="s1">&#39;stations&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">stations</span><span class="p">,</span>
+                                 <span class="s1">&#39;begin_time&#39;</span><span class="p">:</span> <span class="n">begin_time</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+                                 <span class="s1">&#39;end_time&#39;</span><span class="p">:</span> <span class="n">end_time</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+                                 <span class="s1">&#39;file_name&#39;</span><span class="p">:</span> <span class="n">file_name</span><span class="p">,</span>
+                                 <span class="s1">&#39;preprocess_name&#39;</span><span class="p">:</span> <span class="n">preprocess_name</span><span class="p">,</span>
+                                 <span class="s1">&#39;processing&#39;</span><span class="p">:</span> <span class="n">processing</span><span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">loaded_signals</span><span class="p">[</span><span class="n">event_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">stream_parameters</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">backup</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">stream</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_download_arclink</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="mi">18001</span><span class="p">),</span>
+                        <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;timeout&#39;</span><span class="p">,</span> <span class="mi">150</span><span class="p">))</span>
+        <span class="n">signal</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stations</span><span class="p">:</span>
+            <span class="n">stream</span> <span class="o">=</span> <span class="n">station</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+            <span class="n">stream_format</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">stream_format</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">signal</span> <span class="o">+=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_waveforms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;net&#39;</span><span class="p">],</span> <span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                                   <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+                                                   <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;chan&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">),</span> <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">stream_format</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">signal</span> <span class="o">+=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_waveforms</span><span class="p">(</span><span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stream</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+                                                   <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;chan&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">),</span> <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">stream_format</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                    <span class="n">signal</span> <span class="o">+=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_waveforms</span><span class="p">(</span><span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stream</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">stream</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">stream</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                                                   <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Parameters error: wrong station_name definition </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">station</span><span class="p">))</span>
+            <span class="k">except</span> <span class="n">ArcLinkException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ArcLink error: </span><span class="si">{}</span><span class="s1"> reading station_name </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">station</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">signal</span>
+
+    <span class="k">def</span> <span class="nf">_download_fdsnws</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">fdsnws</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span>
+                               <span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span>
+                               <span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;timeout&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+        <span class="n">signal</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stations</span><span class="p">:</span>
+            <span class="n">stream</span> <span class="o">=</span> <span class="n">station</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+            <span class="n">stream_format</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">stream_format</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">signal</span> <span class="o">+=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_waveforms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;net&#39;</span><span class="p">],</span> <span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                                   <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+                                                   <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;chan&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">),</span> <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">stream_format</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="n">signal</span> <span class="o">+=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_waveforms</span><span class="p">(</span><span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stream</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                                   <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loc&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+                                                   <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;chan&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">),</span> <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">stream_format</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                    <span class="n">signal</span> <span class="o">+=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_waveforms</span><span class="p">(</span><span class="n">stream</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stream</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">stream</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">stream</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                                                   <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Parameters error: wrong station_name definition </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">station</span><span class="p">))</span>
+            <span class="k">except</span> <span class="n">fdsnws</span><span class="o">.</span><span class="n">FDSNException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FDSNWS error: </span><span class="si">{}</span><span class="s1"> reading station_name </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">station</span><span class="p">))</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">signal</span>
+
+<div class="viewcode-block" id="StreamLoader.exist_file">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.signal_utils.StreamLoader.exist_file">[docs]</a>
+    <span class="k">def</span> <span class="nf">exist_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">,</span> <span class="n">event_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The method checks if the requested waveform exists. A few conditions are checked.</span>
+<span class="sd">        First it checks if the cache exists. Then checks if event id exists.</span>
+<span class="sd">        The requested period must include in the existing file period.</span>
+<span class="sd">        The requested station list must include in the existing file station list.</span>
+<span class="sd">        The preprocessor name must be the same.</span>
+
+<span class="sd">        :param begin_time: The requested waveforms begin time</span>
+<span class="sd">        :type begin_time: ObsPy.UTCDateTime</span>
+<span class="sd">        :param end_time: The requested waveforms begin time</span>
+<span class="sd">        :type end_time: ObsPy.UTCDateTime</span>
+<span class="sd">        :param event_id: The request event id. It can be the event id that the waveforms are associated</span>
+<span class="sd">            or any string that identify the request.</span>
+<span class="sd">        :type event_id: str</span>
+<span class="sd">        :return: The parameters of existed file or None,</span>
+<span class="sd">            if the function can not fit request to existing files list</span>
+<span class="sd">        :rtype: dict</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">event_id</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">loaded_signal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">loaded_signals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">loaded_signal</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">begin_time</span> <span class="o">&lt;</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="n">loaded_signal</span><span class="p">[</span><span class="s1">&#39;begin_time&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">end_time</span> <span class="o">&gt;</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="n">loaded_signal</span><span class="p">[</span><span class="s1">&#39;end_time&#39;</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream_source</span> <span class="o">!=</span> <span class="n">loaded_signal</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">loaded_signal</span><span class="p">[</span><span class="s1">&#39;preprocess_name&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">loaded_signal</span><span class="p">[</span><span class="s1">&#39;preprocess_name&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>  <span class="c1"># self.preprocess.__class__.__name__</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stations</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">station</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">loaded_signal</span><span class="p">[</span><span class="s1">&#39;stations&#39;</span><span class="p">]:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">loaded_signal</span></div>
+
+
+<div class="viewcode-block" id="StreamLoader.get_signal">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.signal_utils.StreamLoader.get_signal">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_signal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">,</span> <span class="n">event_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">new_file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides seismic signal waveform based on request.</span>
+<span class="sd">        If matching the request file exist in the cache it reads signal from the file,</span>
+<span class="sd">        otherwise download from the seismic waveforms&#39; server.</span>
+
+<span class="sd">        :param begin_time: The requested waveforms begin time</span>
+<span class="sd">        :type begin_time: ObsPy.UTCDateTime</span>
+<span class="sd">        :param end_time: The requested waveforms begin time</span>
+<span class="sd">        :type end_time: ObsPy.UTCDateTime</span>
+<span class="sd">        :param event_id: The request event id. It can be the event id that the waveforms are associated</span>
+<span class="sd">            or any string that identify the request. (optional If missing waveform is only downloaded from the server)</span>
+<span class="sd">        :type event_id: str</span>
+<span class="sd">        :param stations: The request stations list.</span>
+<span class="sd">            (optional) If it is missing the station list from the configuration is checked.</span>
+<span class="sd">        :type stations: list(str)</span>
+<span class="sd">        :param new_file_name: The name of a file in the cache.</span>
+<span class="sd">            (optional) If missing the unique file name is generated.</span>
+<span class="sd">        :type new_file_name: str</span>
+<span class="sd">        :return: The waveform stream. Return None if it can not (or could not) download waveforms.</span>
+<span class="sd">        :rtype: ObsPy.Stream</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">stations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_stations</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stations</span> <span class="o">=</span> <span class="n">stations</span>
+        <span class="n">loaded_signal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exist_file</span><span class="p">(</span><span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">,</span> <span class="n">event_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">loaded_signal</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">loaded_signal</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="n">stream</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">loaded_signal</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+                <span class="n">trace</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">processing</span> <span class="o">=</span> <span class="n">loaded_signal</span><span class="p">[</span><span class="s1">&#39;processing&#39;</span><span class="p">][</span><span class="n">trace</span><span class="o">.</span><span class="n">id</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">stream</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">,</span> <span class="n">event_id</span><span class="p">,</span> <span class="n">new_file_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">stream</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="load_inventory">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.signal_utils.load_inventory">[docs]</a>
+<span class="k">def</span> <span class="nf">load_inventory</span><span class="p">(</span><span class="n">configuration</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads inventory from the file. The file name and format are in &#39;inventory&#39; configuration.</span>
+<span class="sd">    If inventory file is missing the inventory is downloaded from the waveform server,</span>
+<span class="sd">    which configuration is in the &#39;stream&#39; sub-dictionary.</span>
+
+<span class="sd">    :param configuration: The container of general seismic processing configuration.</span>
+<span class="sd">        The required parameters are kept in the &#39;inventory&#39; sub-dictionary.</span>
+<span class="sd">    :type configuration: dict</span>
+<span class="sd">    :return: The inventory</span>
+<span class="sd">    :rtype: ObsPy.Inventory</span>
+
+<span class="sd">    **The parameters present in the &#39;inventory&#39; sub-dictionary:**</span>
+
+<span class="sd">    :file_name: The inventory file name. (optional, default is &#39;inventory.xml&#39;)</span>
+<span class="sd">    :file_format: The format of the inventory file name. (optional, default is &#39;STATIONXML&#39;)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inventory_configuration</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;inventory&#39;</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">inventory_configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="s1">&#39;inventory.xml&#39;</span><span class="p">)</span>
+    <span class="n">file_format</span> <span class="o">=</span> <span class="n">inventory_configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;file_format&#39;</span><span class="p">,</span> <span class="s1">&#39;STATIONXML&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">inventory</span> <span class="o">=</span> <span class="n">read_inventory</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">file_format</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">inventory</span>
+        <span class="k">except</span> <span class="n">ObsPyException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> error: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+
+    <span class="n">stream_source</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">[</span><span class="s1">&#39;stream&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;arclink&#39;</span><span class="p">:</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">,</span> <span class="mi">18001</span><span class="p">),</span>
+                        <span class="n">user</span><span class="o">=</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span> <span class="n">timeout</span><span class="o">=</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;timeout&#39;</span><span class="p">,</span> <span class="mi">150</span><span class="p">))</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">save_response</span><span class="p">(</span><span class="s1">&#39;temporary.dataless&#39;</span><span class="p">,</span> <span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;net&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">),</span> <span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sta&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">),</span>
+                             <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">1970</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mi">2060</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;SEED&quot;</span><span class="p">)</span>
+        <span class="n">inventory</span> <span class="o">=</span> <span class="n">read_inventory</span><span class="p">(</span><span class="s1">&#39;temporary.dataless&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;SEED&#39;</span><span class="p">)</span>
+        <span class="n">inventory</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">file_format</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">inventory</span>
+    <span class="k">elif</span> <span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;fdsnws&#39;</span><span class="p">:</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">fdsnws</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span> <span class="n">user</span><span class="o">=</span><span class="n">stream_source</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span>
+                               <span class="n">timeout</span><span class="o">=</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;timeout&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+        <span class="n">inventory</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_stations</span><span class="p">(</span><span class="n">network</span><span class="o">=</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;net&#39;</span><span class="p">),</span> <span class="n">sta</span><span class="o">=</span><span class="n">stream_source</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sta&#39;</span><span class="p">),</span>
+                                        <span class="n">level</span><span class="o">=</span><span class="s2">&quot;response&quot;</span><span class="p">)</span>
+        <span class="n">inventory</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">file_format</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">inventory</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">SignalException</span><span class="p">(</span><span class="s1">&#39;Wrong inventory source definition&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_inventory">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.signal_utils.get_inventory">[docs]</a>
+<span class="k">def</span> <span class="nf">get_inventory</span><span class="p">(</span><span class="n">sta_name</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">inventory</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extracts inventory for the station.</span>
+
+<span class="sd">    :param sta_name: The station name as the string in the form &#39;NN.SSS&#39;,</span>
+<span class="sd">        where &#39;NN&#39; is the network code and &#39;SSS&#39; is the station code.</span>
+<span class="sd">    :type sta_name: str</span>
+<span class="sd">    :param date: The date of the inventory</span>
+<span class="sd">    :type date: ObsPy.UTCDateTime</span>
+<span class="sd">    :param inventory: The inventory of all stations</span>
+<span class="sd">    :type inventory: ObsPy.Inventory</span>
+<span class="sd">    :return: The inventory of the station</span>
+<span class="sd">    :rtype: ObsPy.Inventory</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">net_code</span><span class="p">,</span> <span class="n">sta_code</span> <span class="o">=</span> <span class="n">sta_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">inventory</span><span class="o">.</span><span class="n">networks</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">net</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="n">net_code</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">sta</span> <span class="ow">in</span> <span class="n">net</span><span class="o">.</span><span class="n">stations</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">sta</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="n">sta_code</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">sta</span><span class="o">.</span><span class="n">start_date</span> <span class="ow">and</span> <span class="n">sta</span><span class="o">.</span><span class="n">start_date</span> <span class="o">&gt;</span> <span class="n">date</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                    <span class="k">if</span> <span class="n">sta</span><span class="o">.</span><span class="n">end_date</span> <span class="ow">and</span> <span class="n">sta</span><span class="o">.</span><span class="n">end_date</span> <span class="o">&lt;</span> <span class="n">date</span><span class="p">:</span>
+                        <span class="k">continue</span>
+                    <span class="k">return</span> <span class="n">sta</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="Cache">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.signal_utils.Cache">[docs]</a>
+<span class="k">class</span> <span class="nc">Cache</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The cache class for manipulating the cache metadata</span>
+
+
+<span class="sd">    :param configuration: The container of general seismic processing configuration.</span>
+<span class="sd">        The required parameter is a cache path kept in the &#39;cache&#39;.</span>
+<span class="sd">    :type configuration: dict</span>
+<span class="sd">    :param file_name: The cache metadata file name</span>
+<span class="sd">    :type file_name: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configuration</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param configuration: The container of general seismic processing configuration.</span>
+<span class="sd">            The required parameter is a cache path kept in the &#39;cache&#39;.</span>
+<span class="sd">        :param file_name: The cache metadata file name</span>
+<span class="sd">        :type file_name: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loaded_signals</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache_path</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cache&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_path</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_path</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">loaded_signals</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="si">}</span><span class="s1">: Invalid JSON syntax - </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Cache.backup">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.signal_utils.Cache.backup">[docs]</a>
+    <span class="k">def</span> <span class="nf">backup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Backs up the cache metadata. Saves to the JSON file.</span>
+
+<span class="sd">        :return: None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_path</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;wt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loaded_signals</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

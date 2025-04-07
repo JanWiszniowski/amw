@@ -1,0 +1,210 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Getting Started &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Configuration file" href="configuration.html" />
+    <link rel="prev" title="1. Theoretical Background" href="description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#spectral-mw-calculation">2.1. Spectral Mw calculation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#use-case-external-server">2.1.1. Use case: external server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fdsnws">2.1.1.1. FDSNWS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#arclink">2.1.1.2. ArcLink</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#use-case-files">2.1.2. Use case: files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-arguments">2.1.3. Command line arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#source-spectra-visualization">2.2. Source spectra visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getting_started.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<span id="id1"></span><h1><span class="section-number">2. </span>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the impatient</p>
+<p>To run the example, call it <code class="docutils literal notranslate"><span class="pre">spectral_Mw</span> <span class="pre">-c</span> <span class="pre">test.xml</span> <span class="pre">-s</span> <span class="pre">test.msd</span> <span class="pre">test.json</span></code></p>
+</div>
+<p>Both Mw programs <code class="docutils literal notranslate"><span class="pre">spectral_Mw</span></code> and <code class="docutils literal notranslate"><span class="pre">view_green_fun</span></code> require the configuration file
+in the <a class="reference external" href="https://www.json.org/json-en.html">JSON</a> format.
+The configuration file name is the only calling parameter that is always required.
+It is described in the <a class="reference internal" href="configuration.html#configuration"><span class="std std-ref">Configuration file</span></a> section.
+Seismic signal can be read from the MiniSEED file or downloaded from servers.</p>
+<section id="spectral-mw-calculation">
+<h2><span class="section-number">2.1. </span>Spectral Mw calculation<a class="headerlink" href="#spectral-mw-calculation" title="Link to this heading"></a></h2>
+<p>The spectral Mw is calculated by <code class="docutils literal notranslate"><span class="pre">spectral_Mw</span></code></p>
+<section id="use-case-external-server">
+<h3><span class="section-number">2.1.1. </span>Use case: external server<a class="headerlink" href="#use-case-external-server" title="Link to this heading"></a></h3>
+<p>You must modify the <a class="reference internal" href="configuration.html#configuration"><span class="std std-ref">Configuration file</span></a> file and then run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spectral_Mw</span> <span class="o">-</span><span class="n">q</span> <span class="n">event</span><span class="o">.</span><span class="n">xml</span> <span class="n">configuration</span><span class="o">.</span><span class="n">json</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>where event.xml is an example of the catalog file name
+and configuration.json is an example of the configuration file name.</p>
+<section id="fdsnws">
+<h4><span class="section-number">2.1.1.1. </span><a class="reference external" href="https://www.fdsn.org/webservices/">FDSNWS</a><a class="headerlink" href="#fdsnws" title="Link to this heading"></a></h4>
+<p>If you have access to <a class="reference external" href="https://www.fdsn.org/webservices/">FDSNWS</a> server configure at least:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;stream&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;fdsnws&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="n">host_name</span><span class="p">,</span>
+    <span class="s2">&quot;net&quot;</span><span class="p">:</span> <span class="n">net_code</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</section>
+<section id="arclink">
+<h4><span class="section-number">2.1.1.2. </span><a class="reference external" href="https://www.seiscomp.de/seiscomp3/doc/applications/arclink.html">ArcLink</a><a class="headerlink" href="#arclink" title="Link to this heading"></a></h4>
+<p>If you have access to <a class="reference external" href="https://www.seiscomp.de/seiscomp3/doc/applications/arclink.html">ArcLink</a> server configure at least:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;stream&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;arclink&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="n">host_name</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;18001&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;anonymous@&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;net&quot;</span><span class="p">:</span> <span class="n">net_code</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="use-case-files">
+<h3><span class="section-number">2.1.2. </span>Use case: files<a class="headerlink" href="#use-case-files" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Prepare the the <a class="reference internal" href="configuration.html#configuration"><span class="std std-ref">Configuration file</span></a> file</p></li>
+<li><dl class="simple">
+<dt>Run <code class="docutils literal notranslate"><span class="pre">spectral_Mw</span> <span class="pre">-s</span> <span class="pre">traces.mseed</span> <span class="pre">-q</span> <span class="pre">event1.xml</span> <span class="pre">configuration.json</span></code>,</dt><dd><p>where seismic recordings are in <a class="reference external" href="http://ds.iris.edu/ds/nodes/dmc/data/formats/miniseed/">miniSEED</a> format (e.g., <code class="docutils literal notranslate"><span class="pre">traces.mseed</span></code>),
+metadata are in <a class="reference external" href="http://docs.fdsn.org/projects/stationxml/en/latest/">StationXML</a> format (metadata file name is in the configration file, e.g., <code class="docutils literal notranslate"><span class="pre">station.xml</span></code>)
+and event information is in <a class="reference external" href="https://quake.ethz.ch/quakeml/">QuakeML</a> format (e.g., <code class="docutils literal notranslate"><span class="pre">event.xml</span></code>).</p>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="command-line-arguments">
+<h3><span class="section-number">2.1.3. </span>Command line arguments<a class="headerlink" href="#command-line-arguments" title="Link to this heading"></a></h3>
+<p>After successfully installing Anthropogenic Mw (see <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Mw installation</span></a>),
+you can get help on the command line arguments used by each code by typing from
+your terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spectral_Mw</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="source-spectra-visualization">
+<h2><span class="section-number">2.2. </span>Source spectra visualization<a class="headerlink" href="#source-spectra-visualization" title="Link to this heading"></a></h2>
+<p>Source spectra are plotted by <code class="docutils literal notranslate"><span class="pre">view_green_function</span></code>.
+Call</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">view_green_fun</span> <span class="n">configuration</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="description.html" class="btn btn-neutral float-left" title="1. Theoretical Background" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configuration.html" class="btn btn-neutral float-right" title="3. Configuration file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,2610 @@
+{
+    "smi:igf.edu.pl/Event601566_VN.TDVB": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TDVB"
+        ],
+        "begin_time": "2015-03-01T16:19:45.583350",
+        "end_time": "2015-03-01T16:20:24.799050",
+        "file_name": "examples/cache/2afc1228-1f99-4303-afe4-089a7fc17877.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TDVB..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 1, 16, 20, 24, 800000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 1, 16, 19, 45, 580000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDVB..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 1, 16, 20, 24, 800000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 1, 16, 19, 45, 580000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDVB..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 1, 16, 20, 24, 800000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 1, 16, 19, 45, 580000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/Event601566_VN.TBVB": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TBVB"
+        ],
+        "begin_time": "2015-03-01T16:19:44.468400",
+        "end_time": "2015-03-01T16:20:25.401200",
+        "file_name": "examples/cache/56e2b12a-37b7-434e-bc3c-57c4dea8ec16.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TBVB..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 1, 16, 20, 25, 400000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 1, 16, 19, 44, 470000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TBVB..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 1, 16, 20, 25, 400000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 1, 16, 19, 44, 470000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TBVB..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 1, 16, 20, 25, 400000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 1, 16, 19, 44, 470000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/Event601566_VN.TLE": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TLE"
+        ],
+        "begin_time": "2015-03-01T16:19:45.400950",
+        "end_time": "2015-03-01T16:20:24.893850",
+        "file_name": "examples/cache/94218ecf-1f34-4579-856b-324b3494784e.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TLE..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 1, 16, 20, 24, 890000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 1, 16, 19, 45, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TLE..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 1, 16, 20, 24, 890000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 1, 16, 19, 45, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TLE..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 1, 16, 20, 24, 890000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 1, 16, 19, 45, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/Event601665_VN.TDVB": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TDVB"
+        ],
+        "begin_time": "2015-03-03T20:42:28.165300",
+        "end_time": "2015-03-03T20:43:09.667900",
+        "file_name": "examples/cache/dbaf4e7d-5a5c-4122-bee8-306b459e536b.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TDVB..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 3, 20, 43, 9, 670000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 3, 20, 42, 28, 170000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDVB..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 3, 20, 43, 9, 670000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 3, 20, 42, 28, 170000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDVB..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 3, 20, 43, 9, 670000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 3, 20, 42, 28, 170000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/Event601665_VN.TLE": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TLE"
+        ],
+        "begin_time": "2015-03-03T20:42:28.434850",
+        "end_time": "2015-03-03T20:43:09.421550",
+        "file_name": "examples/cache/79d2944c-d5f0-41f6-97bc-eac4930c0678.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TLE..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 3, 20, 43, 9, 420000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 3, 20, 42, 28, 430000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TLE..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 3, 20, 43, 9, 420000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 3, 20, 42, 28, 430000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TLE..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 3, 20, 43, 9, 420000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 3, 20, 42, 28, 430000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/Event601665_VN.TMVB": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TMVB"
+        ],
+        "begin_time": "2015-03-03T20:42:27.379300",
+        "end_time": "2015-03-03T20:43:09.959900",
+        "file_name": "examples/cache/d43fc3d5-f708-4488-ac79-93a795d51600.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TMVB..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 3, 20, 43, 9, 960000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 3, 20, 42, 27, 380000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TMVB..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 3, 20, 43, 9, 960000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 3, 20, 42, 27, 380000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TMVB..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 3, 3, 20, 43, 9, 960000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 3, 3, 20, 42, 27, 380000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/b9f92bdb-9e32-40bd-b965-ea5a0b080b84#event_65608ac9_VN.TDO": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TDO"
+        ],
+        "begin_time": "2018-01-14T16:59:18.149600",
+        "end_time": "2018-01-14T17:00:01.484800",
+        "file_name": "examples/cache/1133ba43-76e2-4b28-a08f-609b0e62e15e.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TDO..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 480000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 18, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 480000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 18, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 480000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 18, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 480000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 18, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 480000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 18, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 480000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 18, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/b9f92bdb-9e32-40bd-b965-ea5a0b080b84#event_65608ac9_VN.TNG": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TNG"
+        ],
+        "begin_time": "2018-01-14T16:59:16.153900",
+        "end_time": "2018-01-14T17:00:01.937700",
+        "file_name": "examples/cache/c4a4d6d8-8944-4cb0-8720-7b29ad1393f7.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TNG..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 940000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 16, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TNG..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 940000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 16, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TNG..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 940000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 16, 150000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/b9f92bdb-9e32-40bd-b965-ea5a0b080b84#event_65608ac9_VN.TGI": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TGI"
+        ],
+        "begin_time": "2018-01-14T16:59:16.965400",
+        "end_time": "2018-01-14T17:00:01.902200",
+        "file_name": "examples/cache/9f78173e-4055-4cab-94c4-a824a456244f.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TGI..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 900000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 16, 970000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TGI..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 900000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 16, 970000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TGI..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 0, 1, 900000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 16, 59, 16, 970000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/1098f77a-91df-42af-932e-acc2366154e9#event_65608b0f_VN.TNG": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TNG"
+        ],
+        "begin_time": "2018-01-14T17:02:41.550450",
+        "end_time": "2018-01-14T17:03:26.356350",
+        "file_name": "examples/cache/9a9d490d-c6c0-4345-84ef-6d7f3abdf0cf.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TNG..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 360000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 41, 550000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TNG..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 360000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 41, 550000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TNG..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 360000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 41, 550000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/1098f77a-91df-42af-932e-acc2366154e9#event_65608b0f_VN.TDO": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TDO"
+        ],
+        "begin_time": "2018-01-14T17:02:42.319100",
+        "end_time": "2018-01-14T17:03:26.039300",
+        "file_name": "examples/cache/d1962c84-32a6-4bf6-9de2-4b7bc639f3a1.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TDO..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 40000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 42, 320000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 40000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 42, 320000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 40000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 42, 320000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 40000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 42, 320000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 40000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 42, 320000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 40000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 42, 320000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/1098f77a-91df-42af-932e-acc2366154e9#event_65608b0f_VN.TGI": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TGI"
+        ],
+        "begin_time": "2018-01-14T17:02:41.241050",
+        "end_time": "2018-01-14T17:03:26.478150",
+        "file_name": "examples/cache/b009c25c-4e23-4ff2-a43f-566ec8cd9225.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TGI..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 480000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 41, 240000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TGI..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 480000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 41, 240000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TGI..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 17, 3, 26, 480000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 17, 2, 41, 240000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/4833e726-38e7-45f9-9f8f-3cfbdc4960a2#event_65608b75_VN.TDO": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TDO"
+        ],
+        "begin_time": "2018-01-14T21:24:35.395150",
+        "end_time": "2018-01-14T21:25:19.138450",
+        "file_name": "examples/cache/752de71b-0af8-4929-9f56-fae68c246b7d.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TDO..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 140000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 35, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 140000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 35, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 140000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 35, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 140000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 35, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 140000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 35, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 140000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 35, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/4833e726-38e7-45f9-9f8f-3cfbdc4960a2#event_65608b75_VN.TGI": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TGI"
+        ],
+        "begin_time": "2018-01-14T21:24:34.176750",
+        "end_time": "2018-01-14T21:25:19.583250",
+        "file_name": "examples/cache/ad5d8a0a-03e1-4122-bed7-638a72bcf317.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TGI..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 580000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 34, 180000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TGI..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 580000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 34, 180000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TGI..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 580000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 34, 180000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/4833e726-38e7-45f9-9f8f-3cfbdc4960a2#event_65608b75_VN.TNG": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TNG"
+        ],
+        "begin_time": "2018-01-14T21:24:34.073800",
+        "end_time": "2018-01-14T21:25:19.503400",
+        "file_name": "examples/cache/67ad0f92-bd8e-41c1-98c6-3b06dce8aacd.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TNG..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 500000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 34, 70000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TNG..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 500000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 34, 70000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TNG..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 14, 21, 25, 19, 500000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 14, 21, 24, 34, 70000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/6b237640-7f06-4bde-85b3-920ca4ffc779#event_65608d5d_VN.TDO": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TDO"
+        ],
+        "begin_time": "2018-01-15T18:16:19.790550",
+        "end_time": "2018-01-15T18:17:04.026650",
+        "file_name": "examples/cache/01d8ac01-6814-46ed-be8b-232984e445b4.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TDO..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 30000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 790000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 30000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 790000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 30000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 790000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 30000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 790000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 30000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 790000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 30000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 790000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/6b237640-7f06-4bde-85b3-920ca4ffc779#event_65608d5d_VN.TNG": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TNG"
+        ],
+        "begin_time": "2018-01-15T18:16:19.111150",
+        "end_time": "2018-01-15T18:17:04.240450",
+        "file_name": "examples/cache/a0777e6b-9aaa-43cd-aa84-4da52a82a79c.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TNG..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 240000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 110000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TNG..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 240000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 110000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TNG..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 240000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 110000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/6b237640-7f06-4bde-85b3-920ca4ffc779#event_65608d5d_VN.TGI": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TGI"
+        ],
+        "begin_time": "2018-01-15T18:16:19.240300",
+        "end_time": "2018-01-15T18:17:04.284900",
+        "file_name": "examples/cache/209d8529-3bf6-415a-9ec7-0cac4db664bf.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TGI..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 280000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 240000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TGI..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 280000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 240000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TGI..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2018, 1, 15, 18, 17, 4, 280000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2018, 1, 15, 18, 16, 19, 240000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001A3782CD6D0>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802010_PL.DWOL": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.DWOL"
+        ],
+        "begin_time": "2016-09-24T00:36:43.085234",
+        "end_time": "2016-09-24T00:37:04.623489",
+        "file_name": "examples/cache/fc4c9d10-cf53-47cc-8e0d-891bf0106ed1.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.DWOL..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 4, 620000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 43, 90000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DWOL..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 4, 620000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 43, 90000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DWOL..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 4, 620000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 43, 90000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802010_PL.KOMR": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.KOMR"
+        ],
+        "begin_time": "2016-09-24T00:36:41.149469",
+        "end_time": "2016-09-24T00:37:05.508084",
+        "file_name": "examples/cache/ece43520-b3f6-409b-8581-5d93a0f291d5.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.KOMR..CNZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 5, 508000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 41, 148000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.KOMR..CNE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 5, 508000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 41, 148000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.KOMR..CNN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 5, 508000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 41, 148000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802010_PL.MOSK2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.MOSK2"
+        ],
+        "begin_time": "2016-09-24T00:36:42.740973",
+        "end_time": "2016-09-24T00:37:04.780899",
+        "file_name": "examples/cache/e483767e-bea0-499d-9dce-46634f7a1f0f.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.MOSK2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 4, 780000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 42, 740000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 4, 780000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 42, 740000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 4, 780000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 42, 740000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802010_PL.TRN2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRN2"
+        ],
+        "begin_time": "2016-09-24T00:36:37.688632",
+        "end_time": "2016-09-24T00:37:06.371795",
+        "file_name": "examples/cache/905eb444-2890-49cb-acb1-da7cedbfe3d4.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRN2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 6, 370000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 37, 690000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRN2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 6, 370000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 37, 690000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRN2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 6, 370000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 37, 690000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802010_PL.ZUKW2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.ZUKW2"
+        ],
+        "begin_time": "2016-09-24T00:36:42.934376",
+        "end_time": "2016-09-24T00:37:04.692467",
+        "file_name": "examples/cache/d0621551-7758-4f85-bb92-5f7433276a0e.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.ZUKW2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 4, 690000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 42, 930000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 4, 690000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 42, 930000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 4, 690000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 42, 930000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802010_PL.KWLC": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.KWLC"
+        ],
+        "begin_time": "2016-09-24T00:36:39.583257",
+        "end_time": "2016-09-24T00:37:05.898959",
+        "file_name": "examples/cache/d9d257e2-c372-4ce7-a448-15ebdd357473.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.KWLC..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 5, 896765)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 39, 586765))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.KWLC..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 5, 896765)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 39, 586765))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.KWLC..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 5, 896765)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 39, 586765))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802010_PL.RYNR": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.RYNR"
+        ],
+        "begin_time": "2016-09-24T00:36:24.514722",
+        "end_time": "2016-09-24T00:37:09.659570",
+        "file_name": "examples/cache/2e025f81-8363-48da-9eb8-a75132de111b.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.RYNR..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 9, 660000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 24, 510000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.RYNR..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 9, 660000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 24, 510000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.RYNR..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2016, 9, 24, 0, 37, 9, 660000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2016, 9, 24, 0, 36, 24, 510000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802676_PL.DABR": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.DABR"
+        ],
+        "begin_time": "2017-05-15T21:28:33.617915",
+        "end_time": "2017-05-15T21:28:54.586856",
+        "file_name": "examples/cache/1d77ca5f-b4c0-4f9f-8804-d0e3cb57c19c.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.DABR..CNZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 54, 588000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 33, 616000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DABR..CNE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 54, 588000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 33, 616000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DABR..CNN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 54, 588000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 33, 616000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802676_PL.KOMR": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.KOMR"
+        ],
+        "begin_time": "2017-05-15T21:28:32.732116",
+        "end_time": "2017-05-15T21:28:54.991876",
+        "file_name": "examples/cache/186f0732-0d47-4569-a627-35344258dde4.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.KOMR..CNN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 54, 992000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 32, 732000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.KOMR..CNE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 54, 992000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 32, 732000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.KOMR..CNZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 54, 992000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 32, 732000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802676_PL.TRBC2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRBC2"
+        ],
+        "begin_time": "2017-05-15T21:28:33.242705",
+        "end_time": "2017-05-15T21:28:54.758415",
+        "file_name": "examples/cache/4f16f7bb-06c5-4aa6-8636-d164fa11046f.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRBC2..CNN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 54, 760000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 33, 244000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC2..CNE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 54, 760000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 33, 244000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC2..CNZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 54, 760000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 33, 244000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802676_PL.TRN2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRN2"
+        ],
+        "begin_time": "2017-05-15T21:28:32.534838",
+        "end_time": "2017-05-15T21:28:55.082078",
+        "file_name": "examples/cache/8f95dba4-c975-45ae-b7f7-baab59faf7f2.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRN2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 55, 80000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 32, 530000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRN2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 55, 80000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 32, 530000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRN2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 55, 80000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 32, 530000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802676_PL.ZMST": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.ZMST"
+        ],
+        "begin_time": "2017-05-15T21:28:30.066282",
+        "end_time": "2017-05-15T21:28:55.955850",
+        "file_name": "examples/cache/a2f1aada-7a84-4609-8a47-4748fdd0ee5c.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.ZMST..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 55, 960000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 30, 70000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZMST..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 55, 960000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 30, 70000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZMST..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 55, 960000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 30, 70000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_802676_PL.ZUKW2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.ZUKW2"
+        ],
+        "begin_time": "2017-05-15T21:28:31.102003",
+        "end_time": "2017-05-15T21:28:55.697368",
+        "file_name": "examples/cache/ab0d7abf-ed13-42a7-be0e-900a31a64aaa.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.ZUKW2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 55, 700000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 31, 100000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 55, 700000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 31, 100000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2017, 5, 15, 21, 28, 55, 700000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2017, 5, 15, 21, 28, 31, 100000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_808714_PL.GUZI": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.GUZI"
+        ],
+        "begin_time": "2021-12-09T02:27:54.978986",
+        "end_time": "2021-12-09T02:28:15.694265",
+        "file_name": "examples/cache/f4dc61bc-c1ec-4838-a268-5741ef5c7abb.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.GUZI..CNN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 15, 696000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 54, 980000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.GUZI..CNE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 15, 696000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 54, 980000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.GUZI..CNZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 15, 696000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 54, 980000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_808714_PL.MOSK2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.MOSK2"
+        ],
+        "begin_time": "2021-12-09T02:27:54.402630",
+        "end_time": "2021-12-09T02:28:15.957795",
+        "file_name": "examples/cache/65240596-04ca-44b5-9e45-340df3d0941e.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.MOSK2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 15, 960000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 54, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 15, 960000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 54, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 15, 960000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 54, 400000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_808714_PL.ZUKW2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.ZUKW2"
+        ],
+        "begin_time": "2021-12-09T02:27:55.122108",
+        "end_time": "2021-12-09T02:28:15.628825",
+        "file_name": "examples/cache/1b38a789-d88c-4d12-a7f9-e88b8561dfcd.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.ZUKW2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 15, 630000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 55, 120000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 15, 630000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 55, 120000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 15, 630000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 55, 120000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_808714_PL.DWOL": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.DWOL"
+        ],
+        "begin_time": "2021-12-09T02:27:53.729573",
+        "end_time": "2021-12-09T02:28:16.265541",
+        "file_name": "examples/cache/d1129ce9-d4f4-4f61-a392-8667d36d64f7.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.DWOL..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 16, 270000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 53, 730000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DWOL..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 16, 270000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 53, 730000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DWOL..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 16, 270000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 53, 730000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_808714_PL.TRBC2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRBC2"
+        ],
+        "begin_time": "2021-12-09T02:27:54.255641",
+        "end_time": "2021-12-09T02:28:16.025004",
+        "file_name": "examples/cache/13dc08f3-3e0f-45b6-b68d-959468ad10c3.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRBC2..CNZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 16, 24000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 54, 256000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC2..CNE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 16, 24000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 54, 256000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC2..CNN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2021, 12, 9, 2, 28, 16, 24000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2021, 12, 9, 2, 27, 54, 256000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208646_PL.DMNW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.DMNW"
+        ],
+        "begin_time": "2013-12-11T04:35:53.513664",
+        "end_time": "2013-12-11T04:36:14.172579",
+        "file_name": "examples/cache/477e7b69-cb68-40ab-9d72-9430dc000f5a.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.DMNW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 170750)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 53, 510750))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DMNW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 170750)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 53, 510750))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DMNW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 170750)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 53, 510750))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208646_PL.MOSK": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.MOSK"
+        ],
+        "begin_time": "2013-12-11T04:35:48.423055",
+        "end_time": "2013-12-11T04:36:15.969833",
+        "file_name": "examples/cache/a885ade4-f38c-4150-8799-cb91798c5684.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.MOSK..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 15, 969656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 48, 419656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 15, 969656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 48, 419656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 15, 969656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 48, 419656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208646_PL.PEKW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.PEKW"
+        ],
+        "begin_time": "2013-12-11T04:35:52.523421",
+        "end_time": "2013-12-11T04:36:14.625355",
+        "file_name": "examples/cache/9389b55c-b1c9-410b-9bbd-479e0c2844db.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.PEKW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 621921)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 52, 521921))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.PEKW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 621921)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 52, 521921))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.PEKW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 621921)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 52, 521921))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208646_PL.TRBC": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRBC"
+        ],
+        "begin_time": "2013-12-11T04:35:52.925705",
+        "end_time": "2013-12-11T04:36:14.441415",
+        "file_name": "examples/cache/dae38944-e5e6-4ec4-837a-e13f92faba9f.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRBC..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 442703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 52, 922703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 442703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 52, 922703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 442703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 52, 922703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208646_PL.TRNW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRNW"
+        ],
+        "begin_time": "2013-12-11T04:35:52.155946",
+        "end_time": "2013-12-11T04:36:14.793377",
+        "file_name": "examples/cache/16f2e697-49ed-4ff2-8bf9-36aa2834a65e.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRNW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 793562)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 52, 153562))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRNW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 793562)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 52, 153562))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRNW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 14, 793562)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 52, 153562))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208646_PL.ZUKW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.ZUKW"
+        ],
+        "begin_time": "2013-12-11T04:35:50.039786",
+        "end_time": "2013-12-11T04:36:15.566350",
+        "file_name": "examples/cache/cba230f0-cb91-489d-8005-3e39948032ad.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.ZUKW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 15, 570359)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 50, 40359))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 15, 570359)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 50, 40359))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 36, 15, 570359)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 35, 50, 40359))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208647_PL.MOSK": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.MOSK"
+        ],
+        "begin_time": "2013-12-11T04:54:21.923947",
+        "end_time": "2013-12-11T04:54:45.587272",
+        "file_name": "examples/cache/2de0e2ed-abbb-4d5f-923c-e1ec20ebf248.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.MOSK..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 45, 589656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 21, 919656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 45, 589656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 21, 919656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 45, 589656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 21, 919656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208647_PL.PEKW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.PEKW"
+        ],
+        "begin_time": "2013-12-11T04:54:15.724723",
+        "end_time": "2013-12-11T04:54:47.233044",
+        "file_name": "examples/cache/25a633fb-fb16-4e11-9519-cd4854c9f4bc.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.PEKW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 47, 231921)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 15, 721921))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.PEKW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 47, 231921)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 15, 721921))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.PEKW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 47, 231921)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 15, 721921))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208647_PL.TRBC": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRBC"
+        ],
+        "begin_time": "2013-12-11T04:54:22.887116",
+        "end_time": "2013-12-11T04:54:45.146876",
+        "file_name": "examples/cache/0cef7b8c-100b-4f14-8334-bdf522bc07c6.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRBC..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 45, 142703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 22, 882703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 45, 142703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 22, 882703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 45, 142703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 22, 882703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208647_PL.TRNW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRNW"
+        ],
+        "begin_time": "2013-12-11T04:54:22.395858",
+        "end_time": "2013-12-11T04:54:45.371496",
+        "file_name": "examples/cache/3713ed30-0d10-4d11-bca6-53fb51cd6524.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRNW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 45, 373562)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 22, 393562))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRNW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 45, 373562)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 22, 393562))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRNW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 45, 373562)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 22, 393562))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208647_PL.ZUKW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.ZUKW"
+        ],
+        "begin_time": "2013-12-11T04:54:24.148125",
+        "end_time": "2013-12-11T04:54:44.570296",
+        "file_name": "examples/cache/b39d7b6b-89e5-4f79-b163-a1b228b8d0e8.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.ZUKW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 44, 570281)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 24, 150281))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 44, 570281)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 24, 150281))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 11, 4, 54, 44, 570281)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 11, 4, 54, 24, 150281))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208654_PL.DMNW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.DMNW"
+        ],
+        "begin_time": "2013-12-13T01:28:44.573445",
+        "end_time": "2013-12-13T01:29:07.616719",
+        "file_name": "examples/cache/62832b18-258a-42e2-95fc-4473e131641c.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.DMNW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 7, 620750)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 44, 570750))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DMNW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 7, 620750)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 44, 570750))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DMNW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 7, 620750)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 44, 570750))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208654_PL.MOSK": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.MOSK"
+        ],
+        "begin_time": "2013-12-13T01:28:45.308387",
+        "end_time": "2013-12-13T01:29:07.280676",
+        "file_name": "examples/cache/c70ba081-2d25-4cb7-89c3-60be98d0a841.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.MOSK..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 7, 279656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 45, 309656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 7, 279656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 45, 309656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 7, 279656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 45, 309656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208654_PL.TRBC": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRBC"
+        ],
+        "begin_time": "2013-12-13T01:28:46.112962",
+        "end_time": "2013-12-13T01:29:06.912795",
+        "file_name": "examples/cache/9b60bebd-b8d1-456a-a931-256f299cefac.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRBC..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 6, 912703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 46, 112703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 6, 912703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 46, 112703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 6, 912703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 46, 112703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208654_PL.ZUKW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.ZUKW"
+        ],
+        "begin_time": "2013-12-13T01:28:47.544174",
+        "end_time": "2013-12-13T01:29:06.258394",
+        "file_name": "examples/cache/afa629da-3a6b-441e-b040-918adb2061f7.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.ZUKW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 6, 260359)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 47, 540359))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 6, 260359)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 47, 540359))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 6, 260359)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 47, 540359))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208654_PL.TRNW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRNW"
+        ],
+        "begin_time": "2013-12-13T01:28:45.532739",
+        "end_time": "2013-12-13T01:29:07.178094",
+        "file_name": "examples/cache/36d38ee0-5cdc-4ee6-bd58-abb43abfe95a.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRNW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 7, 173640)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 45, 533640))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRNW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 7, 173640)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 45, 533640))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRNW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 13, 1, 29, 7, 173640)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 13, 1, 28, 45, 533640))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208664_PL.DMNW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.DMNW"
+        ],
+        "begin_time": "2013-12-14T16:57:22.730425",
+        "end_time": "2013-12-14T16:57:50.292985",
+        "file_name": "examples/cache/88500a8e-8005-4365-89d4-c2d49766d15b.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.DMNW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 50, 290750)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 22, 730750))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DMNW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 50, 290750)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 22, 730750))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.DMNW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 50, 290750)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 22, 730750))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208664_PL.MOSK": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.MOSK"
+        ],
+        "begin_time": "2013-12-14T16:57:27.864613",
+        "end_time": "2013-12-14T16:57:48.478430",
+        "file_name": "examples/cache/8d8a6471-763b-4a40-a495-6259ce27b128.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.MOSK..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 48, 479656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 27, 859656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 48, 479656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 27, 859656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 48, 479656)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 27, 859656))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208664_PL.PFLK": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.PFLK"
+        ],
+        "begin_time": "2013-12-14T16:57:22.591479",
+        "end_time": "2013-12-14T16:57:50.327661",
+        "file_name": "examples/cache/99ab5e55-0255-46da-9574-fa9a26426b99.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.PFLK..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 50, 324421)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 22, 594421))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.PFLK..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 50, 324421)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 22, 594421))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.PFLK..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 50, 324421)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 22, 594421))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208664_PL.TRBC": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRBC"
+        ],
+        "begin_time": "2013-12-14T16:57:27.125797",
+        "end_time": "2013-12-14T16:57:48.816243",
+        "file_name": "examples/cache/9fbd1a28-36c1-4a7c-a738-5ed042ba254f.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRBC..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 48, 812703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 27, 122703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 48, 812703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 27, 122703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 48, 812703)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 27, 122703))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_208664_PL.ZUKW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.ZUKW"
+        ],
+        "begin_time": "2013-12-14T16:57:27.021359",
+        "end_time": "2013-12-14T16:57:48.863996",
+        "file_name": "examples/cache/7cd6b327-d06e-4f9e-9f71-1648e26d308b.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.ZUKW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 48, 860359)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 27, 20359))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 48, 860359)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 27, 20359))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZUKW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 12, 14, 16, 57, 48, 860359)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 12, 14, 16, 57, 27, 20359))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.GROD": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.GROD"
+        ],
+        "begin_time": "2020-07-08T05:18:40.627225",
+        "end_time": "2020-07-08T05:19:04.003070",
+        "file_name": "examples/cache/979f3342-7bdb-44cd-a045-f8431529b15b.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.GROD..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 4)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 40, 630000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.GROD..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 4)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 40, 630000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.GROD..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 4)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 40, 630000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.GUZI": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.GUZI"
+        ],
+        "begin_time": "2020-07-08T05:18:41.087533",
+        "end_time": "2020-07-08T05:19:03.792600",
+        "file_name": "examples/cache/0c3af251-5971-4628-96ce-39f0977d9851.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.GUZI..CNZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 3, 792000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 41, 88000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.GUZI..CNE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 3, 792000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 41, 88000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.GUZI..CNN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 3, 792000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 41, 88000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.JEDR": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.JEDR"
+        ],
+        "begin_time": "2020-07-08T05:18:23.178775",
+        "end_time": "2020-07-08T05:19:08.497246",
+        "file_name": "examples/cache/411bc0b6-9914-4798-ba4c-3282787ae1a3.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.JEDR..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 8, 500000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 23, 180000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.JEDR..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 8, 500000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 23, 180000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.JEDR..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 8, 500000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 23, 180000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.LUBW": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.LUBW"
+        ],
+        "begin_time": "2020-07-08T05:18:29.089987",
+        "end_time": "2020-07-08T05:19:07.022002",
+        "file_name": "examples/cache/f733ead7-66a3-42f6-ab91-ce8fffc47243.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.LUBW..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 7, 20000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 29, 90000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.LUBW..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 7, 20000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 29, 90000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.LUBW..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 7, 20000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 29, 90000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.MOSK2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.MOSK2"
+        ],
+        "begin_time": "2020-07-08T05:18:40.511177",
+        "end_time": "2020-07-08T05:19:04.056130",
+        "file_name": "examples/cache/30ececdf-4a71-4ca6-9584-65d0ebca9e1c.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.MOSK2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 4, 60000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 40, 510000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 4, 60000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 40, 510000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.MOSK2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 4, 60000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 40, 510000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.NWLU": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.NWLU"
+        ],
+        "begin_time": "2020-07-08T05:18:18.530659",
+        "end_time": "2020-07-08T05:19:09.657264",
+        "file_name": "examples/cache/1c243530-cd30-4bff-b202-f05745d038ce.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.NWLU..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 9, 660000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 18, 530000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.NWLU..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 9, 660000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 18, 530000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.NWLU..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 9, 660000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 18, 530000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.PCHB": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.PCHB"
+        ],
+        "begin_time": "2020-07-08T05:18:33.220262",
+        "end_time": "2020-07-08T05:19:05.991222",
+        "file_name": "examples/cache/725c1fb8-f21c-4078-9921-e6487b511670.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.PCHB..CNN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 5, 992000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 33, 220000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.PCHB..CNE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 5, 992000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 33, 220000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.PCHB..CNZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 5, 992000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 33, 220000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.PPOL": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.PPOL"
+        ],
+        "begin_time": "2020-07-08T05:18:35.519060",
+        "end_time": "2020-07-08T05:19:05.417517",
+        "file_name": "examples/cache/55ddb1b1-cd9a-43fd-bd1d-ecb729acb8f4.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.PPOL..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 5, 420000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 35, 520000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.PPOL..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 5, 420000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 35, 520000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.PPOL..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 5, 420000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 35, 520000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.RUDN": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.RUDN"
+        ],
+        "begin_time": "2020-07-08T05:18:31.489843",
+        "end_time": "2020-07-08T05:19:06.423077",
+        "file_name": "examples/cache/571ed4ec-cb1d-41da-b0a4-0652a65da939.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.RUDN..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 6, 420000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 31, 490000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.RUDN..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 6, 420000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 31, 490000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.RUDN..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 6, 420000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 31, 490000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.RYNR": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.RYNR"
+        ],
+        "begin_time": "2020-07-08T05:18:30.883555",
+        "end_time": "2020-07-08T05:19:06.574386",
+        "file_name": "examples/cache/3300e9e8-8530-4c54-9cba-4982f48c95a6.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.RYNR..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 6, 570000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 30, 880000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.RYNR..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 6, 570000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 30, 880000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.RYNR..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 6, 570000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 30, 880000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.SGOR": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.SGOR"
+        ],
+        "begin_time": "2020-07-08T05:18:30.959353",
+        "end_time": "2020-07-08T05:19:06.555471",
+        "file_name": "examples/cache/5f2e97bc-0bb1-4361-adc3-7f0c2c5b2f61.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.SGOR..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 6, 560000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 30, 960000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.SGOR..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 6, 560000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 30, 960000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.SGOR..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 6, 560000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 30, 960000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.TRBC2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRBC2"
+        ],
+        "begin_time": "2020-07-08T05:18:40.232676",
+        "end_time": "2020-07-08T05:19:04.183472",
+        "file_name": "examples/cache/41223d3d-7f1c-48dd-85ed-dd9518a62a55.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRBC2..CNE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 4, 184000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 40, 232000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC2..CNZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 4, 184000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 40, 232000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRBC2..CNN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 4, 184000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 40, 232000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.ZMST": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.ZMST"
+        ],
+        "begin_time": "2020-07-08T05:18:34.773844",
+        "end_time": "2020-07-08T05:19:05.603498",
+        "file_name": "examples/cache/9233f981-07d7-4a34-b588-c121cb641329.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.ZMST..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 5, 600000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 34, 770000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZMST..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 5, 600000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 34, 770000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.ZMST..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 5, 600000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 34, 770000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/LGCD_CIBIS_806374_PL.TRN2": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "PL",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "PL.TRN2"
+        ],
+        "begin_time": "2020-07-08T05:18:41.222919",
+        "end_time": "2020-07-08T05:19:03.730697",
+        "file_name": "examples/cache/8e34db4c-369b-4ce8-96e8-1338ef8047e0.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "PL.TRN2..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 3, 730000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 41, 220000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRN2..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 3, 730000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 41, 220000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "PL.TRN2..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2020, 7, 8, 5, 19, 3, 730000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2020, 7, 8, 5, 18, 41, 220000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000002BB22AFB550>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/SWIDB#Event964_VN.TDVB": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TDVB"
+        ],
+        "begin_time": "2013-09-03T00:07:47.886550",
+        "end_time": "2013-09-03T00:08:27.194650",
+        "file_name": "examples/cache/205c1502-daaf-4e3f-a580-101988ffbbb7.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TDVB..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 27, 190000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 47, 890000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDVB..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 27, 190000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 47, 890000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDVB..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 27, 190000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 47, 890000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/SWIDB#Event964_VN.TGI": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TGI"
+        ],
+        "begin_time": "2013-09-03T00:07:43.402450",
+        "end_time": "2013-09-03T00:08:29.440350",
+        "file_name": "examples/cache/5d449a1d-1711-4338-a579-91f56b6e34b4.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TGI..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 29, 441921)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 43, 401921))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TGI..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 29, 441921)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 43, 401921))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TGI..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 29, 441921)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 43, 401921))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/SWIDB#Event964_VN.TLE": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TLE"
+        ],
+        "begin_time": "2013-09-03T00:07:44.066500",
+        "end_time": "2013-09-03T00:08:29.049500",
+        "file_name": "examples/cache/122cc763-3b1c-41e7-aef9-25b0dadd1d2c.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TLE..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 29, 50281)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 44, 70281))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TLE..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 29, 50281)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 44, 70281))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TLE..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 29, 50281)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 44, 70281))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/SWIDB#Event964_VN.TBVB": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TBVB"
+        ],
+        "begin_time": "2013-09-03T00:07:46.982750",
+        "end_time": "2013-09-03T00:08:27.461250",
+        "file_name": "examples/cache/7047e143-1681-4716-ada8-e8e93251779f.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TBVB..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 27, 460000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 46, 980000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TBVB..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 27, 460000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 46, 980000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TBVB..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 27, 460000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 46, 980000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/SWIDB#Event964_VN.PHI": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.PHI"
+        ],
+        "begin_time": "2013-09-03T00:07:33.361480",
+        "end_time": "2013-09-03T00:08:31.887240",
+        "file_name": "examples/cache/f55484a9-a3be-426f-a88b-1663ba8f0437.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.PHI..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 31, 888562)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 33, 358562))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.PHI..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 31, 888562)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 33, 358562))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.PHI..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 31, 888562)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 33, 358562))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/SWIDB#Event964_VN.TDO": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TDO"
+        ],
+        "begin_time": "2013-09-03T00:07:43.499650",
+        "end_time": "2013-09-03T00:08:29.167950",
+        "file_name": "examples/cache/a2018e61-0478-4de7-8cec-189c17cb260b.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TDO..EHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 29, 164421)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 43, 504421))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 29, 164421)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 43, 504421))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TDO..EHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 29, 164421)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 43, 504421))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/SWIDB#Event964_VN.TLVB": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TLVB"
+        ],
+        "begin_time": "2013-09-03T00:07:45.119800",
+        "end_time": "2013-09-03T00:08:28.547400",
+        "file_name": "examples/cache/245663a1-dfcc-4c12-bb10-bded32e79540.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TLVB..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 28, 550000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 45, 120000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TLVB..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 28, 550000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 45, 120000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TLVB..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 28, 550000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 45, 120000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/SWIDB#Event964_VN.TMVB": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TMVB"
+        ],
+        "begin_time": "2013-09-03T00:07:30.690600",
+        "end_time": "2013-09-03T00:08:32.967800",
+        "file_name": "examples/cache/58751350-2aff-4c30-b657-97f3b5816645.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TMVB..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 32, 970000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 30, 690000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TMVB..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 32, 970000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 30, 690000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TMVB..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 32, 970000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 30, 690000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    },
+    "smi:igf.edu.pl/SWIDB#Event964_VN.TNVB": {
+        "source": {
+            "source": "arclink",
+            "host": "tytan.igf.edu.pl",
+            "port": "18001",
+            "user": "anonymous@igf.edu.pl",
+            "timeout": 300,
+            "net": "VN",
+            "cache": "examples/cache"
+        },
+        "stations": [
+            "VN.TNVB"
+        ],
+        "begin_time": "2013-09-03T00:07:34.115980",
+        "end_time": "2013-09-03T00:08:32.102740",
+        "file_name": "examples/cache/9fa20766-212c-432b-ad6f-3c3a18fb0137.msd",
+        "preprocess_name": "Mw_preprocessing_1",
+        "processing": {
+            "VN.TNVB..HHN": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 32, 100000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 34, 120000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TNVB..HHE": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 32, 100000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 34, 120000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ],
+            "VN.TNVB..HHZ": [
+                "ObsPy 1.4.1: trim(endtime=UTCDateTime(2013, 9, 3, 0, 8, 32, 100000)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2013, 9, 3, 0, 7, 34, 120000))",
+                "ObsPy 1.4.1: remove_response(fig=None::inventory=<obspy.core.inventory.inventory.Inventory object at 0x000001362A93E900>::output='VEL'::plot=False::pre_filt=[0.02, 0.1, 40, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)"
+            ]
+        }
+    }
+}

@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9.1. Main module &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9.2. Support modules" href="api_support.html" />
+    <link rel="prev" title="9. Anthropogenic Mw API" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">8. How to Cite</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">9. Anthropogenic Mw API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.1. Main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-amw.mw.spectral_mw">9.1.1. spectral_mw</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spectral-magnitude-estimation-for-all-event-in-the-catalog">9.1.1.1. Spectral magnitude estimation for all event in the catalog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amw.mw.spectral_mw.MwStreamPreprocessing"><code class="docutils literal notranslate"><span class="pre">MwStreamPreprocessing</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amw.mw.spectral_mw.catalog_moment_magnitudes"><code class="docutils literal notranslate"><span class="pre">catalog_moment_magnitudes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amw.mw.spectral_mw.station_moment_magnitude"><code class="docutils literal notranslate"><span class="pre">station_moment_magnitude()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-amw.mw.test_greens_function">9.1.2. test_greens_function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-plot-of-the-source-spectra">9.1.2.1. The plot of the source spectra</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_support.html">9.2. Support modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_core.html">9.3. Core modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html"><span class="section-number">9. </span>Anthropogenic Mw API</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9.1. </span>Main module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api_main.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="main-module">
+<span id="api-main"></span><h1><span class="section-number">9.1. </span>Main module<a class="headerlink" href="#main-module" title="Link to this heading"></a></h1>
+<p>The main module, <code class="docutils literal notranslate"><span class="pre">spectral_mw.py</span></code>, contains functions that perform all the operations needed to count Mw magnitudes.
+These include finding peaks, taking waveforms, counting spectra, etc.
+Mw main module functions are presented below, following the alphabetic order.
+The module <code class="docutils literal notranslate"><span class="pre">spectral_mw.py</span></code> can be called directly with the configuration file in JsonFormat
+and the catalogue file in the QuakeML XML format as parameters</p>
+<p>E.g: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">spectral_mw.py</span> <span class="pre">config.json</span> <span class="pre">catalog.xml</span></code></p>
+<section id="module-amw.mw.spectral_mw">
+<span id="spectral-mw"></span><h2><span class="section-number">9.1.1. </span>spectral_mw<a class="headerlink" href="#module-amw.mw.spectral_mw" title="Link to this heading"></a></h2>
+<section id="spectral-magnitude-estimation-for-all-event-in-the-catalog">
+<h3><span class="section-number">9.1.1.1. </span>Spectral magnitude estimation for all event in the catalog<a class="headerlink" href="#spectral-magnitude-estimation-for-all-event-in-the-catalog" title="Link to this heading"></a></h3>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.mw.spectral_mw.MwStreamPreprocessing">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.mw.spectral_mw.</span></span><span class="sig-name descname"><span class="pre">MwStreamPreprocessing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inventory</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/spectral_mw.html#MwStreamPreprocessing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.spectral_mw.MwStreamPreprocessing" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.spectral_mw.catalog_moment_magnitudes">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.spectral_mw.</span></span><span class="sig-name descname"><span class="pre">catalog_moment_magnitudes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catalog</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/spectral_mw.html#catalog_moment_magnitudes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.spectral_mw.catalog_moment_magnitudes" title="Link to this definition"></a></dt>
+<dd><p>Function estimate the mw magnitude for all events having origin and picks according the configuration.
+As a result the function modifies the catalog and adds mw magnitude to events</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>catalog</strong> (<em>ObsPy Catalog</em>) – The seismic catalog of event the magnitude will be estimated.
+The estimated magnitudes will be added to the catalog magnitude.</p></li>
+<li><p><strong>configuration</strong> (<em>dict</em>) – The configuration container of all parameters dictionary required for the program to work.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.spectral_mw.station_moment_magnitude">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.spectral_mw.</span></span><span class="sig-name descname"><span class="pre">station_moment_magnitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">station_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/spectral_mw.html#station_moment_magnitude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.spectral_mw.station_moment_magnitude" title="Link to this definition"></a></dt>
+<dd><p>Function estimate the mw magnitude for one events having origin and picks
+according the configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>station_name</strong> – The station name in the form ‘NN.SSSS’, where NN is the network code and SSSS is the station_name code.</p></li>
+<li><p><strong>station_name</strong> – str</p></li>
+<li><p><strong>picks</strong> (<em>ObsPy Pick</em>) – The list of two picks: P and S. The P wave_name is first the S wave_name is second.
+If the wave_name is missing there should be None value. At list one wave_name is required,
+but wo picks P and S are recommended. At least one wave_name must be given. If the P or S wave_name is missing,
+the function tries to determine it based on the earthquake time at the focus and the remaining wave_name time.</p></li>
+<li><p><strong>event</strong> (<em>ObsPy Event</em>) – The event object</p></li>
+<li><p><strong>origin</strong> (<em>ObsPy Origin</em>) – The event origin.</p></li>
+<li><p><strong>inventory</strong> (<em>ObsPy Inventory</em>) – The inventory Object. It must contain the station_name inventory</p></li>
+<li><p><strong>configuration</strong> (<em>dict</em>) – The configuration container of all parameters dictionary required for the program to work.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The station magnitude object or None, if the magnitude can not be estimated.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ObsPy.StationMagnitude</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-amw.mw.test_greens_function">
+<span id="test-greens-function"></span><h2><span class="section-number">9.1.2. </span>test_greens_function<a class="headerlink" href="#module-amw.mw.test_greens_function" title="Link to this heading"></a></h2>
+<section id="the-plot-of-the-source-spectra">
+<h3><span class="section-number">9.1.2.1. </span>The plot of the source spectra<a class="headerlink" href="#the-plot-of-the-source-spectra" title="Link to this heading"></a></h3>
+<p>Program plot the source spectra including the source term and theoretical Green function</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="9. Anthropogenic Mw API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api_support.html" class="btn btn-neutral float-right" title="9.2. Support modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

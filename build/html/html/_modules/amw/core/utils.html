@@ -1,0 +1,712 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amw.core.utils &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="../../../_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">amw.core.utils</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for amw.core.utils</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Commonly used utils for seismic data processing be the seismic processing in Python packages</span>
+<span class="sd">--------------------------------------------------------------------------------------------</span>
+
+<span class="sd">..</span>
+<span class="sd">    :copyright:</span>
+<span class="sd">        Jan Wiszniowski (jwisz@igf.edu.pl)</span>
+<span class="sd">    :license:</span>
+<span class="sd">        GNU Lesser General Public License, Version 3</span>
+<span class="sd">        (https://www.gnu.org/copyleft/lesser.html)</span>
+<span class="sd">    :version 0.0.1:</span>
+<span class="sd">        2024-11-07</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">obspy.core.utcdatetime</span> <span class="kn">import</span> <span class="n">UTCDateTime</span>
+<span class="kn">from</span> <span class="nn">obspy.core.event.base</span> <span class="kn">import</span> <span class="n">WaveformStreamID</span><span class="p">,</span> <span class="n">Comment</span>
+<span class="kn">from</span> <span class="nn">obspy.core.event.magnitude</span> <span class="kn">import</span> <span class="n">Magnitude</span>
+<span class="kn">import</span> <span class="nn">obspy.geodetics.base</span> <span class="k">as</span> <span class="nn">geo</span>
+
+
+<span class="n">MinUTCDateTime</span> <span class="o">=</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0e9</span><span class="p">)</span>
+<span class="n">MaxUTCDateTime</span> <span class="o">=</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="mf">4.0e9</span><span class="p">)</span>
+<span class="n">_units_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;&#39;VEL&#39;&quot;</span><span class="p">:</span> <span class="s2">&quot;m/s&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;ACC&#39;&quot;</span><span class="p">:</span> <span class="s2">&quot;m/s^2&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;DISP&#39;&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">}</span>
+
+
+<div class="viewcode-block" id="get_net_sta">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.get_net_sta">[docs]</a>
+<span class="k">def</span> <span class="nf">get_net_sta</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function get_net_sta extracts network and station_name codes as strings</span>
+
+<span class="sd">    :param name: The trace name. It can be the string or the WaveformStreamID object.</span>
+<span class="sd">        The text in the string is in the form &#39;NN.SSS.LL.CCC&#39;, where NN is the network code,</span>
+<span class="sd">        SSS is the station_name code, LL is the location code, and CCC is the channel code.</span>
+<span class="sd">    :type name: str or ObsPy.WaveformStreamID</span>
+
+<span class="sd">    :return: The tuple of the network code the station_name code.</span>
+<span class="sd">    :rtype: tuple(str, str)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">WaveformStreamID</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">network_code</span><span class="p">,</span> <span class="n">name</span><span class="o">.</span><span class="n">station_code</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span></div>
+
+
+
+<div class="viewcode-block" id="get_station_name">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.get_station_name">[docs]</a>
+<span class="k">def</span> <span class="nf">get_station_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function get_station_name extracts the station_name name as a string</span>
+
+<span class="sd">    :param name: The trace name. It can be the string or the WaveformStreamID object.</span>
+<span class="sd">        The text in the string is in the form &#39;NN.SSS.LL.CCC&#39;, where NN is the network code,</span>
+<span class="sd">        SSS is the station_name code, LL is the location code, and CCC is the channel code.</span>
+<span class="sd">    :type name: str or ObsPy.WaveformStreamID</span>
+
+<span class="sd">    :return: The string in the form &#39;NN.STA&#39;, where NN is the network code and SSS is the station_name code.</span>
+<span class="sd">    :rtype: str</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">net</span><span class="p">,</span> <span class="n">sta</span> <span class="o">=</span> <span class="n">get_net_sta</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">sta</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_station_id">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.get_station_id">[docs]</a>
+<span class="k">def</span> <span class="nf">get_station_id</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function get_station_id extracts the station_name name as a WaveformStreamID object</span>
+
+<span class="sd">    :param name: The trace name. It can be the string or the ObsPy WaveformStreamID object.</span>
+<span class="sd">        The text in the string is in the form &#39;NN.SSS.LL.CCC&#39;, where NN is the network code,</span>
+<span class="sd">        SSS is the station_name code, LL is the location code, and CCC is the channel code.</span>
+<span class="sd">    :type name: str or ObsPy.WaveformStreamID</span>
+
+<span class="sd">    :return: The waveform stream object containing only the network code and the station_name code.</span>
+<span class="sd">    :rtype: ObsPy.WaveformStreamID</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">net</span><span class="p">,</span> <span class="n">sta</span> <span class="o">=</span> <span class="n">get_net_sta</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">WaveformStreamID</span><span class="p">(</span><span class="n">network_code</span><span class="o">=</span><span class="n">net</span><span class="p">,</span> <span class="n">station_code</span><span class="o">=</span><span class="n">sta</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_origin">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.get_origin">[docs]</a>
+<span class="k">def</span> <span class="nf">get_origin</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function get_origin extracts the origin from the event.</span>
+<span class="sd">    If preferred_origin_id of the event is set it return the preferred origin.</span>
+<span class="sd">    Otherwise, it returns the first origin from the list.</span>
+<span class="sd">    The function is intended to extract the event origin unconditionally and non-interactively.</span>
+<span class="sd">    Therefore, if preferred_origin_id is not set and there are multiple origins, the returned origin may be random</span>
+
+<span class="sd">    :param event: The seismic event object</span>
+<span class="sd">    :type event: ObsPy.Event</span>
+
+<span class="sd">    :return: The origin (event location) object or None if none origin is defined for the event.</span>
+<span class="sd">    :rtype: ObsPy.Origin</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">event</span><span class="o">.</span><span class="n">origins</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">preferred_origin_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">event</span><span class="o">.</span><span class="n">preferred_origin_id</span><span class="o">.</span><span class="n">get_referred_object</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">event</span><span class="o">.</span><span class="n">origins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="get_focal_mechanism">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.get_focal_mechanism">[docs]</a>
+<span class="k">def</span> <span class="nf">get_focal_mechanism</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">inversion_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function get_focal_mechanism extracts the focal mechanism from the event.</span>
+<span class="sd">    If preferred_focal_mechanism_id of the event is set it return the preferred focal mechanism.</span>
+<span class="sd">    Otherwise, it returns the first focal mechanism from the list.</span>
+<span class="sd">    The function is intended to extract the focal mechanism unconditionally and non-interactively.</span>
+<span class="sd">    Therefore, if preferred_focal_mechanism_id is not set and there are multiple focal mechanisms,</span>
+<span class="sd">    the returned focal mechanism may be random.</span>
+
+<span class="sd">    :param event: The seismic event object</span>
+<span class="sd">    :type event: ObsPy.Event</span>
+<span class="sd">    :param inversion_type: The name of tensor inversion type.</span>
+<span class="sd">        It must belong to the QuakeML MTInversionType category:</span>
+<span class="sd">        ``&#39;general&#39;``, ``&#39;zero trace&#39;``, ``&#39;double couple&#39;``, or None.</span>
+<span class="sd">    :type inversion_type: (str)</span>
+
+<span class="sd">    :return: The focal mechanism object or None if none focal_mechanism is defined for the event</span>
+<span class="sd">        or the focal_mechanism with the defined inversion type does not exist.</span>
+<span class="sd">    :rtype: ObsPy.FocalMechanism</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">event</span><span class="o">.</span><span class="n">focal_mechanisms</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">preferred_focal_mechanism_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">inversion_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">event</span><span class="o">.</span><span class="n">preferred_focal_mechanism_id</span><span class="o">.</span><span class="n">get_referred_object</span><span class="p">()</span>
+        <span class="n">fm</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">preferred_focal_mechanism_id</span><span class="o">.</span><span class="n">get_referred_object</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">fm</span><span class="o">.</span><span class="n">moment_tensor</span> <span class="ow">and</span> <span class="n">fm</span><span class="o">.</span><span class="n">moment_tensor</span><span class="o">.</span><span class="n">inversion_type</span> <span class="o">==</span> <span class="n">inversion_type</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">event</span><span class="o">.</span><span class="n">preferred_focal_mechanism_id</span><span class="o">.</span><span class="n">get_referred_object</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">inversion_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">event</span><span class="o">.</span><span class="n">focal_mechanisms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">fm</span> <span class="ow">in</span> <span class="n">event</span><span class="o">.</span><span class="n">focal_mechanisms</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">fm</span><span class="o">.</span><span class="n">moment_tensor</span> <span class="ow">and</span> <span class="n">fm</span><span class="o">.</span><span class="n">moment_tensor</span><span class="o">.</span><span class="n">inversion_type</span> <span class="o">==</span> <span class="n">inversion_type</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">fm</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="get_hypocentral_distance">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.get_hypocentral_distance">[docs]</a>
+<span class="k">def</span> <span class="nf">get_hypocentral_distance</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function get_hypocentral_distance computes the local hypocentral distance in meters</span>
+<span class="sd">    from origin coordinates to station_name coordinates.</span>
+<span class="sd">    The calculations do not take into account the curvature of the earth.</span>
+
+<span class="sd">    :param origin: The ObsPy Origin object</span>
+<span class="sd">    :type origin: ObsPy.Origin</span>
+<span class="sd">    :param station_inventory: The station inventory object</span>
+<span class="sd">    :type station_inventory: ObsPy.Inventory</span>
+
+<span class="sd">    :return: The hypocentral distance in meters and epicentral distance in degrees</span>
+<span class="sd">    :rtype: tuple(float, float)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">locations2degrees</span><span class="p">(</span><span class="n">origin</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">origin</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span>
+                                  <span class="n">station_inventory</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">station_inventory</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
+    <span class="n">epi_distance</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">degrees2kilometers</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span>
+    <span class="n">hypo_distance</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">epi_distance</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">origin</span><span class="o">.</span><span class="n">depth</span> <span class="o">+</span> <span class="n">station_inventory</span><span class="o">.</span><span class="n">elevation</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">hypo_distance</span><span class="p">,</span> <span class="n">delta</span></div>
+
+
+
+<div class="viewcode-block" id="get_magnitude">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.get_magnitude">[docs]</a>
+<span class="k">def</span> <span class="nf">get_magnitude</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">magnitude_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function get_magnitude extracts the magnitude of the event.</span>
+<span class="sd">    If you want to extract a specific magnitude you can define it as magnitude_type,</span>
+<span class="sd">    e.g. ``get_magnitude(event, magnitude_type=&#39;mw&#39;)``, otherwise, any magnitude will be extracted.</span>
+<span class="sd">    If the preferred_magnitude_id of the event is set it returns the preferred origin.</span>
+<span class="sd">    Otherwise, it returns the first magnitude from the list.</span>
+<span class="sd">    The function is intended to extract the magnitude unconditionally and non-interactively.</span>
+<span class="sd">    Therefore, if preferred_magnitude_id is not set and there are multiple magnitudes,</span>
+<span class="sd">    the returned origin may be random.</span>
+
+<span class="sd">    If event magnitude does not exist, but station_name magnitudes exist, the new magnitude is computed</span>
+<span class="sd">    as the mean value of station_name magnitudes.</span>
+
+<span class="sd">    :param event: The seismic event object</span>
+<span class="sd">    :type event: ObsPy.Event</span>
+<span class="sd">    :param magnitude_type:  (optional)</span>
+<span class="sd">        Describes the type of magnitude. This is a free-text. Proposed values are:</span>
+<span class="sd">        * unspecified magnitude (``&#39;M&#39;``) - function search for exactly unspecified magnitude,</span>
+<span class="sd">        * local magnitude (``&#39;ML&#39;``),</span>
+<span class="sd">        * moment magnitude (``&#39;mw&#39;``),</span>
+<span class="sd">        * energy (``&#39;Energy&#39;``),</span>
+<span class="sd">        * etc.</span>
+<span class="sd">    :type magnitude_type:  str</span>
+<span class="sd">    :return: The magnitude object or None if the function cannot find or create the magnitude.</span>
+<span class="sd">        If only station_name magnitudes exist, the new ObsPy Magnitude object is created,</span>
+<span class="sd">        but it is not appended to the event</span>
+<span class="sd">    :rtype: ObsPy.Magnitude</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">preferred_magnitude_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">magnitude_object</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">preferred_magnitude_id</span><span class="o">.</span><span class="n">get_referred_object</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">magnitude_type</span> <span class="ow">or</span> <span class="n">magnitude_object</span><span class="o">.</span><span class="n">magnitude_type</span> <span class="o">==</span> <span class="n">magnitude_type</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">magnitude_object</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">event</span><span class="o">.</span><span class="n">magnitudes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">station_magnitudes</span><span class="p">:</span>
+            <span class="n">no_magnitudes</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">magnitude</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="k">if</span> <span class="n">magnitude_type</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">event</span><span class="o">.</span><span class="n">station_magnitudes</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">magnitude_type</span> <span class="o">==</span> <span class="n">magnitude_type</span><span class="p">:</span>
+                        <span class="n">magnitude</span> <span class="o">+=</span> <span class="n">m</span><span class="o">.</span><span class="n">mag</span>
+                        <span class="n">no_magnitudes</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">event</span><span class="o">.</span><span class="n">station_magnitudes</span><span class="p">:</span>
+                    <span class="n">magnitude</span> <span class="o">+=</span> <span class="n">m</span><span class="o">.</span><span class="n">mag</span>
+                    <span class="n">no_magnitudes</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">no_magnitudes</span><span class="p">:</span>
+                <span class="n">magnitude</span> <span class="o">/=</span> <span class="n">no_magnitudes</span>
+                <span class="n">magnitude_object</span> <span class="o">=</span> <span class="n">Magnitude</span><span class="p">(</span><span class="n">mag</span><span class="o">=</span><span class="n">magnitude</span><span class="p">,</span> <span class="n">magnitude_type</span><span class="o">=</span><span class="n">magnitude_type</span><span class="p">)</span>
+                <span class="n">magnitude_object</span><span class="o">.</span><span class="n">comment</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Comment</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Mean of </span><span class="si">{</span><span class="n">no_magnitudes</span><span class="si">}</span><span class="s2"> station_name magnitudes&quot;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">magnitude_type</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">event</span><span class="o">.</span><span class="n">magnitudes</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">magnitude_type</span> <span class="o">==</span> <span class="n">magnitude_type</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">m</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">event</span><span class="o">.</span><span class="n">magnitudes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="time_ceil">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.time_ceil">[docs]</a>
+<span class="k">def</span> <span class="nf">time_ceil</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the time rounded-up to the specified accuracy.</span>
+
+<span class="sd">    :param time: The time object</span>
+<span class="sd">    :type time: ObsPy.UTCDateTime</span>
+<span class="sd">    :param step: The accuracy units in seconds</span>
+<span class="sd">    :type step: float</span>
+
+<span class="sd">    :return: The new rounded-up time object</span>
+<span class="sd">    :rtype: ObsPy.UTCDateTime</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt; from obspy.core.utcdatetime import UTCDateTime</span>
+<span class="sd">        &gt;&gt; from core.utils import time_ceil</span>
+<span class="sd">        &gt;&gt; time = UTCDateTime(2024, 1, 3, 8, 28, 33, 245678)</span>
+<span class="sd">        &gt;&gt; time_ceil(time,1.0)</span>
+<span class="sd">        &gt;&gt; UTCDateTime(2024, 1, 3, 8, 28, 34)</span>
+<span class="sd">        &gt;&gt; time_ceil(time,60.0)</span>
+<span class="sd">        &gt;&gt; UTCDateTime(2024, 1, 3, 8, 29)</span>
+<span class="sd">        &gt;&gt; time_ceil(time,0.1)</span>
+<span class="sd">        UTCDateTime(2024, 1, 3, 8, 28, 33, 300000)</span>
+<span class="sd">        &gt;&gt; time_ceil(time,0.01)</span>
+<span class="sd">        &gt;&gt; UTCDateTime(2024, 1, 3, 8, 28, 33, 250000)</span>
+<span class="sd">        &gt;&gt; time_ceil(time,0.001)</span>
+<span class="sd">        &gt;&gt; UTCDateTime(2024, 1, 3, 8, 28, 33, 246000)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time_int</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">/</span> <span class="n">step</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="n">time_int</span> <span class="o">*</span> <span class="n">step</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="time_floor">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.time_floor">[docs]</a>
+<span class="k">def</span> <span class="nf">time_floor</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the time rounded-down to the specified accuracy.</span>
+
+<span class="sd">    :param time: The time object</span>
+<span class="sd">    :type time: ObsPy.UTCDateTime</span>
+<span class="sd">    :param step: The accuracy units in seconds</span>
+<span class="sd">    :type step: float</span>
+
+<span class="sd">    :return: The new rounded-down time object</span>
+<span class="sd">    :rtype: ObsPy.UTCDateTime</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt; from obspy.core.utcdatetime import UTCDateTime</span>
+<span class="sd">        &gt;&gt; from utils import time_floor</span>
+<span class="sd">        &gt;&gt; time = UTCDateTime(2024, 1, 3, 8, 28, 33, 245678)</span>
+<span class="sd">        &gt;&gt; time_floor(time,0.001)</span>
+<span class="sd">        UTCDateTime(2024, 1, 3, 8, 28, 33, 245000)</span>
+<span class="sd">        &gt;&gt; time_floor(time,0.01)</span>
+<span class="sd">        UTCDateTime(2024, 1, 3, 8, 28, 33, 240000)</span>
+<span class="sd">        &gt;&gt; time_floor(time,0.1)</span>
+<span class="sd">        UTCDateTime(2024, 1, 3, 8, 28, 33, 200000)</span>
+<span class="sd">        &gt;&gt; time_floor(time,1.0)</span>
+<span class="sd">        UTCDateTime(2024, 1, 3, 8, 28, 33)</span>
+<span class="sd">        &gt;&gt; time_floor(time,60.0)</span>
+<span class="sd">        UTCDateTime(2024, 1, 3, 8, 28)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time_int</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">/</span> <span class="n">step</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">UTCDateTime</span><span class="p">(</span><span class="n">time_int</span> <span class="o">*</span> <span class="n">step</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="time_ceil_dist">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.time_ceil_dist">[docs]</a>
+<span class="k">def</span> <span class="nf">time_ceil_dist</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns seconds from the time to the time rounded up to the specified accuracy.</span>
+
+<span class="sd">    :param time: The time object</span>
+<span class="sd">    :type time: ObsPy.UTCDateTime</span>
+<span class="sd">    :param step: The accuracy units in seconds</span>
+<span class="sd">    :type step: float</span>
+
+<span class="sd">    :return: The period in seconds to the rounded-up time</span>
+<span class="sd">    :rtype: float</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt; from obspy.core.utcdatetime import UTCDateTime</span>
+<span class="sd">        &gt;&gt; time = UTCDateTime(2024, 1, 3, 8, 28, 33, 245678)</span>
+<span class="sd">        &gt;&gt; time_ceil_dist(time,0.1)</span>
+<span class="sd">        0.054322</span>
+<span class="sd">        &gt;&gt; time_ceil_dist(time,1.0)</span>
+<span class="sd">        0.754322</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">time_ceil</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span> <span class="o">-</span> <span class="n">time</span></div>
+
+
+
+<div class="viewcode-block" id="time_floor_dist">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.time_floor_dist">[docs]</a>
+<span class="k">def</span> <span class="nf">time_floor_dist</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns seconds from the time to the time rounded up to the specified accuracy.</span>
+
+<span class="sd">    :param time: The time object</span>
+<span class="sd">    :type time: ObsPy.UTCDateTime</span>
+<span class="sd">    :param step: The accuracy units in seconds</span>
+<span class="sd">    :type step: float</span>
+
+<span class="sd">    :return: The period in seconds to the rounded-down time</span>
+<span class="sd">    :rtype: float</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt; from obspy.core.utcdatetime import UTCDateTime</span>
+<span class="sd">        &gt;&gt; time = UTCDateTime(2024, 1, 3, 8, 28, 33, 245678)</span>
+<span class="sd">        &gt;&gt; time_floor_dist(time,0.1)</span>
+<span class="sd">        0.045678</span>
+<span class="sd">        &gt;&gt; time_floor_dist(time,1.0)</span>
+<span class="sd">        0.245678</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">time</span> <span class="o">-</span> <span class="n">time_floor</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_units">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.get_units">[docs]</a>
+<span class="k">def</span> <span class="nf">get_units</span><span class="p">(</span><span class="n">trace</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the signal units of the trace</span>
+
+<span class="sd">    :param trace: The trace object</span>
+<span class="sd">    :type trace: ObsPy.Trace</span>
+
+<span class="sd">    :return: The string with units: &#39;m/s&#39;, &#39;m/s^2&#39;, or &#39;m&#39;, if the response was removed,</span>
+<span class="sd">        when in the processing_parameters is the remove_response process defined,</span>
+<span class="sd">        or &#39;counts&#39; otherwise</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s1">&#39;processing&#39;</span> <span class="ow">in</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">processing</span><span class="p">:</span>
+            <span class="n">pos1</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;: &#39;</span><span class="p">)</span>
+            <span class="n">pos2</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)</span>
+            <span class="n">processing_name</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="n">pos1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">:</span><span class="n">pos2</span><span class="p">]</span>
+            <span class="n">processing_parameters</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">a</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">b</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+                                         <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+                                                      <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">line</span><span class="p">[</span><span class="n">pos2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;::&#39;</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">processing_name</span> <span class="o">==</span> <span class="s1">&#39;remove_response&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">_units_dictionary</span><span class="p">[</span><span class="n">processing_parameters</span><span class="p">[</span><span class="s1">&#39;output&#39;</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="s1">&#39;counts&#39;</span></div>
+
+
+
+<div class="viewcode-block" id="ProcessTrace">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.ProcessTrace">[docs]</a>
+<span class="k">class</span> <span class="nc">ProcessTrace</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The base class of the trace processing. Implementations of objects of classes derived from the ProcessTrace</span>
+<span class="sd">    do some processing on traces defined in the derived classes initialization</span>
+
+<span class="sd">    :param trace:</span>
+<span class="sd">        The processed trace</span>
+<span class="sd">    :type trace: ObsPy.Trace</span>
+<span class="sd">    :param begin_time:</span>
+<span class="sd">        It limits the period, where a process is performed.</span>
+<span class="sd">        If begin_time is not defined or it is earlier than the beginning of the trace,</span>
+<span class="sd">        the process is performed from the beginning of the trace</span>
+<span class="sd">    :type begin_time: ObsPy.UTCDateTime</span>
+<span class="sd">    :param end_time:</span>
+<span class="sd">        It limits the period, where a process is performed.</span>
+<span class="sd">        If end_time is not defined or it is later than the end of the trace,</span>
+<span class="sd">        the process is performed to the end of the trace</span>
+<span class="sd">    :type end_time: ObsPy.UTCDateTime</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trace</span><span class="p">,</span> <span class="n">begin_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The initialization sets up the data subset for processing and calculate the beginning and end time</span>
+<span class="sd">        of selected data subset</span>
+
+<span class="sd">        :param trace:</span>
+<span class="sd">            The processed trace</span>
+<span class="sd">        :param begin_time:</span>
+<span class="sd">            It limits the period, where a process is performed.</span>
+<span class="sd">            If begin_time is not defined or it is earlier than the beginning of the trace</span>
+<span class="sd">            the process is performed from the beginning of the trace</span>
+<span class="sd">        :param end_time:</span>
+<span class="sd">            It limits the period, where a process is performed.</span>
+<span class="sd">            If end_time is not defined or it is later than the end of the trace</span>
+<span class="sd">            the process is performed to the end of the trace</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">begin_idx</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">end_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trace</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">begin_idx</span><span class="p">:</span><span class="n">end_idx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">begin_time</span><span class="p">:</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">begin_time</span> <span class="o">-</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">starttime</span><span class="p">)</span> <span class="o">/</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">delta</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="n">end_idx</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">return</span>
+            <span class="k">elif</span> <span class="n">idx</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">begin_idx</span> <span class="o">=</span> <span class="n">idx</span>
+        <span class="k">if</span> <span class="n">end_time</span><span class="p">:</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">starttime</span><span class="p">)</span> <span class="o">/</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">return</span>
+            <span class="k">elif</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">end_idx</span><span class="p">:</span>
+                <span class="n">end_idx</span> <span class="o">=</span> <span class="n">idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">begin_idx</span><span class="p">:</span><span class="n">end_idx</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">starttime</span> <span class="o">+</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">delta</span> <span class="o">*</span> <span class="n">begin_idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">starttime</span> <span class="o">+</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">delta</span> <span class="o">*</span> <span class="n">end_idx</span></div>
+
+
+
+<div class="viewcode-block" id="IndexTrace">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.IndexTrace">[docs]</a>
+<span class="k">class</span> <span class="nc">IndexTrace</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for operating directly on time limited part of trace data</span>
+
+<span class="sd">    :param trace:</span>
+<span class="sd">        The processed trace</span>
+<span class="sd">    :type trace: ObsPy.Trace</span>
+<span class="sd">    :param begin_time:</span>
+<span class="sd">        It limits the period, where a process is performed.</span>
+<span class="sd">        If begin_time is not defined or it is earlier than the beginning of the trace</span>
+<span class="sd">        the process is performed from the beginning of the trace</span>
+<span class="sd">    :type begin_time: ObsPy.UTCDateTime</span>
+<span class="sd">    :param end_time:</span>
+<span class="sd">        It limits the period, where a process is performed.</span>
+<span class="sd">        If end_time is not defined or it is later than the end of the trace,</span>
+<span class="sd">        the process is performed to the end of the trace</span>
+<span class="sd">    :type end_time: ObsPy.UTCDateTime</span>
+
+<span class="sd">    **Class variables**</span>
+
+<span class="sd">    :start_time: The time of the first data sample index</span>
+<span class="sd">    :end_time: The time of the next sample after the last data sample.</span>
+<span class="sd">        It differs from the ObsPy trace end_time, which points to the last sample of the trace</span>
+<span class="sd">    :begin_idx: The first data sample index</span>
+<span class="sd">    :end_idx: The last data sample index + 1</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        &gt;&gt; from utils import IndexTrace</span>
+<span class="sd">        &gt;&gt; from obspy.core.utcdatetime import UTCDateTime</span>
+<span class="sd">        &gt;&gt; t1 = UTCDateTime(2024, 1, 3, 8, 28, 00)</span>
+<span class="sd">        &gt;&gt; t2 = UTCDateTime(2024, 1, 3, 8, 29, 00)</span>
+<span class="sd">        &gt;&gt; st = read(&#39;test.msd&#39;)</span>
+<span class="sd">        &gt;&gt; indexes = IndexTrace(st[1], begin_time=t1, end_time=t2</span>
+<span class="sd">        &gt;&gt; for idx in range(indexes.begin_idx, indexes.end_idx):</span>
+<span class="sd">        ... pass</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trace</span><span class="p">,</span> <span class="n">begin_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The initialization of the IndexTrace class bases on the trace and time limits</span>
+
+<span class="sd">        :param trace:</span>
+<span class="sd">            The processed trace</span>
+<span class="sd">        :type trace: ObsPy.Trace</span>
+<span class="sd">        :param begin_time:</span>
+<span class="sd">            It limits the period, where a process is performed.</span>
+<span class="sd">            If begin_time is not defined or it is earlier than the beginning of the trace</span>
+<span class="sd">            the process is performed from the beginning of the trace</span>
+<span class="sd">        :type begin_time: ObsPy.UTCDateTime</span>
+<span class="sd">        :param end_time:</span>
+<span class="sd">            It limits the period, where a process is performed.</span>
+<span class="sd">            If end_time is not defined or it is later than the end of the trace,</span>
+<span class="sd">            the process is performed to the end of the trace</span>
+<span class="sd">        :type end_time: ObsPy.UTCDateTime</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">begin_idx</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">end_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trace</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">begin_time</span><span class="p">:</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">begin_time</span> <span class="o">-</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">starttime</span><span class="p">)</span> <span class="o">/</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">delta</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">&gt;=</span> <span class="n">end_idx</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">begin_idx</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">return</span>
+            <span class="k">elif</span> <span class="n">idx</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">begin_idx</span> <span class="o">=</span> <span class="n">idx</span>
+        <span class="k">if</span> <span class="n">end_time</span><span class="p">:</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">starttime</span><span class="p">)</span> <span class="o">/</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">delta</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">begin_idx</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">return</span>
+            <span class="k">elif</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="n">end_idx</span><span class="p">:</span>
+                <span class="n">end_idx</span> <span class="o">=</span> <span class="n">idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">starttime</span> <span class="o">+</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">delta</span> <span class="o">*</span> <span class="n">begin_idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">starttime</span> <span class="o">+</span> <span class="n">trace</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">delta</span> <span class="o">*</span> <span class="n">end_idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">begin_idx</span> <span class="o">=</span> <span class="n">begin_idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_idx</span> <span class="o">=</span> <span class="n">end_idx</span></div>
+
+
+
+<div class="viewcode-block" id="ExtremeTraceValues">
+<a class="viewcode-back" href="../../../api_core.html#amw.core.utils.ExtremeTraceValues">[docs]</a>
+<span class="k">class</span> <span class="nc">ExtremeTraceValues</span><span class="p">(</span><span class="n">ProcessTrace</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class that assess the extreme trace values: maximum, minimum, and absolute maximum value</span>
+
+<span class="sd">    :param trace:</span>
+<span class="sd">        The processed trace</span>
+<span class="sd">    :type trace: ObsPy.Trace</span>
+<span class="sd">    :param begin_time:</span>
+<span class="sd">        It limits the period, where a process is performed.</span>
+<span class="sd">        If begin_time is not defined or it is earlier than the beginning of the trace</span>
+<span class="sd">        the process is performed from the beginning of the trace</span>
+<span class="sd">    :type begin_time: ObsPy.UTCDateTime</span>
+<span class="sd">    :param end_time:</span>
+<span class="sd">        It limits the period, where a process is performed.</span>
+<span class="sd">        If end_time is not defined or it is later than the end of the trace,</span>
+<span class="sd">        the process is performed to the end of the trace</span>
+<span class="sd">    :type end_time: ObsPy.UTCDateTime</span>
+
+<span class="sd">    **Class variables**</span>
+
+<span class="sd">    :data: The optionally cut to time limits data. The data are not a new array but subarray of the Trace data</span>
+<span class="sd">    :start_time: The time of the first data sample.</span>
+<span class="sd">    :end_time: The time of the next sample after the last data sample.</span>
+<span class="sd">        It differs from the ObsPy trace end_time, which points to the last sample of the trace</span>
+<span class="sd">    :max_value: Maximum data value</span>
+<span class="sd">    :max_value: Minimum data value</span>
+<span class="sd">    :abs_max: Absolute maximum value.</span>
+<span class="sd">        abs_max = max(abs(min_value), abs(max_value))</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trace</span><span class="p">,</span> <span class="n">begin_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_time</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The initialization of the ExtremeTraceValues class bases on the trace and time limits</span>
+
+<span class="sd">        :param trace:</span>
+<span class="sd">            The processed trace</span>
+<span class="sd">        :type trace: ObsPy.Trace</span>
+<span class="sd">        :param begin_time:</span>
+<span class="sd">            It limits the period, where a process is performed.</span>
+<span class="sd">            If begin_time is not defined or it is earlier than the beginning of the trace</span>
+<span class="sd">            the process is performed from the beginning of the trace</span>
+<span class="sd">        :type begin_time: ObsPy.UTCDateTime</span>
+<span class="sd">        :param end_time:</span>
+<span class="sd">            It limits the period, where a process is performed.</span>
+<span class="sd">            If end_time is not defined or it is later than the end of the trace,</span>
+<span class="sd">            the process is performed to the end of the trace</span>
+<span class="sd">        :type end_time: ObsPy.UTCDateTime</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ProcessTrace</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trace</span><span class="p">,</span> <span class="n">begin_time</span><span class="p">,</span> <span class="n">end_time</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_value</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_value</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">abs_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">min_value</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_value</span><span class="p">))</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

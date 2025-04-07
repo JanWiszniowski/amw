@@ -1,0 +1,798 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>amw.mw.parameters &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="../../../_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">amw.mw.parameters</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for amw.mw.parameters</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Functions and classes for preparation of mw estimation procedure parameters</span>
+<span class="sd">---------------------------------------------------------------------------</span>
+
+<span class="sd">..</span>
+<span class="sd">    :copyright:</span>
+<span class="sd">        Jan Wiszniowski (jwisz@igf.edu.pl)</span>
+<span class="sd">    :license:</span>
+<span class="sd">        GNU Lesser General Public License, Version 3</span>
+<span class="sd">        (https://www.gnu.org/copyleft/lesser.html)</span>
+<span class="sd">    :version 0.0.1:</span>
+<span class="sd">        2024-11-07</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">DefaultParameters</span><span class="p">,</span> <span class="n">DefaultSubParameters</span><span class="p">,</span> <span class="n">get_source_model</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">get_hypocentral_distance</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">obspy.geodetics.base</span> <span class="k">as</span> <span class="nn">geo</span>
+
+
+<div class="viewcode-block" id="get_travel_time">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.parameters.get_travel_time">[docs]</a>
+<span class="k">def</span> <span class="nf">get_travel_time</span><span class="p">(</span><span class="n">pick</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">use_arrivals</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the travel time of the picket wave from the source to the station,</span>
+<span class="sd">    hipocentral distance to the station, and phase velocity at the fault</span>
+
+<span class="sd">    :param use_arrivals: Option whether to get travel time from origin arrivals.</span>
+<span class="sd">        If it is false thr travel time is computed from source and station coordinates.</span>
+<span class="sd">    :type use_arrivals: bool</span>
+<span class="sd">    :param pick: The pick of the wave that the travel time is assessed</span>
+<span class="sd">    :type pick: ObsPy Pick</span>
+<span class="sd">    :param source_parameters: The seismic source parameters required for of mw estimation procedure</span>
+<span class="sd">    :type source_parameters: SourceParameters</span>
+<span class="sd">    :param station_inventory:</span>
+<span class="sd">        The inventory of the station that the signal was picked and mw is estimated</span>
+<span class="sd">    :type station_inventory: ObsPy Inventory</span>
+
+<span class="sd">    :return: The phase travel time [s], hipocentral distance [m], phase velocity at the fault [m/s].</span>
+<span class="sd">    :rtype: tuple(float, float, float)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">phase_name</span> <span class="o">=</span> <span class="n">pick</span><span class="o">.</span><span class="n">phase_hint</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">origin</span> <span class="o">=</span> <span class="n">source_parameters</span><span class="o">.</span><span class="n">origin</span>
+    <span class="n">travel_time</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">fault_v</span> <span class="o">=</span> <span class="n">source_parameters</span><span class="o">.</span><span class="n">fault_v</span><span class="p">(</span><span class="n">phase_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">use_arrivals</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">arrival</span> <span class="ow">in</span> <span class="n">source_parameters</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">arrivals</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">arrival</span><span class="o">.</span><span class="n">phase</span> <span class="o">==</span> <span class="n">pick</span><span class="o">.</span><span class="n">phase_hint</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">pick</span><span class="o">.</span><span class="n">resource_id</span> <span class="o">==</span> <span class="n">arrival</span><span class="o">.</span><span class="n">pick_id</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">arrival</span><span class="o">.</span><span class="n">time_residual</span><span class="p">:</span>
+                        <span class="n">travel_time</span> <span class="o">=</span> <span class="n">pick</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">origin</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">arrival</span><span class="o">.</span><span class="n">time_residual</span>
+                    <span class="k">if</span> <span class="n">arrival</span><span class="o">.</span><span class="n">distance</span><span class="p">:</span>
+                        <span class="n">delta</span> <span class="o">=</span> <span class="n">arrival</span><span class="o">.</span><span class="n">distance</span>
+                        <span class="n">distance</span> <span class="o">=</span> <span class="n">geo</span><span class="o">.</span><span class="n">degrees2kilometers</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span>
+                        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">distance</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">origin</span><span class="o">.</span><span class="n">depth</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                    <span class="k">break</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">r</span><span class="p">,</span> <span class="n">delta</span> <span class="o">=</span> <span class="n">get_hypocentral_distance</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">travel_time</span><span class="p">:</span>
+        <span class="n">travel_time</span> <span class="o">=</span> <span class="n">pick</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">origin</span><span class="o">.</span><span class="n">time</span>
+    <span class="k">return</span> <span class="n">travel_time</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">fault_v</span></div>
+
+
+
+<div class="viewcode-block" id="get_far_response">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.parameters.get_far_response">[docs]</a>
+<span class="k">def</span> <span class="nf">get_far_response</span><span class="p">(</span><span class="n">travel_time</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">fault_v</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The get_far_response function calculates the Green function in the far field :math:`G^{\left(c\right)far}`</span>
+<span class="sd">    except the internal dumping and surface effect for phase P or S marked as :math:`\left(c\right)` according to:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        G^{\left(c\right)far}=\frac{j\omega \exp\left(-j\omega T_c\right)}{4\pi\rho rv_c^3},</span>
+
+<span class="sd">    where</span>
+<span class="sd">    :math:`c` is the wave name (P or S),</span>
+<span class="sd">    :math:`\omega` is the circular frequency, :math:`\omega = 2j\pi f`,</span>
+<span class="sd">    :math:`r` is the hypocentral distance,</span>
+<span class="sd">    :math:`T_c` is the phase travel time,</span>
+<span class="sd">    :math:`v_c` is the phase velocity at the source,</span>
+<span class="sd">    :math:`\rho` is the density at the source.</span>
+
+<span class="sd">    :param travel_time: The phase travel time</span>
+<span class="sd">    :type travel_time: float</span>
+<span class="sd">    :param rho: The density at the source [kg/m^3]</span>
+<span class="sd">    :type rho: float</span>
+<span class="sd">    :param r: The hipocentral distance [m]</span>
+<span class="sd">    :type r: float</span>
+<span class="sd">    :param fault_v: The phase velocity at the source [m/s]</span>
+<span class="sd">    :param fault_v: float</span>
+<span class="sd">    :param omega: The circular frequencies, for which the response is counted. :math:`\omega = 2j\pi f`</span>
+<span class="sd">    :type omega: numpy.array(complex)</span>
+
+<span class="sd">    :return: The far field part Green one phase function</span>
+<span class="sd">    :rtype: numpy.array(complex)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">far_response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span> <span class="o">*</span> <span class="n">travel_time</span><span class="p">)</span>
+    <span class="n">far_response</span> <span class="o">/=</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">fault_v</span> <span class="o">**</span> <span class="mi">3</span>
+    <span class="n">far_response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">far_response</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">far_response</span></div>
+
+
+
+<div class="viewcode-block" id="get_intermediate_response">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.parameters.get_intermediate_response">[docs]</a>
+<span class="k">def</span> <span class="nf">get_intermediate_response</span><span class="p">(</span><span class="n">travel_time</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">fault_v</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The get_intermediate_response function calculates the radial or transversal component of Green function</span>
+<span class="sd">    for phase P or S in the intermediate field :math:`G_x^{\left(c\right)inter}`</span>
+<span class="sd">    except the internal dumping and surface effect for phase P or S marked as :math:`\left(c\right)` according to:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        G_x^{\left(c\right)inter}=\frac{exp\left(-j\omega T_c\right)}{4\pi\rho r^2 v_c^2},</span>
+
+<span class="sd">    where</span>
+<span class="sd">    :math:`c` is the wave name (P or S),</span>
+<span class="sd">    :math:`\omega` is the circular frequency, :math:`\omega = 2j\pi f`,</span>
+<span class="sd">    :math:`r` is the hipocentral distance,</span>
+<span class="sd">    :math:`T_c` is the phase travel time,</span>
+<span class="sd">    :math:`v_c` is the phase velocity at the source,</span>
+<span class="sd">    :math:`\rho` is the density at the source</span>
+<span class="sd">    :math:`x` describes the signal component (radial or transversal).</span>
+
+<span class="sd">    :param travel_time: The phase travel time</span>
+<span class="sd">    :type travel_time: float</span>
+<span class="sd">    :param rho: The density at the source [kg/m^3]</span>
+<span class="sd">    :type rho: float</span>
+<span class="sd">    :param r: The hipocentral distance [m]</span>
+<span class="sd">    :type r: float</span>
+<span class="sd">    :param fault_v: The phase velocity at the source [m/s]</span>
+<span class="sd">    :type fault_v: float</span>
+<span class="sd">    :param omega: The circular frequencies, for which the response is counted. :math:`\omega = 2j\pi f`</span>
+<span class="sd">    :type omega: numpy.array(complex)</span>
+
+<span class="sd">    :return: The intermediate field part Green function of one phase</span>
+<span class="sd">    :rtype: numpy array(complex)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">intermediate_response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span> <span class="o">*</span> <span class="n">travel_time</span><span class="p">)</span>
+    <span class="n">intermediate_response</span> <span class="o">/=</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">fault_v</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">intermediate_response</span></div>
+
+
+
+<div class="viewcode-block" id="get_near_response">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.parameters.get_near_response">[docs]</a>
+<span class="k">def</span> <span class="nf">get_near_response</span><span class="p">(</span><span class="n">picks</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">omega</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The get_near_response function calculates the common (radial and) transversal component of Green function</span>
+<span class="sd">    in the intermediate field except the internal dumping and surface according to:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        G^{near}=\frac{\left(\omega T_P+1\right)exp\left(-\omega T_P\right)</span>
+<span class="sd">        -\left(\omega T_S+1\right)exp\left(-\omega T_S\right)}{4\omega ^2\rho r^4}</span>
+
+<span class="sd">    where :math:`\omega` is the circular frequency, :math:`\omega = 2j\pi f`, :math:`r` is the hipocentral distance,</span>
+<span class="sd">    :math:`T_P` is the P phase travel time, :math:`T_S` is the P phase travel time, :math:`\rho` is the density</span>
+<span class="sd">    at the source</span>
+
+<span class="sd">    :param picks:</span>
+<span class="sd">        A list of picks of waves in the near field.</span>
+<span class="sd">        It must consist of two pick P or S and P must the first.</span>
+<span class="sd">    :type picks: list(ObsPy Pick)</span>
+<span class="sd">    :param source_parameters:</span>
+<span class="sd">        The seismic source parameters required for of mw estimation procedure</span>
+<span class="sd">    :type source_parameters: SourceParameters</span>
+<span class="sd">    :param station_inventory:</span>
+<span class="sd">        The inventory of the station that the signal was picked and mw is estimated</span>
+<span class="sd">    :type station_inventory: ObsPy Inventory</span>
+<span class="sd">    :param omega: The circular frequencies, for which the response is counted. :math:`\omega = 2j\pi f`</span>
+<span class="sd">    :type omega: numpy.array(complex)</span>
+
+<span class="sd">    :return: The near field part Green function</span>
+<span class="sd">    :rtype: numpy.array(complex)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">travel_time_p</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_travel_time</span><span class="p">(</span><span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">)</span>
+    <span class="n">travel_time_s</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_travel_time</span><span class="p">(</span><span class="n">picks</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">)</span>
+    <span class="n">rho</span> <span class="o">=</span> <span class="n">source_parameters</span><span class="o">.</span><span class="n">rho</span><span class="p">()</span>
+    <span class="n">element_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">travel_time_p</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span> <span class="o">*</span> <span class="n">travel_time_p</span><span class="p">))</span>
+    <span class="n">element_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">travel_time_s</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">omega</span> <span class="o">*</span> <span class="n">travel_time_s</span><span class="p">))</span>
+    <span class="n">near_response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">element_p</span> <span class="o">-</span> <span class="n">element_s</span><span class="p">,</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">omega</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">near_response</span></div>
+
+
+
+<div class="viewcode-block" id="get_correction">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.parameters.get_correction">[docs]</a>
+<span class="k">def</span> <span class="nf">get_correction</span><span class="p">(</span><span class="n">phase_name</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">travel_time</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the internal dumping, near surface amplification and frequency dumping in frequency domain</span>
+
+<span class="sd">    :param phase_name: The name of the phase (&#39;P or &#39;S&#39;). In the case of &#39;P&#39; the internal dumping, etc. are calculating</span>
+<span class="sd">        for radial component of the signal, which is the P wave in far field. In the case of &#39;S&#39; the internal dumping,</span>
+<span class="sd">        etc. is calculating for transversal component of the signal, which is the S wave in far field.</span>
+<span class="sd">    :type phase_name: str</span>
+<span class="sd">    :param station_parameters: The station parameter</span>
+<span class="sd">    :type station_parameters: DefaultParameters</span>
+<span class="sd">    :param frequencies: Frequencies for which the correction is calculated</span>
+<span class="sd">    :type frequencies: numpy.array(float)</span>
+<span class="sd">    :param travel_time: The signal travel time</span>
+<span class="sd">    :type travel_time: float</span>
+
+<span class="sd">    :return: The correction in frequency domain</span>
+<span class="sd">    :rtype: numpy.array(float)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">phase_parameters</span> <span class="o">=</span> <span class="n">DefaultSubParameters</span><span class="p">(</span><span class="s1">&#39;phase_parameters&#39;</span><span class="p">,</span> <span class="n">phase_name</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">)</span>
+    <span class="n">q_0</span> <span class="o">=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;Q_0&#39;</span><span class="p">)</span>
+    <span class="n">q_theta</span> <span class="o">=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;Q_theta&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">q_corner</span> <span class="o">=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;Q_corner&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">q_corner</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">eval_q</span> <span class="o">=</span> <span class="n">q_0</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">frequencies</span> <span class="o">/</span> <span class="n">q_corner</span><span class="p">,</span> <span class="n">q_theta</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">eval_q</span> <span class="o">=</span> <span class="n">q_0</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">q_theta</span><span class="p">)</span>
+    <span class="n">q_correction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">travel_time</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">eval_q</span><span class="p">))</span>
+    <span class="n">kappa</span> <span class="o">=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;kappa&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">kappa_correction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">kappa</span> <span class="o">*</span> <span class="n">frequencies</span><span class="p">)</span>
+    <span class="n">correction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">q_correction</span><span class="p">,</span> <span class="n">kappa_correction</span><span class="p">)</span>
+    <span class="n">correction</span> <span class="o">*=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;surface_correction&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">correction</span></div>
+
+
+
+<div class="viewcode-block" id="get_phase_response">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.parameters.get_phase_response">[docs]</a>
+<span class="k">def</span> <span class="nf">get_phase_response</span><span class="p">(</span><span class="n">pick</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function get_phase_response computes radial and transversal frequency responses of the seismic phase</span>
+<span class="sd">    at the station to the source frequency function:</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        G^{\left(c\right)}\left(f\right)A^{\left(c\right)}\left(f\right)R\left(f\right)I\left(f\right),</span>
+
+<span class="sd">    where :math:`\left(c\right)` is the phase name</span>
+
+<span class="sd">    The response consists of:</span>
+<span class="sd">     * Green function :math:`G^{\left(c\right)}`, which for P wave is defined as</span>
+<span class="sd">     </span>
+<span class="sd">    .. math::</span>
+
+<span class="sd">        G_R^{\left(P\right)}\left(f\right)= G_R^{\left(P\right)far}\left(f\right)</span>
+<span class="sd">        +G_R^{\left(P\right)inter}\left(f\right)</span>
+
+<span class="sd">        G_T^{\left(P\right)}\left(f\right) = G_T^{\left(P\right)inter}\left(f\right)</span>
+
+<span class="sd">    where :math:`G_R^{\left(P\right)far} = G^{\left(P\right)far}R_R^{far}`</span>
+<span class="sd">    is the radial component of the P wave in the far field,</span>
+<span class="sd">    :math:`G_R^{\left(P\right)inter} = G^{\left(P\right)inter}R_R^{inter}`</span>
+<span class="sd">    is the radial component of the P wave in the intermediate field,</span>
+<span class="sd">    and :math:`G_T^{\left(P\right)inter} = G^{\left(P\right)inter}R_T^{inter}`</span>
+<span class="sd">    is the transversal component of the P wave in intermediate field.</span>
+<span class="sd">    :math:`R_R^{far}= R^{(P)}` is the P wave average radiation coefficient in the far field.</span>
+<span class="sd">    For S wave, it is defined as</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        G_R^{(S)}\left(f\right) = G_R^{\left(S\right)inter}\left(f\right)</span>
+
+<span class="sd">        G_T^{(S)}\left(f\right) = G_T^{\left(S\right)far}\left(f\right)+G_T^{\left(S\right)inter}\left(f\right)</span>
+
+<span class="sd">    where :math:`G_R^{\left(S\right)inter} = G^{\left(S\right)inter}R_R^{inter}`</span>
+<span class="sd">    is the radial component of the S wave in intermediate field,</span>
+<span class="sd">    :math:`G_T^{\left(S\right)far} = G^{\left(S\right)far}R_T^{far}`</span>
+<span class="sd">    is the transversal component of the S wave in the far field,</span>
+<span class="sd">    and :math:`G_T^{\left(S\right)inter} = G^{\left(S\right)inter}R_T^{inter}`</span>
+<span class="sd">    is the transversal component of the S wave in the intermediate field.</span>
+<span class="sd">    :math:`R_T^{far}= R^{(S)}` is the S wave average radiation coefficient in the far field.</span>
+
+<span class="sd">    Inelastic (internal) dumping :math:`A^{\left(c\right)}` is defined as</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+<span class="sd">        A\left(f\right)=exp\left(\frac{-\pi T_cf}{Q^{\left(c\right)}\left(f\right)}\right),</span>
+
+<span class="sd">    where</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        Q^{\left(c\right)}\left(f\right)=Q_0^{\left(c\right)}\left(\frac{f_q+f}{f_q}\right)^\vartheta;</span>
+
+<span class="sd">    or</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        Q\left(f\right)=Q_0^{\left(c\right)}f^\vartheta;</span>
+
+<span class="sd">    The near-surface losses and free surface amplification is assumed by</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        R\left(f\right)=R_c\exp\left(-\pi \kappa f\right).</span>
+
+<span class="sd">    The instrument response is :math:`I\left(f\right)`.</span>
+
+<span class="sd">    :param pick: The P or S pick name</span>
+<span class="sd">    :type pick: str</span>
+<span class="sd">    :param source_parameters: The seismic source parameters required for of mw estimation procedure</span>
+<span class="sd">    :type source_parameters: SourceParameters</span>
+<span class="sd">    :param station_inventory:</span>
+<span class="sd">        The inventory of the station that the signal was picked and mw is estimated</span>
+<span class="sd">    :type station_inventory: ObsPy Inventory</span>
+<span class="sd">    :param station_parameters:  The reference to the station_name (or default)</span>
+<span class="sd">    :param frequencies: The frequencies, for which the response is counted</span>
+<span class="sd">    :type frequencies: numpy.array(float)</span>
+
+<span class="sd">    :return: Tuple of two numpy arrays of complex radial and transversal response in frequency domain.</span>
+<span class="sd">    :rtype: tuple(numpy.array(float), numpy.array(float))</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">phase_name</span> <span class="o">=</span> <span class="n">pick</span><span class="o">.</span><span class="n">phase_hint</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">travel_time</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">fault_v</span> <span class="o">=</span> <span class="n">get_travel_time</span><span class="p">(</span><span class="n">pick</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">)</span>
+    <span class="n">rho</span> <span class="o">=</span> <span class="n">source_parameters</span><span class="o">.</span><span class="n">rho</span><span class="p">()</span>
+
+    <span class="n">far_radial_average_radiation</span> <span class="o">=</span> <span class="n">station_parameters</span><span class="p">(</span><span class="s1">&#39;far_radial_average_radiation&#39;</span><span class="p">,</span> <span class="mf">0.52</span><span class="p">)</span>
+    <span class="n">far_transversal_average_radiation</span> <span class="o">=</span> <span class="n">station_parameters</span><span class="p">(</span><span class="s1">&#39;far_transversal_average_radiation&#39;</span><span class="p">,</span> <span class="mf">0.63</span><span class="p">)</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">frequencies</span>
+    <span class="k">if</span> <span class="n">phase_name</span> <span class="o">==</span> <span class="s1">&#39;P&#39;</span><span class="p">:</span>
+        <span class="c1"># Radial (P) far</span>
+        <span class="n">radial_response</span> <span class="o">=</span> <span class="n">get_far_response</span><span class="p">(</span><span class="n">travel_time</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">fault_v</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span> <span class="o">*</span> <span class="n">far_radial_average_radiation</span>
+        <span class="k">if</span> <span class="n">station_parameters</span><span class="p">(</span><span class="s1">&#39;consider_intermediate_field&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="n">intermediate_response</span> <span class="o">=</span> <span class="n">get_intermediate_response</span><span class="p">(</span><span class="n">travel_time</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">fault_v</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+            <span class="c1"># Radial (P) intermediate</span>
+            <span class="n">radial_response</span> <span class="o">+=</span> <span class="n">intermediate_response</span> <span class="o">*</span> <span class="n">station_parameters</span><span class="p">(</span>
+                <span class="s1">&#39;intermediate_p_radial_average_radiation&#39;</span><span class="p">,</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">far_radial_average_radiation</span><span class="p">)</span>
+            <span class="c1"># Transversal (P) intermediate</span>
+            <span class="n">transversal_response</span> <span class="o">=</span> <span class="n">intermediate_response</span> <span class="o">*</span> <span class="n">station_parameters</span><span class="p">(</span>
+                <span class="s1">&#39;intermediate_p_transversal_average_radiation&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">far_transversal_average_radiation</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Transversal (P) intermediate is zero</span>
+            <span class="n">transversal_response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frequencies</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Transversal (S) far</span>
+        <span class="n">transversal_response</span> <span class="o">=</span> <span class="n">get_far_response</span><span class="p">(</span><span class="n">travel_time</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">fault_v</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span> <span class="o">*</span> <span class="n">far_transversal_average_radiation</span>
+        <span class="k">if</span> <span class="n">station_parameters</span><span class="p">(</span><span class="s1">&#39;consider_intermediate_field&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+            <span class="n">intermediate_response</span> <span class="o">=</span> <span class="n">get_intermediate_response</span><span class="p">(</span><span class="n">travel_time</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">fault_v</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+            <span class="c1"># Radial (S) intermediate</span>
+            <span class="n">radial_response</span> <span class="o">=</span> <span class="n">intermediate_response</span> <span class="o">*</span> <span class="n">station_parameters</span><span class="p">(</span>
+                <span class="s1">&#39;intermediate_s_radial_average_radiation&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.0</span> <span class="o">*</span> <span class="n">far_radial_average_radiation</span><span class="p">)</span>
+            <span class="c1"># Transversal (S) intermediate</span>
+            <span class="n">transversal_response</span> <span class="o">+=</span> <span class="n">intermediate_response</span> <span class="o">*</span> <span class="n">station_parameters</span><span class="p">(</span>
+                <span class="s1">&#39;intermediate_s_transversal_average_radiation&#39;</span><span class="p">,</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">far_transversal_average_radiation</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Radial (P) intermediate is zero</span>
+            <span class="n">radial_response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frequencies</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="n">radial_correction</span> <span class="o">=</span> <span class="n">get_correction</span><span class="p">(</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">travel_time</span><span class="p">)</span>
+    <span class="n">transversal_correction</span> <span class="o">=</span> <span class="n">get_correction</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">travel_time</span><span class="p">)</span>
+    <span class="n">radial_response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">radial_response</span><span class="p">,</span> <span class="n">radial_correction</span><span class="p">)</span>
+    <span class="n">transversal_response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">transversal_response</span><span class="p">,</span> <span class="n">transversal_correction</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">radial_response</span><span class="p">,</span> <span class="n">transversal_response</span></div>
+
+
+
+<div class="viewcode-block" id="get_phases_response">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.parameters.get_phases_response">[docs]</a>
+<span class="k">def</span> <span class="nf">get_phases_response</span><span class="p">(</span><span class="n">picks</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function get_phases_response computes radial and transversal frequency responses</span>
+<span class="sd">    of the cumulated seismic phases P and S at the station to the source frequency function:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        G_R^{(P+S)}\left(f\right)=G_R^{(P)far}\left(f\right)+G_R^{\left(P\right)inter}\left(f\right)</span>
+<span class="sd">        +G_R^{\left(S\right)inter}\left(f\right)+G_R^{near}\left(f\right)</span>
+
+<span class="sd">        G_T^{(P+S)}\left(f\right)=G_T^{\left(P\right)inter}\left(f\right)+G_T^{(S)far}\left(f\right)</span>
+<span class="sd">        +G_T^{\left(S\right)inter}\left(f\right)+G_T^{near}\left(f\right),</span>
+
+<span class="sd">    where</span>
+<span class="sd">    :math:`G_T^{near} = G^{near}R_T^{near}`</span>
+<span class="sd">    is the transversal component in the near field</span>
+<span class="sd">    and :math:`G_R^{near} = G^{near}R_R^{near}`</span>
+<span class="sd">    is the radial component in the near field.</span>
+<span class="sd">    The remaining components are defined in the get_phase_response function.</span>
+
+<span class="sd">    :param picks: List of two P and S picks</span>
+<span class="sd">    :param source_parameters: The seismic source parameters required for of mw estimation procedure</span>
+<span class="sd">    :type source_parameters: SourceParameters</span>
+
+<span class="sd">    :param station_inventory:</span>
+<span class="sd">        The inventory of the station that the signal was picked and mw is estimated</span>
+<span class="sd">    :type station_inventory: ObsPy Inventory</span>
+
+<span class="sd">    :param station_parameters:  The reference to the station_name (or default)</span>
+<span class="sd">    :param frequencies: The frequencies, for which the response is counted</span>
+
+<span class="sd">    :return: Tuple of two numpy arrays of complex radial and transversal response in frequency domain.</span>
+<span class="sd">    :rtype: tuple(numpy.array(float), numpy.array(float))</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">radial_response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frequencies</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="n">transversal_response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frequencies</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+    <span class="n">omega</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">frequencies</span>
+    <span class="k">for</span> <span class="n">pick</span> <span class="ow">in</span> <span class="n">picks</span><span class="p">:</span>
+        <span class="n">rs</span><span class="p">,</span> <span class="n">ts</span> <span class="o">=</span> <span class="n">get_phase_response</span><span class="p">(</span><span class="n">pick</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">station_parameters</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">)</span>
+        <span class="n">radial_response</span> <span class="o">+=</span> <span class="n">rs</span>
+        <span class="n">transversal_response</span> <span class="o">+=</span> <span class="n">ts</span>
+    <span class="k">if</span> <span class="n">station_parameters</span><span class="p">(</span><span class="s1">&#39;consider_near_field&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">get_near_response</span><span class="p">(</span><span class="n">picks</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">omega</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">station_parameters</span><span class="p">(</span><span class="s1">&#39;kappa&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">frequencies</span><span class="p">))</span>
+        <span class="n">radial_response</span> <span class="o">+=</span> <span class="n">resp</span> <span class="o">*</span> <span class="n">station_parameters</span><span class="p">(</span>
+            <span class="s1">&#39;near_radial_average_radiation&#39;</span><span class="p">,</span>
+            <span class="mf">9.0</span> <span class="o">*</span> <span class="n">station_parameters</span><span class="p">(</span><span class="s1">&#39;far_radial_average_radiation&#39;</span><span class="p">,</span> <span class="mf">0.52</span><span class="p">))</span>
+        <span class="n">transversal_response</span> <span class="o">+=</span> <span class="n">resp</span> <span class="o">*</span> <span class="n">station_parameters</span><span class="p">(</span>
+            <span class="s1">&#39;near_transversal_average_radiation&#39;</span><span class="p">,</span>
+            <span class="o">-</span><span class="mf">6.0</span> <span class="o">*</span> <span class="n">station_parameters</span><span class="p">(</span><span class="s1">&#39;far_transversal_average_radiation&#39;</span><span class="p">,</span> <span class="mf">0.63</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">radial_response</span><span class="p">,</span> <span class="n">transversal_response</span></div>
+
+
+
+<div class="viewcode-block" id="MwFunctionParameters">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.parameters.MwFunctionParameters">[docs]</a>
+<span class="k">class</span> <span class="nc">MwFunctionParameters</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The class keeps all parameters used to estimate the mw and its object is used as optimised function.</span>
+
+<span class="sd">    :param picks: List of two picks P and S. The P pick must be firsts .</span>
+<span class="sd">    :type picks: list(ObsPy.Pick)</span>
+<span class="sd">    :param station_name:</span>
+<span class="sd">        The station name in the form required to find the configuration for the station</span>
+<span class="sd">    :type station_name: str</span>
+<span class="sd">    :param signal_spec: The signal spectrum</span>
+<span class="sd">    :type signal_spec: numpy.array(float)</span>
+<span class="sd">    :param noise_spec: The noise mean spectrum</span>
+<span class="sd">    :type noise_spec: numpy.array(float)</span>
+<span class="sd">    :param noise_sd: The standard deviation of noise spectrum</span>
+<span class="sd">    :type noise_sd: numpy.array(float)</span>
+<span class="sd">    :param freq: The frequencies that the spectra are compared</span>
+<span class="sd">    :type freq: numpy.array(float)</span>
+<span class="sd">    :param source_parameters: The seismic source parameters required for of mw estimation procedure</span>
+<span class="sd">    :type source_parameters: SourceParameters</span>
+<span class="sd">    :param station_inventory:</span>
+<span class="sd">        The inventory of the station that the signal was picked and mw is estimated</span>
+<span class="sd">    :type station_inventory: ObsPy Inventory</span>
+<span class="sd">    :param configuration: The configuration container of all parameters dictionary required for the program to work.</span>
+<span class="sd">    :type configuration: dict</span>
+
+<span class="sd">    **Warning! signal_spectrum, noise_spectrum, noise_sd, frequencies must have the same size**</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">picks</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">signal_spec</span><span class="p">,</span> <span class="n">noise_spec</span><span class="p">,</span> <span class="n">noise_sd</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">,</span>
+                 <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The MwFunctionParameters constructor</span>
+
+<span class="sd">        :param picks: List of two picks P and S. The P pick must be firsts .</span>
+<span class="sd">        :type picks: list(ObsPy.Pick)</span>
+<span class="sd">        :param station_name:</span>
+<span class="sd">            The station name in the form required to find the configuration for the station</span>
+<span class="sd">        :type station_name: str</span>
+<span class="sd">        :param signal_spec: The signal spectrum</span>
+<span class="sd">        :type signal_spec: numpy.array(float)</span>
+<span class="sd">        :param noise_spec: The noise mean spectrum</span>
+<span class="sd">        :type noise_spec: numpy.array(float)</span>
+<span class="sd">        :param noise_sd: The standard deviation of noise spectrum</span>
+<span class="sd">        :type noise_sd: numpy.array(float)</span>
+<span class="sd">        :param freq: The frequencies that the spectra are compared</span>
+<span class="sd">        :type freq: numpy.array(float)</span>
+<span class="sd">        :param source_parameters: The seismic source parameters required for of mw estimation procedure</span>
+<span class="sd">        :type source_parameters: SourceParameters</span>
+<span class="sd">        :param station_inventory:</span>
+<span class="sd">            The inventory of the station that the signal was picked and mw is estimated</span>
+<span class="sd">        :type station_inventory: ObsPy Inventory</span>
+<span class="sd">        :param configuration: The configuration container of all parameters dictionary required for the program to work.</span>
+<span class="sd">        :type configuration: dict</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configuration</span> <span class="o">=</span> <span class="n">configuration</span>
+        <span class="n">station_parameters</span> <span class="o">=</span> <span class="n">DefaultParameters</span><span class="p">(</span><span class="s1">&#39;station_parameters&#39;</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+        <span class="n">phase_parameters</span> <span class="o">=</span> <span class="n">DefaultSubParameters</span><span class="p">(</span><span class="s1">&#39;phase_parameters&#39;</span><span class="p">,</span> <span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">phase_hint</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">station_parameters</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mw_correction</span> <span class="o">=</span> <span class="n">station_parameters</span><span class="p">(</span><span class="s1">&#39;mw_correction&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">low_frequency</span> <span class="o">=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;low_frequency&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">high_frequency</span> <span class="o">=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;high_frequency&#39;</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">)</span>
+        <span class="c1"># -------------------------------------------------------------------------------------------------------------</span>
+        <span class="c1"># Cutting the stream to the frequency limits</span>
+        <span class="n">lf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">low_frequency</span>
+        <span class="n">hf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">high_frequency</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">signal_spectrum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">s</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">signal_spec</span><span class="p">)</span> <span class="k">if</span> <span class="n">lf</span> <span class="o">&lt;=</span> <span class="n">freq</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">hf</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noise_spectrum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">s</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">noise_spec</span><span class="p">)</span> <span class="k">if</span> <span class="n">lf</span> <span class="o">&lt;=</span> <span class="n">freq</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">hf</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noise_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">s</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">noise_sd</span><span class="p">)</span> <span class="k">if</span> <span class="n">lf</span> <span class="o">&lt;=</span> <span class="n">freq</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">hf</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">freq</span> <span class="k">if</span> <span class="n">lf</span> <span class="o">&lt;=</span> <span class="n">f</span> <span class="o">&lt;=</span> <span class="n">hf</span><span class="p">])</span>
+        <span class="c1"># -------------------------------------------------------------------------------------------------------------</span>
+        <span class="c1"># Calculation the noise correction including the artificial bias</span>
+        <span class="n">noise_correction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_spectrum</span>
+        <span class="n">noise_bias</span> <span class="o">=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;noise_bias&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">noise_bias</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">noise_freq_bias</span> <span class="o">=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;noise_freq_bias&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">noise_freq_bias</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">noise_correction</span> <span class="o">*=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">noise_bias</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span><span class="o">**</span><span class="n">noise_freq_bias</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">noise_correction</span> <span class="o">*=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">noise_bias</span><span class="p">)</span>
+
+        <span class="n">noise_std_bias</span> <span class="o">=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;noise_std_bias&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">noise_std_bias</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="n">noise_correction</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_std</span> <span class="o">*</span> <span class="n">noise_std_bias</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">noise_correction_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">noise_correction</span><span class="p">)</span>
+        <span class="c1"># -------------------------------------------------------------------------------------------------------------</span>
+        <span class="c1"># Compute the station_name response to the source spectrum model including the gradient Green&#39;s function</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">picks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">radial_response</span><span class="p">,</span> <span class="n">transversal_response</span> <span class="o">=</span> <span class="n">get_phase_response</span><span class="p">(</span><span class="n">picks</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span>
+                                                                       <span class="n">station_parameters</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">radial_response</span><span class="p">,</span> <span class="n">transversal_response</span> <span class="o">=</span> <span class="n">get_phases_response</span><span class="p">(</span><span class="n">picks</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span>
+                                                                        <span class="n">station_parameters</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">radial_response</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">transversal_response</span><span class="p">)))</span>
+        <span class="c1"># instrument_response = station_inventory.get_response(picks[0].waveform_id.id, picks[0].time)</span>
+        <span class="c1"># instrument_correction = np.absolute(instrument_response.get_evalresp_response_for_frequencies(self.frequencies,</span>
+        <span class="c1">#                                                                                               output=&#39;VEL&#39;))</span>
+        <span class="c1"># self.response = np.multiply(self.response, instrument_correction)</span>
+
+        <span class="c1"># -------------------------------------------------------------------------------------------------------------</span>
+        <span class="c1"># Metric weights calculation</span>
+        <span class="n">weights_parameters</span> <span class="o">=</span> <span class="n">phase_parameters</span><span class="p">(</span><span class="s1">&#39;weights&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">weights_parameters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="n">threshold</span> <span class="o">=</span> <span class="n">weights_parameters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;use_threshold&#39;</span><span class="p">)</span>
+            <span class="n">std_weight</span> <span class="o">=</span> <span class="n">weights_parameters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;use_std&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">weights_parameters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;use_logarithm&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">std_weight</span><span class="p">:</span>
+                    <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signal_spectrum</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_spectrum</span> <span class="o">+</span> <span class="n">std_weight</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_std</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signal_spectrum</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_spectrum</span><span class="p">)</span>
+                <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">threshold</span><span class="p">:</span>
+                    <span class="n">weights</span><span class="p">[</span><span class="n">delta</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">delta</span><span class="p">[</span><span class="n">delta</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+                    <span class="n">delta</span><span class="p">[</span><span class="n">delta</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+                    <span class="n">weights</span> <span class="o">=</span> <span class="n">delta</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">std_weight</span><span class="p">:</span>
+                    <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signal_spectrum</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_spectrum</span> <span class="o">-</span> <span class="n">std_weight</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_std</span><span class="p">,</span>
+                                      <span class="bp">self</span><span class="o">.</span><span class="n">signal_spectrum</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signal_spectrum</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_spectrum</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">signal_spectrum</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">threshold</span><span class="p">:</span>
+                    <span class="n">weights</span><span class="p">[</span><span class="n">delta</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">delta</span><span class="p">[</span><span class="n">delta</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">weights</span> <span class="o">=</span> <span class="n">delta</span>
+
+            <span class="n">frequency_weight</span> <span class="o">=</span> <span class="n">weights_parameters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;use_frequency&#39;</span><span class="p">)</span>
+            <span class="n">main_frequency</span> <span class="o">=</span> <span class="n">weights_parameters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;use_main_frequency&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">frequency_weight</span><span class="p">:</span>
+                <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span> <span class="o">-</span> <span class="n">main_frequency</span><span class="p">),</span>
+                                                      <span class="n">frequency_weight</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="c1"># -------------------------------------------------------------------------------------------------------------</span>
+        <span class="c1"># Metric setting</span>
+        <span class="n">metric_name</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;metric&#39;</span><span class="p">,</span> <span class="s1">&#39;p-norm&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">metric_name</span> <span class="o">==</span> <span class="s1">&#39;p-norm&#39;</span> <span class="ow">or</span> <span class="n">metric_name</span> <span class="o">==</span> <span class="s1">&#39;lin&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">PNormMetric</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;p_value&#39;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="n">weights</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">metric_name</span> <span class="o">==</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">LogMetric</span><span class="p">(</span><span class="n">configuration</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;p_value&#39;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="n">weights</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Metric </span><span class="si">{</span><span class="n">metric_name</span><span class="si">}</span><span class="s1"> has not been implemented&#39;</span><span class="p">)</span>
+        <span class="c1"># -------------------------------------------------------------------------------------------------------------</span>
+        <span class="c1"># Source model setting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source_model</span> <span class="o">=</span> <span class="n">get_source_model</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frequencies</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_parameters</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The function calculates the inaccuracy between the signal spectrum at the station_name and the signal spectrum</span>
+<span class="sd">        calculated for the station_name from the source based on the magnitude mw and the corner frequency f_0.</span>
+
+<span class="sd">        :param source_parameters: The tuple of seismic source parameters :math:`mw` and :math:`f_0`</span>
+<span class="sd">        :type source_parameters: tuple or list</span>
+
+<span class="sd">        :return: The difference between the signal spectrum at the station_name and the signal spectrum.</span>
+<span class="sd">        :rtype: float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Test begin</span>
+        <span class="n">mw</span> <span class="o">=</span> <span class="n">source_parameters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">m_0</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="o">**</span> <span class="p">((</span><span class="n">mw</span> <span class="o">+</span> <span class="mf">6.07</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3.0</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+        <span class="n">f_0</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="o">**</span> <span class="n">source_parameters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">source_spectrum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_model</span><span class="p">(</span><span class="n">m_0</span><span class="p">,</span> <span class="n">f_0</span><span class="p">)</span>
+        <span class="c1"># Test end</span>
+        <span class="c1"># source_spectrum = self.SourceModel(*source_parameters, **kwargs)</span>
+        <span class="n">source_spectrum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">source_spectrum</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="p">)</span>
+        <span class="n">source_spectrum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">source_spectrum</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_correction_2</span><span class="p">)</span>
+        <span class="c1"># plt.loglog(self.frequencies, source_spectrum, color=self.color)</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metric</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">signal_spectrum</span><span class="p">,</span> <span class="n">source_spectrum</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">error</span></div>
+
+
+
+<div class="viewcode-block" id="PNormMetric">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.parameters.PNormMetric">[docs]</a>
+<span class="k">class</span> <span class="nc">PNormMetric</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The p-norm metric class. It computes the distance</span>
+<span class="sd">    </span>
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \left\| \textbf{x},\textbf{y} \right\|=</span>
+<span class="sd">        \left[\sum_{f=f_{low}}^{f_{high}}{\left|x\left(f\right)-y\left(f\right)\right|^p\cdot</span>
+<span class="sd">        w\left(f\right)}\right]^\frac{1}{p}</span>
+
+<span class="sd">    :param p: The power of the p-norm metric class</span>
+<span class="sd">    :type p:</span>
+<span class="sd">    :param weights:</span>
+<span class="sd">        Weights for spectra frequency comparison. The size must be the same as spectra.</span>
+<span class="sd">        Optional parameter. If missing no weight are applied.</span>
+<span class="sd">    :type weights: np.array(float)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param p: The power of the p-norm metric class</span>
+<span class="sd">        :type p:</span>
+<span class="sd">        :param weights:</span>
+<span class="sd">            Weights for spectra frequency comparison. The size must be the same as spectra.</span>
+<span class="sd">            Optional parameter. If missing no weight are applied.</span>
+<span class="sd">        :type weights: np.array(float)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
+        <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fabs</span><span class="p">((</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x2</span><span class="p">))</span> <span class="o">**</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">))</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="LogMetric">
+<a class="viewcode-back" href="../../../api_support.html#amw.mw.parameters.LogMetric">[docs]</a>
+<span class="k">class</span> <span class="nc">LogMetric</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The logarithmic metric class. It computes the distance</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \left\| \textbf{x},\textbf{y} \right\|=</span>
+<span class="sd">        \left[\sum_{f=f_{low}}^{f_{high}}{\left| \log\left( x\left(f\right) \right)-</span>
+<span class="sd">        \log\left( y\left(f\right) \right)\right|^p\cdot</span>
+<span class="sd">        w\left(f\right)}\right]^\frac{1}{p}</span>
+
+<span class="sd">    :param p: The power of the p-norm metric class</span>
+<span class="sd">    :type p:</span>
+<span class="sd">    :param weights:</span>
+<span class="sd">        Weights for spectra frequency comparison. The size must be the same as spectra.</span>
+<span class="sd">        Optional parameter. If missing no weight are applied.</span>
+<span class="sd">    :type weights: np.array(float)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :param p: The power of the p-norm metric class</span>
+<span class="sd">        :type p:</span>
+<span class="sd">        :param weights:</span>
+<span class="sd">            Weights for spectra frequency comparison. The size must be the same as spectra.</span>
+<span class="sd">            Optional parameter. If missing no weight are applied.</span>
+<span class="sd">        :type weights: np.array(float)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
+        <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span> <span class="o">**</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">))</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">get_minimum_function_parameters</span><span class="p">(</span><span class="n">picks</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">signal_spectrum</span><span class="p">,</span> <span class="n">noise_mean</span><span class="p">,</span> <span class="n">noise_std</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span>
+                                    <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">MwFunctionParameters</span><span class="p">(</span><span class="n">picks</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">signal_spectrum</span><span class="p">,</span> <span class="n">noise_mean</span><span class="p">,</span> <span class="n">noise_std</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span>
+                                <span class="n">source_parameters</span><span class="p">,</span> <span class="n">station_inventory</span><span class="p">,</span> <span class="n">configuration</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

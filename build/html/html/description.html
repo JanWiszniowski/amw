@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Theoretical Background &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Getting Started" href="getting_started.html" />
+    <link rel="prev" title="Mw documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Theoretical Background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">1.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#signal-and-noise-spectrum">1.2. Signal and noise spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-spectral-model">1.3. Source spectral model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inversion-method">1.4. Inversion method</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">1. </span>Theoretical Background</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/description.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="theoretical-background">
+<span id="description"></span><h1><span class="section-number">1. </span>Theoretical Background<a class="headerlink" href="#theoretical-background" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2><span class="section-number">1.1. </span>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Anthropogenic Mw inverts the P, S, or PS waves displacement spectral amplitude from
+station recordings of a single event.</p>
+<p>The source parameters are estimated at a station on a recording of the single wave <span class="math notranslate nohighlight">\(c\)</span> (P, S)
+or both waves (PS) by minimisation of</p>
+<div class="math notranslate nohighlight">
+\[\underset{M_0,f_0} {\min} L^{\left(c\right)}= \|\widehat{U}^{(c)}\left( f|M_0,f_0\right),
+\widetilde{U}^{\left(c\right)}\left( f \right)\|\]</div>
+<p>where <span class="math notranslate nohighlight">\(\widehat{U}^{(c))}\left( f|M_0,f_0\right)\)</span> is the simulated spectrum of the wave
+and <span class="math notranslate nohighlight">\(\widetilde{U}^{(c)}\left(f\right)\)</span> is the displacement spectrum of the recorded wave.</p>
+</section>
+<section id="signal-and-noise-spectrum">
+<h2><span class="section-number">1.2. </span>Signal and noise spectrum<a class="headerlink" href="#signal-and-noise-spectrum" title="Link to this heading"></a></h2>
+<p>For each station, the code computes P, S, or PS waves displacement spectral amplitude
+for each component <span class="math notranslate nohighlight">\(x\)</span> (e.g., Z, N, E), within a predefined time window.</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{U}^{(c)}_x \left(f\right) =\frac{1}{2\pi f}
+\left| \int_{t^{(c)}_1}^{t^{(c)}_2} v_x(t)w(t) e^{-2 j \pi f t} dt \right|\]</div>
+<p>where the exponent <span class="math notranslate nohighlight">\((c)\)</span> means that we are considering either P,
+S, or both P and S waves, <span class="math notranslate nohighlight">\(t^{(c)}_*\)</span> are the start and end times of
+the P, S, or both P and S waves time window, <span class="math notranslate nohighlight">\(v_x(t)\)</span> is the velocity time signal
+for component <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(w(t)\)</span> is the tapper, and <span class="math notranslate nohighlight">\(f\)</span> is the frequency.
+The spectrum signal is scaled to the time signal according to Parseval’s theorem</p>
+<p>The same thing is done for a noise time window. However, it is done for a few separate time windows of noise
+(Fig. 1), which allows us to estimate the mean noise spectrum and the variation of the noise spectrum,
+which are used to modify the simulated spectrum and to weigh the spectral fitting.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="_images/example_with_noise.png"><img alt="Example stream plot with signal, source, and noise spectra" src="_images/example_with_noise.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example three-component trace plot (displacement), showing noise and S+P wave
+windows. Pick pointed as read at traces. The colors of traces are: Z - blue, NS - cyan, and EW - green.
+Windows and tappers are presented as dotted lines.
+The colors of spectra are: signal - black, pure source spectra at the station - green,
+source spectra with noise correction at the station - red, noise - blue
+(dotted lines mark the noise uncertainty)</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The 3-D signal and noise spectra are the square root of the sum of component squares (e.g., Z, N, E) :</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{U}^{(c)} \left(f\right) = \sqrt{
+\left( \widetilde{U}^{(c)}_Z \left(f\right) \right)^2 +
+\left( \widetilde{U}^{(c)}_N \left(f\right) \right)^2 +
+\left( \widetilde{U}^{(c)}_E \left(f\right) \right)^2
+}.\]</div>
+</section>
+<section id="source-spectral-model">
+<h2><span class="section-number">1.3. </span>Source spectral model<a class="headerlink" href="#source-spectral-model" title="Link to this heading"></a></h2>
+<p>Assuming no correlation of the signal and noise <span id="id1">Pikoulis <em>et al.</em> [<a class="reference internal" href="bibliography.html#id6" title="Erion-Vasilis Pikoulis, Olga-Joan Ktenidou, Emmanouil Z. Psarakis, and Norman A. Abrahamson. Stochastic modeling as a method of arriving at higher frequencies: an application to κ estimation. Journal of Geophysical Research: Solid Earth, 125(4):e2019JB018768, 2020. doi:https://doi.org/10.1029/2019JB018768.">2020</a>]</span>,
+the amplitude spectrum of the P or S, or both PS waves displacement spectra
+in far, intermediate, and near fields for fitting to the signal (Fig. 1)
+are modelled as</p>
+<div class="math notranslate nohighlight">
+\[{\hat{U}}^{(c)}\left(f|M_0{,f}_0\right)=
+\sqrt{\left[S\left(f|M_0{,f}_0\right)G^{(c)}\left(f\right)\right]^2
++\left[\hat{N}\left(f\right)\right]^2},\]</div>
+<p>where <span class="math notranslate nohighlight">\(S\left(f|M_0{,f}_0\right)\)</span> is the source function,
+<span class="math notranslate nohighlight">\(G^{(c)}\left(f\right)\)</span> is the response term,
+the product propagation terms in far, intermediate, and near fields,
+inelastic (internal) attenuation, and site effect,
+<span class="math notranslate nohighlight">\(\hat{N}\left(f\right)\)</span> is the noise estimated at a station including
+the response of the recorder.</p>
+<p>The <span id="id2">Boatwright [<a class="reference internal" href="bibliography.html#id2" title="John Boatwright. Detailed spectral analysis of two small new york state earthquakes. Bulletin of the Seismological Society of America, 68(4):1117-1131, 1978. doi:10.1785/BSSA0680041117.">1978</a>]</span>, <span id="id3">Boatwright [<a class="reference internal" href="bibliography.html#id3" title="John Boatwright. A spectral theory for circular seismic sources, simple estimates of source dimension, dynamic stress drop, and radiated seismic energy. Bulletin of the Seismological Society of America, 70(1):1-27, 1980. doi:10.1785/BSSA0700010001.">1980</a>]</span> source frequency function is used</p>
+<div class="math notranslate nohighlight">
+\[S\left(f|M_0,f_0\right)=
+{{\frac{1}{2\pi f}M}_0\left[{1+\left(\frac{f}{f_0}\right)}^{n\gamma}\right]}^\frac{-1}{\gamma}\]</div>
+<p>where constant values <span class="math notranslate nohighlight">\(\gamma\)</span> and <span class="math notranslate nohighlight">\(n\)</span> controls the sharpness of the corners of the spectrum.
+<span id="id4">Brune [<a class="reference internal" href="bibliography.html#id4" title="James N. Brune. Tectonic stress and the spectra of seismic shear waves from earthquakes. Journal of Geophysical Research (1896-1977), 75(26):4997-5009, 1970. doi:10.1029/JB075i026p04997.">1970</a>]</span>, <span id="id5">Brune [<a class="reference internal" href="bibliography.html#id5" title="James N. Brune. Correction [to &quot;Tectonic Stress and the Spectra of Seismic Shear Waves from Earthquakes&quot;]. Journal of Geophysical Research, 76(5):5002, 1971. doi:10.1029/JB076i020p05002.">1971</a>]</span> model is a particular case of Boatwright’s model
+for <span class="math notranslate nohighlight">\(n=2\)</span> and <span class="math notranslate nohighlight">\(\gamma=1\)</span>.
+However, there are no contraindications to using other source models.</p>
+<p>More detailed information about the response term is described in the <a class="reference internal" href="api_main.html#api-main"><span class="std std-ref">Main module</span></a>.</p>
+</section>
+<section id="inversion-method">
+<span id="id6"></span><h2><span class="section-number">1.4. </span>Inversion method<a class="headerlink" href="#inversion-method" title="Link to this heading"></a></h2>
+<p>The parameters determined from the spectral inversion are moment magnitude <span class="math notranslate nohighlight">\(M_w\)</span> and scalar moment  <span class="math notranslate nohighlight">\(M_0\)</span>
+and corner frequency.</p>
+<p>The inversion is performed by weighted spectra fitting.
+Two distances were investigated:</p>
+<ol class="arabic">
+<li><dl>
+<dt>The p-norm distance</dt><dd><div class="math notranslate nohighlight">
+\[\left\| \textbf{x},\textbf{y} \right\|=
+\left[\sum_{f=f_{low}}^{f_{high}}{\left|x\left(f\right)-y\left(f\right)\right|^p\cdot
+w\left(f\right)}\right]^\frac{1}{p}\]</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>The logarithmic distance</dt><dd><div class="math notranslate nohighlight">
+\[\left\| \textbf{x},\textbf{y} \right\|=
+\left[\sum_{f=f_{low}}^{f_{high}}{\left| \log\left( x\left(f\right) \right)-
+\log\left( y\left(f\right) \right)\right|^p\cdot
+w\left(f\right)}\right]^\frac{1}{p}\]</div>
+</dd>
+</dl>
+</li>
+</ol>
+<p>The weight coefficients are functions of frequency, signal spectrum,
+and noise spectrum estimators:</p>
+<div class="math notranslate nohighlight">
+\[w^{(c)}\left(f\right)=
+w\left(f,\ {\widetilde{U}}^{(c)}\left(f\right),\hat{N}\left(f\right),\sigma_N\left(f\right)\right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_N\left(f\right)\)</span> is a standard deviation of the noise spectrum estimator.</p>
+<p>Different inversion algorithms can be used,
+but a simple grid search algorithm is  built into the program,
+which is sufficiently fast and accurate.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Mw documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="2. Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

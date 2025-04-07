@@ -1,0 +1,2054 @@
+<?xml version="1.0"?>
+<q:quakeml xmlns="http://quakeml.org/xmlns/quakeml/1.2" xmlns:q="http://quakeml.org/xmlns/quakeml/1.2">
+	<eventParameters publicID="smi:igf.edu.pl/Konin#eventParameters">
+		<event publicID="smi:igf.edu.pl/LGCD_CIBIS_802010">
+			<preferredOriginID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802010</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802010">
+				<time>
+					<value>2016-09-24T00:37:00.523Z</value>
+				</time>
+				<latitude>
+					<value>51.556713</value>
+				</latitude>
+				<longitude>
+					<value>16.115444</value>
+				</longitude>
+				<depth>
+					<value>0.42</value>
+				</depth>
+				<depthType>from location</depthType>
+				<region>Lubin</region>
+			</origin>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude222085">
+				<mag>
+					<value>0.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802010</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="DWOL" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude222090">
+				<mag>
+					<value>1</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802010</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="MOSK2" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude222095">
+				<mag>
+					<value>1.2</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802010</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="TRN2" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude222100">
+				<mag>
+					<value>0.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802010</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="KWLC" />
+			</stationMagnitude>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_DWOL802010">
+				<spectralLevel>
+					<value>1.2e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>5.31731</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="DWOL" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_KWLC802010">
+				<spectralLevel>
+					<value>1.8e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.9712</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="KWLC" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_MOSK2802010">
+				<spectralLevel>
+					<value>2.8e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.77422</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_TRN2802010">
+				<spectralLevel>
+					<value>5.8e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.57104</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRN2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_DWOL802010">
+				<spectralLevel>
+					<value>1.6e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.72873</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="DWOL" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_KWLC802010">
+				<spectralLevel>
+					<value>1.6e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.97854</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="KWLC" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_MOSK2802010">
+				<spectralLevel>
+					<value>2.2e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.81534</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_TRN2802010">
+				<spectralLevel>
+					<value>4.4e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.04066</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRN2" />
+			</spectralParameter>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129499">
+				<time>
+					<value>2016-09-24T00:37:01.541Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="DWOL" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129500">
+				<time>
+					<value>2016-09-24T00:37:01.732Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="DWOL" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129501">
+				<time>
+					<value>2016-09-24T00:37:02.041Z</value>
+				</time>
+				<waveformID channelCode="CNZ" networkCode="PL" stationCode="KOMR" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129502">
+				<time>
+					<value>2016-09-24T00:37:02.556Z</value>
+				</time>
+				<waveformID channelCode="CNN" networkCode="PL" stationCode="KOMR" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129503">
+				<time>
+					<value>2016-09-24T00:37:01.630Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="MOSK2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129504">
+				<time>
+					<value>2016-09-24T00:37:01.922Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="MOSK2" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129505">
+				<time>
+					<value>2016-09-24T00:37:02.315Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="TRN2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129506">
+				<time>
+					<value>2016-09-24T00:37:02.959Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="TRN2" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129507">
+				<time>
+					<value>2016-09-24T00:37:01.580Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="ZUKW2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129508">
+				<time>
+					<value>2016-09-24T00:37:02.165Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="KWLC" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129509">
+				<time>
+					<value>2016-09-24T00:37:02.638Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="KWLC" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick129510">
+				<time>
+					<value>2016-09-24T00:37:03.358Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="RYNR" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/LGCD_CIBIS_802676">
+			<preferredOriginID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802676</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802676">
+				<time>
+					<value>2017-05-15T21:28:50.665Z</value>
+				</time>
+				<latitude>
+					<value>51.509819</value>
+				</latitude>
+				<longitude>
+					<value>16.134939</value>
+				</longitude>
+				<depth>
+					<value>0.520000024</value>
+				</depth>
+				<depthType>from location</depthType>
+				<region>Lubin</region>
+			</origin>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude264221">
+				<mag>
+					<value>0.7</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802676</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="TRN2" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude264226">
+				<mag>
+					<value>1</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802676</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="ZMST" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude264231">
+				<mag>
+					<value>0.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin802676</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="ZUKW2" />
+			</stationMagnitude>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_TRN2802676">
+				<spectralLevel>
+					<value>4.4e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.7519</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRN2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_ZMST802676">
+				<spectralLevel>
+					<value>5.7e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>13.2328</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZMST" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_ZUKW2802676">
+				<spectralLevel>
+					<value>5.4e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>9.77354</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZUKW2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_TRN2802676">
+				<spectralLevel>
+					<value>1.6e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>10.6333</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRN2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_ZMST802676">
+				<spectralLevel>
+					<value>4.5e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>4.14222</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZMST" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_ZUKW2802676">
+				<spectralLevel>
+					<value>3e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.72359</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZUKW2" />
+			</spectralParameter>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153756">
+				<time>
+					<value>2017-05-15T21:28:51.582Z</value>
+				</time>
+				<waveformID channelCode="CNZ" networkCode="PL" stationCode="DABR" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153757">
+				<time>
+					<value>2017-05-15T21:28:51.761Z</value>
+				</time>
+				<waveformID channelCode="CNN" networkCode="PL" stationCode="DABR" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153758">
+				<time>
+					<value>2017-05-15T21:28:51.811Z</value>
+				</time>
+				<waveformID channelCode="CNZ" networkCode="PL" stationCode="KOMR" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153759">
+				<time>
+					<value>2017-05-15T21:28:52.038Z</value>
+				</time>
+				<waveformID channelCode="CNN" networkCode="PL" stationCode="KOMR" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153760">
+				<time>
+					<value>2017-05-15T21:28:51.679Z</value>
+				</time>
+				<waveformID channelCode="CNZ" networkCode="PL" stationCode="TRBC2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153761">
+				<time>
+					<value>2017-05-15T21:28:51.890Z</value>
+				</time>
+				<waveformID channelCode="CNN" networkCode="PL" stationCode="TRBC2" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153762">
+				<time>
+					<value>2017-05-15T21:28:51.862Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="TRN2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153763">
+				<time>
+					<value>2017-05-15T21:28:52.088Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="TRN2" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153764">
+				<time>
+					<value>2017-05-15T21:28:52.280Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="ZMST" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153765">
+				<time>
+					<value>2017-05-15T21:28:52.582Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="ZMST" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153766">
+				<time>
+					<value>2017-05-15T21:28:52.198Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="ZUKW2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick153767">
+				<time>
+					<value>2017-05-15T21:28:52.494Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="ZUKW2" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/LGCD_CIBIS_808714">
+			<preferredOriginID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin808714</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin808714">
+				<time>
+					<value>2021-12-09T02:28:11.852Z</value>
+				</time>
+				<latitude>
+					<value>51.540794</value>
+				</latitude>
+				<longitude>
+					<value>16.118479</value>
+				</longitude>
+				<depth>
+					<value>0.619999988</value>
+				</depth>
+				<depthType>from location</depthType>
+				<region>Lubin</region>
+			</origin>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude605289">
+				<mag>
+					<value>0.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin808714</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="MOSK2" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude605294">
+				<mag>
+					<value>1</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin808714</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="DWOL" />
+			</stationMagnitude>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_DWOL808714">
+				<spectralLevel>
+					<value>2.5e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.58856</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="DWOL" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_MOSK2808714">
+				<spectralLevel>
+					<value>1.3e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>8.0748</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_DWOL808714">
+				<spectralLevel>
+					<value>4.2e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.46433</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="DWOL" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_MOSK2808714">
+				<spectralLevel>
+					<value>2.8e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.13737</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK2" />
+			</spectralParameter>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick340973">
+				<time>
+					<value>2021-12-09T02:28:12.724Z</value>
+				</time>
+				<waveformID channelCode="CNZ" networkCode="PL" stationCode="GUZI" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick340974">
+				<time>
+					<value>2021-12-09T02:28:12.873Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="MOSK2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick340975">
+				<time>
+					<value>2021-12-09T02:28:13.298Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="MOSK2" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick340976">
+				<time>
+					<value>2021-12-09T02:28:12.687Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="ZUKW2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick340977">
+				<time>
+					<value>2021-12-09T02:28:13.047Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="DWOL" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick340978">
+				<time>
+					<value>2021-12-09T02:28:13.618Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="DWOL" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick340979">
+				<time>
+					<value>2021-12-09T02:28:12.911Z</value>
+				</time>
+				<waveformID channelCode="CNZ" networkCode="PL" stationCode="TRBC2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick340980">
+				<time>
+					<value>2021-12-09T02:28:13.405Z</value>
+				</time>
+				<waveformID channelCode="CNN" networkCode="PL" stationCode="TRBC2" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/LGCD_CIBIS_208646">
+			<preferredOriginID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208646</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208646">
+				<time>
+					<value>2013-12-11T04:36:10.348Z</value>
+				</time>
+				<latitude>
+					<value>51.503197</value>
+				</latitude>
+				<longitude>
+					<value>16.13221</value>
+				</longitude>
+				<depth>
+					<value>0.42</value>
+				</depth>
+				<depthType>from location</depthType>
+				<region>Lubin</region>
+			</origin>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119086">
+				<mag>
+					<value>1.7</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208646</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119091">
+				<mag>
+					<value>1.6</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208646</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="PEKW" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119096">
+				<mag>
+					<value>1.6</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208646</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="TRBC" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119101">
+				<mag>
+					<value>1.6</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208646</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="TRNW" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119106">
+				<mag>
+					<value>1.7</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208646</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="ZUKW" />
+			</stationMagnitude>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_MOSK208646">
+				<spectralLevel>
+					<value>7.4e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.70077</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_PEKW208646">
+				<spectralLevel>
+					<value>6.3e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.86743</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="PEKW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_TRBC208646">
+				<spectralLevel>
+					<value>6.8e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.90677</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRBC" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_TRNW208646">
+				<spectralLevel>
+					<value>0.000154</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.65584</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRNW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_ZUKW208646">
+				<spectralLevel>
+					<value>8.2e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>4.09426</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZUKW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_MOSK208646">
+				<spectralLevel>
+					<value>0.000459</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>4.26832</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_PEKW208646">
+				<spectralLevel>
+					<value>0.000307</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.02795</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="PEKW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_TRBC208646">
+				<spectralLevel>
+					<value>0.0002</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.72781</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRBC" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_TRNW208646">
+				<spectralLevel>
+					<value>0.000305</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>5.28742</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRNW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_ZUKW208646">
+				<spectralLevel>
+					<value>0.00041</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>4.64328</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZUKW" />
+			</spectralParameter>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81174">
+				<time>
+					<value>2013-12-11T04:36:11.210Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="DMNW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81175">
+				<time>
+					<value>2013-12-11T04:36:11.294Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="DMNW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81176">
+				<time>
+					<value>2013-12-11T04:36:12.068Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="MOSK" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81177">
+				<time>
+					<value>2013-12-11T04:36:13.048Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="MOSK" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81178">
+				<time>
+					<value>2013-12-11T04:36:11.466Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="PEKW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81179">
+				<time>
+					<value>2013-12-11T04:36:11.870Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="PEKW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81180">
+				<time>
+					<value>2013-12-11T04:36:11.362Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="TRBC" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81181">
+				<time>
+					<value>2013-12-11T04:36:11.628Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="TRBC" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81182">
+				<time>
+					<value>2013-12-11T04:36:11.561Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="TRNW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81183">
+				<time>
+					<value>2013-12-11T04:36:12.038Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="TRNW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81184">
+				<time>
+					<value>2013-12-11T04:36:11.940Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="ZUKW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81185">
+				<time>
+					<value>2013-12-11T04:36:12.731Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="ZUKW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/LGCD_CIBIS_208647">
+			<preferredOriginID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208647</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208647">
+				<time>
+					<value>2013-12-11T04:54:40.820Z</value>
+				</time>
+				<latitude>
+					<value>51.538113</value>
+				</latitude>
+				<longitude>
+					<value>16.137014</value>
+				</longitude>
+				<depth>
+					<value>0.720000012</value>
+				</depth>
+				<depthType>from location</depthType>
+				<region>Lubin</region>
+			</origin>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119111">
+				<mag>
+					<value>2</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208647</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119116">
+				<mag>
+					<value>2</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208647</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="PEKW" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119121">
+				<mag>
+					<value>1.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208647</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="TRNW" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119126">
+				<mag>
+					<value>2</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208647</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="ZUKW" />
+			</stationMagnitude>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_MOSK208647">
+				<spectralLevel>
+					<value>0.000664</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.53805</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_PEKW208647">
+				<spectralLevel>
+					<value>0.000226</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.35518</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="PEKW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_TRNW208647">
+				<spectralLevel>
+					<value>0.000438</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.47712</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRNW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_ZUKW208647">
+				<spectralLevel>
+					<value>0.000385</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.82989</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZUKW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_MOSK208647">
+				<spectralLevel>
+					<value>0.00115</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.79704</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_PEKW208647">
+				<spectralLevel>
+					<value>0.001477</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.47692</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="PEKW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_TRNW208647">
+				<spectralLevel>
+					<value>0.001061</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>6.73469</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRNW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_ZUKW208647">
+				<spectralLevel>
+					<value>9.8e-005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.98928</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZUKW" />
+			</spectralParameter>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81186">
+				<time>
+					<value>2013-12-11T04:54:42.215Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="MOSK" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81187">
+				<time>
+					<value>2013-12-11T04:54:42.570Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="MOSK" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81188">
+				<time>
+					<value>2013-12-11T04:54:42.791Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="PEKW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81189">
+				<time>
+					<value>2013-12-11T04:54:43.490Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="PEKW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81190">
+				<time>
+					<value>2013-12-11T04:54:41.966Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="TRBC" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81191">
+				<time>
+					<value>2013-12-11T04:54:42.142Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="TRBC" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81192">
+				<time>
+					<value>2013-12-11T04:54:42.093Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="TRNW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81193">
+				<time>
+					<value>2013-12-11T04:54:42.401Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="TRNW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81194">
+				<time>
+					<value>2013-12-11T04:54:41.640Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="ZUKW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81195">
+				<time>
+					<value>2013-12-11T04:54:41.679Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="ZUKW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/LGCD_CIBIS_208654">
+			<preferredOriginID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208654</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208654">
+				<time>
+					<value>2013-12-13T01:29:03.044Z</value>
+				</time>
+				<latitude>
+					<value>51.544155</value>
+				</latitude>
+				<longitude>
+					<value>16.132744</value>
+				</longitude>
+				<depth>
+					<value>0.92</value>
+				</depth>
+				<depthType>from location</depthType>
+				<region>Lubin</region>
+			</origin>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude187998">
+				<mag>
+					<value>1.7</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208654</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="DMNW" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude188003">
+				<mag>
+					<value>1.7</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208654</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude188008">
+				<mag>
+					<value>1.8</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208654</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="TRBC" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude188013">
+				<mag>
+					<value>1.8</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208654</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="TRNW" />
+			</stationMagnitude>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_DMNW208654">
+				<spectralLevel>
+					<value>0.000223</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.16676</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="DMNW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_MOSK208654">
+				<spectralLevel>
+					<value>0.000256</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.26245</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_TRBC208654">
+				<spectralLevel>
+					<value>0.000143</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.87011</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRBC" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_TRNW208654">
+				<spectralLevel>
+					<value>0.000411</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.71444</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRNW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_DMNW208654">
+				<spectralLevel>
+					<value>0.000454</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.14139</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="DMNW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_MOSK208654">
+				<spectralLevel>
+					<value>0.00047</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.90489</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_TRBC208654">
+				<spectralLevel>
+					<value>0.000672</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>4.13608</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRBC" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_TRNW208654">
+				<spectralLevel>
+					<value>0.00076</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.70085</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRNW" />
+			</spectralParameter>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick110540">
+				<time>
+					<value>2013-12-13T01:29:04.329Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="DMNW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick110541">
+				<time>
+					<value>2013-12-13T01:29:05.318Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="DMNW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick110542">
+				<time>
+					<value>2013-12-13T01:29:04.139Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="MOSK" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick110543">
+				<time>
+					<value>2013-12-13T01:29:04.735Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="MOSK" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick110544">
+				<time>
+					<value>2013-12-13T01:29:03.931Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="TRBC" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick110545">
+				<time>
+					<value>2013-12-13T01:29:04.641Z</value>
+				</time>
+				<waveformID channelCode="EHE" networkCode="PL" stationCode="TRBC" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick110546">
+				<time>
+					<value>2013-12-13T01:29:03.561Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="ZUKW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>positive</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick110547">
+				<time>
+					<value>2013-12-13T01:29:04.081Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="TRNW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick110548">
+				<time>
+					<value>2013-12-13T01:29:04.986Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="TRNW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/LGCD_CIBIS_208664">
+			<preferredOriginID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208664</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208664">
+				<time>
+					<value>2013-12-14T16:57:44.668Z</value>
+				</time>
+				<latitude>
+					<value>51.543938</value>
+				</latitude>
+				<longitude>
+					<value>16.106152</value>
+				</longitude>
+				<depth>
+					<value>0.720000012</value>
+				</depth>
+				<depthType>from location</depthType>
+				<region>Lubin</region>
+			</origin>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119291">
+				<mag>
+					<value>1.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208664</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="DMNW" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119296">
+				<mag>
+					<value>1.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208664</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119301">
+				<mag>
+					<value>1.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208664</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="PFLK" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119306">
+				<mag>
+					<value>1.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208664</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="TRBC" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude119311">
+				<mag>
+					<value>1.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin208664</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="ZUKW" />
+			</stationMagnitude>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_DMNW208664">
+				<spectralLevel>
+					<value>0.000232</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.31599</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="DMNW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_MOSK208664">
+				<spectralLevel>
+					<value>0.000783</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>5.84326</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_PFLK208664">
+				<spectralLevel>
+					<value>0.0005</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.48893</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="PFLK" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_TRBC208664">
+				<spectralLevel>
+					<value>0.000319</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.80756</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRBC" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_ZUKW208664">
+				<spectralLevel>
+					<value>0.000453</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.99985</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZUKW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_DMNW208664">
+				<spectralLevel>
+					<value>0.000944</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>2.68525</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="DMNW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_MOSK208664">
+				<spectralLevel>
+					<value>0.001036</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>6.42112</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_PFLK208664">
+				<spectralLevel>
+					<value>0.000827</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>4.82609</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="PFLK" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_TRBC208664">
+				<spectralLevel>
+					<value>0.000943</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.53028</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRBC" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_ZUKW208664">
+				<spectralLevel>
+					<value>0.000805</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>4.07645</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZUKW" />
+			</spectralParameter>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81271">
+				<time>
+					<value>2013-12-14T16:57:46.389Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="DMNW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81272">
+				<time>
+					<value>2013-12-14T16:57:47.184Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="DMNW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81273">
+				<time>
+					<value>2013-12-14T16:57:45.522Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="MOSK" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81274">
+				<time>
+					<value>2013-12-14T16:57:45.714Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="MOSK" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81275">
+				<time>
+					<value>2013-12-14T16:57:46.400Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="PFLK" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81276">
+				<time>
+					<value>2013-12-14T16:57:47.231Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="PFLK" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81277">
+				<time>
+					<value>2013-12-14T16:57:45.713Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="TRBC" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81278">
+				<time>
+					<value>2013-12-14T16:57:46.172Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="TRBC" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81279">
+				<time>
+					<value>2013-12-14T16:57:45.740Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="ZUKW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick81280">
+				<time>
+					<value>2013-12-14T16:57:46.242Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="ZUKW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+		<event publicID="smi:igf.edu.pl/LGCD_CIBIS_806374">
+			<preferredOriginID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</preferredOriginID>
+			<origin publicID="smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374">
+				<time>
+					<value>2020-07-08T05:18:59.326Z</value>
+				</time>
+				<latitude>
+					<value>51.537758</value>
+				</latitude>
+				<longitude>
+					<value>16.155989</value>
+				</longitude>
+				<depth>
+					<value>2.175224466</value>
+				</depth>
+				<depthType>from location</depthType>
+				<region>Lubin</region>
+			</origin>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494730">
+				<mag>
+					<value>3.8</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="GROD" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494735">
+				<mag>
+					<value>3.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="JEDR" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494740">
+				<mag>
+					<value>4.1</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="LUBW" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494745">
+				<mag>
+					<value>3.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="MOSK2" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494750">
+				<mag>
+					<value>4.1</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="NWLU" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494755">
+				<mag>
+					<value>4.1</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="PPOL" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494760">
+				<mag>
+					<value>4.2</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="RUDN" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494765">
+				<mag>
+					<value>4.1</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="RYNR" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494770">
+				<mag>
+					<value>4</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="SGOR" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494775">
+				<mag>
+					<value>3.9</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="ZMST" />
+			</stationMagnitude>
+			<stationMagnitude publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#StaMagnitude494780">
+				<mag>
+					<value>4.1</value>
+				</mag>
+				<originID>smi:igf.edu.pl/SWIDB_at_dblumineos.igf.edu.pl#Origin806374</originID>
+				<type>Mw</type>
+				<waveformID networkCode="PL" stationCode="TRN2" />
+			</stationMagnitude>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_GROD806374">
+				<spectralLevel>
+					<value>0.089112</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.58637</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="GROD" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_JEDR806374">
+				<spectralLevel>
+					<value>0.044362</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.35378</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="JEDR" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_LUBW806374">
+				<spectralLevel>
+					<value>0.342345</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.51091</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="LUBW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_MOSK2806374">
+				<spectralLevel>
+					<value>0.062869</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>3.10461</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_NWLU806374">
+				<spectralLevel>
+					<value>0.093348</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.40655</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="NWLU" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_PPOL806374">
+				<spectralLevel>
+					<value>0.378825</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.3822</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="PPOL" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_RUDN806374">
+				<spectralLevel>
+					<value>0.527026</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.1315</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="RUDN" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_RYNR806374">
+				<spectralLevel>
+					<value>0.445944</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.18677</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="RYNR" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_SGOR806374">
+				<spectralLevel>
+					<value>0.067287</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.60162</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="SGOR" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_TRN2806374">
+				<spectralLevel>
+					<value>0.131926</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.50004</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRN2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_P_ZMST806374">
+				<spectralLevel>
+					<value>0.120808</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.59174</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZMST" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_GROD806374">
+				<spectralLevel>
+					<value>0.714311</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.18193</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="GROD" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_JEDR806374">
+				<spectralLevel>
+					<value>0.82739</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.28208</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="JEDR" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_LUBW806374">
+				<spectralLevel>
+					<value>2.17501</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.03429</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="LUBW" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_MOSK2806374">
+				<spectralLevel>
+					<value>0.865208</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.50788</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="MOSK2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_NWLU806374">
+				<spectralLevel>
+					<value>1.67509</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>0.926939</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="NWLU" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_PPOL806374">
+				<spectralLevel>
+					<value>2.12169</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.14978</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="PPOL" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_RUDN806374">
+				<spectralLevel>
+					<value>2.86114</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.11357</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="RUDN" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_RYNR806374">
+				<spectralLevel>
+					<value>2.00268</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.14346</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="RYNR" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_SGOR806374">
+				<spectralLevel>
+					<value>1.58587</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.85985</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="SGOR" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_TRN2806374">
+				<spectralLevel>
+					<value>2.1293</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.8167</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="TRN2" />
+			</spectralParameter>
+			<spectralParameter publicID="smi:igf.edu.pl/spectralParameter_S_ZMST806374">
+				<spectralLevel>
+					<value>1.07166</value>
+				</spectralLevel>
+				<cornelFrequency>
+					<value>1.14126</value>
+				</cornelFrequency>
+				<waveformID networkCode="PL" stationCode="ZMST" />
+			</spectralParameter>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279227">
+				<time>
+					<value>2020-07-08T05:19:00.670Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="GROD" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279228">
+				<time>
+					<value>2020-07-08T05:19:01.817Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="GROD" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279229">
+				<time>
+					<value>2020-07-08T05:19:00.551Z</value>
+				</time>
+				<waveformID channelCode="CNZ" networkCode="PL" stationCode="GUZI" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279230">
+				<time>
+					<value>2020-07-08T05:19:01.658Z</value>
+				</time>
+				<waveformID channelCode="CNN" networkCode="PL" stationCode="GUZI" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279231">
+				<time>
+					<value>2020-07-08T05:19:02.172Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="JEDR" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279232">
+				<time>
+					<value>2020-07-08T05:19:03.767Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="JEDR" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279233">
+				<time>
+					<value>2020-07-08T05:19:01.704Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="LUBW" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279234">
+				<time>
+					<value>2020-07-08T05:19:03.241Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="LUBW" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279235">
+				<time>
+					<value>2020-07-08T05:19:00.700Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="MOSK2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279236">
+				<time>
+					<value>2020-07-08T05:19:01.829Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="MOSK2" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279237">
+				<time>
+					<value>2020-07-08T05:19:02.540Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="NWLU" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279238">
+				<time>
+					<value>2020-07-08T05:19:04.231Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="NWLU" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279239">
+				<time>
+					<value>2020-07-08T05:19:01.377Z</value>
+				</time>
+				<waveformID channelCode="CNZ" networkCode="PL" stationCode="PCHB" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279240">
+				<time>
+					<value>2020-07-08T05:19:02.786Z</value>
+				</time>
+				<waveformID channelCode="CNN" networkCode="PL" stationCode="PCHB" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279241">
+				<time>
+					<value>2020-07-08T05:19:01.195Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="PPOL" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279242">
+				<time>
+					<value>2020-07-08T05:19:02.645Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="PPOL" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279243">
+				<time>
+					<value>2020-07-08T05:19:01.514Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="RUDN" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279244">
+				<time>
+					<value>2020-07-08T05:19:03.071Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="RUDN" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279245">
+				<time>
+					<value>2020-07-08T05:19:01.562Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="RYNR" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279246">
+				<time>
+					<value>2020-07-08T05:19:03.069Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="RYNR" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279247">
+				<time>
+					<value>2020-07-08T05:19:01.556Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="SGOR" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279248">
+				<time>
+					<value>2020-07-08T05:19:03.102Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="SGOR" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279249">
+				<time>
+					<value>2020-07-08T05:19:00.772Z</value>
+				</time>
+				<waveformID channelCode="CNZ" networkCode="PL" stationCode="TRBC2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279250">
+				<time>
+					<value>2020-07-08T05:19:01.899Z</value>
+				</time>
+				<waveformID channelCode="CNN" networkCode="PL" stationCode="TRBC2" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279251">
+				<time>
+					<value>2020-07-08T05:19:01.254Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="ZMST" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279252">
+				<time>
+					<value>2020-07-08T05:19:02.525Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="ZMST" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279253">
+				<time>
+					<value>2020-07-08T05:19:00.516Z</value>
+				</time>
+				<waveformID channelCode="EHZ" networkCode="PL" stationCode="TRN2" />
+				<onset>questionable</onset>
+				<phaseHint>Pg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+			<pick publicID="smi:igf.edu.pl/dblumineos.igf.edu.pl#Pick279254">
+				<time>
+					<value>2020-07-08T05:19:01.529Z</value>
+				</time>
+				<waveformID channelCode="EHN" networkCode="PL" stationCode="TRN2" />
+				<onset>questionable</onset>
+				<phaseHint>Sg</phaseHint>
+				<polarity>undecidable</polarity>
+			</pick>
+		</event>
+	</eventParameters>
+</q:quakeml>

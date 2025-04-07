@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9.2. Support modules &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9.3. Core modules" href="api_core.html" />
+    <link rel="prev" title="9.1. Main module" href="api_main.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="io_data.html">4. Input/Output data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">8. How to Cite</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">9. Anthropogenic Mw API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api_main.html">9.1. Main module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">9.2. Support modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-general-spectral-magnitude-estimation">9.2.1. The general spectral magnitude estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.estimation.estimate_mw"><code class="docutils literal notranslate"><span class="pre">estimate_mw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions-and-classes-for-preparation-of-mw-estimation-procedure-parameters">9.2.2. Functions and classes for preparation of mw estimation procedure parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.parameters.LogMetric"><code class="docutils literal notranslate"><span class="pre">LogMetric</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.parameters.MwFunctionParameters"><code class="docutils literal notranslate"><span class="pre">MwFunctionParameters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.parameters.PNormMetric"><code class="docutils literal notranslate"><span class="pre">PNormMetric</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.parameters.get_correction"><code class="docutils literal notranslate"><span class="pre">get_correction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.parameters.get_far_response"><code class="docutils literal notranslate"><span class="pre">get_far_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.parameters.get_intermediate_response"><code class="docutils literal notranslate"><span class="pre">get_intermediate_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.parameters.get_near_response"><code class="docutils literal notranslate"><span class="pre">get_near_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.parameters.get_phase_response"><code class="docutils literal notranslate"><span class="pre">get_phase_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.parameters.get_phases_response"><code class="docutils literal notranslate"><span class="pre">get_phases_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.parameters.get_travel_time"><code class="docutils literal notranslate"><span class="pre">get_travel_time()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-plot-functions">9.2.3. The plot functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.plot.PlotMw"><code class="docutils literal notranslate"><span class="pre">PlotMw</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#amw.mw.plot.PlotMw.format_plot"><code class="docutils literal notranslate"><span class="pre">PlotMw.format_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amw.mw.plot.PlotMw.plot_results"><code class="docutils literal notranslate"><span class="pre">PlotMw.plot_results()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amw.mw.plot.PlotMw.plot_seismogram"><code class="docutils literal notranslate"><span class="pre">PlotMw.plot_seismogram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amw.mw.plot.PlotMw.set_plot"><code class="docutils literal notranslate"><span class="pre">PlotMw.set_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amw.mw.plot.PlotMw.show_plot"><code class="docutils literal notranslate"><span class="pre">PlotMw.show_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#amw.mw.plot.PlotMw.start_plot"><code class="docutils literal notranslate"><span class="pre">PlotMw.start_plot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#single-phase-spectral-magnitude-estimation">9.2.4. Single phase spectral magnitude estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.single_phase_mw.estimate_single_phase_mw"><code class="docutils literal notranslate"><span class="pre">estimate_single_phase_mw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cumulated-p-and-s-phases-spectral-magnitude-estimation">9.2.5. Cumulated P and S phases spectral magnitude estimation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.double_phase_mw.estimate_double_phase_mw"><code class="docutils literal notranslate"><span class="pre">estimate_double_phase_mw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seismic-source-models-in-frequency-domain">9.2.6. Seismic source models in frequency domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.source_models.BoatwrightSourceModel"><code class="docutils literal notranslate"><span class="pre">BoatwrightSourceModel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.source_models.BruneSourceModel"><code class="docutils literal notranslate"><span class="pre">BruneSourceModel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.source_models.HaskellSourceModel"><code class="docutils literal notranslate"><span class="pre">HaskellSourceModel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-function-minimization-by-checking-all-solutions-in-a-grid">9.2.7. The function minimization by checking all solutions in a grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amw.mw.MinimizeInGrid.grid_search"><code class="docutils literal notranslate"><span class="pre">grid_search()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_core.html">9.3. Core modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html"><span class="section-number">9. </span>Anthropogenic Mw API</a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9.2. </span>Support modules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api_support.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-amw.mw.estimation">
+<span id="support-modules"></span><h1><span class="section-number">9.2. </span>Support modules<a class="headerlink" href="#module-amw.mw.estimation" title="Link to this heading"></a></h1>
+<section id="the-general-spectral-magnitude-estimation">
+<h2><span class="section-number">9.2.1. </span>The general spectral magnitude estimation<a class="headerlink" href="#the-general-spectral-magnitude-estimation" title="Link to this heading"></a></h2>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.estimation.estimate_mw">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.estimation.</span></span><span class="sig-name descname"><span class="pre">estimate_mw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">begin_signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/estimation.html#estimate_mw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.estimation.estimate_mw" title="Link to this definition"></a></dt>
+<dd><p>Function estimate_mw estimates either single phase or cumulated phases spectral moment magnitude.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> (<em>ObsPy Stream</em>) – The signal is the 3D seismic displacement stream, which must cover both the P wave, the S wave,
+and the noise before the P onset.</p></li>
+<li><p><strong>signal</strong> – The signal is the 3D seismic displacement stream, which must cover both the P wave, the S wave,
+and the noise before the P onset.</p></li>
+<li><p><strong>begin_signal</strong> (<em>ObsPy UTCDateTime</em>) – The first phase time (usually it is P wave) required to select noise before seismic waves onset</p></li>
+<li><p><strong>picks</strong> (<em>list</em><em>(</em><em>ObsPy Pick</em><em>)</em>) – A list of picks of waves is used for moment magnitude estimation.
+It can consist of a single pick P or S, then the magnitude estimation method from the single wave is used,
+or two picks P and S for the magnitude estimation based on both waves.</p></li>
+<li><p><strong>origin</strong> (<em>ObsPy Origin</em>) – The event origin.</p></li>
+<li><p><strong>station_inventory</strong> (<em>ObsPy Inventory</em>) – The inventory of the station that the signal was picked on</p></li>
+<li><p><strong>configuration</strong> (<em>dict</em>) – The configuration container of all parameters dictionary required for the program to work.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mw : Estimated moment magnitude
+f0 : Source function corner frequency
+m0 : Scalar moment
+time_window : The assessed time window of P and S waves</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Uses classes :</dt><dd><p>DefaultParameters
+MwFunctionParameters</p>
+</dd>
+<dt>Uses functions :</dt><dd><p>get_source_par :
+get_margin :
+get_station_name :
+get_phase_window
+get_spectrum
+get_noise_spectrum
+get_minimization_method
+minimization_method</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="functions-and-classes-for-preparation-of-mw-estimation-procedure-parameters">
+<span id="module-amw.mw.parameters"></span><h2><span class="section-number">9.2.2. </span>Functions and classes for preparation of mw estimation procedure parameters<a class="headerlink" href="#functions-and-classes-for-preparation-of-mw-estimation-procedure-parameters" title="Link to this heading"></a></h2>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.mw.parameters.LogMetric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.mw.parameters.</span></span><span class="sig-name descname"><span class="pre">LogMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/parameters.html#LogMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.parameters.LogMetric" title="Link to this definition"></a></dt>
+<dd><p>The logarithmic metric class. It computes the distance</p>
+<div class="math notranslate nohighlight">
+\[\left\| \textbf{x},\textbf{y} \right\|=
+\left[\sum_{f=f_{low}}^{f_{high}}{\left| \log\left( x\left(f\right) \right)-
+\log\left( y\left(f\right) \right)\right|^p\cdot
+w\left(f\right)}\right]^\frac{1}{p}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> – The power of the p-norm metric class</p></li>
+<li><p><strong>weights</strong> (<em>np.array</em><em>(</em><em>float</em><em>)</em>) – Weights for spectra frequency comparison. The size must be the same as spectra.
+Optional parameter. If missing no weight are applied.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.mw.parameters.MwFunctionParameters">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.mw.parameters.</span></span><span class="sig-name descname"><span class="pre">MwFunctionParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_sd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/parameters.html#MwFunctionParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.parameters.MwFunctionParameters" title="Link to this definition"></a></dt>
+<dd><p>The class keeps all parameters used to estimate the mw and its object is used as optimised function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>picks</strong> (<em>list</em><em>(</em><em>ObsPy.Pick</em><em>)</em>) – List of two picks P and S. The P pick must be firsts .</p></li>
+<li><p><strong>station_name</strong> (<em>str</em>) – The station name in the form required to find the configuration for the station</p></li>
+<li><p><strong>signal_spec</strong> (<em>numpy.array</em><em>(</em><em>float</em><em>)</em>) – The signal spectrum</p></li>
+<li><p><strong>noise_spec</strong> (<em>numpy.array</em><em>(</em><em>float</em><em>)</em>) – The noise mean spectrum</p></li>
+<li><p><strong>noise_sd</strong> (<em>numpy.array</em><em>(</em><em>float</em><em>)</em>) – The standard deviation of noise spectrum</p></li>
+<li><p><strong>freq</strong> (<em>numpy.array</em><em>(</em><em>float</em><em>)</em>) – The frequencies that the spectra are compared</p></li>
+<li><p><strong>source_parameters</strong> (<em>SourceParameters</em>) – The seismic source parameters required for of mw estimation procedure</p></li>
+<li><p><strong>station_inventory</strong> (<em>ObsPy Inventory</em>) – The inventory of the station that the signal was picked and mw is estimated</p></li>
+<li><p><strong>configuration</strong> (<em>dict</em>) – The configuration container of all parameters dictionary required for the program to work.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Warning! signal_spectrum, noise_spectrum, noise_sd, frequencies must have the same size</strong></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.mw.parameters.PNormMetric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.mw.parameters.</span></span><span class="sig-name descname"><span class="pre">PNormMetric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/parameters.html#PNormMetric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.parameters.PNormMetric" title="Link to this definition"></a></dt>
+<dd><p>The p-norm metric class. It computes the distance</p>
+<div class="math notranslate nohighlight">
+\[\left\| \textbf{x},\textbf{y} \right\|=
+\left[\sum_{f=f_{low}}^{f_{high}}{\left|x\left(f\right)-y\left(f\right)\right|^p\cdot
+w\left(f\right)}\right]^\frac{1}{p}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> – The power of the p-norm metric class</p></li>
+<li><p><strong>weights</strong> (<em>np.array</em><em>(</em><em>float</em><em>)</em>) – Weights for spectra frequency comparison. The size must be the same as spectra.
+Optional parameter. If missing no weight are applied.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.parameters.get_correction">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.parameters.</span></span><span class="sig-name descname"><span class="pre">get_correction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phase_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequencies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">travel_time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/parameters.html#get_correction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.parameters.get_correction" title="Link to this definition"></a></dt>
+<dd><p>Calculate the internal dumping, near surface amplification and frequency dumping in frequency domain</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>phase_name</strong> (<em>str</em>) – The name of the phase (‘P or ‘S’). In the case of ‘P’ the internal dumping, etc. are calculating
+for radial component of the signal, which is the P wave in far field. In the case of ‘S’ the internal dumping,
+etc. is calculating for transversal component of the signal, which is the S wave in far field.</p></li>
+<li><p><strong>station_parameters</strong> (<em>DefaultParameters</em>) – The station parameter</p></li>
+<li><p><strong>frequencies</strong> (<em>numpy.array</em><em>(</em><em>float</em><em>)</em>) – Frequencies for which the correction is calculated</p></li>
+<li><p><strong>travel_time</strong> (<em>float</em>) – The signal travel time</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The correction in frequency domain</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.array(float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.parameters.get_far_response">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.parameters.</span></span><span class="sig-name descname"><span class="pre">get_far_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">travel_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fault_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/parameters.html#get_far_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.parameters.get_far_response" title="Link to this definition"></a></dt>
+<dd><p>The get_far_response function calculates the Green function in the far field <span class="math notranslate nohighlight">\(G^{\left(c\right)far}\)</span>
+except the internal dumping and surface effect for phase P or S marked as <span class="math notranslate nohighlight">\(\left(c\right)\)</span> according to:</p>
+<div class="math notranslate nohighlight">
+\[G^{\left(c\right)far}=\frac{j\omega \exp\left(-j\omega T_c\right)}{4\pi\rho rv_c^3},\]</div>
+<p>where
+<span class="math notranslate nohighlight">\(c\)</span> is the wave name (P or S),
+<span class="math notranslate nohighlight">\(\omega\)</span> is the circular frequency, <span class="math notranslate nohighlight">\(\omega = 2j\pi f\)</span>,
+<span class="math notranslate nohighlight">\(r\)</span> is the hypocentral distance,
+<span class="math notranslate nohighlight">\(T_c\)</span> is the phase travel time,
+<span class="math notranslate nohighlight">\(v_c\)</span> is the phase velocity at the source,
+<span class="math notranslate nohighlight">\(\rho\)</span> is the density at the source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>travel_time</strong> (<em>float</em>) – The phase travel time</p></li>
+<li><p><strong>rho</strong> (<em>float</em>) – The density at the source [kg/m^3]</p></li>
+<li><p><strong>r</strong> (<em>float</em>) – The hipocentral distance [m]</p></li>
+<li><p><strong>fault_v</strong> – The phase velocity at the source [m/s]</p></li>
+<li><p><strong>fault_v</strong> – float</p></li>
+<li><p><strong>omega</strong> (<em>numpy.array</em><em>(</em><em>complex</em><em>)</em>) – The circular frequencies, for which the response is counted. <span class="math notranslate nohighlight">\(\omega = 2j\pi f\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The far field part Green one phase function</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.array(complex)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.parameters.get_intermediate_response">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.parameters.</span></span><span class="sig-name descname"><span class="pre">get_intermediate_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">travel_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fault_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/parameters.html#get_intermediate_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.parameters.get_intermediate_response" title="Link to this definition"></a></dt>
+<dd><p>The get_intermediate_response function calculates the radial or transversal component of Green function
+for phase P or S in the intermediate field <span class="math notranslate nohighlight">\(G_x^{\left(c\right)inter}\)</span>
+except the internal dumping and surface effect for phase P or S marked as <span class="math notranslate nohighlight">\(\left(c\right)\)</span> according to:</p>
+<div class="math notranslate nohighlight">
+\[G_x^{\left(c\right)inter}=\frac{exp\left(-j\omega T_c\right)}{4\pi\rho r^2 v_c^2},\]</div>
+<p>where
+<span class="math notranslate nohighlight">\(c\)</span> is the wave name (P or S),
+<span class="math notranslate nohighlight">\(\omega\)</span> is the circular frequency, <span class="math notranslate nohighlight">\(\omega = 2j\pi f\)</span>,
+<span class="math notranslate nohighlight">\(r\)</span> is the hipocentral distance,
+<span class="math notranslate nohighlight">\(T_c\)</span> is the phase travel time,
+<span class="math notranslate nohighlight">\(v_c\)</span> is the phase velocity at the source,
+<span class="math notranslate nohighlight">\(\rho\)</span> is the density at the source
+<span class="math notranslate nohighlight">\(x\)</span> describes the signal component (radial or transversal).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>travel_time</strong> (<em>float</em>) – The phase travel time</p></li>
+<li><p><strong>rho</strong> (<em>float</em>) – The density at the source [kg/m^3]</p></li>
+<li><p><strong>r</strong> (<em>float</em>) – The hipocentral distance [m]</p></li>
+<li><p><strong>fault_v</strong> (<em>float</em>) – The phase velocity at the source [m/s]</p></li>
+<li><p><strong>omega</strong> (<em>numpy.array</em><em>(</em><em>complex</em><em>)</em>) – The circular frequencies, for which the response is counted. <span class="math notranslate nohighlight">\(\omega = 2j\pi f\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The intermediate field part Green function of one phase</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy array(complex)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.parameters.get_near_response">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.parameters.</span></span><span class="sig-name descname"><span class="pre">get_near_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omega</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/parameters.html#get_near_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.parameters.get_near_response" title="Link to this definition"></a></dt>
+<dd><p>The get_near_response function calculates the common (radial and) transversal component of Green function
+in the intermediate field except the internal dumping and surface according to:</p>
+<div class="math notranslate nohighlight">
+\[G^{near}=\frac{\left(\omega T_P+1\right)exp\left(-\omega T_P\right)
+-\left(\omega T_S+1\right)exp\left(-\omega T_S\right)}{4\omega ^2\rho r^4}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\omega\)</span> is the circular frequency, <span class="math notranslate nohighlight">\(\omega = 2j\pi f\)</span>, <span class="math notranslate nohighlight">\(r\)</span> is the hipocentral distance,
+<span class="math notranslate nohighlight">\(T_P\)</span> is the P phase travel time, <span class="math notranslate nohighlight">\(T_S\)</span> is the P phase travel time, <span class="math notranslate nohighlight">\(\rho\)</span> is the density
+at the source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>picks</strong> (<em>list</em><em>(</em><em>ObsPy Pick</em><em>)</em>) – A list of picks of waves in the near field.
+It must consist of two pick P or S and P must the first.</p></li>
+<li><p><strong>source_parameters</strong> (<em>SourceParameters</em>) – The seismic source parameters required for of mw estimation procedure</p></li>
+<li><p><strong>station_inventory</strong> (<em>ObsPy Inventory</em>) – The inventory of the station that the signal was picked and mw is estimated</p></li>
+<li><p><strong>omega</strong> (<em>numpy.array</em><em>(</em><em>complex</em><em>)</em>) – The circular frequencies, for which the response is counted. <span class="math notranslate nohighlight">\(\omega = 2j\pi f\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The near field part Green function</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.array(complex)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.parameters.get_phase_response">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.parameters.</span></span><span class="sig-name descname"><span class="pre">get_phase_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pick</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequencies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/parameters.html#get_phase_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.parameters.get_phase_response" title="Link to this definition"></a></dt>
+<dd><p>Function get_phase_response computes radial and transversal frequency responses of the seismic phase
+at the station to the source frequency function:</p>
+<div class="math notranslate nohighlight">
+\[G^{\left(c\right)}\left(f\right)A^{\left(c\right)}\left(f\right)R\left(f\right)I\left(f\right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\left(c\right)\)</span> is the phase name</p>
+<dl class="simple">
+<dt>The response consists of:</dt><dd><ul class="simple">
+<li><p>Green function <span class="math notranslate nohighlight">\(G^{\left(c\right)}\)</span>, which for P wave is defined as</p></li>
+</ul>
+</dd>
+</dl>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}G_R^{\left(P\right)}\left(f\right)= G_R^{\left(P\right)far}\left(f\right)
++G_R^{\left(P\right)inter}\left(f\right)\\G_T^{\left(P\right)}\left(f\right) = G_T^{\left(P\right)inter}\left(f\right)\end{aligned}\end{align} \]</div>
+<p>where <span class="math notranslate nohighlight">\(G_R^{\left(P\right)far} = G^{\left(P\right)far}R_R^{far}\)</span>
+is the radial component of the P wave in the far field,
+<span class="math notranslate nohighlight">\(G_R^{\left(P\right)inter} = G^{\left(P\right)inter}R_R^{inter}\)</span>
+is the radial component of the P wave in the intermediate field,
+and <span class="math notranslate nohighlight">\(G_T^{\left(P\right)inter} = G^{\left(P\right)inter}R_T^{inter}\)</span>
+is the transversal component of the P wave in intermediate field.
+<span class="math notranslate nohighlight">\(R_R^{far}= R^{(P)}\)</span> is the P wave average radiation coefficient in the far field.
+For S wave, it is defined as</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}G_R^{(S)}\left(f\right) = G_R^{\left(S\right)inter}\left(f\right)\\G_T^{(S)}\left(f\right) = G_T^{\left(S\right)far}\left(f\right)+G_T^{\left(S\right)inter}\left(f\right)\end{aligned}\end{align} \]</div>
+<p>where <span class="math notranslate nohighlight">\(G_R^{\left(S\right)inter} = G^{\left(S\right)inter}R_R^{inter}\)</span>
+is the radial component of the S wave in intermediate field,
+<span class="math notranslate nohighlight">\(G_T^{\left(S\right)far} = G^{\left(S\right)far}R_T^{far}\)</span>
+is the transversal component of the S wave in the far field,
+and <span class="math notranslate nohighlight">\(G_T^{\left(S\right)inter} = G^{\left(S\right)inter}R_T^{inter}\)</span>
+is the transversal component of the S wave in the intermediate field.
+<span class="math notranslate nohighlight">\(R_T^{far}= R^{(S)}\)</span> is the S wave average radiation coefficient in the far field.</p>
+<p>Inelastic (internal) dumping <span class="math notranslate nohighlight">\(A^{\left(c\right)}\)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[A\left(f\right)=exp\left(\frac{-\pi T_cf}{Q^{\left(c\right)}\left(f\right)}\right),\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[Q^{\left(c\right)}\left(f\right)=Q_0^{\left(c\right)}\left(\frac{f_q+f}{f_q}\right)^\vartheta;\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[Q\left(f\right)=Q_0^{\left(c\right)}f^\vartheta;\]</div>
+<p>The near-surface losses and free surface amplification is assumed by</p>
+<div class="math notranslate nohighlight">
+\[R\left(f\right)=R_c\exp\left(-\pi \kappa f\right).\]</div>
+<p>The instrument response is <span class="math notranslate nohighlight">\(I\left(f\right)\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pick</strong> (<em>str</em>) – The P or S pick name</p></li>
+<li><p><strong>source_parameters</strong> (<em>SourceParameters</em>) – The seismic source parameters required for of mw estimation procedure</p></li>
+<li><p><strong>station_inventory</strong> (<em>ObsPy Inventory</em>) – The inventory of the station that the signal was picked and mw is estimated</p></li>
+<li><p><strong>station_parameters</strong> – The reference to the station_name (or default)</p></li>
+<li><p><strong>frequencies</strong> (<em>numpy.array</em><em>(</em><em>float</em><em>)</em>) – The frequencies, for which the response is counted</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple of two numpy arrays of complex radial and transversal response in frequency domain.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple(numpy.array(float), numpy.array(float))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.parameters.get_phases_response">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.parameters.</span></span><span class="sig-name descname"><span class="pre">get_phases_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequencies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/parameters.html#get_phases_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.parameters.get_phases_response" title="Link to this definition"></a></dt>
+<dd><p>Function get_phases_response computes radial and transversal frequency responses
+of the cumulated seismic phases P and S at the station to the source frequency function:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}G_R^{(P+S)}\left(f\right)=G_R^{(P)far}\left(f\right)+G_R^{\left(P\right)inter}\left(f\right)
++G_R^{\left(S\right)inter}\left(f\right)+G_R^{near}\left(f\right)\\G_T^{(P+S)}\left(f\right)=G_T^{\left(P\right)inter}\left(f\right)+G_T^{(S)far}\left(f\right)
++G_T^{\left(S\right)inter}\left(f\right)+G_T^{near}\left(f\right),\end{aligned}\end{align} \]</div>
+<p>where
+<span class="math notranslate nohighlight">\(G_T^{near} = G^{near}R_T^{near}\)</span>
+is the transversal component in the near field
+and <span class="math notranslate nohighlight">\(G_R^{near} = G^{near}R_R^{near}\)</span>
+is the radial component in the near field.
+The remaining components are defined in the get_phase_response function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>picks</strong> – List of two P and S picks</p></li>
+<li><p><strong>source_parameters</strong> (<em>SourceParameters</em>) – The seismic source parameters required for of mw estimation procedure</p></li>
+<li><p><strong>station_inventory</strong> (<em>ObsPy Inventory</em>) – The inventory of the station that the signal was picked and mw is estimated</p></li>
+<li><p><strong>station_parameters</strong> – The reference to the station_name (or default)</p></li>
+<li><p><strong>frequencies</strong> – The frequencies, for which the response is counted</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple of two numpy arrays of complex radial and transversal response in frequency domain.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple(numpy.array(float), numpy.array(float))</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.parameters.get_travel_time">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.parameters.</span></span><span class="sig-name descname"><span class="pre">get_travel_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pick</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_arrivals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/parameters.html#get_travel_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.parameters.get_travel_time" title="Link to this definition"></a></dt>
+<dd><p>Calculate the travel time of the picket wave from the source to the station,
+hipocentral distance to the station, and phase velocity at the fault</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_arrivals</strong> (<em>bool</em>) – Option whether to get travel time from origin arrivals.
+If it is false thr travel time is computed from source and station coordinates.</p></li>
+<li><p><strong>pick</strong> (<em>ObsPy Pick</em>) – The pick of the wave that the travel time is assessed</p></li>
+<li><p><strong>source_parameters</strong> (<em>SourceParameters</em>) – The seismic source parameters required for of mw estimation procedure</p></li>
+<li><p><strong>station_inventory</strong> (<em>ObsPy Inventory</em>) – The inventory of the station that the signal was picked and mw is estimated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The phase travel time [s], hipocentral distance [m], phase velocity at the fault [m/s].</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple(float, float, float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="the-plot-functions">
+<span id="module-amw.mw.plot"></span><h2><span class="section-number">9.2.3. </span>The plot functions<a class="headerlink" href="#the-plot-functions" title="Link to this heading"></a></h2>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.mw.plot.PlotMw">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.mw.plot.</span></span><span class="sig-name descname"><span class="pre">PlotMw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/plot.html#PlotMw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.plot.PlotMw" title="Link to this definition"></a></dt>
+<dd><p>Class used to plot results of spectral magnitude estimation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>configuration</strong> (<em>dict</em>) – The full local mw configuration. The class uses the ‘plot’ subdirectory
+and ‘method’ describing the magnitude estimation method for preparing appropriate figure.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="amw.mw.plot.PlotMw.format_plot">
+<span class="sig-name descname"><span class="pre">format_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">what_to_show</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/plot.html#PlotMw.format_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.plot.PlotMw.format_plot" title="Link to this definition"></a></dt>
+<dd><p>Does nothing. Prepared to reformat final view</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>what_to_show</strong> (<em>str</em>) – Condition what to show. I can be only values ‘single figure’, ‘many figures’ or
+‘many figures inline’. Format is performed if the parameter equals with the ‘what to show’ ‘plot’
+parameter in the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="amw.mw.plot.PlotMw.plot_results">
+<span class="sig-name descname"><span class="pre">plot_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_parameters</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/plot.html#PlotMw.plot_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.plot.PlotMw.plot_results" title="Link to this definition"></a></dt>
+<dd><p>Plots spectra of estimation results. It can plot:</p>
+<ul class="simple">
+<li><p>The signal spectrum,</p></li>
+<li><p>The source spectrum at the station</p></li>
+<li><p>The mean value of the noise spectrum</p></li>
+<li><p>The uncertainty range of the noise spectrum</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m0</strong> (<em>float</em>) – Scalar moment magnitude <span class="math notranslate nohighlight">\(M_0\)</span></p></li>
+<li><p><strong>f0</strong> (<em>float</em>) – Cornel focal function frequency <span class="math notranslate nohighlight">\(f_0\)</span></p></li>
+<li><p><strong>function_parameters</strong> (<a class="reference internal" href="#amw.mw.parameters.MwFunctionParameters" title="amw.mw.parameters.MwFunctionParameters"><em>MwFunctionParameters</em></a>) – All parameters used to estimate the mw</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="amw.mw.plot.PlotMw.plot_seismogram">
+<span class="sig-name descname"><span class="pre">plot_seismogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_noises</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/plot.html#PlotMw.plot_seismogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.plot.PlotMw.plot_seismogram" title="Link to this definition"></a></dt>
+<dd><p>Plots seismogram with picks and taper window</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>picks</strong></p></li>
+<li><p><strong>traces</strong></p></li>
+<li><p><strong>stream</strong></p></li>
+<li><p><strong>n_noises</strong></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="amw.mw.plot.PlotMw.set_plot">
+<span class="sig-name descname"><span class="pre">set_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">station_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pick_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/plot.html#PlotMw.set_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.plot.PlotMw.set_plot" title="Link to this definition"></a></dt>
+<dd><p>The method sets the plot area for station and optional the string.
+In the case of magnitude estimation on single phase the <code class="docutils literal notranslate"><span class="pre">pick</span></code> must be the phase name <code class="docutils literal notranslate"><span class="pre">P</span></code> or <code class="docutils literal notranslate"><span class="pre">S</span></code>.
+In the case of magnitude estimation on many phases together the <code class="docutils literal notranslate"><span class="pre">pick</span></code> must be None or omitted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>station_name</strong> (<em>str</em>) – The station name in the form “NN.SSSS” where NN is the network
+code and SSSS is the station code</p></li>
+<li><p><strong>pick_name</strong> (<em>str</em>) – The pick name. It must be <code class="docutils literal notranslate"><span class="pre">P</span></code> or <code class="docutils literal notranslate"><span class="pre">S</span></code> for single phase mw or None for many phases mw</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="amw.mw.plot.PlotMw.show_plot">
+<span class="sig-name descname"><span class="pre">show_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">what_to_show</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/plot.html#PlotMw.show_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.plot.PlotMw.show_plot" title="Link to this definition"></a></dt>
+<dd><p>Visualize the plot and save figure to the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>what_to_show</strong> (<em>str</em>) – Condition what to show. I can be only values ‘single figure’, ‘many figures’ or
+‘many figures inline’. Plot is shown if the parameter equals with the ‘what to show’ ‘plot’
+parameter in the configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="amw.mw.plot.PlotMw.start_plot">
+<span class="sig-name descname"><span class="pre">start_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/plot.html#PlotMw.start_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.plot.PlotMw.start_plot" title="Link to this definition"></a></dt>
+<dd><p>The method configures the plots, defines figures and axis. The way of plotting depends
+on the <code class="docutils literal notranslate"><span class="pre">plot</span></code>, <code class="docutils literal notranslate"><span class="pre">how_to_show</span></code> parameter in the configuration file.
+There are three possibilities:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">single</span> <span class="pre">figure</span></code> - results of magnitude estimation of all station are in plot one figure,
+station under station. On the left is seismogram and the left are spectra,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">many</span> <span class="pre">figures</span></code> - results of magnitude estimation of all station are in one figure.
+On the left is the seismogram and the bottom are spectra,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">many</span> <span class="pre">figures</span> <span class="pre">inline</span></code> - results of magnitude estimation of all station are in one figure.
+On the left is the seismogram and the left are spectra,</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stations</strong> (<em>list</em><em>(</em><em>str</em><em>)</em>) – List of station names</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="single-phase-spectral-magnitude-estimation">
+<span id="module-amw.mw.single_phase_mw"></span><h2><span class="section-number">9.2.4. </span>Single phase spectral magnitude estimation<a class="headerlink" href="#single-phase-spectral-magnitude-estimation" title="Link to this heading"></a></h2>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.single_phase_mw.estimate_single_phase_mw">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.single_phase_mw.</span></span><span class="sig-name descname"><span class="pre">estimate_single_phase_mw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pick_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/single_phase_mw.html#estimate_single_phase_mw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.single_phase_mw.estimate_single_phase_mw" title="Link to this definition"></a></dt>
+<dd><p>Estimates spectral moment magnitude on the single phase P or S</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> (<em>ObsPy.Stream</em>) – The signal is the 3D seismic displacement stream, which must cover both the P wave, the S wave,
+and the noise before the P onset.</p></li>
+<li><p><strong>pick_name</strong> (<em>str</em>) – The name of the pick ‘P’ or ‘S’</p></li>
+<li><p><strong>picks</strong> (<em>list</em><em>(</em><em>ObsPy.Pick</em><em>)</em>) – Two picks P and S are recommended. At least one wave_name must be given.
+If the P or S wave_name is missing,
+the function tries to determine it based on the earthquake time at the focus and the remaining wave_name time.</p></li>
+<li><p><strong>origin</strong> (<em>ObsPy.Origin</em>) – The event origin.</p></li>
+<li><p><strong>station_inventory</strong> (<em>ObsPy.Inventory</em>) – The inventory of the station that the signal was picked on</p></li>
+<li><p><strong>configuration</strong> (<em>dict</em>) – The configuration container of all parameters dictionary required for the program to work.</p></li>
+<li><p><strong>inventory</strong> (<em>ObsPy.Inventory</em>) – The inventory of all stations and channels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mw : Estimated moment magnitude
+f0 : Source function corner frequency
+m0 : Scalar moment
+time_window : The assessed time window of P and S waves</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="cumulated-p-and-s-phases-spectral-magnitude-estimation">
+<span id="module-amw.mw.double_phase_mw"></span><h2><span class="section-number">9.2.5. </span>Cumulated P and S phases spectral magnitude estimation<a class="headerlink" href="#cumulated-p-and-s-phases-spectral-magnitude-estimation" title="Link to this heading"></a></h2>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.double_phase_mw.estimate_double_phase_mw">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.double_phase_mw.</span></span><span class="sig-name descname"><span class="pre">estimate_double_phase_mw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">picks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">station_inventory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/double_phase_mw.html#estimate_double_phase_mw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.double_phase_mw.estimate_double_phase_mw" title="Link to this definition"></a></dt>
+<dd><p>Estimates the moment magnitude on the signal covering both phases P and S together.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> (<em>ObsPy Stream</em>) – The signal is the 3D seismic displacement stream, which must cover both the P wave, the S wave,
+and the noise before the P onset.</p></li>
+<li><p><strong>picks</strong> (<em>list</em><em>(</em><em>ObsPy.Pick</em><em>)</em>) – The list of two picks: P and S. The P wave_name is first the S wave_name is second.
+If the wave_name is missing there should be None value. At list one wave_name is required,
+but two picks P and S are recommended. At least one wave_name must be given. If the P or S wave_name is missing,
+the function tries to determine it based on the earthquake time at the focus and the remaining wave_name time.</p></li>
+<li><p><strong>origin</strong> (<em>ObsPy Origin</em>) – The event origin.</p></li>
+<li><p><strong>station_inventory</strong> (<em>ObsPy.Inventory</em>) – The inventory of the station that the signal was picked on</p></li>
+<li><p><strong>configuration</strong> (<em>dict</em>) – The configuration container of all parameters dictionary required for the program to work.</p></li>
+<li><p><strong>inventory</strong> (<em>ObsPy.Inventory</em>) – The inventory of all stations and channels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mw : Estimated moment magnitude
+f0 : Source function corner frequency
+m0 : Scalar moment
+time_window : The assessed time window of P and S waves</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Uses functions :</dt><dd><p>get_theoretical_s
+get_theoretical_p
+estimate_mw</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="seismic-source-models-in-frequency-domain">
+<span id="module-amw.mw.source_models"></span><h2><span class="section-number">9.2.6. </span>Seismic source models in frequency domain<a class="headerlink" href="#seismic-source-models-in-frequency-domain" title="Link to this heading"></a></h2>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.mw.source_models.BoatwrightSourceModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.mw.source_models.</span></span><span class="sig-name descname"><span class="pre">BoatwrightSourceModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequencies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/source_models.html#BoatwrightSourceModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.source_models.BoatwrightSourceModel" title="Link to this definition"></a></dt>
+<dd><p>The Boatwright (1978; 1980) seismic source model is:</p>
+<div class="math notranslate nohighlight">
+\[S\left(f|M_0,f_0\right)=
+{\frac{1}{2\pi f}M_0\left[{1+\left(\frac{f}{f_0}\right)}^{n\gamma}\right]}^\frac{-1}{\gamma},\]</div>
+<p>where <span class="math notranslate nohighlight">\(M_0\)</span> is a scalar moment and <span class="math notranslate nohighlight">\(f_0\)</span> is a cornel frequency. Constant values <span class="math notranslate nohighlight">\(\gamma\)</span>
+and <span class="math notranslate nohighlight">\(n\)</span> controls the sharpness of the corners of the spectrum. For <span class="math notranslate nohighlight">\(\gamma = 1\)</span> and <span class="math notranslate nohighlight">\(n = 2\)</span>,
+it is Brune (1970; 1971) source model:</p>
+<div class="math notranslate nohighlight">
+\[S\left(f|M_0,f_0\right)={\frac{1}{2\pi f}M_0\left[{1+\left(\frac{f}{f_0}\right)}^2\right]}^{-1}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequencies</strong> (<em>numpy array</em>) – The frequencies values, for w spectral function values will be computed</p></li>
+<li><p><strong>gamma</strong></p></li>
+<li><p><strong>n</strong></p></li>
+</ul>
+</dd>
+</dl>
+<p>Default parameters gamma=1 and n=2 are for Brunea source model</p>
+<p>References:</p>
+<ul class="simple">
+<li><p>Boatwright, J. (1978). Detailed spectral analysis of two small New York State earthquakes,
+Bull. Seism. Soc. Am. 68 (4), 1117–1131. <a class="reference external" href="https://doi.org/10.1785/BSSA0680041117">https://doi.org/10.1785/BSSA0680041117</a></p></li>
+<li><p>Boatwright, J. (1980). A spectral theory for circular seismic sources; simple estimates of source dimension,
+dynamic stress drop, and radiated seismic energy,
+Bull. Seism. Soc. Am. 70 (1), 1–27. <a class="reference external" href="https://doi.org/10.1785/BSSA0700010001">https://doi.org/10.1785/BSSA0700010001</a></p></li>
+<li><p>Brune, J. N. (1970). Tectonic stress and the spectra of seismic shear waves from earthquakes,
+J. Geophys. Res. 75, 4997-5009. <a class="reference external" href="https://doi.org/10.1029/JB075i026p04997">https://doi.org/10.1029/JB075i026p04997</a></p></li>
+<li><p>Brune, J.N. (1971) Correction [to “Tectonic Stress and the Spectra of Seismic Shear Waves from Earthquakes”],
+J. Geophys. Res. 76, 5002. <a class="reference external" href="http://dx.doi.org/10.1029/JB076i020p05002">http://dx.doi.org/10.1029/JB076i020p05002</a></p></li>
+</ul>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.mw.source_models.BruneSourceModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.mw.source_models.</span></span><span class="sig-name descname"><span class="pre">BruneSourceModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequencies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/source_models.html#BruneSourceModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.source_models.BruneSourceModel" title="Link to this definition"></a></dt>
+<dd><p>Brune (1970; 1971) seismic source model is:</p>
+<div class="math notranslate nohighlight">
+\[S\left(f|M_0,f_0\right)={\frac{1}{2\pi f}M_0\left[{1+\left(\frac{f}{f_0}\right)}^2\right]}^{-1},\]</div>
+<p>where <span class="math notranslate nohighlight">\(M_0\)</span> is a scalar moment and <span class="math notranslate nohighlight">\(f_0\)</span> is a corner frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>frequencies</strong> (<em>numpy array</em>) – The frequencies values, for w spectral function values will be computed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="amw.mw.source_models.HaskellSourceModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">amw.mw.source_models.</span></span><span class="sig-name descname"><span class="pre">HaskellSourceModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequencies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/source_models.html#HaskellSourceModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.source_models.HaskellSourceModel" title="Link to this definition"></a></dt>
+<dd><blockquote>
+<div><p>Haskell (1964) seismic source model is:</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[S\left(f|M_0,f_0\right)=\frac{1}{2\pi f}M_0\text{sinc}\frac{f}{f0},\]</div>
+<p>where <span class="math notranslate nohighlight">\(M_0\)</span> is a scalar moment and <span class="math notranslate nohighlight">\(f_0\)</span> is a corner frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>frequencies</strong> (<em>numpy array</em>) – The frequencies values, for w spectral function values will be computed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="the-function-minimization-by-checking-all-solutions-in-a-grid">
+<span id="module-amw.mw.MinimizeInGrid"></span><h2><span class="section-number">9.2.7. </span>The function minimization by checking all solutions in a grid<a class="headerlink" href="#the-function-minimization-by-checking-all-solutions-in-a-grid" title="Link to this heading"></a></h2>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py" id="amw.mw.MinimizeInGrid.grid_search">
+<span class="sig-prename descclassname"><span class="pre">amw.mw.MinimizeInGrid.</span></span><span class="sig-name descname"><span class="pre">grid_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/amw/mw/MinimizeInGrid.html#grid_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#amw.mw.MinimizeInGrid.grid_search" title="Link to this definition"></a></dt>
+<dd><p>It minimizes the function by checking all solutions in a grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>function</strong> (<em>func</em>) – The minimized function</p></li>
+<li><p><strong>x</strong> (<em>list</em>) – Initial values (not used, only for compatibility)</p></li>
+<li><p><strong>args</strong> (<em>list</em>) – The minimized function arguments. It must be the configuration dictionary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The minimization result</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>RetClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api_main.html" class="btn btn-neutral float-left" title="9.1. Main module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api_core.html" class="btn btn-neutral float-right" title="9.3. Core modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

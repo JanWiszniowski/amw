@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Input/Output data &mdash; Anthropogenic mw 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Mw installation" href="installation.html" />
+    <link rel="prev" title="3. Configuration file" href="configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: blue" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Anthropogenic mw
+              <img src="_static/logo_mw.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">1. Theoretical Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">2. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">3. Configuration file</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Input/Output data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#downloading-data-from-servers">4.1. Downloading data from servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-formats">4.2. File formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-file">4.3. Output file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">5. Mw installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_help.html">6. Getting Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">7. Mw contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">8. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">9. Anthropogenic Mw API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">10. Changelogs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">11. References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: blue" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Anthropogenic mw</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>Input/Output data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/io_data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="input-output-data">
+<span id="io-data"></span><h1><span class="section-number">4. </span>Input/Output data<a class="headerlink" href="#input-output-data" title="Link to this heading"></a></h1>
+<p>General input data are
+* ObsPy catalogs
+* ObsPy streams
+* ObsPy inventory</p>
+<p>All data can be read from files or downloaded from seismic servers.
+The downloaded depends on the server type,
+but preferred are <a class="reference external" href="http://ds.iris.edu/ds/nodes/dmc/data/formats/miniseed/">MiniSEED</a> for waveforms and <a class="reference external" href="http://docs.fdsn.org/projects/stationxml/en/latest/">StationXML</a> for the inventory
+and <a class="reference external" href="https://quake.ethz.ch/quakeml/">QuakeML</a> for the catalogue.</p>
+<p>Two types of servers are defined
+* FDSN web server
+* ArcLink server
+The FDSN web server communication is supported by ObsPy library.
+The ArcLink server is obsolete in the ObsPy, therefore it required an additional library
+from the older ObsPy version. Communication with the server is performed in the cache mode
+(see Downloading data from servers)</p>
+<section id="downloading-data-from-servers">
+<h2><span class="section-number">4.1. </span>Downloading data from servers<a class="headerlink" href="#downloading-data-from-servers" title="Link to this heading"></a></h2>
+<p>Downloading data from servers is performed in the cache mode
+(see Downloading data from servers).
+It means that the downloaded are stored in the disk cache, and next downloading
+takes data from the file in the cache. It allows faster downloading in repeated calculations
+or taking the data in the cache to the computer, which cannot access the server.
+The downloaded data are preprocessed before storing on the cache disk. It speedup rereading,
+but in the case of changing preprocessing, data must be reloaded.
+The cache consists of downloaded stream or inventory files
+and the file containing a description of what was downloaded.</p>
+<p>Here is the example downloading file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;smi:igf.edu.pl/LGCD_CIBIS_800586_PL.KWLC&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;arclink&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;tytan.igf.edu.pl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;18001&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;anonymous@igf.edu.pl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+            <span class="s2">&quot;net&quot;</span><span class="p">:</span> <span class="s2">&quot;PL&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cache&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_Mw&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;stations&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;PL.KWLC&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;begin_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-19T01:06:10.915125&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;end_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-19T01:06:17.349625&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;file_name&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_Mw/96559972-cee2-4da9-a30e-d997dd2736b2.msd&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;preprocess_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Mw_preprocessing_1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;processing&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;PL.KWLC..EHZ&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 8, 19, 1, 6, 17, 344734)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 8, 19, 1, 6, 10, 914734))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ObsPy 1.4.1: remove_response(fig=None::inventory=&lt;obspy.core.inventory.inventory.Inventory object at 0x000001C9B8CEF2B0&gt;::output=&#39;VEL&#39;::plot=False::pre_filt=[0.01, 0.05, 45, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;PL.KWLC..EHN&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 8, 19, 1, 6, 17, 344734)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 8, 19, 1, 6, 10, 914734))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ObsPy 1.4.1: remove_response(fig=None::inventory=&lt;obspy.core.inventory.inventory.Inventory object at 0x000001C9B8CEF2B0&gt;::output=&#39;VEL&#39;::plot=False::pre_filt=[0.01, 0.05, 45, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;PL.KWLC..EHE&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 8, 19, 1, 6, 17, 344734)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 8, 19, 1, 6, 10, 914734))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ObsPy 1.4.1: remove_response(fig=None::inventory=&lt;obspy.core.inventory.inventory.Inventory object at 0x000001C9B8CEF2B0&gt;::output=&#39;VEL&#39;::plot=False::pre_filt=[0.01, 0.05, 45, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;smi:igf.edu.pl/LGCD_CIBIS_800586_PL.MOSK&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;arclink&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;tytan.igf.edu.pl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;18001&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;anonymous@igf.edu.pl&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+            <span class="s2">&quot;net&quot;</span><span class="p">:</span> <span class="s2">&quot;PL&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cache&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_Mw&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;stations&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;PL.MOSK&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;begin_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-19T01:06:13.726250&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;end_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2015-08-19T01:06:16.183250&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;file_name&quot;</span><span class="p">:</span> <span class="s2">&quot;cache_Mw/4ca4c2fd-9131-46b7-83a2-d4874d09102a.msd&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;preprocess_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Mw_preprocessing_1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;processing&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;PL.MOSK..EHN&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 8, 19, 1, 6, 16, 186531)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 8, 19, 1, 6, 13, 726531))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ObsPy 1.4.1: remove_response(fig=None::inventory=&lt;obspy.core.inventory.inventory.Inventory object at 0x000001C9B8CEF2B0&gt;::output=&#39;VEL&#39;::plot=False::pre_filt=[0.01, 0.05, 45, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;PL.MOSK..EHZ&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 8, 19, 1, 6, 16, 186531)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 8, 19, 1, 6, 13, 726531))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ObsPy 1.4.1: remove_response(fig=None::inventory=&lt;obspy.core.inventory.inventory.Inventory object at 0x000001C9B8CEF2B0&gt;::output=&#39;VEL&#39;::plot=False::pre_filt=[0.01, 0.05, 45, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)&quot;</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;PL.MOSK..EHE&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;ObsPy 1.4.1: trim(endtime=UTCDateTime(2015, 8, 19, 1, 6, 16, 186531)::fill_value=None::nearest_sample=True::pad=False::starttime=UTCDateTime(2015, 8, 19, 1, 6, 13, 726531))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ObsPy 1.4.1: remove_response(fig=None::inventory=&lt;obspy.core.inventory.inventory.Inventory object at 0x000001C9B8CEF2B0&gt;::output=&#39;VEL&#39;::plot=False::pre_filt=[0.01, 0.05, 45, 50]::taper=True::taper_fraction=0.05::water_level=128::zero_mean=True)&quot;</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The file in JSON format contains a dictionary,
+where the dictionary key is the downloading event ID
+and the dictionary value is the directory describing
+the downloading parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">source<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str) The server parameters,</p>
+</dd>
+<dt class="field-even">station<span class="colon">:</span></dt>
+<dd class="field-even"><p>(list(str)) The list of station names. It must be the list even if one station is defined.
+<strong>WARNING! The list contains all requested stations, not only downloaded.</strong>,</p>
+</dd>
+<dt class="field-odd">begin_time<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(<a class="reference external" href="https://docs.obspy.org/packages/autogen/obspy.core.utcdatetime.UTCDateTime.html">UTCDateTime</a>) The request begin time,</p>
+</dd>
+<dt class="field-even">end_time<span class="colon">:</span></dt>
+<dd class="field-even"><p>(<a class="reference external" href="https://docs.obspy.org/packages/autogen/obspy.core.utcdatetime.UTCDateTime.html">UTCDateTime</a>) The request end time,</p>
+</dd>
+<dt class="field-odd">file_name<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(str) The name of the stream file,</p>
+</dd>
+<dt class="field-even">preprocess_name<span class="colon">:</span></dt>
+<dd class="field-even"><p>(str) The name of the preprocessing method,</p>
+</dd>
+<dt class="field-odd">processing<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(dict(str,list(str))) The preprocessing description - copy of the trace class
+processing instance.</p>
+</dd>
+</dl>
+</section>
+<section id="file-formats">
+<h2><span class="section-number">4.2. </span>File formats<a class="headerlink" href="#file-formats" title="Link to this heading"></a></h2>
+<p>All the <a class="reference external" href="https://docs.obspy.org/packages/autogen/obspy.core.stream.read.html">stream and inventory formats supported by
+ObsPy</a>
+can be read from files or they are downloaded from seismic servers. The downloaded depends
+on the server type.</p>
+<p>Preferred are <a class="reference external" href="http://ds.iris.edu/ds/nodes/dmc/data/formats/miniseed/">MiniSEED</a> for waveforms and <a class="reference external" href="http://docs.fdsn.org/projects/stationxml/en/latest/">StationXML</a> for inventory</p>
+<p>ObsPy catalog are read from the <a class="reference external" href="https://quake.ethz.ch/quakeml/">QuakeML</a> files</p>
+</section>
+<section id="output-file">
+<h2><span class="section-number">4.3. </span>Output file<a class="headerlink" href="#output-file" title="Link to this heading"></a></h2>
+<p>The output file is the seismic catalogue supplemented with new moment magnitudes
+in the <a class="reference external" href="https://quake.ethz.ch/quakeml/">QuakeML</a> format</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configuration.html" class="btn btn-neutral float-left" title="3. Configuration file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="5. Mw installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Jan Wiszniowski.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
