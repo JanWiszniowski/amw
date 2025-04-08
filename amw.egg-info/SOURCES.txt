@@ -1,6 +1,5 @@
-LICENSE.txt
+LICENSE
 README.md
-setup.cfg
 setup.py
 amw/__init__.py
 amw.egg-info/PKG-INFO

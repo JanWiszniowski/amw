@@ -37,11 +37,11 @@ setup(
         'obspy>=1.2.0',
         'future>=1.0.0'
     ],
-    license='LGPLv3',
+    license='GNU Lesser General Public License, Version 3',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU Lesser General Public License, Version 3',
+        'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.9',
     ],
