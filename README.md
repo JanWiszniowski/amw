@@ -1,4 +1,4 @@
-<img src="docs/imgs/logo_mw.png">
+![Alt text](docs/imgs/logo_mw.png)
 
 # Anthropogenic Mw
 
