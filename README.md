@@ -1,4 +1,4 @@
-![Alt text](docs/imgs/logo_mw.png)
+![Alt text](docs/imgs/logo_mw_blue.png)
 
 # Anthropogenic Mw
 
