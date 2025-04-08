@@ -16,3 +16,4 @@ Initial Python version.
 Removing channels, which names are not at the list
 Configuration of number ow windows for noise estimation
 Removing station magnitude outliers parameters
+

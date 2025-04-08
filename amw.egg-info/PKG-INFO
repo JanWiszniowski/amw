@@ -16,7 +16,7 @@ Classifier: Programming Language :: Python :: 3.9
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
-<img src="docs/imgs/logo_mw.png">
+![Alt text](docs/imgs/logo_mw_blue.png)
 
 # Anthropogenic Mw
 
