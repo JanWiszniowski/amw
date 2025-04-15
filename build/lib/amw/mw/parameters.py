@@ -542,9 +542,9 @@ class MwFunctionParameters(object):
             correct_rate = np.sum(np.greater_equal(self.signal_spectrum, noise_correction)) / len(noise_correction)
         if given_correct_rate is not None:
             if correct_rate < given_correct_rate:
-                raise ValueError(f"To small correct frequencies rate: {correct_rate:.2f}<{given_correct_rate:.2f}")
+                raise ValueError(f"To few correct frequencies: {correct_rate*100:.0f}%<{given_correct_rate*100:.0f}")
             else:
-                print(f"Correct frequencies rate {correct_rate:.2f}")
+                print(f"Correct frequencies  {correct_rate*100:.0f}%")
 
         # -------------------------------------------------------------------------------------------------------------
         # Metric setting

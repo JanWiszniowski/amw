@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: amw
-Version: 0.0.2
+Version: 0.0.3
 Summary: Earthquake moment magnitude estimation from P, S or common P and S waves
 Home-page: https://github.com/JanWiszniowski/amw
 Author: Jan Wiszniowski

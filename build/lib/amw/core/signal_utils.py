@@ -119,6 +119,8 @@ class StreamLoader(object):
             self._download_source = self._download_fdsnws
         elif self.stream_source['source'] == 'file':
             self._download_source = self._download_file
+            self._signal = read(pathname_or_url=self.stream_source['pathname'],
+                                format=self.stream_source.get('format'))
         else:
             raise 'Wrong stream source definition'
         self.default_stations = configuration.get('stations')
@@ -195,19 +197,19 @@ class StreamLoader(object):
                         user=self.stream_source['user'], timeout=self.stream_source.get('timeout', 150))
         signal = Stream()
         for station in self.stations:
-            stream = station.split('.')
-            stream_format = len(stream)
+            stream_items = station.split('.')
+            stream_format = len(stream_items)
             try:
                 if stream_format == 1:
-                    signal += client.get_waveforms(self.stream_source['net'], stream[0],
+                    signal += client.get_waveforms(self.stream_source['net'], stream_items[0],
                                                    self.stream_source.get('loc', ''),
                                                    self.stream_source.get('chan', '*'), begin_time, end_time)
                 elif stream_format == 2:
-                    signal += client.get_waveforms(stream[0], stream[1],
+                    signal += client.get_waveforms(stream_items[0], stream_items[1],
                                                    self.stream_source.get('loc', ''),
                                                    self.stream_source.get('chan', '*'), begin_time, end_time)
                 elif stream_format == 4:
-                    signal += client.get_waveforms(stream[0], stream[1], stream[3], stream[4],
+                    signal += client.get_waveforms(stream_items[0], stream_items[1], stream_items[3], stream_items[4],
                                                    begin_time, end_time)
                 else:
                     print('Parameters error: wrong station_name definition {}'.format(station))
@@ -216,8 +218,22 @@ class StreamLoader(object):
         return signal
 
     def _download_file(self, begin_time, end_time):
-        signal = read(pathname_or_url=self.stream_source['pathname'], format=self.stream_source.get('format'),
-                      starttime=begin_time, endtime=end_time)
+        signal = Stream()
+        for station in self.stations:
+            stream_items = station.split('.')
+            stream_format = len(stream_items)
+            for trace in self._signal:
+                if stream_format < 1:
+                    continue
+                if trace.meta.network != stream_items[0]:
+                    continue
+                if stream_format > 1:
+                    if trace.meta.station != stream_items[1]:
+                        continue
+                if stream_format > 3:
+                    if trace.meta.location != stream_items[2] or trace.meta.channel != stream_items[3]:
+                        continue
+                signal.append(trace.copy().trim(starttime=begin_time, endtime=end_time))
         return signal
 
     def _download_fdsnws(self, begin_time, end_time):
@@ -226,19 +242,19 @@ class StreamLoader(object):
                                timeout=self.stream_source.get('timeout', 300))
         signal = Stream()
         for station in self.stations:
-            stream = station.split('.')
-            stream_format = len(stream)
+            stream_items = station.split('.')
+            stream_format = len(stream_items)
             try:
                 if stream_format == 1:
-                    signal += client.get_waveforms(self.stream_source['net'], stream[0],
+                    signal += client.get_waveforms(self.stream_source['net'], stream_items[0],
                                                    self.stream_source.get('loc', ''),
                                                    self.stream_source.get('chan', '*'), begin_time, end_time)
                 elif stream_format == 2:
-                    signal += client.get_waveforms(stream[0], stream[1],
+                    signal += client.get_waveforms(stream_items[0], stream_items[1],
                                                    self.stream_source.get('loc', ''),
                                                    self.stream_source.get('chan', '*'), begin_time, end_time)
                 elif stream_format == 4:
-                    signal += client.get_waveforms(stream[0], stream[1], stream[3], stream[4],
+                    signal += client.get_waveforms(stream_items[0], stream_items[1], stream_items[3], stream_items[4],
                                                    begin_time, end_time)
                 else:
                     print('Parameters error: wrong station_name definition {}'.format(station))
