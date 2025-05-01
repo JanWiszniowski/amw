@@ -134,10 +134,10 @@ def station_moment_magnitude(station_name, picks, event, origin, inventory, conf
             mw_ps, f0, m0, time_window, r = estimate_double_phase_mw(signal, picks_pars, origin,
                                                                      station_inventory, configuration)
         except ValueError as er:
-            print(f"Mw estimation on S at {station_name}: {er}")
+            print(f"Mw estimation error on S at {station_name}: {er}")
             return None
         except RuntimeWarning as er:
-            print(f"Mw estimation on S at {station_name}: {er}")
+            print(f"Mw estimation error on S at {station_name}: {er}")
             return None
         return StationMagnitude(mag=mw_ps, station_magnitude_type="mw", waveform_id=get_station_id(station_name),
                                 origin_id=origin.resource_id, method_id=method_id(configuration))
@@ -178,9 +178,9 @@ def station_moment_magnitude(station_name, picks, event, origin, inventory, conf
                 f0_ps += f0_p
                 n_ps += 1
             except ValueError as er:
-                print(f"Mw estimation on P at {station_name}: {er}")
+                print(f"Mw estimation error on P at {station_name}: {er}")
             except RuntimeWarning as er:
-                print(f"Mw estimation on P at {station_name}: {er}")
+                print(f"Mw estimation error on P at {station_name}: {er}")
         if picks[1]:
             configuration['Plotter'].set_plot(station_name, event.resource_id.id, pick_name='S')
             try:
@@ -190,9 +190,9 @@ def station_moment_magnitude(station_name, picks, event, origin, inventory, conf
                 f0_ps += f0_s
                 n_ps += 1
             except ValueError as er:
-                print(f"Mw estimation on S at {station_name}: {er}")
+                print(f"Mw estimation error on S at {station_name}: {er}")
             except RuntimeWarning as er:
-                print(f"Mw estimation on S at {station_name}: {er}")
+                print(f"Mw estimation error on S at {station_name}: {er}")
         if n_ps == 0:
             return None
         if n_ps == 2:
@@ -289,6 +289,7 @@ def catalog_moment_magnitudes(catalog, configuration):
         configuration['Plotter'].start_plot(list(sta_picks_pars.keys()))
         station_magnitudes = []
         for sta_name, picks_pars in sta_picks_pars.items():
+            r = None
             print(f"Station {sta_name}")
             configuration['Plotter'].start_plot(sta_name)
             station_parameters = DefaultParameters('station_parameters', sta_name, configuration)
@@ -327,9 +328,11 @@ def catalog_moment_magnitudes(catalog, configuration):
                                                          method_id=method_id(configuration))
                     station_magnitudes.append(station_magnitude)
                 except ValueError as er:
-                    print(f"Mw estimation on PS at {sta_name}: {er}")
+                    print(f"Mw estimation error on PS at {sta_name}: {er}")
+                    continue
                 except RuntimeWarning as er:
-                    print(f"Mw estimation on PS at {sta_name}: {er}")
+                    print(f"Mw estimation error on PS at {sta_name}: {er}")
+                    continue
             elif configuration['method'] == 'separate_phases':
                 new_phases = picks_pars.copy()
                 if not picks_pars[0]:
@@ -372,9 +375,9 @@ def catalog_moment_magnitudes(catalog, configuration):
                         f0_ps += f0_p
                         n_ps += 1
                     except ValueError as er:
-                        print(f"Mw estimation on P at {sta_name}: {er}")
+                        print(f"Mw estimation error on P at {sta_name}: {er}")
                     except RuntimeWarning as er:
-                        print(f"Mw estimation on P at {sta_name}: {er}")
+                        print(f"Mw estimation error on P at {sta_name}: {er}")
                     # show_plot(configuration)
                     # block_plot()
                 if picks_pars[1]:
@@ -392,9 +395,9 @@ def catalog_moment_magnitudes(catalog, configuration):
                         f0_ps += f0_s
                         n_ps += 1
                     except ValueError as er:
-                        print(f"Mw estimation on S at {sta_name}: {er}")
+                        print(f"Mw estimation error on S at {sta_name}: {er}")
                     except RuntimeWarning as er:
-                        print(f"Mw estimation on S at {sta_name}: {er}")
+                        print(f"Mw estimation error on S at {sta_name}: {er}")
                 if n_ps == 0:
                     continue
                 if n_ps == 2:

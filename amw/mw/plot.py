@@ -308,8 +308,13 @@ class PlotMw(object):
                 global_max = local_max
             # c = trace.stats.channel
             self.sax.plot(trace.times("matplotlib"), trace.data, colors[trace.stats.channel[2]])
+        first_pick = None
         for pick in picks:
             x = date2num(pick.time.datetime)
+            if first_pick is None:
+                first_pick = x
+            elif first_pick > x:
+                first_pick = x
             self.sax.plot([x, x], [global_min, global_max], 'r')
             self.sax.text(x, 0.95 * global_max + 0.05 * global_min, pick.phase_hint)
         taper = get_simple_taper(traces[0].data, self.configuration) * global_max
@@ -321,6 +326,10 @@ class PlotMw(object):
             times = times - times[0]
             step = times[-1] - times[0]
             for idx in range(n_noises):
+                if first_pick is None:
+                    break
+                if times[-1]+begin > first_pick:
+                    break
                 self.sax.plot(times+begin, taper, 'k:')
                 begin += step
         self.sax.xaxis.set_major_locator(SecondLocator(np.arange(0, 60, self.plot_parameters.get('mark_seconds', 2))))

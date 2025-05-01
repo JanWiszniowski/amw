@@ -289,6 +289,7 @@ def catalog_moment_magnitudes(catalog, configuration):
         configuration['Plotter'].start_plot(list(sta_picks_pars.keys()))
         station_magnitudes = []
         for sta_name, picks_pars in sta_picks_pars.items():
+            r = None
             print(f"Station {sta_name}")
             configuration['Plotter'].start_plot(sta_name)
             station_parameters = DefaultParameters('station_parameters', sta_name, configuration)
@@ -328,8 +329,10 @@ def catalog_moment_magnitudes(catalog, configuration):
                     station_magnitudes.append(station_magnitude)
                 except ValueError as er:
                     print(f"Mw estimation on PS at {sta_name}: {er}")
+                    continue
                 except RuntimeWarning as er:
                     print(f"Mw estimation on PS at {sta_name}: {er}")
+                    continue
             elif configuration['method'] == 'separate_phases':
                 new_phases = picks_pars.copy()
                 if not picks_pars[0]:

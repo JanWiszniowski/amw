@@ -17,6 +17,7 @@ Removing channels, which names are not at the list
 Configuration of number ow windows for noise estimation
 Removing station magnitude outliers parameters
 
-## v0.0.3 - 2025-04-07
+## v0.0.3 - 2025-05-01
 
 Choosing the right station when reading waveforms from a file
+Handling the case when the file does not have enough signal interval before the P-wave onset for the noise estimation.
