@@ -60,7 +60,7 @@
     "user": "anonymous@igf.edu.pl",
     "timeout": 300,
     "net": "PL",
-    "cache" : "examples/cache"
+    "cache" : "example/cache"
   },
   "optimization": {
     "method": "grid_search",
@@ -68,7 +68,7 @@
     "log_f0": [0, 1.51, 0.05]
   },
   "inventory": {
-    "file_name": "examples/LUMINEOS_stations.xml",
+    "file_name": "example/LUMINEOS_stations.xml",
     "format": "STATIONXML"
   },
   "remove_response": {

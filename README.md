@@ -28,7 +28,7 @@ The algorithm automatically estimates the station magnitude of small and close e
 >
 >To run the example, call (Windows)
 >
->   *spectral_Mw -c example\STr2_test.xml example\STr2_config.json*
+>   *spectral_Mw -c example\STr2_catalog.xml example\STr2_config.json*
 > 
 >or
 >
