@@ -34,7 +34,7 @@ The algorithm automatically estimates the station magnitude of small and close e
 >
 >   *spectral_Mw -c example\LUMINEOS_catalog_with_s_phases.xml example\LUMINEOS_config.json*
 >
->The example catalog you can download from https://github.com/JanWiszniowski/amw/example
+>The example catalog you can download from https://github.com/JanWiszniowski/amw/tree/main/example
 
 ### Spectral Mw calculation
 
