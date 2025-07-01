@@ -193,8 +193,19 @@ class StreamLoader(object):
         return stream
 
     def _download_arclink(self, begin_time, end_time):
-        client = Client(host=self.stream_source['host'], port=self.stream_source.get('port', 18001),
-                        user=self.stream_source['user'], timeout=self.stream_source.get('timeout', 150))
+        client = Client(user=self.stream_source['user'],
+                        host=self.stream_source['host'],
+                        port=self.stream_source.get('port', 18001),
+                        password=self.stream_source.get('password'),
+                        institution=self.stream_source.get('institution', 'Anonymous'),
+                        timeout=self.stream_source.get('timeout', 20),
+                        dcid_keys=self.stream_source.get('dcid_keys', {}),
+                        dcid_key_file=self.stream_source.get('dcid_key_file'),
+                        debug=self.stream_source.get('debug', False),
+                        command_delay=self.stream_source.get('command_delay', 0),
+                        status_delay=self.stream_source.get('status_delay', 0.5))
+        # client = Client(host=self.stream_source['host'], port=self.stream_source.get('port', 18001),
+        #                 user=self.stream_source['user'], timeout=self.stream_source.get('timeout', 150))
         signal = Stream()
         for station in self.stations:
             stream_items = station.split('.')
@@ -238,8 +249,19 @@ class StreamLoader(object):
 
     def _download_fdsnws(self, begin_time, end_time):
         client = fdsnws.Client(base_url=self.stream_source['host'],
+                               major_versions=self.stream_source.get('major_versions'),
                                user=self.stream_source.get('user'),
-                               timeout=self.stream_source.get('timeout', 300))
+                               password=self.stream_source.get('password'),
+                               debug=self.stream_source.get('debug', False),
+                               timeout=self.stream_source.get('timeout', 300),
+                               service_mappings=self.stream_source.get('service_mappings'),
+                               force_redirect=self.stream_source.get('force_redirect', False),
+                               eida_token=self.stream_source.get('eida_token'),
+                               _discover_services=self.stream_source.get('discover_services', True),
+                               use_gzip=self.stream_source.get('use_gzip', True))
+        # client = fdsnws.Client(base_url=self.stream_source['host'],
+        #                        user=self.stream_source.get('user'),
+        #                        timeout=self.stream_source.get('timeout', 300))
         signal = Stream()
         for station in self.stations:
             stream_items = station.split('.')

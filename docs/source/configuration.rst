@@ -372,8 +372,34 @@ Stream parameters
 :source: (str) The web server source type (required, available options "arclink", "fdsnws")
 :host: (str) Host name (required)
 :port: (int) Server port number, (optional)
-:user: (int) User name, (required for arclink)
-:timeout: The waiting time for the server response (optional)
+:user: (int) User name (required for arclink)
+:password: (str) Password for access to restricted data (optional)
+:timeout: (float) The waiting time for the server response (optional)
+:major_versions: (dict) Allows to specify custom major version numbers
+    for individual services (e.g. `major_versions={'station': 2, 'dataselect': 3}`),
+    otherwise the latest version at time of implementation will be used (optional)
+:debug: (bool) Debug flag (optional, default False)
+:service_mappings: (dict) Optional for advanced use only. Allows the direct
+    setting of the endpoints of the different services
+    (see obspy fdsn client)
+:force_redirect: (bool) Setting this flag to ``True`` will force all redirects
+    to be followed even if credentials are given.
+    Otherwise, it will raise an exception when a redirect is discovered
+    and credentials are given (optional, default False)
+:eida_token: (str) Token for EIDA authentication mechanism, see
+    If it is provided, options ``user`` and ``password`` must not be used.
+:use_gzip: (bool)Can be set to ``False`` to opt out of gzip
+    compression (optional, default True)
+:institution: (str) The name of the institution (optional, default is an 'Anonymous').
+:dcid_keys: (dict)Dictionary of data center ids (DCID) and passwords used
+    for decoding encrypted waveform requests (optional)
+:dcid_key_file: (str) File name containing lines of
+    data center ids (DCIDs) and password pairs separated by a equal sign.
+    If not set, passwords found in a file called `$HOME/dcidpasswords.txt`
+    will be used automatically.
+:command_delay: (float) Delay between each command send to the ArcLink server
+    (optional, default 0).
+:status_delay: Delay in seconds between each status request (optional, default 0.5 s).
 :net: (str) The network code (required if `stations` parameter is missing)
 :loc: (str) The location filter (optional)
 :chan: (str) Channels filter (optional)

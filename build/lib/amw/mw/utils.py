@@ -218,7 +218,7 @@ def get_spectrum(stream, configuration):
     freq = None
     for trace in stream:
         delta = trace.stats.delta
-        s, f = spectrum1(trace.data, delta, configuration, True)
+        # s, f = spectrum1(trace.data, delta, configuration, True)
         units = get_units(trace)
         if units == 'm/s' or units == 'counts':
             s, f = spectrum1(trace.data, delta, configuration, True)
@@ -329,6 +329,9 @@ def noise_spectrum2(samples, window_size, delta, configuration, integration):
                     noise_kdx = kdx
             noise_list[noise_kdx][idx] = 0.0
         no_windows -= 1
+    if no_windows == 0:
+        print("WARNING: Insufficient signal period before the P wave onset for the noise estimation")
+        return None, None, 0
     # ----------------------------------------------
     # Compute the mean and standard deviation of noise values
     noise_mean = np.zeros(freq_size)
@@ -361,12 +364,13 @@ def get_noise_spectrum(stream, window_size, configuration):
     :rtype: tuple(numpy.array(float), numpy.array(float))
 
     """
-    noise_mean = None
-    noise_std = None
+    nf = next_power_of_2(window_size) // 2
+    noise_mean = np.zeros(nf)
+    noise_std = np.zeros(nf)
     no_windows = 0.0
     for trace in stream:
         delta = trace.stats.delta
-        n_mean2, n_std2, no_windows = noise_spectrum2(trace.data, window_size, delta, configuration, True)
+        # n_mean2, n_std2, no_windows = noise_spectrum2(trace.data, window_size, delta, configuration, True)
         units = get_units(trace)
         if units == 'm/s' or units == 'counts':
             n_mean2, n_std2, no_windows = noise_spectrum2(trace.data, window_size, delta, configuration, True)
@@ -374,10 +378,7 @@ def get_noise_spectrum(stream, window_size, configuration):
             n_mean2, n_std2, no_windows = noise_spectrum2(trace.data, window_size, delta, configuration, False)
         else:
             raise SpectralMwException(f"Wrong signal units '{units}'")
-        if noise_mean is None:
-            noise_std = n_std2
-            noise_mean = n_mean2
-        else:
+        if no_windows:
             noise_std = np.add(noise_std, n_std2)
             noise_mean = np.add(noise_mean, n_mean2)
     return np.sqrt(noise_mean), np.sqrt(noise_std), no_windows
