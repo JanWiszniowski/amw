@@ -586,8 +586,8 @@ def method_id(configuration):
 
     """
     if configuration['method'] != 'separate_phases':
-        return f"smi:igf.edu.pl/spectral_Mw_{configuration.get('metric','p_norm')}"
-    return f"smi:igf.edu.pl/spectral_Mw_PS_{configuration.get('metric','p_norm')}"
+        return f"smi:igf.edu.pl/spectral_Mw_{configuration.get('metric','p-norm')}"
+    return f"smi:igf.edu.pl/spectral_Mw_PS_{configuration.get('metric','p-norm')}"
 
 
 def method_id_ph(phase_name, configuration):

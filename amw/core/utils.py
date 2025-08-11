@@ -167,7 +167,7 @@ def get_magnitude(event, magnitude_type=None):
     Function get_magnitude extracts the magnitude of the event.
     If you want to extract a specific magnitude you can define it as magnitude_type,
     e.g. ``get_magnitude(event, magnitude_type='mw')``, otherwise, any magnitude will be extracted.
-    If the preferred_magnitude_id of the event is set it returns the preferred origin.
+    If the preferred_magnitude_id of the event is set it returns the preferred magnitude.
     Otherwise, it returns the first magnitude from the list.
     The function is intended to extract the magnitude unconditionally and non-interactively.
     Therefore, if preferred_magnitude_id is not set and there are multiple magnitudes,

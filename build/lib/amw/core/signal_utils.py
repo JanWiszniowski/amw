@@ -399,15 +399,31 @@ def load_inventory(configuration):
         except ObsPyException as e:
             print('{} error: {}'.format(file_name, e))
     stream_source = configuration['stream']
-    if stream_source['source'] == 'arclink':
+    inventory_source = stream_source['source']
+    if inventory_source == 'arclink':
         client = Client(host=stream_source['host'], port=stream_source.get('port', 18001),
                         user=stream_source['user'], timeout=stream_source.get('timeout', 150))
-        client.save_response('temporary.dataless', stream_source.get('net', '*'), stream_source.get('sta', '*'),
-                             '.', '*', UTCDateTime(1970, 1, 1, 0, 0), UTCDateTime(2060, 1, 1, 0, 0), format="SEED")
-        inventory = read_inventory('temporary.dataless', format='SEED')
-        inventory.write(file_name, format=file_format)
-        return inventory
-    elif stream_source['source'] == 'fdsnws':
+        nets = stream_source['net']
+        if isinstance(nets, str):
+            client.save_response('temporary.dataless', nets, stream_source.get('sta', '*'),
+                                 '.', '*', UTCDateTime(1970, 1, 1, 0, 0),
+                                 UTCDateTime(2060, 1, 1, 0, 0), format="SEED")
+            inventory = read_inventory('temporary.dataless', format='SEED')
+            inventory.write(file_name, format=file_format)
+            return inventory
+        else:
+            inventory = None
+            for net in nets:
+                client.save_response('temporary.dataless', net, stream_source.get('sta', '*'),
+                                     '.', '*', UTCDateTime(1970, 1, 1, 0, 0),
+                                     UTCDateTime(2060, 1, 1, 0, 0), format="SEED")
+                if inventory is None:
+                    inventory = read_inventory('temporary.dataless', format='SEED')
+                else:
+                    inventory.extend(read_inventory('temporary.dataless', format='SEED'))
+            inventory.write(file_name, format=file_format)
+            return inventory
+    elif inventory_source == 'fdsnws':
         client = fdsnws.Client(base_url=stream_source['host'], user=stream_source['user'],
                                timeout=stream_source.get('timeout', 300))
         inventory = client.get_stations(network=stream_source.get('net'), sta=stream_source.get('sta'),
@@ -415,7 +431,7 @@ def load_inventory(configuration):
         inventory.write(file_name, format=file_format)
         return inventory
     else:
-        raise SignalException(f'Wrong inventory source definition and missing {file_name}')
+        raise SignalException(f"Wrong inventory source definition '{inventory_source}' and missing {file_name}")
 
 
 def get_inventory(sta_name, date, inventory):

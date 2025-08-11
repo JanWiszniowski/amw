@@ -1,4 +1,4 @@
-![Alt text](docs/imgs/logo_mw_blue.png)
+![Alt text](https://github.com/JanWiszniowski/amw/blob/main/docs/imgs/logo_mw_blue.png)
 
 # Anthropogenic Mw
 
@@ -51,7 +51,7 @@ You must first prepare the *configuration.json* file and then run:
 where *event.xml* is an example of the catalog file name
 and *configuration.json* is the configuration file name,
 which contains all information required for program to work.
-See two configuration examples in https://github.com/JanWiszniowski/amw/example.
+See two configuration examples inhttps://github.com/JanWiszniowski/amw/tree/main/example.
 
 ### Source spectra visualization
 

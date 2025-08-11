@@ -10,11 +10,11 @@ Getting Started
 
     To run the example, call
 
-    ``spectral_Mw -c example\STr2_test.xml example\STr2_Mw.json``
+    ``spectral_Mw -c examples\STr2_catalog.xml examples\STr2_config.json``
 
     or
 
-    ``spectral_Mw -c example\LUMINEOS_test.xml example\LUMINEOS_Mw.json``
+    ``spectral_mw -c examples\LUMINEOS_catalog_no_s_phases.xml examples\LUMINEOS_config.json``
 
     The example catalog you can download from https://github.com/JanWiszniowski/amw/example
 
@@ -89,8 +89,10 @@ Source spectra visualization
 Source spectra are plotted by ``view_green_function``.
 Call ::
 
-    view_green_fun configuration.json
+    view_green_fun what configuration.json
 
+where ``what`` can be 'standard' or 'PS3' for two other figures.
+ 
 .. File format links:
 .. _miniSEED: http://ds.iris.edu/ds/nodes/dmc/data/formats/miniseed/
 .. _QuakeML: https://quake.ethz.ch/quakeml/

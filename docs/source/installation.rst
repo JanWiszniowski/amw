@@ -1,8 +1,8 @@
 .. _installation:
 
-###############
-Mw installation
-###############
+################
+AMW installation
+################
 
 Magnitude Mw requires at least Python 3.7. All the required dependencies
 will be downloaded and installed during the setup process.
@@ -17,6 +17,13 @@ To keep Anthropogenic Mw updated, run:
    pip install --upgrade amw
 
 from within your environment.
+
+**WARNING: I you use Python version 3.13 or newer,
+you must for the Arclink client additionally instal the compatible with an old telnetlib packet.**
+
+::
+
+   pip install telnetlib-313-and-up
 
 
 Using pip and PyPI
@@ -68,11 +75,6 @@ clone the project using ``git``:
 
     git clone https://github.com/JanWiszniowski/amw.git
 
-or using SSH:
-
-::
-
-    git clone git@github.com:SeismicSource/amw.git
 
 (avoid using the "Download ZIP" option from the green "Code" button, since
 version number is lost).

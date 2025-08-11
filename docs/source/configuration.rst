@@ -113,8 +113,8 @@ If optional parameters are not defined, default values are assumed.
     * "multiphase" - estimate Mw base signal covering both P and S wave.
 
 :metric: (str) The metric distances used for spectra fitting.
-    Two metrics are available: p_norm (lin) and log (See :ref:`inversion_method`),
-    (optional, default value is "p_norm"),
+    Two metrics are available: p-norm (lin) and log (See :ref:`inversion_method`),
+    (optional, default value is "p-norm"),
 :p_value: (float) The power of the values distances in the metric. (See :ref:`inversion_method`)
     (optional, default value is 2.0)
 :source_model: (str) (optional, default value is "Brune")
@@ -357,7 +357,6 @@ Phase weights parameters
 **The phase P parameters are treated as both phase parameters in the case
 of multiphase spectral Mw estimation.**
 
-
 Taper parameters
 ################
 
@@ -400,7 +399,7 @@ Stream parameters
 :command_delay: (float) Delay between each command send to the ArcLink server
     (optional, default 0).
 :status_delay: Delay in seconds between each status request (optional, default 0.5 s).
-:net: (str) The network code (required if `stations` parameter is missing)
+:net: (str or list(str)) The network code (required if `stations` parameter is missing)
 :loc: (str) The location filter (optional)
 :chan: (str) Channels filter (optional)
 :stations: (list(str)) list of station names. When stations names are in the form "NN.SSSS"

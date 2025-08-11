@@ -16,7 +16,7 @@ Classifier: Programming Language :: Python :: 3.9
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
-![Alt text](docs/imgs/logo_mw_blue.png)
+![Alt text](https://github.com/JanWiszniowski/amw/blob/main/docs/imgs/logo_mw_blue.png)
 
 # Anthropogenic Mw
 
@@ -46,13 +46,13 @@ The algorithm automatically estimates the station magnitude of small and close e
 >
 >To run the example, call (Windows)
 >
->   *spectral_Mw -c example\STr2_test.xml example\STr2_config.json*
+>   *spectral_Mw -c example\STr2_catalog.xml example\STr2_config.json*
 > 
 >or
 >
 >   *spectral_Mw -c example\LUMINEOS_catalog_with_s_phases.xml example\LUMINEOS_config.json*
 >
->The example catalog you can download from https://github.com/JanWiszniowski/amw/example
+>The example catalog you can download from https://github.com/JanWiszniowski/amw/tree/main/example
 
 ### Spectral Mw calculation
 
@@ -69,7 +69,7 @@ You must first prepare the *configuration.json* file and then run:
 where *event.xml* is an example of the catalog file name
 and *configuration.json* is the configuration file name,
 which contains all information required for program to work.
-See two configuration examples in https://github.com/JanWiszniowski/amw/example.
+See two configuration examples inhttps://github.com/JanWiszniowski/amw/tree/main/example.
 
 ### Source spectra visualization
 
