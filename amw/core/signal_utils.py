@@ -174,7 +174,7 @@ class StreamLoader(object):
                 return None
         processing = {}
         for trace in stream:
-            processing[trace.id] = trace.stats.processing
+            processing[trace.id] = trace.stats.processing.copy()
         if self.cache and event_id:
             if not new_file_name:
                 new_file_name = uuid.uuid4()
@@ -365,7 +365,8 @@ class StreamLoader(object):
                 return None
             stream = read(loaded_signal['file_name'])
             for trace in stream:
-                trace.stats.processing = loaded_signal['processing'][trace.id]
+                if trace.id in loaded_signal['processing']:
+                    trace.stats.processing = loaded_signal['processing'][trace.id].copy()
             return stream
         stream = self.download(begin_time, end_time, event_id, new_file_name)
         return stream
