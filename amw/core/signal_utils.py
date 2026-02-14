@@ -348,7 +348,7 @@ class StreamLoader(object):
             or any string that identify the request. (optional If missing waveform is only downloaded from the server)
         :type event_id: str
         :param stations: The request stations list.
-            (optional) If it is missing the station list from the configuration is checked.
+            (optional If it is missing the station list from the configuration is checked)
         :type stations: list(str)
         :param new_file_name: The name of a file in the cache.
             (optional) If missing the unique file name is generated.
