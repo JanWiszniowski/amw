@@ -166,23 +166,22 @@ def get_magnitude(event, magnitude_type=None):
     """
     Function get_magnitude extracts the magnitude of the event.
     If you want to extract a specific magnitude you can define it as magnitude_type,
-    e.g. ``get_magnitude(event, magnitude_type='mw')``, otherwise, any magnitude will be extracted.
+    e.g. ``get_magnitude(event, magnitude_type='Mw')``, otherwise, any magnitude will be extracted.
     If the preferred_magnitude_id of the event is set it returns the preferred magnitude.
     Otherwise, it returns the first magnitude from the list.
     The function is intended to extract the magnitude unconditionally and non-interactively.
     Therefore, if preferred_magnitude_id is not set and there are multiple magnitudes,
-    the returned origin may be random.
+    the returned magnitude may be random.
 
-    If event magnitude does not exist, but station_name magnitudes exist, the new magnitude is computed
-    as the mean value of station_name magnitudes.
+    If event magnitude does not exist, but station magnitudes exist, the new magnitude is computed
+    as the mean value of all station magnitudes or all station magnitudes of given type.
 
     :param event: The seismic event object
     :type event: ObsPy.Event
     :param magnitude_type:  (optional)
-        Describes the type of magnitude. This is a free-text. Proposed values are:
-        * unspecified magnitude (``'M'``) - function search for exactly unspecified magnitude,
+        Describes the type of magnitude. Proposed values are:
         * local magnitude (``'ML'``),
-        * moment magnitude (``'mw'``),
+        * moment magnitude (``'Mw'``),
         * energy (``'Energy'``),
         * etc.
     :type magnitude_type:  str
@@ -196,31 +195,30 @@ def get_magnitude(event, magnitude_type=None):
         magnitude_object = event.preferred_magnitude_id.get_referred_object()
         if not magnitude_type or magnitude_object.magnitude_type == magnitude_type:
             return magnitude_object
-    if not event.magnitudes:
-        if event.station_magnitudes:
-            no_magnitudes = 0
-            magnitude = 0.0
-            if magnitude_type:
-                for m in event.station_magnitudes:
-                    if m.station_magnitude_type == magnitude_type:
-                        magnitude += m.mag
-                        no_magnitudes += 1
-            else:
-                for m in event.station_magnitudes:
-                    magnitude += m.mag
-                    no_magnitudes += 1
-            if no_magnitudes:
-                magnitude /= no_magnitudes
-                magnitude_object = Magnitude(mag=magnitude, magnitude_type=magnitude_type)
-                magnitude_object.comments.append(Comment(text=f"Mean of {no_magnitudes} station_name magnitudes"))
-                return magnitude_object
-    else:
+    if event.magnitudes:
         if magnitude_type:
             for m in event.magnitudes:
                 if m.magnitude_type == magnitude_type:
                     return m
         else:
             return event.magnitudes[0]
+    if event.station_magnitudes:
+        no_magnitudes = 0
+        magnitude = 0.0
+        if magnitude_type:
+            for m in event.station_magnitudes:
+                if m.station_magnitude_type == magnitude_type:
+                    magnitude += m.mag
+                    no_magnitudes += 1
+        else:
+            for m in event.station_magnitudes:
+                magnitude += m.mag
+                no_magnitudes += 1
+        if no_magnitudes:
+            magnitude /= no_magnitudes
+            magnitude_object = Magnitude(mag=magnitude, magnitude_type=magnitude_type)
+            magnitude_object.comments.append(Comment(text=f"Mean of {no_magnitudes} station_name magnitudes"))
+            return magnitude_object
     return None
 
 

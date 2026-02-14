@@ -124,6 +124,9 @@ class StreamLoader(object):
         else:
             raise 'Wrong stream source definition'
         self.default_stations = configuration.get('stations')
+        self.repeat_downloads = self.stream_source.get('repeat_downloads', False)
+        self.repeat_messages = self.stream_source.get('repeat_messages', False)
+        self.messages = set()
 
     def store_none(self, event_id, begin_time, end_time):
         if self.cache and event_id:
@@ -361,8 +364,14 @@ class StreamLoader(object):
         loaded_signal = self.exist_file(begin_time, end_time, event_id)
         if loaded_signal:
             if loaded_signal['file_name'] == 'none':
-                print(f"There was an attempt to download {self.stations} for '{event_id}' and it won't be repeated")
-                return None
+                if self.repeat_downloads:
+                    self.message(f"Next attempt to download {self.stations} for '{event_id}'")
+                    stream = self.download(begin_time, end_time, event_id, new_file_name)
+                    return stream
+                else:
+                    self.message(
+                        f"There was an attempt to download {self.stations} for '{event_id}' and it won't be repeated")
+                    return None
             stream = read(loaded_signal['file_name'])
             for trace in stream:
                 if trace.id in loaded_signal['processing']:
@@ -370,6 +379,13 @@ class StreamLoader(object):
             return stream
         stream = self.download(begin_time, end_time, event_id, new_file_name)
         return stream
+
+    def message(self, text):
+        if not self.repeat_messages:
+            if text in self.messages:
+                return
+        print(text)
+        self.messages.add(text)
 
 
 def load_inventory(configuration):

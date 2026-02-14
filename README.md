@@ -24,12 +24,12 @@ The algorithm automatically estimates the station magnitude of small and close e
 
 ## Command line tools
 
->**For the impatient**
+> **For the impatient**
 >
 >To run the example, call (Windows)
 >
 >   *spectral_Mw -c example\STr2_catalog.xml example\STr2_config.json*
-> 
+>
 >or
 >
 >   *spectral_Mw -c example\LUMINEOS_catalog_with_s_phases.xml example\LUMINEOS_config.json*
@@ -59,7 +59,7 @@ Source spectra are plotted by *view_green_function*.
 Call:
 
     view_green_fun configuration.json
-	
+
 where *configuration.json* is the configuration file.
 
 ## Documentation
