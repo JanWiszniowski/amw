@@ -177,7 +177,7 @@ class StreamLoader(object):
                 return None
         processing = {}
         for trace in stream:
-            processing[trace.id] = trace.stats.processing.copy()
+            processing[trace.id] = getattr(trace.stats, "processing", []).copy()
         if self.cache and event_id:
             if not new_file_name:
                 new_file_name = uuid.uuid4()

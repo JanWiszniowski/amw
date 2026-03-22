@@ -28,8 +28,9 @@ before the P-wave onset for the noise estimation.
 Extended ArcLink and FDSNWS connection configuration options
 to all library capabilities
 
-## v0.0.5 - 2026-02-14
+## v0.0.5 - 2026-02-21
 
 Ability to not report many times the same initial downloading failure.
 Ability to retry waveform downloading if a previous downloading failure.
-Corrected bug with finding a specified magnitude type from an event. 
+Corrected bug with finding a specified magnitude type from an event.
+The bug of none preprocessing description 
