@@ -33,4 +33,8 @@ to all library capabilities
 Ability to not report many times the same initial downloading failure.
 Ability to retry waveform downloading if a previous downloading failure.
 Corrected bug with finding a specified magnitude type from an event.
-The bug of none preprocessing description 
+The bug of none preprocessing description
+
+## v0.0.6 - 2026-04-24
+
+Extract network and station codes from a string correction

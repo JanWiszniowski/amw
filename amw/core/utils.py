@@ -39,7 +39,10 @@ def get_net_sta(name):
 
     """
     if isinstance(name, str):
-        return name.split('.', 2)
+        if '.' not in name:
+            return '', name
+        names = name.split('.', 3)
+        return names[0], names[1]
     elif isinstance(name, WaveformStreamID):
         return name.network_code, name.station_code
     else:
