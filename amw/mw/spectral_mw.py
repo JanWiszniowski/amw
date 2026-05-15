@@ -139,7 +139,7 @@ def station_moment_magnitude(station_name, picks, event, origin, inventory, conf
         except RuntimeWarning as er:
             print(f"Mw estimation error on S at {station_name}: {er}")
             return None
-        return StationMagnitude(mag=mw_ps, station_magnitude_type="mw", waveform_id=get_station_id(station_name),
+        return StationMagnitude(mag=mw_ps, station_magnitude_type="Mw", waveform_id=get_station_id(station_name),
                                 origin_id=origin.resource_id, method_id=method_id(configuration))
     elif configuration['method'] == 'separate_phases':
         new_phases = picks_pars.copy()
@@ -199,7 +199,7 @@ def station_moment_magnitude(station_name, picks, event, origin, inventory, conf
             m0_ps /= n_ps
             mw_ps = 2.0 / 3.0 * log10(m0_ps) - 6.07
             f0_ps /= n_ps
-            return StationMagnitude(mag=mw_ps, station_magnitude_type="mw", waveform_id=get_station_id(station_name),
+            return StationMagnitude(mag=mw_ps, station_magnitude_type="Mw", waveform_id=get_station_id(station_name),
                                     origin_id=origin.resource_id, method_id=method_id(configuration))
     else:
         raise SpectralMwException('Unknown method')
@@ -322,7 +322,7 @@ def catalog_moment_magnitudes(catalog, configuration):
                     mw_ps, f0, m0, time_window, r = estimate_double_phase_mw(signal, picks_pars, origin,
                                                                              station_inventory, configuration)
                     # spectral_parameters = SpectralParameters()
-                    station_magnitude = StationMagnitude(mag=mw_ps, station_magnitude_type="mw",
+                    station_magnitude = StationMagnitude(mag=mw_ps, station_magnitude_type="Mw",
                                                          waveform_id=get_station_id(sta_name),
                                                          origin_id=origin.resource_id,
                                                          method_id=method_id(configuration))
@@ -365,7 +365,7 @@ def catalog_moment_magnitudes(catalog, configuration):
                     try:
                         mw_p, f0_p, m0_p, omega0_p, r = estimate_single_phase_mw(signal, 'P', new_phases, origin,
                                                                                  station_inventory, configuration)
-                        station_magnitude = StationMagnitude(mag=mw_p, station_magnitude_type="mw",
+                        station_magnitude = StationMagnitude(mag=mw_p, station_magnitude_type="Mw",
                                                              waveform_id=get_station_id(sta_name),
                                                              origin_id=origin.resource_id,
                                                              method_id=method_id_ph('P', configuration))
@@ -385,7 +385,7 @@ def catalog_moment_magnitudes(catalog, configuration):
                     try:
                         mw_s, f0_s, m0_s, omega0_s, r = estimate_single_phase_mw(signal, 'S', new_phases, origin,
                                                                                  station_inventory, configuration)
-                        station_magnitude = StationMagnitude(mag=mw_s, station_magnitude_type="mw",
+                        station_magnitude = StationMagnitude(mag=mw_s, station_magnitude_type="Mw",
                                                              waveform_id=get_station_id(sta_name),
                                                              origin_id=origin.resource_id,
                                                              method_id=method_id_ph('S', configuration))
@@ -404,7 +404,7 @@ def catalog_moment_magnitudes(catalog, configuration):
                     m0_ps /= n_ps
                     mw_ps = 2.0 / 3.0 * log10(m0_ps) - 6.07
                     f0_ps /= n_ps
-                    # station_magnitude = StationMagnitude(mag=mw_ps, station_magnitude_type="mw",
+                    # station_magnitude = StationMagnitude(mag=mw_ps, station_magnitude_type="Mw",
                     #                                      waveform_id=get_station_id(sta_name),
                     #                                      origin_id=origin.resource_id,
                     #                                      method_id=method_id(configuration))
@@ -431,7 +431,7 @@ def catalog_moment_magnitudes(catalog, configuration):
             low_limit = mean_mag - var_std
             high_limit = mean_mag + var_std
             station_magnitudes = [sm for sm in station_magnitudes if low_limit <= sm.mag <= high_limit]
-        mw = Magnitude(mag=0.0, magnitude_type="mw", origin_id=origin.resource_id,
+        mw = Magnitude(mag=0.0, magnitude_type="Mw", origin_id=origin.resource_id,
                        method_id=method_id(configuration))
         sum_weights = 0.0
         for station_magnitude in station_magnitudes:

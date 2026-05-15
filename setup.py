@@ -50,4 +50,5 @@ setup(
                             'view_green_fun = amw.mw.test_greens_function:main'],
     },
     keywords='seismology, moment magnitude, anthropogenic seismicity, near field, intermediate field',
+    python_requires='>=3.9, <4',
 )

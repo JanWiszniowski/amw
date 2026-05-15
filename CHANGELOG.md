@@ -37,4 +37,8 @@ The bug of none preprocessing description
 
 ## v0.0.6 - 2026-04-24
 
-Extract network and station codes from a string correction
+Correction of extracting network and station codes from a string
+
+## v0.0.7 - 2026-05-15
+
+Magnitude type in the catalog changed from "mw" to "Mw"
