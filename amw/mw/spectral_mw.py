@@ -327,11 +327,17 @@ def catalog_moment_magnitudes(catalog, configuration):
                                                          origin_id=origin.resource_id,
                                                          method_id=method_id(configuration))
                     station_magnitudes.append(station_magnitude)
-                except ValueError as er:
+                except SpectralMwException as er:
                     print(f"Mw estimation error on PS at {sta_name}: {er}")
                     continue
+                except ValueError as er:
+                    print(f"Mw estimation value error on PS at {sta_name}: {er}")
+                    continue
                 except RuntimeWarning as er:
-                    print(f"Mw estimation error on PS at {sta_name}: {er}")
+                    print(f"Mw estimation runtime error on PS at {sta_name}: {er}")
+                    continue
+                except Exception as er:
+                    print(f"Mw estimation unknown error on PS at {sta_name}: {er}")
                     continue
             elif configuration['method'] == 'separate_phases':
                 new_phases = picks_pars.copy()
@@ -374,10 +380,18 @@ def catalog_moment_magnitudes(catalog, configuration):
                         m0_ps += m0_p
                         f0_ps += f0_p
                         n_ps += 1
+                    except SpectralMwException as er:
+                        print(f"Mw estimation error on PS at {sta_name}: {er}")
+                        continue
                     except ValueError as er:
-                        print(f"Mw estimation error on P at {sta_name}: {er}")
+                        print(f"Mw estimation value error on PS at {sta_name}: {er}")
+                        continue
                     except RuntimeWarning as er:
-                        print(f"Mw estimation error on P at {sta_name}: {er}")
+                        print(f"Mw estimation runtime error on PS at {sta_name}: {er}")
+                        continue
+                    except Exception as er:
+                        print(f"Mw estimation unknown error on PS at {sta_name}: {er}")
+                        continue
                     # show_plot(configuration)
                     # block_plot()
                 if picks_pars[1]:

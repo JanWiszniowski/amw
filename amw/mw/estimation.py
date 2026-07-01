@@ -15,7 +15,7 @@ The general spectral magnitude estimation
 
 import numpy as np
 from amw.mw.utils import get_phase_window, get_spectrum, get_margin, get_noise_spectrum, DefaultParameters
-from amw.mw.utils import get_source_par, get_minimization_method
+from amw.mw.utils import get_source_par, get_minimization_method, SpectralMwException
 from amw.core.utils import get_station_name
 from amw.mw.parameters import MwFunctionParameters, get_travel_time
 from obspy.core.event.base import TimeWindow
@@ -98,7 +98,8 @@ def estimate_mw(signal, begin_signal, picks, origin, station_inventory, configur
     # checking consistency
     if len(noise_signal) != 3 or len(seismic_signal) != 3:
         print('Signal inconsistent')
-        return None, None, None, time_window, None
+        raise SpectralMwException('Signal inconsistent')
+        # return None, None, None, time_window, None
     # offset remove
     for idx in range(3):
         offset = np.mean(noise_signal[idx].data)
