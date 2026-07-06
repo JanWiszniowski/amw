@@ -42,3 +42,7 @@ Correction of extracting network and station codes from a string
 ## v0.0.7 - 2026-05-15
 
 Magnitude type in the catalog changed from "mw" to "Mw"
+
+## v0.0.8 - 2026-05-15
+
+Separate phases significant bug fixed

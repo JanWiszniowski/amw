@@ -161,7 +161,6 @@ def station_moment_magnitude(station_name, picks, event, origin, inventory, conf
             signal_begin = new_phases[0].time - no_noise_windows * p_full_length - 2.0
             signal = stream_loader.get_signal(signal_begin, signal_end,
                                               event.resource_id.id + '_' + station_name, [station_name])
-        signal = signal_by_phase(signal, picks_pars[0])
         if not signal:
             print(f'Missing signal for {station_name}')
             return None
@@ -359,7 +358,6 @@ def catalog_moment_magnitudes(catalog, configuration):
                     signal_begin = new_phases[0].time - (nsw + 0.2) * p_full_length - 0.2
                     signal = stream_loader.get_signal(signal_begin, signal_end,
                                                       event.resource_id.id + '_' + sta_name, [sta_name])
-                signal = signal_by_phase(signal, picks_pars[0])
                 if not signal:
                     print(f'Missing signal for {sta_name}')
                     continue
@@ -408,10 +406,18 @@ def catalog_moment_magnitudes(catalog, configuration):
                         m0_ps += m0_s
                         f0_ps += f0_s
                         n_ps += 1
+                    except SpectralMwException as er:
+                        print(f"Mw estimation error on PS at {sta_name}: {er}")
+                        continue
                     except ValueError as er:
-                        print(f"Mw estimation error on S at {sta_name}: {er}")
+                        print(f"Mw estimation value error on PS at {sta_name}: {er}")
+                        continue
                     except RuntimeWarning as er:
-                        print(f"Mw estimation error on S at {sta_name}: {er}")
+                        print(f"Mw estimation runtime error on PS at {sta_name}: {er}")
+                        continue
+                    except Exception as er:
+                        print(f"Mw estimation unknown error on PS at {sta_name}: {er}")
+                        continue
                 if n_ps == 0:
                     continue
                 if n_ps == 2:
