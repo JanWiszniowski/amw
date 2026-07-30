@@ -65,3 +65,7 @@ where *configuration.json* is the configuration file.
 ## Documentation
 
 The documentation is in the *anthropogenicmw.pdf* file.
+
+## License
+
+GNU Lesser General Public License, Version 3
