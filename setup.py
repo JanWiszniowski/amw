@@ -35,7 +35,8 @@ setup(
     install_requires=[
         'matplotlib>=3.9.2',
         'obspy>=1.2.0',
-        'future>=1.0.0'
+        'future>=1.0.0',
+        'telnetlib-313-and-up'
     ],
     license='GNU Lesser General Public License, Version 3',
     classifiers=[
